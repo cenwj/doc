@@ -2,6 +2,7 @@
 
 #### [系统功能](/)
 #### [接口分类](/api/category.html)
+#### [报价推送](/quote/index.html)
 
 ==============================系统功能=============================
 导航:
@@ -42,7 +43,7 @@ signature       = '46f09bb9fab4f12dfc160dae12273d5332b5debe' #签名
 ```
 
 PHP生成签名代码示例:
-```
+```php
 /**
  * @param string $private_key | 私有key
  * @param array $params | 加密参数
@@ -124,6 +125,7 @@ $data = curl_request('post',  $path, $params); #CURL请求HTTP(S)
 * 高手在老虎外汇平仓,用户所跟订单自动平仓(用户在第三方网站取消复制高手,强制平仓)
 * 用户在第三方网站查看收益
 * 用户申请入金，出金
+* 报价推送
 
 #### <span id = "tongxin"> 通信方式 </span>
 测试服务器采用http方式，正式服务器采用https方式。
