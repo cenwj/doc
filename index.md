@@ -1,15 +1,10 @@
-# 老虎外汇文档
+# <span id = "liucheng">老虎外汇文档</span>
 
-#### [系统功能](/) |  [接口分类](/api/category.html) | [报价推送](/quote/index.html)
+#### [系统功能](/) |  [接口分类](/api/category.html) | [报价推送](/quote.html) | [盈亏计算](/formula.html) | [止盈止损](/level.html) | [高手分成](/bouns.html)
 
-==============================系统功能=============================
-导航:
-* [编写目的](#mudi)   
-* [术语约定](#yueding)   
-* [加密方式](#fangshi) 
-* [处理流程](#liucheng)
-* [通信方式](#tongxin)
-* [返回格式](#fanhui)
+## 系统功能
+
+##### [编写目的](#mudi) | [术语约定](#yueding) | [加密方式](#fangshi) | [处理流程](#liucheng) | [通信方式](#tongxin) | [返回格式](#fanhui)
 
 ### <span id = "mudi">编写目的 </span>
 本文档旨在规范第三方对接的数据通信方式,数据格式等描述,目的是:
@@ -34,14 +29,17 @@
 ##### php示例:
 
 ```
-$private_key    = 'demo_key' #私有key
-$partner_key    = 'partner_key' #合作伙伴Key
-$partner_secret = 'partner_secret' #合作伙伴Secret
-signature       = '46f09bb9fab4f12dfc160dae12273d5332b5debe' #签名
+<?php 
+$private_key    = 'demo_key'; #私有key
+$partner_key    = 'partner_key'; #合作伙伴Key
+$partner_secret = 'partner_secret'; #合作伙伴Secret
+$signature      = '46f09bb9fab4f12dfc160dae12273d5332b5debe'; #签名
+?>
 ```
 
 PHP生成签名代码示例:
-```php
+```
+<?php 
 /**
  * @param string $private_key | 私有key
  * @param array $params | 加密参数
@@ -59,10 +57,12 @@ function get_verify_ac($private_key, $params)
     $params_data .= $private_key;
     return md5($params_data); # 生成的Signature值
 }
+?>
 ```
 
 CURL请求HTTP(S)：
 ```
+<?php
 function curl_request($mothed, $url, $params = array())
 {
        $is_post = false;
@@ -91,10 +91,12 @@ function curl_request($mothed, $url, $params = array())
         curl_close($ch);
         return $content;
 }
+?>
 ```
 
 PHP 生成签名代码 CURL请求HTTP(S) 实例
 ```
+<?php
 $params['private_key']    = 'test';
 $params['partner_key']    = 'test';
 $params['partner_secret'] = 'test';
@@ -109,6 +111,7 @@ unset($params['partner_secret']); # 销毁加密key
 $path = "http://demo.tigerwit.com/action/public/api/signup"; //测试
 # $path = "https://api.tigerwit.com/action/public/api/signup"; //线上
 $data = curl_request('post',  $path, $params); #CURL请求HTTP(S)
+?>
 ```
 
 ## 功能:
@@ -130,6 +133,7 @@ $data = curl_request('post',  $path, $params); #CURL请求HTTP(S)
 #### <span id = "fanhui"> 返回格式 </span>
 返回结果统一为json格式,如下实例:
 ```
+
 { 
 "data":[ 
 { 
@@ -143,6 +147,7 @@ $data = curl_request('post',  $path, $params); #CURL请求HTTP(S)
 } 
 ```
 
+<center> [返回顶部](#top) </center>     
 
 
 

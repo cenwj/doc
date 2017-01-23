@@ -1,6 +1,6 @@
 # 老虎外汇文档
 
-#### [系统功能](/) |  [接口分类](/api/category.html) | [报价推送](/quote/index.html)
+#### [系统功能](/) |  [接口分类](/api/category.html) | [报价推送](/quote.html) | [盈亏计算](/formula.html) | [止盈止损](/level.html) | [高手分成](/bouns.html)
 
 
 ## 报价推送
@@ -18,7 +18,7 @@
 "Token":登陆参数，类型:string 
 } 
 ```
-#### 描述: 
+###### 描述: 
 LoginTime的值需要格式化：yyyy-MM-dd HH:mm:ss 
 DevId=Guid(); 
 Token=(pwd(1qaz2wsx3edc)+LoginTime +UserName + DevId)的值进行MD5加密，字节数组转换16进制 

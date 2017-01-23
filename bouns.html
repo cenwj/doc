@@ -1077,148 +1077,21 @@ body .markdown-body
 .codehilite .vi{color:teal}
 .codehilite .il{color:#009999}
 .codehilite .gc{color:#999;background-color:#EAF2F5}
-</style><title>index</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "liucheng">老虎外汇文档</span></h1>
+</style><title>bouns</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "liucheng">老虎外汇文档</span></h1>
 <h4 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote.html">报价推送</a> | <a href="/formula.html">盈亏计算</a> | <a href="/level.html">止盈止损</a> | <a href="/bouns.html">高手分成</a></h4>
-<h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>系统功能</h2>
-<h5 id="_4"><a href="#mudi">编写目的</a> | <a href="#yueding">术语约定</a> | <a href="#fangshi">加密方式</a> | <a href="#liucheng">处理流程</a> | <a href="#tongxin">通信方式</a> | <a href="#fanhui">返回格式</a></h5>
-<h3 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "mudi">编写目的 </span></h3>
-<p>本文档旨在规范第三方对接的数据通信方式,数据格式等描述,目的是:</p>
-<ul>
-<li>规范第三方系统与老虎外汇的系统对接</li>
-<li>为第三方对接老虎外汇提供系统标准</li>
-</ul>
-<h3 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "yueding">术语约定</span></h3>
-<ul>
-<li>MD5 一种不可逆加密算法</li>
-<li>signature 数字签名</li>
-<li>partner_key 老虎外汇分配给第三方的合作伙伴Key</li>
-<li>private_key 老虎外汇分配给第三方的合作伙伴私有Key</li>
-<li>partner_secret 老虎外汇分配给第三方的合作伙伴Secret</li>
-</ul>
-<blockquote>
-<p>注意:<br />
-partner_key，private_key，partner_secret不能直接从网上申请，需通过老虎外汇合作渠道获取。<br />
-要先申请测试，等待测试完成所有功能后，才可以申请线上key。</p>
-</blockquote>
-<h3 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "fangshi">加密方式</span></h3>
-<blockquote>
-<p>传递的所有字段拼接字符串排序后使用md5加密。<br />
-在生成API请求中的签名(signature)时，需要提供账户中的public_key,partner_key和partner_secret。</p>
-</blockquote>
-<h5 id="php"><a name="user-content-php" href="#php" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>php示例:</h5>
-<div class="codehilite"><pre><span class="cp">&lt;?php</span> 
-<span class="nv">$private_key</span>    <span class="o">=</span> <span class="s1">&#39;demo_key&#39;</span><span class="p">;</span> <span class="c1">#私有key</span>
-<span class="nv">$partner_key</span>    <span class="o">=</span> <span class="s1">&#39;partner_key&#39;</span><span class="p">;</span> <span class="c1">#合作伙伴Key</span>
-<span class="nv">$partner_secret</span> <span class="o">=</span> <span class="s1">&#39;partner_secret&#39;</span><span class="p">;</span> <span class="c1">#合作伙伴Secret</span>
-<span class="nv">$signature</span>      <span class="o">=</span> <span class="s1">&#39;46f09bb9fab4f12dfc160dae12273d5332b5debe&#39;</span><span class="p">;</span> <span class="c1">#签名</span>
-<span class="cp">?&gt;</span>
-</pre></div>
-
-
-<p>PHP生成签名代码示例:<br />
-<div class="codehilite"><pre><span class="cp">&lt;?php</span> 
-<span class="sd">/**</span>
-<span class="sd"> * @param string $private_key | 私有key</span>
-<span class="sd"> * @param array $params | 加密参数</span>
-<span class="sd"> *</span>
-<span class="sd"> * @return string 签名</span>
-<span class="sd"> */</span>
-<span class="k">function</span> <span class="nf">get_verify_ac</span><span class="p">(</span><span class="nv">$private_key</span><span class="p">,</span> <span class="nv">$params</span><span class="p">)</span> 
-<span class="p">{</span>
-    <span class="nb">ksort</span><span class="p">(</span><span class="nv">$params</span><span class="p">);</span> <span class="c1"># 参数串排序</span>
-    <span class="nv">$params_data</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
-    <span class="k">foreach</span><span class="p">(</span><span class="nv">$params</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nv">$params_data</span> <span class="o">.=</span> <span class="nv">$key</span><span class="p">;</span>
-        <span class="nv">$params_data</span> <span class="o">.=</span> <span class="nv">$value</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nv">$params_data</span> <span class="o">.=</span> <span class="nv">$private_key</span><span class="p">;</span>
-    <span class="k">return</span> <span class="nb">md5</span><span class="p">(</span><span class="nv">$params_data</span><span class="p">);</span> <span class="c1"># 生成的Signature值</span>
-<span class="p">}</span>
-<span class="cp">?&gt;</span>
-</pre></div>
-</p>
-<p>CURL请求HTTP(S)：<br />
-<div class="codehilite"><pre><span class="cp">&lt;?php</span>
-<span class="k">function</span> <span class="nf">curl_request</span><span class="p">(</span><span class="nv">$mothed</span><span class="p">,</span> <span class="nv">$url</span><span class="p">,</span> <span class="nv">$params</span> <span class="o">=</span> <span class="k">array</span><span class="p">())</span>
-<span class="p">{</span>
-       <span class="nv">$is_post</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nb">strtolower</span><span class="p">(</span><span class="nv">$mothed</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;post&quot;</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$is_post</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="nv">$ssl</span> <span class="o">=</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;https://&quot;</span> <span class="o">?</span> <span class="k">TRUE</span> <span class="o">:</span> <span class="k">FALSE</span><span class="p">;</span>
-        <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">();</span>
-        <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="nv">$is_post</span><span class="p">);</span>
-        <span class="k">if</span><span class="p">(</span><span class="nv">$is_post</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$fields_string</span> <span class="o">=</span> <span class="nb">http_build_query</span> <span class="p">(</span> <span class="nv">$params</span><span class="p">,</span> <span class="s1">&#39;&amp;&#39;</span><span class="p">);</span>
-            <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span><span class="nv">$fields_string</span><span class="p">);</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="o">!</span> <span class="k">empty</span><span class="p">(</span><span class="nv">$params</span><span class="p">))</span> <span class="p">{</span>
-            <span class="nv">$url</span> <span class="o">=</span> <span class="nb">rtrim</span><span class="p">(</span><span class="nv">$url</span><span class="p">,</span><span class="s2">&quot;/?&quot;</span><span class="p">);</span>
-            <span class="nv">$uri</span> <span class="o">=</span> <span class="nb">http_build_query</span><span class="p">(</span><span class="nv">$params</span><span class="p">);</span>
-            <span class="nv">$url</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{</span><span class="nv">$url</span><span class="si">}</span><span class="s2">?</span><span class="si">$uri</span><span class="s2">&quot;</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-        <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_URL</span><span class="p">,</span> <span class="nv">$url</span><span class="p">);</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nv">$ssl</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_SSL_VERIFYHOST</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
-          <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_SSL_VERIFYPEER</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
-        <span class="p">}</span>
-        <span class="nb">curl_setopt</span><span class="p">(</span><span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HEADER</span><span class="p">,</span> <span class="s2">&quot;Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; .NET CLR 1.1.4322)&quot;</span><span class="p">);</span>
-        <span class="nv">$content</span> <span class="o">=</span> <span class="nb">curl_exec</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
-        <span class="nb">curl_close</span><span class="p">(</span><span class="nv">$ch</span><span class="p">);</span>
-        <span class="k">return</span> <span class="nv">$content</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="cp">?&gt;</span>
-</pre></div>
-</p>
-<p>PHP 生成签名代码 CURL请求HTTP(S) 实例<br />
-<div class="codehilite"><pre><span class="cp">&lt;?php</span>
-<span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;private_key&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="s1">&#39;test&#39;</span><span class="p">;</span>
-<span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;partner_key&#39;</span><span class="p">]</span>    <span class="o">=</span> <span class="s1">&#39;test&#39;</span><span class="p">;</span>
-<span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;partner_secret&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span><span class="p">;</span>
-<span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;action&#39;</span><span class="p">]</span>         <span class="o">=</span> <span class="s1">&#39;signup&#39;</span><span class="p">;</span>
-<span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;phone&#39;</span><span class="p">]</span>          <span class="o">=</span> <span class="nv">$phone</span><span class="p">;</span>
-<span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;user_id&#39;</span><span class="p">]</span>        <span class="o">=</span> <span class="nv">$user_id</span><span class="p">;</span>
-
-<span class="nv">$signature</span> <span class="o">=</span> <span class="nx">get_verify_ac</span><span class="p">(</span><span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;private_key&#39;</span><span class="p">],</span> <span class="nv">$params</span><span class="p">);</span> <span class="c1">#生成签名</span>
-<span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;signature&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$signature</span><span class="p">;</span> 
-<span class="nb">unset</span><span class="p">(</span><span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;partner_key&#39;</span><span class="p">]);</span> <span class="c1"># 销毁加密key</span>
-<span class="nb">unset</span><span class="p">(</span><span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;partner_secret&#39;</span><span class="p">]);</span> <span class="c1"># 销毁加密key</span>
-<span class="nv">$path</span> <span class="o">=</span> <span class="s2">&quot;http://demo.tigerwit.com/action/public/api/signup&quot;</span><span class="p">;</span> <span class="c1">//测试</span>
-<span class="c1"># $path = &quot;https://api.tigerwit.com/action/public/api/signup&quot;; //线上</span>
-<span class="nv">$data</span> <span class="o">=</span> <span class="nx">curl_request</span><span class="p">(</span><span class="s1">&#39;post&#39;</span><span class="p">,</span>  <span class="nv">$path</span><span class="p">,</span> <span class="nv">$params</span><span class="p">);</span> <span class="c1">#CURL请求HTTP(S)</span>
-<span class="cp">?&gt;</span>
-</pre></div>
-</p>
-<h2 id="_8"><a name="user-content-_8" href="#_8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>功能:</h2>
-<h4 id="_9"><a name="user-content-_9" href="#_9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "liucheng">处理流程</span></h4>
-<ul>
-<li>用户在第三方网站开户</li>
-<li>用户在第三方网站访问高手列表</li>
-<li>用户在第三方网站复制高手(前提为已充值足够金额)</li>
-<li>高手在老虎外汇下单,用户在老虎外汇自动下单</li>
-<li>用户挂单</li>
-<li>用户设置止盈，止损</li>
-<li>用户在第三方网站查看账户盈亏,持仓明细</li>
-<li>高手在老虎外汇平仓,用户所跟订单自动平仓(用户在第三方网站取消复制高手,强制平仓)</li>
-<li>用户在第三方网站查看收益</li>
-<li>用户申请入金，出金</li>
-<li>报价推送</li>
-</ul>
-<h4 id="_10"><a name="user-content-_10" href="#_10" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "tongxin"> 通信方式 </span></h4>
-<p>测试服务器采用http方式，正式服务器采用https方式。</p>
-<h4 id="_11"><a name="user-content-_11" href="#_11" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "fanhui"> 返回格式 </span></h4>
-<p>返回结果统一为json格式,如下实例:<br />
-<div class="codehilite"><pre>{ 
-&quot;data&quot;:[ 
-{ 
-&quot;username&quot;:&quot;测试ceshi&quot;, 
-&quot;usercode&quot;:&quot;525100&quot; 
-} 
-], 
-&quot;error_code&quot;:0, //0表示成功,其他表示错误 
-&quot;error_msg&quot;:&quot;&quot;, //错误信息 
-&quot;is_succ&quot;:true //接口返回成功 
-} 
-</pre></div>
-</p>
-<p><center> <a href="#top">返回顶部</a> </center>     </p></article></body></html>
+<h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>高手分成</h2>
+<h4 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>跟单及分成逻辑优化—高手分成水位线</h4>
+<p><strong>1.客户账户</strong></p>
+<p>分成水位计算方法： <br />
+系统自动记录历史最高收益水位线b，触发分成结算条件时，计算历史总收益a，判断（a-b）值是否大于0： <br />
+是，在复制金额中扣除（a-b）的20%作为高手分成；更新最高收益水位线b值。 <br />
+否，不扣分成。</p>
+<p>备注： <br />
+1.最高收益水位线初始值默认为0 <br />
+2.有效跟单更改为：只要跟随高手成功开仓的订单均视为有效跟单。 <br />
+3.触发分成结算条件：<br />
+①“取消复制高手并跟随高手平仓”的订单全部已平仓时 <br />
+②取消复制高手并强制平仓”时 <br />
+③“每月1日</p>
+<p><strong>2.高手账户</strong></p>
+<p>每月10日系统自动将高手分成转入对应账户</p></article></body></html>
