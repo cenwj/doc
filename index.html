@@ -1078,9 +1078,7 @@ body .markdown-body
 .codehilite .il{color:#009999}
 .codehilite .gc{color:#999;background-color:#EAF2F5}
 </style><title>index</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>老虎外汇文档</h1>
-<h4 id="_2"><a href="/">系统功能</a></h4>
-<h4 id="_3"><a href="/api/category.html">接口分类</a></h4>
-<h4 id="_4"><a href="/quote/index.html">报价推送</a></h4>
+<h2 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote/index.html">报价推送</a></h2>
 <p>==============================系统功能=============================<br />
 导航:<br />
 <em> <a href="#mudi">编写目的</a> <br />
@@ -1089,13 +1087,13 @@ body .markdown-body
 </em> <a href="#liucheng">处理流程</a><br />
 <em> <a href="#tongxin">通信方式</a><br />
 </em> <a href="#fanhui">返回格式</a></p>
-<h3 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "mudi">编写目的 </span></h3>
+<h3 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "mudi">编写目的 </span></h3>
 <p>本文档旨在规范第三方对接的数据通信方式,数据格式等描述,目的是:</p>
 <ul>
 <li>规范第三方系统与老虎外汇的系统对接</li>
 <li>为第三方对接老虎外汇提供系统标准</li>
 </ul>
-<h3 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "yueding">术语约定</span></h3>
+<h3 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "yueding">术语约定</span></h3>
 <ul>
 <li>MD5 一种不可逆加密算法</li>
 <li>signature 数字签名</li>
@@ -1108,7 +1106,7 @@ body .markdown-body
 partner_key，private_key，partner_secret不能直接从网上申请，需通过老虎外汇合作渠道获取。<br />
 要先申请测试，等待测试完成所有功能后，才可以申请线上key。</p>
 </blockquote>
-<h3 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "fangshi">加密方式</span></h3>
+<h3 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "fangshi">加密方式</span></h3>
 <blockquote>
 <p>传递的所有字段拼接字符串排序后使用md5加密。<br />
 在生成API请求中的签名(signature)时，需要提供账户中的public_key,partner_key和partner_secret。</p>
@@ -1189,8 +1187,8 @@ partner_key，private_key，partner_secret不能直接从网上申请，需通�
 <span class="o">$</span><span class="nt">data</span> <span class="o">=</span> <span class="nt">curl_request</span><span class="o">(</span><span class="s1">&#39;post&#39;</span><span class="o">,</span>  <span class="o">$</span><span class="nt">path</span><span class="o">,</span> <span class="o">$</span><span class="nt">params</span><span class="o">);</span> <span class="nf">#CURL请求HTTP</span><span class="o">(</span><span class="nt">S</span><span class="o">)</span>
 </pre></div>
 </p>
-<h2 id="_8"><a name="user-content-_8" href="#_8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>功能:</h2>
-<h4 id="_9"><a name="user-content-_9" href="#_9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "liucheng">处理流程</span></h4>
+<h2 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>功能:</h2>
+<h4 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "liucheng">处理流程</span></h4>
 <ul>
 <li>用户在第三方网站开户</li>
 <li>用户在第三方网站访问高手列表</li>
@@ -1204,9 +1202,9 @@ partner_key，private_key，partner_secret不能直接从网上申请，需通�
 <li>用户申请入金，出金</li>
 <li>报价推送</li>
 </ul>
-<h4 id="_10"><a name="user-content-_10" href="#_10" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "tongxin"> 通信方式 </span></h4>
+<h4 id="_8"><a name="user-content-_8" href="#_8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "tongxin"> 通信方式 </span></h4>
 <p>测试服务器采用http方式，正式服务器采用https方式。</p>
-<h4 id="_11"><a name="user-content-_11" href="#_11" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "fanhui"> 返回格式 </span></h4>
+<h4 id="_9"><a name="user-content-_9" href="#_9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "fanhui"> 返回格式 </span></h4>
 <p>返回结果统一为json格式,如下实例:<br />
 <div class="codehilite"><pre>{ 
 &quot;data&quot;:[ 
