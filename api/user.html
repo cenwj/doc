@@ -1079,5 +1079,143 @@ body .markdown-body
 .codehilite .gc{color:#999;background-color:#EAF2F5}
 </style><title>user</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>老虎外汇文档</h1>
 <h4 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote.html">报价推送</a> | <a href="/formula.html">盈亏计算</a> | <a href="/level.html">止盈止损</a> | <a href="/bouns.html">高手分成</a></h4>
-<p>============================用户、个人中心============================<br />
-* <span id = "signup">开户</span></p></article></body></html>
+<p>============================开户、个人中心============================<br />
+* <span id = "signup">开户</span></p>
+<h4 id="2"><a name="user-content-2" href="#2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2. <span id = "get_master_group">获取跟随高手当前订单分组</span></h4>
+<ul>
+<li>测试请求URL:<a href="http://demo.tigerwit.com/action/public/api/get_master_group">http://demo.tigerwit.com/action/public/api/get_master_group</a></li>
+<li>线上请求URL:<a href="https://api.tigerwit.com/action/public/api/get_master_group">https://api.tigerwit.com/action/public/api/get_master_group</a></li>
+<li>类型:HTTPS post</li>
+<li>参数:JSON String </li>
+<li>传递参数:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法:get_master_group</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">第三方user_id</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">老虎开户mt4_id</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true:成功 false:失败</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">number</td>
+<td align="center">返回码</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">请求成功</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">101</td>
+<td align="center">传递参数错误</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">105</td>
+<td align="center">获取不到第三方用户信息或者老虎账户信息</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">303</td>
+<td align="center">签名验证失败</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">data</td>
+<td align="center">array</td>
+<td align="center">返回的详细信息</td>
+</tr>
+<tr>
+<td align="center">username</td>
+<td align="center">string</td>
+<td align="center">高手名称</td>
+</tr>
+<tr>
+<td align="center">usercode</td>
+<td align="center">string</td>
+<td align="center">高手usercode</td>
+</tr>
+<tr>
+<td align="center">occupy_asset</td>
+<td align="center">string</td>
+<td align="center">占用保证金</td>
+</tr>
+<tr>
+<td align="center">profit</td>
+<td align="center">string</td>
+<td align="center">收益</td>
+</tr>
+<tr>
+<td align="center">profit_rate</td>
+<td align="center">string</td>
+<td align="center">收益率(百分比)</td>
+</tr>
+<tr>
+<td align="center">copy_asset</td>
+<td align="center">double</td>
+<td align="center">复制金额</td>
+</tr>
+</tbody>
+</table>
+<p>返回成功json:<br />
+<div class="codehilite"><pre>{
+    &quot;error_code&quot;:0,
+    &quot;error_msg&quot;:&quot;&quot;,
+    &quot;is_succ&quot;:true,
+    &quot;data&quot;:[
+        {
+            &quot;usercode&quot;:&quot;10207&quot;,
+            &quot;username&quot;:&quot;高手菊二&quot;,
+            &quot;occupy_asset&quot;:&quot;0.00&quot;,
+            &quot;profit&quot;:&quot;0.00&quot;,
+            &quot;copy_asset&quot;:0,
+            &quot;profit_rate&quot;:&quot;0.00&quot;
+        }
+    ]
+}
+</pre></div>
+</p></article></body></html>
