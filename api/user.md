@@ -307,7 +307,7 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 }
 ```
 
-#### <span id = "get_trade_record"> 7.获取用户所有交易记录</span>
+#### <span id = "get_trade_record"> 7.获取用户所有历史交易记录</span>
 
 * 测试请求URL:http://demo.tigerwit.com/action/public/api/get_trade_record
 * 线上请求URL:https://api.tigerwit.com/action/public/api/get_trade_record
@@ -341,6 +341,7 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 | master_name |string|高手名称 不是跟单 为null|
 | is_from |int|是否跟单 0 不是 1跟单|
 | action |int|交易类型 [0=>'买', 1=>'卖', 2=>'挂单买入', 3=>'挂单卖出', 4=>'挂单追涨', 5=>'挂单追空']|
+| close_type |int|平仓类型 [0=>手动平仓, 1=>止损平仓, 2=>止盈平仓, 3=>强制平仓, 4=>复制跟单]|
 | ticket |int|订单号|
 | symbol_en |string|交易品种 英文|
 | symbol_cn |string|交易品种 中文|
@@ -348,7 +349,6 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 | close_price |string|平仓价格|
 | profit |string|收益|
 | volume |double|交易手数|
-| close_type |int|平仓类型 手动平仓：0，止损：1，止盈：2，强制：3，复制跟单：4|
 | close_time |string|平仓时间|
 
 返回成功json:
