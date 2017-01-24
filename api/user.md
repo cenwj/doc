@@ -7,18 +7,19 @@
 
 
 
-
-#### 2. <span id = "get_master_group">获取跟随高手当前订单分组</span> 
+#### <span id = "get_master_group">2.获取跟随高手当前订单分组</span> 
 
 * 测试请求URL:http://demo.tigerwit.com/action/public/api/get_master_group
 * 线上请求URL:https://api.tigerwit.com/action/public/api/get_master_group
 * 类型:HTTPS post
-* 参数:JSON String 
+* 参数:JSON String
 * 传递参数:
 
 |名称|类型|是否必须|说明|
 |:--:|:--:|:--:|:--:|
 |action|string|是|传递的方法:get_master_group|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
 |user_id|int|是|第三方user_id|
 |mt4_id|int|是|老虎开户mt4_id|
 
@@ -28,11 +29,11 @@
 |:--:|:--:|:--:|
 |is_succ|bool|true:成功 false:失败|
 |error_msg|string|返回信息|
-|error_code|number|返回码|
-|0||请求成功|
-|101||传递参数错误|
-|105||获取不到第三方用户信息或者老虎账户信息|
-|303||签名验证失败|
+|error_code|int|返回码|
+|0| |请求成功|
+|101| |传递参数错误|
+|105| |获取不到第三方用户信息或者老虎账户信息|
+|303| |签名验证失败|
 |data|array|返回的详细信息|
 |username|string|高手名称|
 |usercode|string|高手usercode|
@@ -59,3 +60,109 @@
     ]
 }
 ```
+
+#### <span id = "get_master_history_group"> 3.获取跟随高手历史订单分组</span>
+
+* 测试请求URL:http://demo.tigerwit.com/action/public/api/get_master_history_group
+* 线上请求URL:https://api.tigerwit.com/action/public/api/get_master_history_group
+* 类型:HTTPS post 
+* 参数:JSON String 
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法:get_master_history_group|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|user_id|number|是|第三方user_id|
+|mt4_id|number|是|老虎mt4_id|
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool|true:成功 false:失败|
+|error_msg|string|返回信息|
+|error_code|int|返回码|
+|0| |请求成功|
+|101| |传递参数错误|
+|105| |获取不到第三方用户信息或者老虎账户信息|
+|303| |安全验证失败|
+|data|array|返回的详细信息|
+|amount|string|跟随金额|
+|username|string|高手名称|
+|usercode|string|高手usercode|
+|profit|string|收益|
+|volume|double|交易手数|
+|avatar_path|string|高手图片|
+
+json:
+```
+{
+    "error_code":0,
+    "error_msg":"",
+    "is_succ":true,
+    "data":[
+        {
+            "amount":"0",
+            "username":"高手菊二",
+            "usercode":"10207",
+            "profit":"-270.01",
+            "volume":4.85,
+            "avatar_path":"http://demo.tigerwit.com/avatar/10207_150.jpg"
+        }
+    ]
+}
+```
+
+#### <span id = "documentary_order"> 4.获取持仓订单(包括跟单)</span>
+
+* 测试请求URL:http://demo.tigerwit.com/action/public/api/documentary_order
+* 线上请求URL:https://api.tigerwit.com/action/public/api/documentary_order
+* 类型:HTTPS post 
+* 参数:JSON String 
+* 传递参数:
+
+传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法:documentary_order|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|user_id|int|是|第三方用户id|
+|mt4_id|int|是|老虎mt4_id|
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool|true:成功 false:失败|
+|error_msg|string|返回信息|
+|error_code|number|返回码|
+|0||请求成功|
+|101| |传递参数错误|
+|105| |获取不到第三方用户信息或者老虎账户信息|
+|303| |安全验证失败|
+|data|array|返回的详细信息|
+| ticket |number|订单号 |
+| usercode |string|高手码|
+| username | string |高手名称|
+
+返回成功json:
+```
+{
+    "error_code":0,
+    "error_msg":"",
+    "is_succ":true,
+    "data":[
+        {
+            "ticket":2330,
+            "usercode":"1655",
+            "username":"wumo"
+        }
+    ]
+}
+```
+
+

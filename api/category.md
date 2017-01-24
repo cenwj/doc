@@ -14,14 +14,13 @@
 
 ### 开户、个人中心
 * [开户](/api/user.html#signup)
-* [获取用户所在组点差配置](/api/user.html#account_config)
 * [获取跟随高手当前订单分组](/api/user.html#get_master_group)
-* 获取跟随高手历史订单分组 
-* 获取用户交易记录
-* 充值记录 
-* 外汇账户汇总接口
+* [获取跟随高手历史订单分组](/api/user.html#get_master_history_group)
+* [获取持仓订单(包括跟单)](/api/user.html#documentary_order) 
 * 外汇持仓接口 
-* 获取跟单的持仓订单 
+* 外汇账户汇总接口
+* 获取用户交易记录
+* 充值记录
 
 ### 高手 
 * 获取高手列表
