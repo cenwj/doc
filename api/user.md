@@ -9,8 +9,14 @@
 
 #### <span id = "get_master_group">2.获取跟随高手当前订单分组</span> 
 
-* 测试请求URL:http://demo.tigerwit.com/action/public/api/get_master_group
-* 线上请求URL:https://api.tigerwit.com/action/public/api/get_master_group
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/get_master_group
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/get_master_group
+```
 * 类型:HTTPS post
 * 参数:JSON String
 * 传递参数:
@@ -63,8 +69,14 @@
 
 #### <span id = "get_master_history_group"> 3.获取跟随高手历史订单分组</span>
 
-* 测试请求URL:http://demo.tigerwit.com/action/public/api/get_master_history_group
-* 线上请求URL:https://api.tigerwit.com/action/public/api/get_master_history_group
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/get_master_history_group
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/get_master_history_group
+```
 * 类型:HTTPS post 
 * 参数:JSON String 
 * 传递参数:
@@ -119,8 +131,14 @@ json:
 接口说明:
 如果用户有跟随高手，他跟高手的订单关系不会马上生成，会有10到30秒的延迟时间。需用到该接口的ticket（订单）参数去跟  【[5.外汇持仓接口](#foreign_order)】 匹配找到它们的跟单关系。
 
-* 测试请求URL:http://demo.tigerwit.com/action/public/api/documentary_order
-* 线上请求URL:https://api.tigerwit.com/action/public/api/documentary_order
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/documentary_order
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/documentary_order
+```
 * 类型:HTTPS post 
 * 参数:JSON String 
 * 传递参数:
@@ -172,8 +190,14 @@ json:
 比如：
 该接口的ticket=850037和【获取跟单的持仓订单】接口里面的ticket=850037则表示该订单是跟单订单。
 
-* 测试请求URL:http://demo.tigerwit.com/action/public/api/foreign_order
-* 线上请求URL:https://api.tigerwit.com/action/public/api/foreign_order
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/foreign_order
+```
+* 线上请求URL:
+``` 
+https://api.tigerwit.com/action/public/api/foreign_order
+```
 * 类型:HTTPS post 
 * 参数:JSON String 
 * 传递参数:
@@ -254,8 +278,14 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 
 #### <span id = "foreign_exchange_account"> 6.外汇账户汇总接口</span>
 
-* 测试请求URL:http://demo.tigerwit.com/action/public/api/foreign_exchange_account
-* 线上请求URL:https://api.tigerwit.com/action/public/api/foreign_exchange_account
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/foreign_exchange_account
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/foreign_exchange_account
+```
 * 类型:HTTPS post 
 * 参数:JSON String 
 * 传递参数:
@@ -309,8 +339,14 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 
 #### <span id = "get_trade_record"> 7.获取用户所有历史交易记录</span>
 
-* 测试请求URL:http://demo.tigerwit.com/action/public/api/get_trade_record
-* 线上请求URL:https://api.tigerwit.com/action/public/api/get_trade_record
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/get_trade_record
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/get_trade_record
+```
 * 类型:HTTPS post 
 * 参数:JSON String 
 * 传递参数:

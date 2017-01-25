@@ -4,7 +4,7 @@
 
 ## 盈亏计算
 
-A】产品信息 
+【A】产品信息 
 合约量：contract_size 
 存款货币：deposit_currency 
 盈亏货币：profit_currency 
