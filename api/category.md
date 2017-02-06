@@ -22,6 +22,7 @@
 * [获取用户所有历史交易记录](/api/user.html#get_trade_record)
 * [充值记录](/api/user.html#get_payment_record)
 
+
 ### 高手 
 * [获取高手列表](/api/master.html#get_master_list_v2)
 * [高手的基本信息](/api/master.html#get_master_info_v2)
@@ -32,15 +33,8 @@
 * [获取高手历史投资详情](/api/master.html#get_master_history)
 * [复制高手](/api/master.html#copy_master_v2)
 * [解除复制高手并强平](/api/master.html#uncopy_master_forced_liquidation)
-* 解除复制高手并强平前的预算金钱 
-* 获取高手最低复制金额
-
-### 持仓明细
-* 获取用户持仓汇总 
-* 获取用户持仓明细
-* 获取用户跟随单个高手持仓汇总
-* 获取用户跟随单个高手持仓明细 
-
+* [解除复制高手并强平前的预算金钱](/api/master.html#uncopy_master_budget)
+* [获取高手最低复制金额](/api/master.html#get_master_min_copy_amount)
 
 ### 交易品种
 * 获取交易品种汇总
@@ -49,7 +43,6 @@
 * 获取单个品种、开收盘信息
 * 获取多个品种、昨日收盘价格【有缓存】
 * 历史报价
-
 
 ### 下单、平仓、挂单
 * 开仓

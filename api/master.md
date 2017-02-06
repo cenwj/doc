@@ -670,3 +670,121 @@ https://api.tigerwit.com/action/public/api/uncopy_master_forced_liquidation
 ```
 
 
+#### <span id = "uncopy_master_budget">10.解除复制高手并强平前的预算金钱</span> 
+
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/uncopy_master_budget
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/uncopy_master_budget
+```
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递参数:uncopy_master_budget|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|user_id|int|是|第三方用户id|
+|mt4_id|int|是|老虎mt4_id|
+|from_id|int|是|老虎高手user_code|
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool | true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|number|返回码|
+|0| |请求成功|
+|101| |传递参数错误|
+|105| |获取不到第三方用户信息或者老虎账户信息|
+|303| |安全验证失败|
+|data|object|返回的信息|
+|status|int|跟单关系 1有 0没有|
+|num|int|当前跟单数量|
+|usd_rate|float|当前美元汇率|
+|rmb_amount|string|给高手的分成（人民币金额）|
+|usd_asset|float|给高手的分成（美元金额）|
+|usd_profit|float|总收益（美元）ps:当前订单的|
+|rmb_profit|float|总收益（人民币）ps:当前订单的|
+|usd_balance|float|余额（美元）ps:包扣平仓的收益|
+|rmb_balance|float|余额（人民币）ps:包扣平仓的收益|
+
+说明:
+>该接口是给用户再取消复制高手的时候给用户看到取消复制高手的收益大概有多少。
+
+返回成功json:
+```
+{
+    "is_succ":true,
+    "error_msg":"",
+    "error_code":0,
+    "data":{
+        "usd_asset":0.0,
+        "rmb_amount":0.0,
+        "usd_rate":"6.2716",
+        "usd_profit":0.0,
+        "rmb_profit":0.0,
+        "usd_balance":0.0,
+        "rmb_balance":0.0,
+        "num":0,
+        "status":0
+    }
+}
+```
+
+
+#### <span id = "get_master_min_copy_amount">11.获取高手最低复制金额</span> 
+
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/get_master_min_copy_amount
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/get_master_min_copy_amount
+```
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法:get_master_min_copy_amount|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|from_id|int|是|高手user_code|
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool | true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|int|返回码|
+|0| |获取成功|
+|101| |传递参数错误|
+|303| |验证失败|
+|404| |找不到高手信息|
+|data|object|返回信息|
+|min_follow_rmb|float|高手最低复制金额(人民币)|
+|min_follow_usd|float|高手最低复制金额(美元)|
+
+返回成功json:
+
+```
+{
+    "is_succ":true,
+    "error_msg":"",
+    "error_code":0,
+    "min_follow_rmb":6271.6,
+    "min_follow_usd":1000
+}
+```
+
+<center> [返回顶部](#top) </center>   
