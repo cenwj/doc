@@ -3,7 +3,7 @@
 #### [系统功能](/) |  [接口分类](/api/category.html) | [报价推送](/quote.html) | [盈亏计算](/formula.html) | [止盈止损](/level.html) | [高手分成](/bouns.html)
 
 ============================开户、个人中心============================
-* <span id = "signup">开户</span>
+#### <span id = "signup">1.开户</span>
 
 
 
@@ -365,7 +365,7 @@ https://api.tigerwit.com/action/public/api/get_trade_record
 
 |参数|类型|说明|
 |:--:|:--:|:--:|
-|is_succ|bool|true/false|
+|is_succ|bool|true:成功 false:失败|
 |error_msg|string|返回信息|
 |error_code|int|返回码|
 |0| |请求成功|
@@ -442,7 +442,7 @@ https://api.tigerwit.com/action/public/api/get_payment_record
 
 |参数|类型|说明|
 |:--:|:--:|:--:|
-|is_succ|bool|true/false|
+|is_succ|bool|true:成功 false:失败|
 |error_msg|string|返回信息|
 |error_code|int|返回码|
 |0| |请求成功|
