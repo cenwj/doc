@@ -25,9 +25,9 @@
 ### 高手 
 * [获取高手列表](/api/master.html#get_master_list_v2)
 * [高手的基本信息](/api/master.html#get_master_info_v2)
-* [高手历史月收益率表现图标](/api/master.html#monthly_symbols)
-* 高手复制者变化图标
-* 高手月交易品种图标
+* [高手历史月收益率表现图标](/api/master.html#historical_rate)
+* [高手复制者变化图标](/api/master.html#copy_change)
+* [高手月交易品种图标](/api/master.html#monthly_symbols)
 * 获取高手当前投资详情
 * 获取高手历史投资详情 
 * 复制高手

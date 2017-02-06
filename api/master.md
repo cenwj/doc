@@ -167,7 +167,115 @@ https://api.tigerwit.com/action/public/api/get_master_info_v2
 ```
 
 
-#### <span id = "monthly_symbols">3.高手历史月收益率表现图标</span> 
+#### <span id = "historical_rate">3.高手历史月收益率表现图标</span> 
+
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/historical_rate
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/historical_rate
+```
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法:historical_rate|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|user_code|int|no|高手码|
+
+
+返回参数说明:
+
+|名称|类型|说明|
+|:-------------:|:-------------:|:-------------:|
+|is_succ|bool | true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|int|返回码 0 成功 其他失败|
+|data|array|key=>value|
+|t|string|日期（年-月）|
+|v|float|收益率|
+
+返回成功json:
+```
+{
+    "error_code":0,
+    "error_msg":"",
+    "is_succ":true,
+    "data":[
+        {
+            "t":"2015-10",
+            "v":-11.22
+        },
+        {
+            "t":"2015-11",
+            "v":37.4
+        }
+    ]
+}
+```
+
+
+#### <span id = "copy_change">4.高手复制者变化图标</span> 
+
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/copy_change
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/copy_change
+```
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法:copy_change|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|user_code|int|是|高手码|
+
+返回参数说明:
+
+|名称|类型|说明|
+|:-------------:|:-------------:|:-------------:|
+|is_succ|bool | true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|int|返回码 0 成功 其他失败|
+|Last_week_copy_rate|float|近七日复制变化率(百分百)|
+|last_max_balance|float|管理资金|
+|data|array|key=>value|
+|t|string|复制日期|
+|v|int|复制人数|
+
+返回成功json:
+```
+{
+    "error_code":0,
+    "error_msg":"",
+    "is_succ":true,
+    "Last_week_copy_rate":0,
+    "last_max_balance":15430.68,
+    "data":[
+        {
+            "t":"2016-01-13",
+            "v":1
+        },
+        {
+            "t":"2016-01-21",
+            "v":1
+        }
+    ]
+}
+```
+
+#### <span id = "monthly_symbols">5.高手月交易品种图标</span> 
 
 * 测试请求URL:
 ```
@@ -258,4 +366,3 @@ https://api.tigerwit.com/action/public/api/monthly_symbols
     ]
 }
 ```
-

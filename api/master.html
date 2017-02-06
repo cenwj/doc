@@ -1486,7 +1486,239 @@ body .markdown-body
 <span class="p">}</span>
 </pre></div>
 </p>
-<h4 id="3"><a name="user-content-3" href="#3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "monthly_symbols">3.高手历史月收益率表现图标</span></h4>
+<h4 id="3"><a name="user-content-3" href="#3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "historical_rate">3.高手历史月收益率表现图标</span></h4>
+<ul>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/historical_rate
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/historical_rate
+</pre></div>
+</li>
+<li>类型:HTTPS post</li>
+<li>参数:JSON String</li>
+<li>传递参数:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法:historical_rate</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">user_code</td>
+<td align="center">int</td>
+<td align="center">no</td>
+<td align="center">高手码</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true:成功 false:失败</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回错误信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码 0 成功 其他失败</td>
+</tr>
+<tr>
+<td align="center">data</td>
+<td align="center">array</td>
+<td align="center">key=&gt;value</td>
+</tr>
+<tr>
+<td align="center">t</td>
+<td align="center">string</td>
+<td align="center">日期（年-月）</td>
+</tr>
+<tr>
+<td align="center">v</td>
+<td align="center">float</td>
+<td align="center">收益率</td>
+</tr>
+</tbody>
+</table>
+<p>返回成功json:<br />
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="s2">&quot;error_code&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;error_msg&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;is_succ&quot;</span><span class="s s-Atom">:true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="s s-Atom">:</span><span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;t&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;2015-10&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;v&quot;</span><span class="p">:-</span><span class="mf">11.22</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;t&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;2015-11&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;v&quot;</span><span class="s s-Atom">:</span><span class="mf">37.4</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</p>
+<h4 id="4"><a name="user-content-4" href="#4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "copy_change">4.高手复制者变化图标</span></h4>
+<ul>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/copy_change
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/copy_change
+</pre></div>
+</li>
+<li>类型:HTTPS post</li>
+<li>参数:JSON String</li>
+<li>传递参数:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法:copy_change</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">user_code</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">高手码</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true:成功 false:失败</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回错误信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码 0 成功 其他失败</td>
+</tr>
+<tr>
+<td align="center">Last_week_copy_rate</td>
+<td align="center">float</td>
+<td align="center">近七日复制变化率(百分百)</td>
+</tr>
+<tr>
+<td align="center">last_max_balance</td>
+<td align="center">float</td>
+<td align="center">管理资金</td>
+</tr>
+<tr>
+<td align="center">data</td>
+<td align="center">array</td>
+<td align="center">key=&gt;value</td>
+</tr>
+<tr>
+<td align="center">t</td>
+<td align="center">string</td>
+<td align="center">复制日期</td>
+</tr>
+<tr>
+<td align="center">v</td>
+<td align="center">int</td>
+<td align="center">复制人数</td>
+</tr>
+</tbody>
+</table>
+<p>返回成功json:<br />
+<div class="codehilite"><pre>{
+    &quot;error_code&quot;:0,
+    &quot;error_msg&quot;:&quot;&quot;,
+    &quot;is_succ&quot;:true,
+    &quot;Last_week_copy_rate&quot;:0,
+    &quot;last_max_balance&quot;:15430.68,
+    &quot;data&quot;:[
+        {
+            &quot;t&quot;:&quot;2016-01-13&quot;,
+            &quot;v&quot;:1
+        },
+        {
+            &quot;t&quot;:&quot;2016-01-21&quot;,
+            &quot;v&quot;:1
+        }
+    ]
+}
+</pre></div>
+</p>
+<h4 id="5"><a name="user-content-5" href="#5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "monthly_symbols">5.高手月交易品种图标</span></h4>
 <ul>
 <li>测试请求URL:<br />
 <div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/monthly_symbols
