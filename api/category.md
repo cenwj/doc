@@ -28,10 +28,10 @@
 * [高手历史月收益率表现图标](/api/master.html#historical_rate)
 * [高手复制者变化图标](/api/master.html#copy_change)
 * [高手月交易品种图标](/api/master.html#monthly_symbols)
-* 获取高手当前投资详情
-* 获取高手历史投资详情 
-* 复制高手
-* 解除复制高手并强平 
+* [获取高手当前投资详情](/api/master.html#get_master_order)
+* [获取高手历史投资详情](/api/master.html#get_master_history)
+* [复制高手](/api/master.html#copy_master_v2)
+* [解除复制高手并强平](/api/master.html#uncopy_master_forced_liquidation)
 * 解除复制高手并强平前的预算金钱 
 * 获取高手最低复制金额
 

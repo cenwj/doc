@@ -366,3 +366,307 @@ https://api.tigerwit.com/action/public/api/monthly_symbols
     ]
 }
 ```
+
+
+#### <span id = "get_master_order">6.获取高手当前投资详情</span> 
+
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/get_master_order
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/get_master_order
+```
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法:get_master_order|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|from_id|int|是|高手usercode|
+|page|int|是|分页|
+|pagesize|int|是|取多少条|
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool | true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|int|返回码 0 成功 其他失败|
+|0| |请求成功|
+|101| |传递参数错误|
+|105| |获取不到第三方用户信息或者老虎账户信息|
+|303| |安全验证失败|
+|num|int|总条数|
+|data|array|返回的详细信息|
+|symbol|string|交易品种|
+|symbol_cn|string|交易品种中文名称|
+|action|int|买入：0，卖出：1|
+|position_time|int|距离现在的时间 时间戳 秒数|
+|close_price|string|平仓价格 (金钱)|
+|open_price|string|开仓价格 (金钱)|
+|profit|string|收益率 (百分比)|
+|points|string|盈亏点数|
+|order_id|int|订单id|
+
+返回成功json:
+```
+{
+    "error_code":0,
+    "error_msg":"",
+    "is_succ":true,
+    "num":2,
+    "data":[
+        {
+            "position_time":37348,
+            "profit":"-19.34",
+            "symbol":"HK50",
+            "symbol_cn":"恒生指数",
+            "points":"-0",
+            "open_price":"23295.00",
+            "close_price":"23310.00",
+            "order_id":2362746,
+            "action":1
+        },
+        {
+            "position_time":36876,
+            "profit":"-2.49",
+            "symbol":"XAGUSD",
+            "symbol_cn":"白银",
+            "points":"-499",
+            "open_price":"17.5581",
+            "close_price":"17.6080",
+            "order_id":2362773,
+            "action":1
+        }
+    ]
+}
+```
+
+#### <span id = "get_master_history">7.获取高手当前投资详情</span> 
+
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/get_master_history
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/get_master_history
+```
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法:get_master_history|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|from_id|int|是|高手usercode|
+|page|int|是|分页|
+|pagesize|int|是|取多少条|
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool | true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|int|返回码|
+|0| |请求成功|
+|101| |传递参数错误|
+|105| |获取不到第三方用户信息或者老虎账户信息|
+|303| |安全验证失败|
+|num|int|总条数|
+|data|array|返回的详细信息|
+|symbol|string|交易品种|
+|symbol_cn|string|交易品种中文名称|
+|action|int|买入：0，卖出：1|
+|ago|int|持仓时间 时间戳 秒数|
+|position_time|int|距离现在的时间 时间戳 秒数|
+|close_price|string|平仓价格 (金钱)|
+|open_price|string|开仓价格 (金钱)|
+|profit|string|收益率 (百分比)|
+|points|string|盈亏点数|
+|order_id|int|订单id|
+|close_type|int|平仓类型 手动平仓：0，止损：1，止盈：2，强制：3，复制跟单：4|
+|close_time|string|平仓时间|
+|open_time|string|开仓时间|
+
+
+返回成功json:
+```
+{
+    "error_code":0,
+    "error_msg":"",
+    "is_succ":true,
+    "num":3608,
+    "data":[
+        {
+            "close_type":0,
+            "position_time":48677,
+            "ago":34,
+            "profit":"-0.96",
+            "symbol":"USDCAD",
+            "symbol_cn":"美元加元",
+            "points":"-25",
+            "open_price":"1.30123",
+            "close_price":"1.30148",
+            "order_id":2361858,
+            "action":1,
+            "close_time":"2017-02-06 06:34:16",
+            "open_time":"2017-02-06 06:33:42"
+        },
+        {
+            "close_type":0,
+            "position_time":48726,
+            "ago":28,
+            "profit":"-1.15",
+            "symbol":"USDCAD",
+            "symbol_cn":"美元加元",
+            "points":"-30",
+            "open_price":"1.30121",
+            "close_price":"1.30151",
+            "order_id":2361853,
+            "action":1,
+            "close_time":"2017-02-06 06:33:27",
+            "open_time":"2017-02-06 06:32:59"
+        }
+    ]
+}
+```
+
+#### <span id = "copy_master_v2">8.复制高手</span> 
+
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/copy_master_v2
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/copy_master_v2
+```
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法:copy_master_v2|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|from_id|int|是|高手id|
+|user_id|int|是|第三方user_id|
+|mt4_id|int|是|老虎mt4_id|
+|order_id|int|是|第三方自动生成唯一的id|
+|amount|float|是|复制金额(usd:美金)|
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool | true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|int|返回码|
+|0| |复制成功|
+|101| |传递参数错误|
+|105| |获取不到第三方用户信息|
+|303| |验证失败|
+|405| |复制的不是高手|
+|406| |不能重复提交|
+|407| |复制高手不得少于复制高手的最低金额|
+|408| |你已经复制过该高手，请取消跟随再复制。|
+|4| |系统错误|
+|2| |复制资金不足|
+|9| |不能复制自己|
+|400| |复制失败|
+|data|Object|返回信息|
+|order_id|int|老虎入库定单id|
+|from_id|string|复制高手的高手id|
+|username|string|高手名称|
+
+返回成功json:
+
+```
+{
+    "is_succ":true,
+    "error_msg":"复制成功",
+    "error_code":0,
+    "data":{
+        "order_id":16,
+        "from_id":"1657",
+        "username":"LiuJin"
+    }
+}
+```
+
+#### <span id = "uncopy_master_forced_liquidation">9.解除复制高手并强平</span> 
+
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/uncopy_master_forced_liquidation
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/uncopy_master_forced_liquidation
+```
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递参数:uncopy_master_forced_liquidation|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|user_id|int|是|第三方用户id|
+|mt4_id|int|是|老虎mt4_id|
+|from_id|int|是|老虎高手user_code|
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool | true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|number|返回码|
+|0| |请求成功|
+|101| |传递参数错误|
+|105| |获取不到第三方用户信息或者老虎账户信息|
+|106| |不存在跟单关系|
+|107| |非交易时段不能强平|
+|303| |安全验证失败|
+|402|number|解除复制高手并强平失败|
+|data|Object|返回信息|
+|usd_rate|string|当前美元汇率|
+|rmb_amount|float|给高手的分成（人民币金额）|
+|usd_asset|float|给高手的分成（美元金额）|
+|usd_profit|float|总收益（美元）ps:当前订单的|
+|rmb_profit|float|总收益（人民币）ps:当前订单的|
+|usd_balance|float|余额（人民币）ps:包扣平仓的收益|
+|rmb_balance|float|余额（人民币）ps:包扣平仓的收益|
+
+返回成功json:
+```
+{
+    "is_succ":true,
+    "error_msg":"",
+    "error_code":0,
+    "data":{
+        "usd_asset":0.02,
+        "rmb_amount":0.13,
+        "usd_rate":"6.2716",
+        "usd_profit":0.11,
+        "rmb_profit":0.69,
+        "usd_balance":9662.74,
+        "rmb_balance":60600.84
+    }
+}
+```
+
+
