@@ -34,7 +34,7 @@ https://api.tigerwit.com/action/public/api/get_master_group
 |参数|类型|说明|
 |:--:|:--:|:--:|
 |is_succ|bool|true:成功 false:失败|
-|error_msg|string|返回信息|
+|error_msg|string|返回错误信息|
 |error_code|int|返回码|
 |0| |请求成功|
 |101| |传递参数错误|
@@ -67,7 +67,83 @@ https://api.tigerwit.com/action/public/api/get_master_group
 }
 ```
 
-#### <span id = "get_master_history_group"> 3.获取跟随高手历史订单分组</span>
+#### <span id = "get_master_order_info">3.获取用户跟随单个高手持仓明细</span> 
+
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/get_master_order_info
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/get_master_order_info
+```
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法:get_master_order_info|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|user_id|int|是|第三方用户id|
+|mt4_id|int|是|老虎mt4_id|
+|from_id|int|是|老虎高手user_code|
+|page|int|是|分页|
+|pagesize|int|是|取多少条|
+
+返回参数说明:
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool|true/false|
+|error_msg|string|返回错误信息|
+|error_code|number|返回码|
+|0||请求成功|
+|101||传递参数错误|
+|105||获取不到第三方用户信息或者老虎账户信息|
+|303||安全验证失败|
+|num|number|总条数|
+|data|array|返回的详细信息|
+|order_id|number|订单id|
+|occupy_asset|string|占用保证金|
+|profit|string|收益|
+|profit_rate|string|收益率(百分比)|
+|symbol|string|品种名称|
+|username|string|高手名称|
+|usercode|string|高手usercode|
+|open_price|double|开仓价格|
+|close_price|number|平仓价格|
+|volume|float|交易手数|
+|action|int|交易类型 0做多 1做空|
+|open_time|date|开仓时间|
+
+返回成功json:
+```
+{
+    "is_succ":true,
+    "error_msg":"",
+    "error_code":0,
+    "num":1218,
+    "data":[
+        {
+            "username":"Sandy",
+            "usercode":"3303",
+            "action":0,
+            "open_price":1.12623,
+            "close_price":1.12376,
+            "symbol":"EURUSD",
+            "volume":0.02,
+            "profit":"-4.40",
+            "order_id":-997768,
+            "open_time":"2015-06-04 09:09:00",
+            "occupy_asset":"20.00",
+            "profit_rate":"-22.00"
+        }
+    ]
+}
+```
+
+#### <span id = "get_master_history_group"> 4.获取跟随高手历史订单分组</span>
 
 * 测试请求URL:
 ```
@@ -94,7 +170,7 @@ https://api.tigerwit.com/action/public/api/get_master_history_group
 |参数|类型|说明|
 |:--:|:--:|:--:|
 |is_succ|bool|true:成功 false:失败|
-|error_msg|string|返回信息|
+|error_msg|string|返回错误信息|
 |error_code|int|返回码|
 |0| |请求成功|
 |101| |传递参数错误|
@@ -108,7 +184,7 @@ https://api.tigerwit.com/action/public/api/get_master_history_group
 |volume|double|交易手数|
 |avatar_path|string|高手图片|
 
-json:
+返回成功json:
 ```
 {
     "error_code":0,
@@ -127,7 +203,100 @@ json:
 }
 ```
 
-#### <span id = "documentary_order"> 4.获取跟单的持仓订单</span>
+
+#### <span id = "get_master_history_info">5.获取用户跟随单个高手持仓明细</span> 
+
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/get_master_history_info
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/get_master_history_info
+```
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法:get_master_history_info|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|user_id|int|是|第三方用户id|
+|mt4_id|int|是|老虎mt4_id|
+|from_id|int|是|跟随高手usercode|
+|page|int|是|分页|
+|pagesize|int|是|取多少条|
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool|true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|int|返回码|
+|0| |请求成功|
+|101| |传递参数错误|
+|105| |获取不到第三方用户信息或者老虎账户信息|
+|303| |安全验证失败|
+|num|int|总条数|
+|data|array|返回的详细信息|
+|order_id|int|订单id|
+|profit|string|收益|
+|symbol|string|品种名称|
+|symbol_cn|string|交易品种中文名称|
+|username|string|高手名称|
+|usercode|string|高手usercode|
+|open_price|double|开仓价格|
+|close_price|double|平仓价格|
+|volume|float|交易手数|
+|action|int|交易类型 0做多 1做空|
+|profit_rate|string|每单收益率|
+|close_type|int|平仓类型 手动平仓：0，止损：1，止盈：2，强制：3，复制跟单：4|
+|close_time|date|平仓时间|
+
+返回成功json:
+```
+{
+    "is_succ":true,
+    "error_msg":"",
+    "error_code":0,
+    "num":2,
+    "data":[
+        {
+            "close_type":0,
+            "profit_rate":"-21.40",
+            "username":"Sandy",
+            "usercode":"3303",
+            "action":1,
+            "open_price":2.02384,
+            "close_price":2.02526,
+            "symbol":"GBPCAD",
+            "volume":0.01,
+            "profit":"-1.07",
+            "order_id":337277,
+            "close_time":"2015-11-17 18:40:13"
+        },
+        {
+            "close_type":0,
+            "profit_rate":"35.20",
+            "username":"Sandy",
+            "usercode":"3303",
+            "action":1,
+            "open_price":2.14105,
+            "close_price":2.13858,
+            "symbol":"GBPAUD",
+            "volume":0.01,
+            "profit":"1.76",
+            "order_id":337267,
+            "close_time":"2015-11-17 15:30:36"
+        }
+    ]
+}
+```
+
+#### <span id = "documentary_order"> 6.获取跟单的持仓订单</span>
 接口说明:
 如果用户有跟随高手，他跟高手的订单关系不会马上生成，会有10到30秒的延迟时间。需用到该接口的ticket（订单）参数去跟  【[5.外汇持仓接口](#foreign_order)】 匹配找到它们的跟单关系。
 
@@ -156,7 +325,7 @@ https://api.tigerwit.com/action/public/api/documentary_order
 |参数|类型|说明|
 |:--:|:--:|:--:|
 |is_succ|bool|true:成功 false:失败|
-|error_msg|string|返回信息|
+|error_msg|string|返回错误信息|
 |error_code|int|返回码|
 |0| |请求成功|
 |101| |传递参数错误|
@@ -184,7 +353,7 @@ https://api.tigerwit.com/action/public/api/documentary_order
 ```
 
 
-#### <span id = "foreign_order"> 5.外汇持仓接口</span>
+#### <span id = "foreign_order"> 7.外汇持仓接口</span>
 接口说明:
 外汇持仓接口是获取用户开仓后所有的实时订单接口，不包括跟单关系，需要用到该接口的ticket（订单）参数去跟【[4.获取跟单的持仓订单](#documentary_order)】 匹配找到它们的跟单关系。
 比如：
@@ -215,7 +384,7 @@ https://api.tigerwit.com/action/public/api/foreign_order
 |参数|类型|说明|
 |:--:|:--:|:--:|
 |is_succ|bool|true:成功 false:失败|
-|error_msg|string|返回信息|
+|error_msg|string|返回错误信息|
 |error_code|int|返回码|
 |0| |请求成功|
 |101| |传递参数错误|
@@ -276,7 +445,7 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 }
 ```
 
-#### <span id = "foreign_exchange_account"> 6.外汇账户汇总接口</span>
+#### <span id = "foreign_exchange_account"> 8.外汇账户汇总接口</span>
 
 * 测试请求URL:
 ```
@@ -303,7 +472,7 @@ https://api.tigerwit.com/action/public/api/foreign_exchange_account
 |参数|类型|说明|
 |:--:|:--:|:--:|
 |is_succ|bool|true:成功 false:失败|
-|error_msg|string|返回信息|
+|error_msg|string|返回错误信息|
 |error_code|int|返回码|
 |0| |请求成功|
 |101| |传递参数错误|
@@ -337,7 +506,7 @@ https://api.tigerwit.com/action/public/api/foreign_exchange_account
 }
 ```
 
-#### <span id = "get_trade_record"> 7.获取用户所有历史交易记录</span>
+#### <span id = "get_trade_record"> 9.获取用户所有历史交易记录</span>
 
 * 测试请求URL:
 ```
@@ -366,7 +535,7 @@ https://api.tigerwit.com/action/public/api/get_trade_record
 |参数|类型|说明|
 |:--:|:--:|:--:|
 |is_succ|bool|true:成功 false:失败|
-|error_msg|string|返回信息|
+|error_msg|string|返回错误信息|
 |error_code|int|返回码|
 |0| |请求成功|
 |101| |传递参数错误|
@@ -414,7 +583,7 @@ https://api.tigerwit.com/action/public/api/get_trade_record
 ```
 
 
-#### <span id = "get_payment_record"> 8.充值记录</span>
+#### <span id = "get_payment_record"> 10.充值记录</span>
 
 * 测试请求URL:
 ```
@@ -443,7 +612,7 @@ https://api.tigerwit.com/action/public/api/get_payment_record
 |参数|类型|说明|
 |:--:|:--:|:--:|
 |is_succ|bool|true:成功 false:失败|
-|error_msg|string|返回信息|
+|error_msg|string|返回错误信息|
 |error_code|int|返回码|
 |0| |请求成功|
 |101| |传递参数错误|

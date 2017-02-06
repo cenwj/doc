@@ -1155,7 +1155,7 @@ body .markdown-body
 <tr>
 <td align="center">error_msg</td>
 <td align="center">string</td>
-<td align="center">返回信息</td>
+<td align="center">返回错误信息</td>
 </tr>
 <tr>
 <td align="center">error_code</td>
@@ -1237,7 +1237,130 @@ body .markdown-body
 }
 </pre></div>
 </p>
-<h4 id="3"><a name="user-content-3" href="#3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_master_history_group"> 3.获取跟随高手历史订单分组</span></h4>
+<h4 id="3"><a name="user-content-3" href="#3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_master_order_info">3.获取用户跟随单个高手持仓明细</span></h4>
+<ul>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/get_master_order_info
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/get_master_order_info
+</pre></div>
+</li>
+<li>类型:HTTPS post</li>
+<li>参数:JSON String</li>
+<li>传递参数:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法:get_master_order_info</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">第三方用户id</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">老虎mt4_id</td>
+</tr>
+<tr>
+<td align="center">from_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">老虎高手user_code</td>
+</tr>
+<tr>
+<td align="center">page</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">分页</td>
+</tr>
+<tr>
+<td align="center">pagesize</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">取多少条</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:<br />
+|参数|类型|说明|<br />
+|:&ndash;:|:&ndash;:|:&ndash;:|<br />
+|is_succ|bool|true/false|<br />
+|error_msg|string|返回错误信息|<br />
+|error_code|number|返回码|<br />
+|0||请求成功|<br />
+|101||传递参数错误|<br />
+|105||获取不到第三方用户信息或者老虎账户信息|<br />
+|303||安全验证失败|<br />
+|num|number|总条数|<br />
+|data|array|返回的详细信息|<br />
+|order_id|number|订单id|<br />
+|occupy_asset|string|占用保证金|<br />
+|profit|string|收益|<br />
+|profit_rate|string|收益率(百分比)|<br />
+|symbol|string|品种名称|<br />
+|username|string|高手名称|<br />
+|usercode|string|高手usercode|<br />
+|open_price|double|开仓价格|<br />
+|close_price|number|平仓价格|<br />
+|volume|float|交易手数|<br />
+|action|int|交易类型 0做多 1做空|<br />
+|open_time|date|开仓时间|</p>
+<p>返回成功json:<br />
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="s2">&quot;is_succ&quot;</span><span class="s s-Atom">:true</span><span class="p">,</span>
+    <span class="s2">&quot;error_msg&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;error_code&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;num&quot;</span><span class="s s-Atom">:</span><span class="mi">1218</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="s s-Atom">:</span><span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;username&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;Sandy&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;usercode&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;3303&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;action&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;open_price&quot;</span><span class="s s-Atom">:</span><span class="mf">1.12623</span><span class="p">,</span>
+            <span class="s2">&quot;close_price&quot;</span><span class="s s-Atom">:</span><span class="mf">1.12376</span><span class="p">,</span>
+            <span class="s2">&quot;symbol&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;EURUSD&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;volume&quot;</span><span class="s s-Atom">:</span><span class="mf">0.02</span><span class="p">,</span>
+            <span class="s2">&quot;profit&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;-4.40&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;order_id&quot;</span><span class="p">:-</span><span class="mi">997768</span><span class="p">,</span>
+            <span class="s2">&quot;open_time&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;2015-06-04 09:09:00&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;occupy_asset&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;20.00&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;profit_rate&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;-22.00&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</p>
+<h4 id="4"><a name="user-content-4" href="#4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_master_history_group"> 4.获取跟随高手历史订单分组</span></h4>
 <ul>
 <li>测试请求URL:<br />
 <div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/get_master_history_group
@@ -1311,7 +1434,7 @@ body .markdown-body
 <tr>
 <td align="center">error_msg</td>
 <td align="center">string</td>
-<td align="center">返回信息</td>
+<td align="center">返回错误信息</td>
 </tr>
 <tr>
 <td align="center">error_code</td>
@@ -1375,7 +1498,7 @@ body .markdown-body
 </tr>
 </tbody>
 </table>
-<p>json:<br />
+<p>返回成功json:<br />
 <div class="codehilite"><pre>{
     &quot;error_code&quot;:0,
     &quot;error_msg&quot;:&quot;&quot;,
@@ -1393,7 +1516,242 @@ body .markdown-body
 }
 </pre></div>
 </p>
-<h4 id="4"><a name="user-content-4" href="#4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "documentary_order"> 4.获取跟单的持仓订单</span></h4>
+<h4 id="5"><a name="user-content-5" href="#5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_master_history_info">5.获取用户跟随单个高手持仓明细</span></h4>
+<ul>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/get_master_history_info
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/get_master_history_info
+</pre></div>
+</li>
+<li>类型:HTTPS post</li>
+<li>参数:JSON String</li>
+<li>传递参数:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法:get_master_history_info</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">第三方用户id</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">老虎mt4_id</td>
+</tr>
+<tr>
+<td align="center">from_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">跟随高手usercode</td>
+</tr>
+<tr>
+<td align="center">page</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">分页</td>
+</tr>
+<tr>
+<td align="center">pagesize</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">取多少条</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true:成功 false:失败</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回错误信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center">请求成功</td>
+</tr>
+<tr>
+<td align="center">101</td>
+<td align="center"></td>
+<td align="center">传递参数错误</td>
+</tr>
+<tr>
+<td align="center">105</td>
+<td align="center"></td>
+<td align="center">获取不到第三方用户信息或者老虎账户信息</td>
+</tr>
+<tr>
+<td align="center">303</td>
+<td align="center"></td>
+<td align="center">安全验证失败</td>
+</tr>
+<tr>
+<td align="center">num</td>
+<td align="center">int</td>
+<td align="center">总条数</td>
+</tr>
+<tr>
+<td align="center">data</td>
+<td align="center">array</td>
+<td align="center">返回的详细信息</td>
+</tr>
+<tr>
+<td align="center">order_id</td>
+<td align="center">int</td>
+<td align="center">订单id</td>
+</tr>
+<tr>
+<td align="center">profit</td>
+<td align="center">string</td>
+<td align="center">收益</td>
+</tr>
+<tr>
+<td align="center">symbol</td>
+<td align="center">string</td>
+<td align="center">品种名称</td>
+</tr>
+<tr>
+<td align="center">symbol_cn</td>
+<td align="center">string</td>
+<td align="center">交易品种中文名称</td>
+</tr>
+<tr>
+<td align="center">username</td>
+<td align="center">string</td>
+<td align="center">高手名称</td>
+</tr>
+<tr>
+<td align="center">usercode</td>
+<td align="center">string</td>
+<td align="center">高手usercode</td>
+</tr>
+<tr>
+<td align="center">open_price</td>
+<td align="center">double</td>
+<td align="center">开仓价格</td>
+</tr>
+<tr>
+<td align="center">close_price</td>
+<td align="center">double</td>
+<td align="center">平仓价格</td>
+</tr>
+<tr>
+<td align="center">volume</td>
+<td align="center">float</td>
+<td align="center">交易手数</td>
+</tr>
+<tr>
+<td align="center">action</td>
+<td align="center">int</td>
+<td align="center">交易类型 0做多 1做空</td>
+</tr>
+<tr>
+<td align="center">profit_rate</td>
+<td align="center">string</td>
+<td align="center">每单收益率</td>
+</tr>
+<tr>
+<td align="center">close_type</td>
+<td align="center">int</td>
+<td align="center">平仓类型 手动平仓：0，止损：1，止盈：2，强制：3，复制跟单：4</td>
+</tr>
+<tr>
+<td align="center">close_time</td>
+<td align="center">date</td>
+<td align="center">平仓时间</td>
+</tr>
+</tbody>
+</table>
+<p>返回成功json:<br />
+<div class="codehilite"><pre>{
+    &quot;is_succ&quot;:true,
+    &quot;error_msg&quot;:&quot;&quot;,
+    &quot;error_code&quot;:0,
+    &quot;num&quot;:2,
+    &quot;data&quot;:[
+        {
+            &quot;close_type&quot;:0,
+            &quot;profit_rate&quot;:&quot;-21.40&quot;,
+            &quot;username&quot;:&quot;Sandy&quot;,
+            &quot;usercode&quot;:&quot;3303&quot;,
+            &quot;action&quot;:1,
+            &quot;open_price&quot;:2.02384,
+            &quot;close_price&quot;:2.02526,
+            &quot;symbol&quot;:&quot;GBPCAD&quot;,
+            &quot;volume&quot;:0.01,
+            &quot;profit&quot;:&quot;-1.07&quot;,
+            &quot;order_id&quot;:337277,
+            &quot;close_time&quot;:&quot;2015-11-17 18:40:13&quot;
+        },
+        {
+            &quot;close_type&quot;:0,
+            &quot;profit_rate&quot;:&quot;35.20&quot;,
+            &quot;username&quot;:&quot;Sandy&quot;,
+            &quot;usercode&quot;:&quot;3303&quot;,
+            &quot;action&quot;:1,
+            &quot;open_price&quot;:2.14105,
+            &quot;close_price&quot;:2.13858,
+            &quot;symbol&quot;:&quot;GBPAUD&quot;,
+            &quot;volume&quot;:0.01,
+            &quot;profit&quot;:&quot;1.76&quot;,
+            &quot;order_id&quot;:337267,
+            &quot;close_time&quot;:&quot;2015-11-17 15:30:36&quot;
+        }
+    ]
+}
+</pre></div>
+</p>
+<h4 id="6"><a name="user-content-6" href="#6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "documentary_order"> 6.获取跟单的持仓订单</span></h4>
 <p>接口说明:<br />
 如果用户有跟随高手，他跟高手的订单关系不会马上生成，会有10到30秒的延迟时间。需用到该接口的ticket（订单）参数去跟  【<a href="#foreign_order">5.外汇持仓接口</a>】 匹配找到它们的跟单关系。</p>
 <ul>
@@ -1469,7 +1827,7 @@ body .markdown-body
 <tr>
 <td align="center">error_msg</td>
 <td align="center">string</td>
-<td align="center">返回信息</td>
+<td align="center">返回错误信息</td>
 </tr>
 <tr>
 <td align="center">error_code</td>
@@ -1533,7 +1891,7 @@ body .markdown-body
 }
 </pre></div>
 </p>
-<h4 id="5"><a name="user-content-5" href="#5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "foreign_order"> 5.外汇持仓接口</span></h4>
+<h4 id="7"><a name="user-content-7" href="#7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "foreign_order"> 7.外汇持仓接口</span></h4>
 <p>接口说明:<br />
 外汇持仓接口是获取用户开仓后所有的实时订单接口，不包括跟单关系，需要用到该接口的ticket（订单）参数去跟【<a href="#documentary_order">4.获取跟单的持仓订单</a>】 匹配找到它们的跟单关系。<br />
 比如：<br />
@@ -1611,7 +1969,7 @@ body .markdown-body
 <tr>
 <td align="center">error_msg</td>
 <td align="center">string</td>
-<td align="center">返回信息</td>
+<td align="center">返回错误信息</td>
 </tr>
 <tr>
 <td align="center">error_code</td>
@@ -1772,7 +2130,7 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 <span class="p">}</span>
 </pre></div>
 </p>
-<h4 id="6"><a name="user-content-6" href="#6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "foreign_exchange_account"> 6.外汇账户汇总接口</span></h4>
+<h4 id="8"><a name="user-content-8" href="#8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "foreign_exchange_account"> 8.外汇账户汇总接口</span></h4>
 <ul>
 <li>测试请求URL:<br />
 <div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/foreign_exchange_account
@@ -1846,7 +2204,7 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 <tr>
 <td align="center">error_msg</td>
 <td align="center">string</td>
-<td align="center">返回信息</td>
+<td align="center">返回错误信息</td>
 </tr>
 <tr>
 <td align="center">error_code</td>
@@ -1937,7 +2295,7 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 }
 </pre></div>
 </p>
-<h4 id="7"><a name="user-content-7" href="#7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_trade_record"> 7.获取用户所有历史交易记录</span></h4>
+<h4 id="9"><a name="user-content-9" href="#9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_trade_record"> 9.获取用户所有历史交易记录</span></h4>
 <ul>
 <li>测试请求URL:<br />
 <div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/get_trade_record
@@ -2023,7 +2381,7 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 <tr>
 <td align="center">error_msg</td>
 <td align="center">string</td>
-<td align="center">返回信息</td>
+<td align="center">返回错误信息</td>
 </tr>
 <tr>
 <td align="center">error_code</td>
@@ -2147,7 +2505,7 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 }
 </pre></div>
 </p>
-<h4 id="8"><a name="user-content-8" href="#8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_payment_record"> 8.充值记录</span></h4>
+<h4 id="10"><a name="user-content-10" href="#10" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_payment_record"> 10.充值记录</span></h4>
 <ul>
 <li>测试请求URL:<br />
 <div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/get_payment_record
@@ -2233,7 +2591,7 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 <tr>
 <td align="center">error_msg</td>
 <td align="center">string</td>
-<td align="center">返回信息</td>
+<td align="center">返回错误信息</td>
 </tr>
 <tr>
 <td align="center">error_code</td>

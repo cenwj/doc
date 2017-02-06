@@ -15,11 +15,13 @@
 ### 开户、个人中心
 * [开户](/api/user.html#signup)
 * [获取跟随高手当前订单分组](/api/user.html#get_master_group)
+* [获取用户跟随单个高手持仓明细](/api/user.html#get_master_order_info)
 * [获取跟随高手历史订单分组](/api/user.html#get_master_history_group)
+* [获取用户跟随单个高手平仓明细](/api/user.html#get_master_history_info)
+* [获取用户所有历史交易记录](/api/user.html#get_trade_record)
 * [获取跟单的持仓订单](/api/user.html#documentary_order) 
 * [外汇持仓接口](/api/user.html#foreign_order)
 * [外汇账户汇总接口](/api/user.html#foreign_exchange_account)
-* [获取用户所有历史交易记录](/api/user.html#get_trade_record)
 * [充值记录](/api/user.html#get_payment_record)
 
 
