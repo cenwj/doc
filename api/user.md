@@ -413,3 +413,73 @@ https://api.tigerwit.com/action/public/api/get_trade_record
 }
 ```
 
+
+#### <span id = "get_payment_record"> 8.充值记录</span>
+
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/get_payment_record
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/get_payment_record
+```
+* 类型:HTTPS post 
+* 参数:JSON String 
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法: get_payment_record|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|user_id|int|是|第三方用户id|
+|mt4_id|int|是|老虎mt4_id|
+|page|int|是|页数|
+|pagesize|int|是|条数|
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool|true/false|
+|error_msg|string|返回信息|
+|error_code|int|返回码|
+|0| |请求成功|
+|101| |传递参数错误|
+|105| |获取不到第三方用户信息或者老虎账户信息|
+|303| |安全验证失败|
+|num|int|总条数|
+|data|array|返回的详细信息|
+| status |int|1 有记录 2 有请求链接生成的记录 3 支付接入商返回失败 4 确认支付成功 5 开户赠金 6 推荐好友赠金 7信用值 0 无此单 -1 已提交 -2 已撤销 -3 处理中 -4 拒绝出金 -5 出金处理完毕  |
+| direction |int|1入金 -1出金|
+| rmb_amount | float |出入金[人民币]|
+| usd_amount |float|出入金[美元]|
+| parity | double |出入金汇率|
+| time | string |出入金时间|
+
+注意:
+判断出金或者入金根据 direction=1 是入金 direction=-1 是出金。
+status为负数则是对应direction=-1出金的状态，入金则反之。
+
+返回成功json:
+```
+{
+    "error_code":0,
+    "error_msg":"",
+    "is_succ":true,
+    "num":12,
+    "data":[
+        {
+            "direction":1,
+            "time":"2016-03-14 09:49:24",
+            "rmb_amount":6660,
+            "usd_amount":1061.93,
+            "parity":6.2716,
+            "status":4
+        }
+    ]
+}
+```
+
+<center> [返回顶部](#top) </center>     

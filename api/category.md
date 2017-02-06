@@ -20,7 +20,7 @@
 * [外汇持仓接口](/api/user.html#foreign_order)
 * [外汇账户汇总接口](/api/user.html#foreign_exchange_account)
 * [获取用户所有历史交易记录](/api/user.html#get_trade_record)
-* 充值记录
+* [充值记录](/api/user.html#get_payment_record)
 
 ### 高手 
 * 获取高手列表
