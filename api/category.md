@@ -39,16 +39,15 @@
 * [获取高手最低复制金额](/api/master.html#get_master_min_copy_amount)
 
 ### 交易品种
-* 获取交易品种汇总
-* 获取交易品种详情 
-* 所有交易品种详情
-* 获取单个品种、开收盘信息
-* 获取多个品种、昨日收盘价格【有缓存】
-* 历史报价
+* [获取交易品种汇总](/api/symbols.html#get_symbols)
+* [所有交易品种详情](/api/symbols.html#symbol_list_info)
+* [获取单个品种、开收盘信息](/api/symbols.html#history_day_info)
+* [获取多个品种、昨日收盘价格【有缓存】](/api/symbols.html#yesterday_close_price)
+* [历史报价](/api/symbols.html#get_symbols_history)
 
-### 下单、平仓、挂单
-* 开仓
-* 平仓
+### 开仓、平仓、挂单
+* [开仓](/api/trade.html#open_trader)
+* [平仓](/api/trade.html#close_trader)
 * 修改订单止盈止损 
 * 挂单交易接口 
 * 修改挂单 
