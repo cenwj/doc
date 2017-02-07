@@ -1367,4 +1367,130 @@ body .markdown-body
 <td align="center">定单id</td>
 </tr>
 </tbody>
-</table></article></body></html>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true:成功 false:失败</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回错误信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center">获取成功</td>
+</tr>
+<tr>
+<td align="center">101</td>
+<td align="center"></td>
+<td align="center">传递参数错误</td>
+</tr>
+<tr>
+<td align="center">105</td>
+<td align="center"></td>
+<td align="center">获取不到第三方用户信息</td>
+</tr>
+<tr>
+<td align="center">130</td>
+<td align="center"></td>
+<td align="center">交易类型错误</td>
+</tr>
+<tr>
+<td align="center">144</td>
+<td align="center"></td>
+<td align="center">定单类型错误</td>
+</tr>
+<tr>
+<td align="center">303</td>
+<td align="center"></td>
+<td align="center">验证失败</td>
+</tr>
+<tr>
+<td align="center">data</td>
+<td align="center">Object</td>
+<td align="center">返回的信息</td>
+</tr>
+<tr>
+<td align="center">ticket</td>
+<td align="center">int</td>
+<td align="center">定单号</td>
+</tr>
+<tr>
+<td align="center">symbol_en</td>
+<td align="center">string</td>
+<td align="center">交易品种(英文)</td>
+</tr>
+<tr>
+<td align="center">symbol_cn</td>
+<td align="center">string</td>
+<td align="center">交易品种(中文)</td>
+</tr>
+<tr>
+<td align="center">action</td>
+<td align="center">int</td>
+<td align="center">交易类型  [0=&gt;&rsquo;买&rsquo;, 1=&gt;&rsquo;卖&rsquo;]</td>
+</tr>
+<tr>
+<td align="center">profit</td>
+<td align="center">float</td>
+<td align="center">收益</td>
+</tr>
+<tr>
+<td align="center">open_price</td>
+<td align="center">string</td>
+<td align="center">开仓价格</td>
+</tr>
+<tr>
+<td align="center">close_price</td>
+<td align="center">string</td>
+<td align="center">平仓价格</td>
+</tr>
+<tr>
+<td align="center">volume</td>
+<td align="center">int</td>
+<td align="center">平仓手数</td>
+</tr>
+<tr>
+<td align="center">close_time</td>
+<td align="center">string</td>
+<td align="center">平仓时间</td>
+</tr>
+</tbody>
+</table>
+<p>返回成功json:<br />
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="s2">&quot;error_code&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;error_msg&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;交易成功&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;is_succ&quot;</span><span class="s s-Atom">:true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="s s-Atom">:</span><span class="p">{</span>
+        <span class="s2">&quot;ticket&quot;</span><span class="s s-Atom">:</span><span class="mi">476041</span><span class="p">,</span>
+        <span class="s2">&quot;symbol_en&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;USDCNH&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;action&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;symbol_cn&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;美元人民币&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;open_price&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;6.74615&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;profit&quot;</span><span class="p">:-</span><span class="mf">0.12</span><span class="p">,</span>
+        <span class="s2">&quot;close_price&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;6.74534&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;volume&quot;</span><span class="s s-Atom">:</span><span class="mf">0.01</span><span class="p">,</span>
+        <span class="s2">&quot;close_time&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;2011-11-11 11:11:11&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</p></article></body></html>

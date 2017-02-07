@@ -109,5 +109,47 @@ https://api.tigerwit.com/action/public/api/close_trader
 
 返回参数说明:
 
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool|true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|int|返回码|
+|0| |获取成功|
+|101| |传递参数错误|
+|105| |获取不到第三方用户信息|
+|130| |交易类型错误|
+|144| |定单类型错误|
+|303| |验证失败|
+|data|Object|返回的信息|
+|ticket|int|定单号|
+|symbol_en|string|交易品种(英文)|
+|symbol_cn|string|交易品种(中文)|
+|action| int |交易类型  [0=>'买', 1=>'卖']|
+|profit| float |收益|
+|open_price|string|开仓价格|
+|close_price|string|平仓价格|
+|volume|int|平仓手数|
+|close_time|string|平仓时间|
+
+返回成功json:
+```
+{
+    "error_code":0,
+    "error_msg":"交易成功",
+    "is_succ":true,
+    "data":{
+        "ticket":476041,
+        "symbol_en":"USDCNH",
+        "action":0,
+        "symbol_cn":"美元人民币",
+        "open_price":"6.74615",
+        "profit":-0.12,
+        "close_price":"6.74534",
+        "volume":0.01,
+        "close_time":"2011-11-11 11:11:11"
+    }
+}
+```
+
 
 
