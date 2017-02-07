@@ -1,6 +1,6 @@
 # 老虎外汇文档
 
-#### [系统功能](/) |  [接口分类](/api/category.html) | [报价推送](/quote.html) | [盈亏计算](/formula.html) | [止盈止损](/level.html) | [高手分成](/bouns.html)
+#### [系统功能](/) |  [接口分类](/api/category.html) | [报价推送](/quote.html) | [盈亏计算](/formula.html) | [止盈止损](/level.html) | [高手分成](/bouns.html) | [挂单](pending.html)
 
 
 ## 接口分类
@@ -48,11 +48,11 @@
 ### 开仓、平仓、挂单
 * [开仓](/api/trade.html#open_trader)
 * [平仓](/api/trade.html#close_trader)
-* 修改订单止盈止损 
-* 挂单交易接口 
-* 修改挂单 
-* 删除挂单 
-* 获取所有挂单 
+* [修改订单止盈止损](/api/trade.html#update_trader)
+* [挂单交易接口](/api/trade.html#pending_order) 
+* [修改挂单](/api/trade.html#pending_modify) 
+* [删除挂单](/api/trade.html#pending_delete) 
+* [获取所有挂单](/api/trade.html#get_pending) 
 
 ### 入金、出金、汇率
 

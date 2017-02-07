@@ -1078,7 +1078,7 @@ body .markdown-body
 .codehilite .il{color:#009999}
 .codehilite .gc{color:#999;background-color:#EAF2F5}
 </style><title>trade</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>老虎外汇文档</h1>
-<h4 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote.html">报价推送</a> | <a href="/formula.html">盈亏计算</a> | <a href="/level.html">止盈止损</a> | <a href="/bouns.html">高手分成</a></h4>
+<h4 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote.html">报价推送</a> | <a href="/formula.html">盈亏计算</a> | <a href="/level.html">止盈止损</a> | <a href="/bouns.html">高手分成</a> | <a href="/Users/cenwj/www/doc/api/pending.html">挂单</a></h4>
 <p>========================开仓、平仓、挂单=========================</p>
 <h4 id="1"><a name="user-content-1" href="#1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "open_trader">1.开仓</span></h4>
 <ul>
@@ -1495,5 +1495,998 @@ occupy_asset:占用保证金<br />
         <span class="s2">&quot;close_time&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;2011-11-11 11:11:11&quot;</span>
     <span class="p">}</span>
 <span class="p">}</span>
+</pre></div>
+</p>
+<h4 id="3"><a name="user-content-3" href="#3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "update_trader">3.修改订单止盈止损</span></h4>
+<ul>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/update_trader
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/update_trader
+</pre></div>
+</li>
+<li>类型:HTTPS post</li>
+<li>参数:JSON String</li>
+<li>传递参数:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法:update_trader</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">第三方user_id</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">绑定老虎的mt4_id</td>
+</tr>
+<tr>
+<td align="center">ticket</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">定单id</td>
+</tr>
+<tr>
+<td align="center">sl</td>
+<td align="center">double</td>
+<td align="center">是</td>
+<td align="center">止损价格</td>
+</tr>
+<tr>
+<td align="center">tp</td>
+<td align="center">double</td>
+<td align="center">是</td>
+<td align="center">止盈价格</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true:成功 false:失败</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回错误信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center">修改成功</td>
+</tr>
+<tr>
+<td align="center">101</td>
+<td align="center"></td>
+<td align="center">传递参数错误</td>
+</tr>
+<tr>
+<td align="center">105</td>
+<td align="center"></td>
+<td align="center">获取不到第三方用户信息</td>
+</tr>
+<tr>
+<td align="center">142</td>
+<td align="center"></td>
+<td align="center">不能修改别人定单</td>
+</tr>
+<tr>
+<td align="center">303</td>
+<td align="center"></td>
+<td align="center">验证失败</td>
+</tr>
+<tr>
+<td align="center">400</td>
+<td align="center"></td>
+<td align="center">修改失败</td>
+</tr>
+</tbody>
+</table>
+<p>返回成功json:<br />
+<div class="codehilite"><pre>{
+    &quot;is_succ&quot;:true,
+    &quot;error_msg&quot;:&quot;修改成功&quot;,
+    &quot;error_code&quot;:0
+}
+</pre></div>
+</p>
+<h4 id="4"><a name="user-content-4" href="#4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "pending_order">4.挂单交易接口</span>  <a href="/pending.html">【挂单文档】</a></h4>
+<ul>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/pending_order
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/pending_order
+</pre></div>
+</li>
+<li>类型:HTTPS post</li>
+<li>参数:JSON String</li>
+<li>传递参数:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法:pending_order</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">第三方用户id</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">老虎mt4_id</td>
+</tr>
+<tr>
+<td align="center">cmd</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">交易类型枚举，OP_BUY_LIMIT - 2, OP_SELL_LIMIT - 3, OP_BUY_STOP - 4, OP_SELL_STOP - 5, 传递数字</td>
+</tr>
+<tr>
+<td align="center">volume</td>
+<td align="center">float</td>
+<td align="center">是</td>
+<td align="center">交易手数 1为0.01手</td>
+</tr>
+<tr>
+<td align="center">symbol</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">产品名称, 携带杠杆, 如EURUSD, XAUUSD200, HK50, 类型string</td>
+</tr>
+<tr>
+<td align="center">pending_price</td>
+<td align="center">double</td>
+<td align="center">是</td>
+<td align="center">挂单价格</td>
+</tr>
+<tr>
+<td align="center">tp</td>
+<td align="center">double</td>
+<td align="center">是</td>
+<td align="center">止盈价格, 不设置止盈该值为0</td>
+</tr>
+<tr>
+<td align="center">sl</td>
+<td align="center">double</td>
+<td align="center">是</td>
+<td align="center">止损价格, 不设置止损该值为0</td>
+</tr>
+<tr>
+<td align="center">expiration_time</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">过期时间戳, 具体过期时间为开仓时间加该时间戳秒数 永久为0</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true:成功 false:失败</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回错误信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center">请求成功</td>
+</tr>
+<tr>
+<td align="center">101</td>
+<td align="center"></td>
+<td align="center">传递参数错误</td>
+</tr>
+<tr>
+<td align="center">105</td>
+<td align="center"></td>
+<td align="center">获取不到第三方用户信息或者老虎账户信息</td>
+</tr>
+<tr>
+<td align="center">303</td>
+<td align="center"></td>
+<td align="center">安全验证失败</td>
+</tr>
+<tr>
+<td align="center">data</td>
+<td align="center">object</td>
+<td align="center">返回的详细信息</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">下单mt4_id</td>
+</tr>
+<tr>
+<td align="center">order</td>
+<td align="center">int</td>
+<td align="center">成功的订单好</td>
+</tr>
+<tr>
+<td align="center">cmd</td>
+<td align="center">int</td>
+<td align="center">交易类型</td>
+</tr>
+<tr>
+<td align="center">volume</td>
+<td align="center">float</td>
+<td align="center">下单手数</td>
+</tr>
+<tr>
+<td align="center">symbol_en</td>
+<td align="center">string</td>
+<td align="center">下单交易品种 英文</td>
+</tr>
+<tr>
+<td align="center">symbol_cn</td>
+<td align="center">string</td>
+<td align="center">下单交易品种 中文</td>
+</tr>
+<tr>
+<td align="center">open_price</td>
+<td align="center">string</td>
+<td align="center">挂单价格</td>
+</tr>
+<tr>
+<td align="center">market_price</td>
+<td align="center">string</td>
+<td align="center">市场价格</td>
+</tr>
+<tr>
+<td align="center">tp</td>
+<td align="center">string</td>
+<td align="center">止盈价格</td>
+</tr>
+<tr>
+<td align="center">sl</td>
+<td align="center">string</td>
+<td align="center">止损价格</td>
+</tr>
+<tr>
+<td align="center">open_time</td>
+<td align="center">int</td>
+<td align="center">挂单建立时间</td>
+</tr>
+<tr>
+<td align="center">expiration</td>
+<td align="center">string</td>
+<td align="center">挂单过期时间</td>
+</tr>
+</tbody>
+</table>
+<p>返回成功json:<br />
+<div class="codehilite"><pre>{
+    &quot;error_code&quot;:0,
+    &quot;error_msg&quot;:&quot;&quot;,
+    &quot;is_succ&quot;:true,
+    &quot;data&quot;:{
+        &quot;mt4_id&quot;:500970,
+        &quot;order&quot;:462082,
+        &quot;cmd&quot;:2,
+        &quot;volume&quot;:1,
+        &quot;symbol_cn&quot;:&quot;NZDCAD&quot;,
+        &quot;symbol_en&quot;:&quot;新西兰元加元&quot;,
+        &quot;open_price&quot;:&quot;0.1441&quot;,
+        &quot;market_price&quot;:&quot;0.94449&quot;,
+        &quot;tp&quot;:&quot;0&quot;,
+        &quot;sl&quot;:&quot;0&quot;,
+        &quot;open_time&quot;:1472194322,
+        &quot;expiration&quot;:&quot;2016-11-11 11:11:11&quot;
+    }
+}
+</pre></div>
+</p>
+<h4 id="5"><a name="user-content-5" href="#5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "pending_modify">5.修改挂单</span></h4>
+<ul>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/pending_modify
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/pending_modify
+</pre></div>
+</li>
+<li>类型:HTTPS post</li>
+<li>参数:JSON String</li>
+<li>传递参数:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法:pending_modify</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">第三方用户id</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">老虎mt4_id</td>
+</tr>
+<tr>
+<td align="center">ticket</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">订单号</td>
+</tr>
+<tr>
+<td align="center">pending_price</td>
+<td align="center">double</td>
+<td align="center">是</td>
+<td align="center">挂单价格</td>
+</tr>
+<tr>
+<td align="center">tp</td>
+<td align="center">double</td>
+<td align="center">是</td>
+<td align="center">止盈价格, 不修改原止盈为原值, 不使用止盈为0</td>
+</tr>
+<tr>
+<td align="center">sl</td>
+<td align="center">double</td>
+<td align="center">是</td>
+<td align="center">止损价格, 不修改原止损为原值, 不使用止损为0</td>
+</tr>
+<tr>
+<td align="center">expiration_time</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">过期时间戳, 不修改为-1, 不使用过期时间为0</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true:成功 false:失败</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回错误信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center">请求成功</td>
+</tr>
+<tr>
+<td align="center">101</td>
+<td align="center"></td>
+<td align="center">传递参数错误</td>
+</tr>
+<tr>
+<td align="center">105</td>
+<td align="center"></td>
+<td align="center">获取不到第三方用户信息或者老虎账户信息</td>
+</tr>
+<tr>
+<td align="center">303</td>
+<td align="center"></td>
+<td align="center">安全验证失败</td>
+</tr>
+<tr>
+<td align="center">data</td>
+<td align="center">object</td>
+<td align="center">返回的详细信息</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">mt4_id</td>
+</tr>
+<tr>
+<td align="center">order</td>
+<td align="center">int</td>
+<td align="center">修改的订单号</td>
+</tr>
+<tr>
+<td align="center">cmd</td>
+<td align="center">int</td>
+<td align="center">交易类型</td>
+</tr>
+<tr>
+<td align="center">volume</td>
+<td align="center">float</td>
+<td align="center">下单手数</td>
+</tr>
+<tr>
+<td align="center">symbol_en</td>
+<td align="center">string</td>
+<td align="center">下单交易品种 英文</td>
+</tr>
+<tr>
+<td align="center">symbol_cn</td>
+<td align="center">string</td>
+<td align="center">下单交易品种 中文</td>
+</tr>
+<tr>
+<td align="center">open_price</td>
+<td align="center">string</td>
+<td align="center">挂单价格</td>
+</tr>
+<tr>
+<td align="center">market_price</td>
+<td align="center">double</td>
+<td align="center">市场价格</td>
+</tr>
+<tr>
+<td align="center">tp</td>
+<td align="center">string</td>
+<td align="center">止盈价格</td>
+</tr>
+<tr>
+<td align="center">sl</td>
+<td align="center">string</td>
+<td align="center">止损价格</td>
+</tr>
+<tr>
+<td align="center">open_time</td>
+<td align="center">string</td>
+<td align="center">挂单建立时间，本接口该值不会变化</td>
+</tr>
+<tr>
+<td align="center">expiration</td>
+<td align="center">int</td>
+<td align="center">挂单过期时间，0为不使用过期时间</td>
+</tr>
+</tbody>
+</table>
+<p>返回成功json:<br />
+<div class="codehilite"><pre>{
+    &quot;error_code&quot;:0,
+    &quot;error_msg&quot;:&quot;&quot;,
+    &quot;is_succ&quot;:true,
+    &quot;data&quot;:{
+        &quot;mt4_id&quot;:500970,
+        &quot;order&quot;:462343,
+        &quot;cmd&quot;:2,
+        &quot;volume&quot;:1,
+        &quot;symbol_en&quot;:&quot;NZDCAD&quot;,
+        &quot;symbol_cn&quot;:&quot;中文产品&quot;,
+        &quot;open_price&quot;:&quot;0.1441&quot;,
+        &quot;market_price&quot;:0,
+        &quot;tp&quot;:&quot;0&quot;,
+        &quot;sl&quot;:&quot;0&quot;,
+        &quot;open_time&quot;:&quot;2016-11-11 11:11:11&quot;,
+        &quot;expiration&quot;:1472539005
+    }
+}
+</pre></div>
+</p>
+<h4 id="6"><a name="user-content-6" href="#6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "pending_delete">6.删除挂单</span></h4>
+<ul>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/pending_delete
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/pending_delete
+</pre></div>
+</li>
+<li>类型:HTTPS post</li>
+<li>参数:JSON String</li>
+<li>传递参数:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法:pending_delete</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">第三方用户id</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">老虎mt4_id</td>
+</tr>
+<tr>
+<td align="center">ticket</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">订单号</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true:成功 false:失败</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回错误信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center">请求成功</td>
+</tr>
+<tr>
+<td align="center">101</td>
+<td align="center"></td>
+<td align="center">传递参数错误</td>
+</tr>
+<tr>
+<td align="center">105</td>
+<td align="center"></td>
+<td align="center">获取不到第三方用户信息或者老虎账户信息</td>
+</tr>
+<tr>
+<td align="center">303</td>
+<td align="center"></td>
+<td align="center">安全验证失败</td>
+</tr>
+<tr>
+<td align="center">data</td>
+<td align="center">object</td>
+<td align="center">返回的详细信息</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">mt4_id</td>
+</tr>
+<tr>
+<td align="center">order</td>
+<td align="center">int</td>
+<td align="center">修改的订单号</td>
+</tr>
+<tr>
+<td align="center">cmd</td>
+<td align="center">int</td>
+<td align="center">交易类型</td>
+</tr>
+<tr>
+<td align="center">volume</td>
+<td align="center">float</td>
+<td align="center">下单手数</td>
+</tr>
+<tr>
+<td align="center">symbol_en</td>
+<td align="center">string</td>
+<td align="center">下单交易品种 英文</td>
+</tr>
+<tr>
+<td align="center">symbol_cn</td>
+<td align="center">string</td>
+<td align="center">下单交易品种 中文</td>
+</tr>
+<tr>
+<td align="center">open_price</td>
+<td align="center">string</td>
+<td align="center">挂单价格</td>
+</tr>
+<tr>
+<td align="center">market_price</td>
+<td align="center">string</td>
+<td align="center">市场价格</td>
+</tr>
+<tr>
+<td align="center">tp</td>
+<td align="center">string</td>
+<td align="center">止盈价格</td>
+</tr>
+<tr>
+<td align="center">sl</td>
+<td align="center">string</td>
+<td align="center">止损价格</td>
+</tr>
+<tr>
+<td align="center">open_time</td>
+<td align="center">int</td>
+<td align="center">挂单建立时间，本接口该值不会变化</td>
+</tr>
+<tr>
+<td align="center">expiration</td>
+<td align="center">int</td>
+<td align="center">挂单过期时间，0为不使用过期时间</td>
+</tr>
+</tbody>
+</table>
+<p>返回成功json:<br />
+<div class="codehilite"><pre>{
+    &quot;error_code&quot;:0,
+    &quot;error_msg&quot;:&quot;&quot;,
+    &quot;is_succ&quot;:true,
+    &quot;data&quot;:{
+        &quot;mt4_id&quot;:500970,
+        &quot;order&quot;:462343,
+        &quot;cmd&quot;:2,
+        &quot;volume&quot;:1,
+        &quot;symbol_en&quot;:&quot;NZDCAD&quot;,
+        &quot;symbol_cn&quot;:&quot;中文产品&quot;,
+        &quot;open_price&quot;:&quot;0.1441&quot;,
+        &quot;market_price&quot;:&quot;0&quot;,
+        &quot;tp&quot;:&quot;0&quot;,
+        &quot;sl&quot;:&quot;0&quot;,
+        &quot;open_time&quot;:1472538305,
+        &quot;expiration&quot;:1472539005
+    }
+}
+</pre></div>
+</p>
+<h4 id="7"><a name="user-content-7" href="#7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_pending">7.获取所有挂单</span></h4>
+<ul>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/get_pending
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/get_pending
+</pre></div>
+</li>
+<li>类型:HTTPS post</li>
+<li>参数:JSON String</li>
+<li>传递参数:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法:get_pending</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">第三方用户id</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">老虎mt4_id</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true:成功 false:失败</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回错误信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center">请求成功</td>
+</tr>
+<tr>
+<td align="center">101</td>
+<td align="center"></td>
+<td align="center">传递参数错误</td>
+</tr>
+<tr>
+<td align="center">105</td>
+<td align="center"></td>
+<td align="center">获取不到第三方用户信息或者老虎账户信息</td>
+</tr>
+<tr>
+<td align="center">303</td>
+<td align="center"></td>
+<td align="center">安全验证失败</td>
+</tr>
+<tr>
+<td align="center">data</td>
+<td align="center">array</td>
+<td align="center">返回的详细信息</td>
+</tr>
+<tr>
+<td align="center">order</td>
+<td align="center">int</td>
+<td align="center">订单id</td>
+</tr>
+<tr>
+<td align="center">open_time</td>
+<td align="center">int</td>
+<td align="center">挂单建立时间</td>
+</tr>
+<tr>
+<td align="center">cmd</td>
+<td align="center">int</td>
+<td align="center">订单方向</td>
+</tr>
+<tr>
+<td align="center">volume</td>
+<td align="center">float</td>
+<td align="center">手数</td>
+</tr>
+<tr>
+<td align="center">symbol_en</td>
+<td align="center">string</td>
+<td align="center">交易品种 英文</td>
+</tr>
+<tr>
+<td align="center">symbol_cn</td>
+<td align="center">string</td>
+<td align="center">交易品种 中文</td>
+</tr>
+<tr>
+<td align="center">open_price</td>
+<td align="center">string</td>
+<td align="center">挂单价格</td>
+</tr>
+<tr>
+<td align="center">sl</td>
+<td align="center">string</td>
+<td align="center">止损</td>
+</tr>
+<tr>
+<td align="center">tp</td>
+<td align="center">string</td>
+<td align="center">止盈</td>
+</tr>
+<tr>
+<td align="center">digits</td>
+<td align="center">int</td>
+<td align="center">小数点位</td>
+</tr>
+<tr>
+<td align="center">expiration</td>
+<td align="center">int</td>
+<td align="center">过期时间 时间戳</td>
+</tr>
+<tr>
+<td align="center">price</td>
+<td align="center">string</td>
+<td align="center">当前价格</td>
+</tr>
+</tbody>
+</table>
+<p>返回成功json:<br />
+<div class="codehilite"><pre>{
+    &quot;error_code&quot;:0,
+    &quot;error_msg&quot;:&quot;&quot;,
+    &quot;is_succ&quot;:true,
+    &quot;data&quot;:[
+        {
+            &quot;order&quot;:462338,
+            &quot;open_time&quot;:1472537895,
+            &quot;cmd&quot;:4,
+            &quot;volume&quot;:0.01,
+            &quot;symbol_en&quot;:&quot;AUDJPY&quot;,
+            &quot;symbol_cn&quot;:&quot;澳元日元&quot;,
+            &quot;open_price&quot;:&quot;81&quot;,
+            &quot;sl&quot;:&quot;0&quot;,
+            &quot;tp&quot;:&quot;0&quot;,
+            &quot;digits&quot;:3,
+            &quot;price&quot;:&quot;77.25&quot;,
+            &quot;expiration&quot;:0
+        },
+        {
+            &quot;order&quot;:462363,
+            &quot;open_time&quot;:&quot;2016-11-11 11:11:11&quot;,
+            &quot;cmd&quot;:4,
+            &quot;volume&quot;:0.01,
+            &quot;symbol_en&quot;:&quot;AUDCHF50&quot;,
+            &quot;symbol_cn&quot;:&quot;澳元瑞郎&quot;,
+            &quot;open_price&quot;:&quot;1.74001&quot;,
+            &quot;sl&quot;:0,
+            &quot;tp&quot;:0,
+            &quot;digits&quot;:5,
+            &quot;price&quot;:&quot;0.74002&quot;,
+            &quot;expiration&quot;:0
+        }
+    ]
+}
 </pre></div>
 </p></article></body></html>
