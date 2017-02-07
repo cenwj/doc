@@ -12,7 +12,7 @@
 参数:json格式字符串的byte数组 
 ```
 { 
-"UserName":"tiger", 
+"UserName":"xxx", 
 "LoginTime":登陆时间,类型:datetime 
 "DevId":唯一标示,GUID,类型:string 
 "Token":登陆参数，类型:string 

@@ -6,8 +6,8 @@
 ## 接口分类
  
 >=============================接口说明============================
->测试服务器接口统一地址入口:http://demo.tigerwit.com/action/public/api/
->正式服务器接口统一地址入口:https://api.tigerwit.com/action/public/api/
+>测试服务器接口统一地址入口: `http://demo.tigerwit.com/action/public/api/`
+>正式服务器接口统一地址入口: `https://api.tigerwit.com/action/public/api/`
 >生成签名方式点击:[加密方式](/index.html#fangshi)
 >===============================================================
 
