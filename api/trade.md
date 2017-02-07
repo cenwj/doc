@@ -57,9 +57,9 @@ https://api.tigerwit.com/action/public/api/open_trader
 |open_time|string|开仓时间|
 
 说明:
->开仓的时候可以同时设置止盈、止损，也可以单独设置止盈和止损。止盈和止损价格必须远离从[【所有交易品种详情】](/api/symbols.html#symbol_list_info)接口获取到的[stops_level]止损水平点。
+>开仓的时候可以同时设置止盈、止损，也可以单独设置止盈或止损。止盈和止损价格必须与当前报价绝对值必须大于从[【所有交易品种详情】](/api/symbols.html#symbol_list_info)接口获取到的[stops_level]止损水平点。
 开仓时设置止盈、止损价格需依据当前品种的实时平仓价来远离。
-平仓价格是依据cmd确定。
+平仓价格是依据cmd确定。（cmd为0的时候取ask,cmd为1的时候取bid）
 具体看[【报价推送】](/quote.html)
 
 margin_rate:预付款与存款货币的比率
