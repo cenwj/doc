@@ -1269,7 +1269,7 @@ body .markdown-body
 <tr>
 <td align="center">margin_rate</td>
 <td align="center">double</td>
-<td align="center">预付款 与 存款货币 的比率</td>
+<td align="center">预付款与存款货币的比率</td>
 </tr>
 <tr>
 <td align="center">open_time</td>
@@ -1285,6 +1285,9 @@ body .markdown-body
 平仓价格是依据cmd确定。<br />
 具体看<a href="/quote.html">【报价推送】</a></p>
 </blockquote>
+<p>margin_rate:预付款与存款货币的比率<br />
+occupy_asset:占用保证金<br />
+字段返回的【occupy_asset】参数是没有做货币转换的，需要occupy_asset*margin_rate。</p>
 <p>返回成功json:<br />
 <div class="codehilite"><pre>{
     &quot;is_succ&quot;:true,

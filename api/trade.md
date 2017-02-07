@@ -53,7 +53,7 @@ https://api.tigerwit.com/action/public/api/open_trader
 |occupy_asset|float|占用保证金|
 |tp|double|止盈价格|
 |sl|double|止损价格|
-|margin_rate|double|预付款 与 存款货币 的比率|
+|margin_rate|double|预付款与存款货币的比率|
 |open_time|string|开仓时间|
 
 说明:
@@ -61,6 +61,10 @@ https://api.tigerwit.com/action/public/api/open_trader
 开仓时设置止盈、止损价格需依据当前品种的实时平仓价来远离。
 平仓价格是依据cmd确定。
 具体看[【报价推送】](/quote.html)
+
+margin_rate:预付款与存款货币的比率
+occupy_asset:占用保证金
+字段返回的【occupy_asset】参数是没有做货币转换的，需要occupy_asset*margin_rate。
 
 返回成功json:
 ```
