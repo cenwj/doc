@@ -4,6 +4,48 @@
 
 ============================开户、个人中心============================
 #### <span id = "signup">1.开户</span>
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/get_master_group
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/get_master_group
+```
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法:signup_v2|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|user_id|int|是|第三方user_id|
+|phone|int|是|第三方用户手机号码|
+|id_no|string|是|第三方身份证号码|
+|username|string|是|第三方用户名称|
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool|true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|int|返回码|
+|0||获取成功|
+|101| |传递参数错误|
+|102| |手机号码不正确|
+|104| |生成mt4失败|
+|105| |获取不到第三方用户信息|
+|109| |第三方user_id已经绑定过老虎账户|
+|303| |验证失败|
+|117| |身份证号码第三方用户名称不能为空|
+|mt4_id|string|第三方用户开户成功后的返回老虎帐号mt4_id|
+
+```
+{"is_succ":true,"error_msg":"","error_code":0,"mt4_id":"500792"}
+```
 
 
 
