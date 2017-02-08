@@ -298,7 +298,7 @@ https://api.tigerwit.com/action/public/api/get_master_history_info
 
 #### <span id = "documentary_order"> 6.获取跟单的持仓订单</span>
 接口说明:
-如果用户有跟随高手，他跟高手的订单关系不会马上生成，会有10到30秒的延迟时间。需用到该接口的ticket（订单）参数去跟  【[5.外汇持仓接口](#foreign_order)】 匹配找到它们的跟单关系。
+如果用户有跟随高手，他跟高手的订单关系不会马上生成，会有10到30秒的延迟时间。需用到该接口的ticket（订单）参数去跟  【[外汇持仓接口](#foreign_order)】 匹配找到它们的跟单关系。
 
 * 测试请求URL:
 ```
@@ -355,7 +355,7 @@ https://api.tigerwit.com/action/public/api/documentary_order
 
 #### <span id = "foreign_order"> 7.外汇持仓接口</span>
 接口说明:
-外汇持仓接口是获取用户开仓后所有的实时订单接口，不包括跟单关系，需要用到该接口的ticket（订单）参数去跟【[4.获取跟单的持仓订单](#documentary_order)】 匹配找到它们的跟单关系。
+外汇持仓接口是获取用户开仓后所有的实时订单接口，不包括跟单关系，需要用到该接口的ticket（订单）参数去跟【[获取跟单的持仓订单](#documentary_order)】 匹配找到它们的跟单关系。
 比如：
 该接口的ticket=850037和【获取跟单的持仓订单】接口里面的ticket=850037则表示该订单是跟单订单。
 

@@ -1078,7 +1078,7 @@ body .markdown-body
 .codehilite .il{color:#009999}
 .codehilite .gc{color:#999;background-color:#EAF2F5}
 </style><title>user</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>老虎外汇文档</h1>
-<h4 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote.html">报价推送</a> | <a href="/formula.html">盈亏计算</a> | <a href="/level.html">止盈止损</a> | <a href="/bouns.html">高手分成</a> | <a href="pending.html">挂单</a></h4>
+<h4 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote.html">报价推送</a> | <a href="/formula.html">盈亏计算</a> | <a href="/level.html">止盈止损</a> | <a href="/bouns.html">高手分成</a> | <a href="/Users/cenwj/www/doc/api/pending.html">挂单</a></h4>
 <p>============================开户、个人中心============================</p>
 <h4 id="1"><a name="user-content-1" href="#1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "signup">1.开户</span></h4>
 <h4 id="2"><a name="user-content-2" href="#2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_master_group">2.获取跟随高手当前订单分组</span></h4>
@@ -1753,7 +1753,7 @@ body .markdown-body
 </p>
 <h4 id="6"><a name="user-content-6" href="#6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "documentary_order"> 6.获取跟单的持仓订单</span></h4>
 <p>接口说明:<br />
-如果用户有跟随高手，他跟高手的订单关系不会马上生成，会有10到30秒的延迟时间。需用到该接口的ticket（订单）参数去跟  【<a href="#foreign_order">5.外汇持仓接口</a>】 匹配找到它们的跟单关系。</p>
+如果用户有跟随高手，他跟高手的订单关系不会马上生成，会有10到30秒的延迟时间。需用到该接口的ticket（订单）参数去跟  【<a href="#foreign_order">外汇持仓接口</a>】 匹配找到它们的跟单关系。</p>
 <ul>
 <li>测试请求URL:<br />
 <div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/documentary_order
@@ -1893,7 +1893,7 @@ body .markdown-body
 </p>
 <h4 id="7"><a name="user-content-7" href="#7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "foreign_order"> 7.外汇持仓接口</span></h4>
 <p>接口说明:<br />
-外汇持仓接口是获取用户开仓后所有的实时订单接口，不包括跟单关系，需要用到该接口的ticket（订单）参数去跟【<a href="#documentary_order">4.获取跟单的持仓订单</a>】 匹配找到它们的跟单关系。<br />
+外汇持仓接口是获取用户开仓后所有的实时订单接口，不包括跟单关系，需要用到该接口的ticket（订单）参数去跟【<a href="#documentary_order">获取跟单的持仓订单</a>】 匹配找到它们的跟单关系。<br />
 比如：<br />
 该接口的ticket=850037和【获取跟单的持仓订单】接口里面的ticket=850037则表示该订单是跟单订单。</p>
 <ul>
