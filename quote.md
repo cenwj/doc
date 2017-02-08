@@ -1,6 +1,6 @@
 # 老虎外汇文档
 
-#### [系统功能](/) |  [接口分类](/api/category.html) | [报价推送](/quote.html) | [盈亏计算](/formula.html) | [止盈止损](/level.html) | [高手分成](/bouns.html) | [挂单](pending.html)
+#### [系统功能](/) |  [接口分类](/api/category.html) | [报价推送](/quote.html) | [盈亏计算](/formula.html) | [止盈止损](/level.html) | [高手分成](/bouns.html) | [挂单](/pending.html) | [保证金计算](/ouccupy_asset.html)
 
 
 ## 报价推送
@@ -44,6 +44,8 @@ Token=(pwd(xxxx)+LoginTime +UserName + DevId)的值进行MD5加密，字节数�
 同样需要开启独立的线程 
 维护服务器心跳 
 维护心跳需要每5秒定时发送header数据 =5位byte： 1-1-3-0-0
+**说明：**
+>服务端需要知道客户端是否alive 客户端也需要知道服务端是否alive 所以需要心跳，如果服务端检测到客户端没有心跳 也就5秒内没有收到客户端的心跳响应的时候 服务端认为客户端没有alive 会kill掉客户端，如何维护心跳 就是上面的文档内容，发送固定的只有header的数据 响应服务端的心跳请求。
 
 #### 3.报价请求 
 发送数据格式： 

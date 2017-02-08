@@ -1,6 +1,6 @@
 # 老虎外汇文档
 
-#### [系统功能](/) |  [接口分类](/api/category.html) | [报价推送](/quote.html) | [盈亏计算](/formula.html) | [止盈止损](/level.html) | [高手分成](/bouns.html) | [挂单](pending.html)
+#### [系统功能](/) |  [接口分类](/api/category.html) | [报价推送](/quote.html) | [盈亏计算](/formula.html) | [止盈止损](/level.html) | [高手分成](/bouns.html) | [挂单](/pending.html) | [保证金计算](/ouccupy_asset.html)
 
 
 ## 接口分类
@@ -56,19 +56,18 @@
 
 ### 入金、出金、汇率
 
-* [申请入金](/api/payment.html#deposit_v2)
+* [申请入金【手机客户端入金(智付入金)】](/api/payment.html#deposit_v2)
 * [申请出金](/api/payment.html#withdraw)
 * [出金汇率](/api/payment.html#get_withdraw_rate)
 * [入金汇率](/api/payment.html#get_exchange_rate)
-* [获取银行卡信息](/api/payment.html#withdraw)
-* [获取可出余额，信用值，交易手数](/api/payment.html#withdraw)
-* [手机客户端入金(智付入金)](/api/payment.html#withdraw)
-* [pc电脑端入金](/api/payment.html#withdraw)
+* [获取银行卡信息](/api/payment.html#check_user_card)
+* [获取可出余额，信用值，交易手数](/api/payment.html#get_withdraw_info)
+* [pc电脑端入金](/api/payment.html#)
 
 
 ### 老虎回调第三方接口(需提供第三方回调地址)
-* [入金成功](/api/payment.html#withdraw)
-* [申请出金成功|失败](/api/payment.html#withdraw)
+* [入金成功](/api/payment.html#)
+* [申请出金成功|失败](/api/payment.html#)
 
 
 

@@ -1077,101 +1077,48 @@ body .markdown-body
 .codehilite .vi{color:teal}
 .codehilite .il{color:#009999}
 .codehilite .gc{color:#999;background-color:#EAF2F5}
-</style><title>quote</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>老虎外汇文档</h1>
+</style><title>occupy_asset</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>老虎外汇文档</h1>
 <h4 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote.html">报价推送</a> | <a href="/formula.html">盈亏计算</a> | <a href="/level.html">止盈止损</a> | <a href="/bouns.html">高手分成</a> | <a href="/pending.html">挂单</a> | <a href="/ouccupy_asset.html">保证金计算</a></h4>
-<h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>报价推送</h2>
-<p>先建立与服务端quote.tigerwit.com的连接，监听8888端口，再执行登陆命令。</p>
-<h4 id="1"><a name="user-content-1" href="#1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.登陆</h4>
-<p>类型:socket <br />
-参数:json格式字符串的byte数组 <br />
-<div class="codehilite"><pre>{ 
-&quot;UserName&quot;:&quot;xxx&quot;, 
-&quot;LoginTime&quot;:登陆时间,类型:datetime 
-&quot;DevId&quot;:唯一标示,GUID,类型:string 
-&quot;Token&quot;:登陆参数，类型:string 
-} 
-</pre></div>
-</p>
-<h6 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>描述:</h6>
-<p>LoginTime的值需要格式化：yyyy-MM-dd HH:mm:ss <br />
-DevId=Guid(); <br />
-Token=(pwd(xxxx)+LoginTime +UserName + DevId)的值进行MD5加密，字节数组转换16进制 </p>
-<blockquote>
-<p>header： 1-2-3-bodysize/256-bodysize%256 </p>
-</blockquote>
-<p>返回结果: <br />
-5位字节的header：2-2-3-0-66+body数据：</p>
-<blockquote>
-<p>{&ldquo;Code&rdquo;:&rdquo;success&rdquo;,&rdquo;Message&rdquo;:&rdquo;&ldquo;,&rdquo;RequestNo&rdquo;:&rdquo;0&rdquo;,&rdquo;ServiceCode&rdquo;:null} </p>
-</blockquote>
-<p>判断是否登陆成功 即判断返回的header数据 5位的byte字节：2-2-3-0-66</p>
-<table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">类型</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">Code</td>
-<td align="center">string</td>
-<td align="center">是否成功</td>
-</tr>
-<tr>
-<td align="center">Message</td>
-<td align="center">string</td>
-<td align="center">异常信息</td>
-</tr>
-<tr>
-<td align="center">RequestNo</td>
-<td align="center">int</td>
-<td align="center">0为OK</td>
-</tr>
-<tr>
-<td align="center">ServiceCode</td>
-<td align="center">string</td>
-<td align="center">服务端返回码 登陆成功返回Null</td>
-</tr>
-</tbody>
-</table>
-<h4 id="2"><a name="user-content-2" href="#2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.心跳</h4>
-<p>登陆成功之后 需要开启独立的线程 <br />
-维护客户端心跳 <br />
-维护心跳 当每收到body为null 只有header的包 且header[0]为1时 向服务器发送 5位byte： 2-1-3-0-0 <br />
-同样需要开启独立的线程 <br />
-维护服务器心跳 <br />
-维护心跳需要每5秒定时发送header数据 =5位byte： 1-1-3-0-0<br />
-<strong>说明：</strong></p>
-<blockquote>
-<p>服务端需要知道客户端是否alive 客户端也需要知道服务端是否alive 所以需要心跳，如果服务端检测到客户端没有心跳 也就5秒内没有收到客户端的心跳响应的时候 服务端认为客户端没有alive 会kill掉客户端，如何维护心跳 就是上面的文档内容，发送固定的只有header的数据 响应服务端的心跳请求。</p>
-</blockquote>
-<h4 id="3"><a name="user-content-3" href="#3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.报价请求</h4>
-<p>发送数据格式： </p>
-<blockquote>
-<p>header：1-3-3-bodysize/256-bodySize%256 body</p>
-</blockquote>
-<p>body为json格式字符串字节数组 <br />
-<div class="codehilite"><pre>{ 
-Params:[&quot;AUDUSD&quot;,&quot;CHFUSD&quot;], 
-RequestNo:&quot;0&quot;, 
-ServiceCode:&quot;00001&quot; 
-}
-</pre></div>
-</p>
-<h4 id="4"><a name="user-content-4" href="#4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.报价响应</h4>
-<blockquote>
-<p>symbol, ask, bid, mid, ctm </p>
-</blockquote>
-<p>其中 </p>
-<ul>
-<li>symbol为没有数字的产品名称 </li>
-<li>ask为有点差的买价，与MT4客户端相同 </li>
-<li>bid为有点差的卖价，与MT4客户端相同 </li>
-<li>mid为无点差的实时报价 </li>
-<li>ctm为报价读取时间。 </li>
-</ul>
-<p><img alt="示例" src="http://app2.mailpanda.com/recipient/image?a=20&amp;f=151952970831888384.jpg" /></p>
-<h4 id="59999"><a name="user-content-59999" href="#59999" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.测试端口9999</h4>
-<p>最新变动会在该端口更新，生产端口8888更新较慢。</p></article></body></html>
+<h1 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>保证金计算</h1>
+<p>【A】产品信息<br />
+单笔交易占用保证金：margin<br />
+合约量：contract_size<br />
+初始保证金：margin_initial<br />
+百分比：percentage<br />
+保证金百分比：margin_divider<br />
+存款货币：deposit_currency<br />
+保证金货币：margin_currency<br />
+用户杠杆：leverage<br />
+注：<br />
+① percentage = 100 / margin_divider<br />
+② deposit_currency统一为美元USD<br />
+③ leverage统一为100<br />
+【B】订单信息<br />
+买价：ask<br />
+卖价：bid<br />
+交易手数：lots<br />
+开仓价格：market_price<br />
+保证金换算比率：margin_rate<br />
+注：<br />
+① lots是volumeinlots的缩写，volume为接口返回数值，关系：lots = volume * 0.01<br />
+② 开仓价格：买入market_price使用ask, 卖出market_price使用bid<br />
+③ margin_rate为margin_currency与deposit_currency之间的换算比率，deposit_currency&rsquo; = margin_currency&rsquo; * margin_rate<br />
+【C】计算公式<br />
+① 普通货币对Forex<br />
+margin = lots * contract_size / leverage * percentage / 100<br />
+② 原油、贵金属 （XAUUSD, XAGUSD, XNGUSD, XBRUSD, XTIUSD）<br />
+margin = lots * margin_initial * percentage / 100<br />
+③ 指数产品CFD （AUS200,EUSTX50,GER30,HK50,JPN225,SPA35,NAS100,UK100,US30,USA500,FRA40）<br />
+margin = lots * contract_size * market_price / leverage * percentage / 100<br />
+【D】货币换算<br />
+利用公式计算的结果，单位是margin_currency<br />
+若需转换为存款货币，即美元，分两种情况：<br />
+① 订单已成交（下单开仓，或获得用户持仓单）<br />
+则margin_rate可通过接口获得，该笔交易占用保证金<br />
+deposit_currency = margin_currency * margin_rate<br />
+其中，margin_currency为USD的margin_rate=1<br />
+② 订单未成交，需根据价格、手数预先计算需占用保证金，并换算为美元<br />
+a. 如果产品的margin_currency为美元USD，则无需换算<br />
+b. 如果产品的margin_currency不是美元，则使用相关货币 USD<strong><em> 或 </em></strong>USD的价格作为换算标准：price = (ask + bid) / 2<br />
+如果USD为基础货币（货币对第一个币种），则 deposit_currency = margin_currency / price;<br />
+如果USD为兑换货币（货币对第二个币种），则 deposit_currency = margin_currency * price</p></article></body></html>
