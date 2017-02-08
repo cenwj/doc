@@ -1078,7 +1078,7 @@ body .markdown-body
 .codehilite .il{color:#009999}
 .codehilite .gc{color:#999;background-color:#EAF2F5}
 </style><title>symbols</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>老虎外汇文档</h1>
-<h4 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote.html">报价推送</a> | <a href="/formula.html">盈亏计算</a> | <a href="/level.html">止盈止损</a> | <a href="/bouns.html">高手分成</a> | <a href="pending.html">挂单</a></h4>
+<h4 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote.html">报价推送</a> | <a href="/formula.html">盈亏计算</a> | <a href="/level.html">止盈止损</a> | <a href="/bouns.html">高手分成</a> | <a href="/Users/cenwj/www/doc/api/pending.html">挂单</a></h4>
 <p>============================交易品种============================</p>
 <h4 id="1"><a name="user-content-1" href="#1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_symbols">1.获取交易品种汇总</span></h4>
 <ul>
@@ -1436,8 +1436,9 @@ body .markdown-body
 </table>
 <p>说明:</p>
 <blockquote>
-<p>流通货币是Currency - 则盈亏公式计算出来的也是Currency - 盈亏显示需要转换成USD<br />
-保证金货币是Margin Currency - 则保证金公式计算出来的也是Margin Currency - 占用保证金显示需要转换成USD</p>
+<p>保证金计算中的percentage = 100 / margin_divider <br />
+流通货币具体查看 <a href="/formula.html">【盈亏计算】</a><br />
+<code>预付款对冲:计算对冲之后保证金需要用到的参数，是算占用保证金的。</code></p>
 </blockquote>
 <p>返回成功json:<br />
 <div class="codehilite"><pre><span class="p">{</span>

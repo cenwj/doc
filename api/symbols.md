@@ -118,8 +118,9 @@ https://api.tigerwit.com/action/public/api/symbol_list_info
 |margin_currency|string|保证金货币|
  
 说明:
->流通货币是Currency - 则盈亏公式计算出来的也是Currency - 盈亏显示需要转换成USD
-保证金货币是Margin Currency - 则保证金公式计算出来的也是Margin Currency - 占用保证金显示需要转换成USD
+>保证金计算中的percentage = 100 / margin_divider 
+流通货币具体查看 [【盈亏计算】](/formula.html)
+`预付款对冲:计算对冲之后保证金需要用到的参数，是算占用保证金的。`
 
 返回成功json:
 ```

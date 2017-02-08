@@ -56,18 +56,19 @@
 
 ### 入金、出金、汇率
 
-* 申请入金
-* 申请出金
-* 手机客户端入金(智付入金)
-* pc电脑端入金
-* 获取入金汇率
-* 出金汇率
-* 获取银行卡信息 
-* 获取可出余额，信用值，交易手数 
+* [申请入金](/api/payment.html#deposit_v2)
+* [申请出金](/api/payment.html#withdraw)
+* [出金汇率](/api/payment.html#get_withdraw_rate)
+* [入金汇率](/api/payment.html#get_exchange_rate)
+* [获取银行卡信息](/api/payment.html#withdraw)
+* [获取可出余额，信用值，交易手数](/api/payment.html#withdraw)
+* [手机客户端入金(智付入金)](/api/payment.html#withdraw)
+* [pc电脑端入金](/api/payment.html#withdraw)
+
 
 ### 老虎回调第三方接口(需提供第三方回调地址)
-* 入金成功
-* 申请出金成功
+* [入金成功](/api/payment.html#withdraw)
+* [申请出金成功|失败](/api/payment.html#withdraw)
 
 
 
