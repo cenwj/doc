@@ -28,8 +28,8 @@
 profit_cal = (close_price - open_price) * contract_size * lots 
 【D】公式结果货币单位 
 公式结果货币单位即为profit_currency，分两种情况： 
-① 如果产品是CFD，则profit_currency = currency 
-② 如果产品是 普通货币对、原油、贵金属，则profit_currency为兑换货币，即货币对的第二个币种 
+① 如果产品是CFD（profit_mode = 1），则profit_currency = currency 
+② 如果产品是 普通货币对、原油、贵金属（profit_mode = 0），则profit_currency为兑换货币，即货币对的第二个币种 
 【E】货币换算 
 ① 如果profit_currency为美元USD，则 profit = prpfit_cal 
 ② 如果profit_currency不是美元USD，需要转换成美元盈亏，则使用相关货币 USD*** 或 ***USD 价格进行换算 

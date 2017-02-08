@@ -336,3 +336,23 @@ https://api.tigerwit.com/action/public/api/get_withdraw_info
 ```
 
 
+#### <span id = "pay">5.pc电脑端入金(智付入金)</span>
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/v4/pay
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/v4/pay
+```
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|mt4_id|int|是|老虎mt4_id|
+|amount|float|是|入金金额|
+
+返回参数说明:
+

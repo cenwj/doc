@@ -62,7 +62,7 @@
 * [入金汇率](/api/payment.html#get_exchange_rate)
 * [获取银行卡信息](/api/payment.html#check_user_card)
 * [获取可出余额，信用值，交易手数](/api/payment.html#get_withdraw_info)
-* [pc电脑端入金](/api/payment.html#)
+* [pc电脑端入金(智付入金)](/api/payment.html#pay)
 
 
 ### 老虎回调第三方接口(需提供第三方回调地址)
