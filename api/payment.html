@@ -1890,7 +1890,7 @@ body .markdown-body
 </tr>
 <tr>
 <td align="center">error_code</td>
-<td align="center">number</td>
+<td align="center">int</td>
 <td align="center">返回码</td>
 </tr>
 <tr>
@@ -1982,14 +1982,66 @@ body .markdown-body
 <h4 id="5pc"><a name="user-content-5pc" href="#5pc" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "pay">5.pc电脑端入金(智付入金)</span></h4>
 <ul>
 <li>测试请求URL:<br />
-<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/pay
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/v4/pay
 </pre></div>
 </li>
 <li>线上请求URL:<br />
-<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/pay
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/v4/pay
 </pre></div>
 </li>
 <li>类型:HTTPS post</li>
 <li>参数:JSON String</li>
 <li>传递参数:</li>
-</ul></article></body></html>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">老虎mt4_id</td>
+</tr>
+<tr>
+<td align="center">amount</td>
+<td align="center">float</td>
+<td align="center">是</td>
+<td align="center">入金金额</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:<br />
+|参数|类型|说明|<br />
+|:&ndash;:|:&ndash;:|:&ndash;:|<br />
+|is_succ|bool|true/false|<br />
+|error_msg|string|返回信息|<br />
+|error_code|int|返回码 0成功，其他失败 |<br />
+|data|object|返回的详细信息|<br />
+|url|string|需要拼接跳转的url参数|<br />
+|order_no|int|需要拼接跳转的订单号参数|</p>
+<p>说明:</p>
+<blockquote>
+<p>该接口不需要签名验证,返回的url和order_no需第三方拼接http(s)链接后由前端跳转到拼接后的链接地址。<br />
+拼接地址如下:<br />
+测试:<code>http://demo.tigerwit.com/{url}/{order_no}</code><br />
+正式:<code>https://api.tigerwit.com/{url}/{order_no}</code></p>
+</blockquote>
+<p>返回成功json:<br />
+<div class="codehilite"><pre>{
+    &quot;error_code&quot;:0,
+    &quot;error_msg&quot;:&quot;&quot;,
+    &quot;is_succ&quot;:true,
+    &quot;data&quot;:{
+        &quot;url&quot;:&quot;/action/public/v4/pay_order/9524214&quot;,
+        &quot;order_no&quot;:9524214
+    }
+}
+</pre></div>
+</p></article></body></html>

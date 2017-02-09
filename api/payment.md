@@ -301,7 +301,7 @@ https://api.tigerwit.com/action/public/api/get_withdraw_info
 |:--:|:--:|:--:|
 |is_succ|bool|true/false|
 |error_msg|string|返回信息|
-|error_code|number|返回码|
+|error_code|int|返回码|
 |0| |请求成功|
 |101| |传递参数错误|
 |105| |获取不到第三方用户信息或者老虎账户信息|
@@ -355,4 +355,30 @@ https://api.tigerwit.com/action/public/v4/pay
 |amount|float|是|入金金额|
 
 返回参数说明:
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool|true/false|
+|error_msg|string|返回信息|
+|error_code|int|返回码 0成功，其他失败 |
+|data|object|返回的详细信息|
+|url|string|需要拼接跳转的url参数|
+|order_no|int|需要拼接跳转的订单号参数|
 
+说明:
+>该接口不需要签名验证,返回的url和order_no需第三方拼接http(s)链接后由前端跳转到拼接后的链接地址。
+拼接地址如下:
+测试:`http://demo.tigerwit.com/{url}/{order_no}`
+正式:`https://api.tigerwit.com/{url}/{order_no}`
+
+返回成功json:
+```
+{
+    "error_code":0,
+    "error_msg":"",
+    "is_succ":true,
+    "data":{
+        "url":"/action/public/v4/pay_order/9524214",
+        "order_no":9524214
+    }
+}
+```
