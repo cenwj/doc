@@ -73,7 +73,6 @@ https://api.tigerwit.com/action/public/api/symbol_list_info
 |action|string|是|传递的方法:symbol_list_info|
 |signature|string|是|签名|
 |private_key|string|是|分配给第三方的key|
-|symbol|string|是|交易品种　获取全部传递null|
 
 返回参数说明:
 
