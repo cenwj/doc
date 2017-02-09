@@ -1512,7 +1512,7 @@ body .markdown-body
 </tr>
 <tr>
 <td align="center">order_id</td>
-<td align="center">number</td>
+<td align="center">int</td>
 <td align="center">订单id</td>
 </tr>
 <tr>
@@ -1552,7 +1552,7 @@ body .markdown-body
 </tr>
 <tr>
 <td align="center">close_price</td>
-<td align="center">number</td>
+<td align="center">double</td>
 <td align="center">平仓价格</td>
 </tr>
 <tr>
@@ -1573,28 +1573,28 @@ body .markdown-body
 </tbody>
 </table>
 <p>返回成功json:<br />
-<div class="codehilite"><pre><span class="p">{</span>
-    <span class="s2">&quot;is_succ&quot;</span><span class="s s-Atom">:true</span><span class="p">,</span>
-    <span class="s2">&quot;error_msg&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;error_code&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
-    <span class="s2">&quot;num&quot;</span><span class="s s-Atom">:</span><span class="mi">1218</span><span class="p">,</span>
-    <span class="s2">&quot;data&quot;</span><span class="s s-Atom">:</span><span class="p">[</span>
-        <span class="p">{</span>
-            <span class="s2">&quot;username&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;Sandy&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;usercode&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;3303&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;action&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
-            <span class="s2">&quot;open_price&quot;</span><span class="s s-Atom">:</span><span class="mf">1.12623</span><span class="p">,</span>
-            <span class="s2">&quot;close_price&quot;</span><span class="s s-Atom">:</span><span class="mf">1.12376</span><span class="p">,</span>
-            <span class="s2">&quot;symbol&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;EURUSD&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;volume&quot;</span><span class="s s-Atom">:</span><span class="mf">0.02</span><span class="p">,</span>
-            <span class="s2">&quot;profit&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;-4.40&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;order_id&quot;</span><span class="p">:-</span><span class="mi">997768</span><span class="p">,</span>
-            <span class="s2">&quot;open_time&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;2015-06-04 09:09:00&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;occupy_asset&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;20.00&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;profit_rate&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;-22.00&quot;</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
+<div class="codehilite"><pre>{
+    &quot;is_succ&quot;:true,
+    &quot;error_msg&quot;:&quot;&quot;,
+    &quot;error_code&quot;:0,
+    &quot;num&quot;:1218,
+    &quot;data&quot;:[
+        {
+            &quot;username&quot;:&quot;Sandy&quot;,
+            &quot;usercode&quot;:&quot;3303&quot;,
+            &quot;action&quot;:0,
+            &quot;open_price&quot;:1.12623,
+            &quot;close_price&quot;:1.12376,
+            &quot;symbol&quot;:&quot;EURUSD&quot;,
+            &quot;volume&quot;:0.02,
+            &quot;profit&quot;:&quot;-4.40&quot;,
+            &quot;order_id&quot;:997768,
+            &quot;open_time&quot;:&quot;2015-06-04 09:09:00&quot;,
+            &quot;occupy_asset&quot;:&quot;20.00&quot;,
+            &quot;profit_rate&quot;:&quot;-22.00&quot;
+        }
+    ]
+}
 </pre></div>
 </p>
 <h4 id="4"><a name="user-content-4" href="#4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_master_history_group"> 4.获取跟随高手历史订单分组</span></h4>

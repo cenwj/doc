@@ -149,7 +149,7 @@ https://api.tigerwit.com/action/public/api/get_master_order_info
 |303| |安全验证失败|
 |num|int|总条数|
 |data|array|返回的详细信息|
-|order_id|number|订单id|
+|order_id|int|订单id|
 |occupy_asset|string|占用保证金|
 |profit|string|收益|
 |profit_rate|string|收益率(百分比)|
@@ -157,7 +157,7 @@ https://api.tigerwit.com/action/public/api/get_master_order_info
 |username|string|高手名称|
 |usercode|string|高手usercode|
 |open_price|double|开仓价格|
-|close_price|number|平仓价格|
+|close_price|double|平仓价格|
 |volume|float|交易手数|
 |action|int|交易类型 0做多 1做空|
 |open_time|date|开仓时间|
@@ -179,7 +179,7 @@ https://api.tigerwit.com/action/public/api/get_master_order_info
             "symbol":"EURUSD",
             "volume":0.02,
             "profit":"-4.40",
-            "order_id":-997768,
+            "order_id":997768,
             "open_time":"2015-06-04 09:09:00",
             "occupy_asset":"20.00",
             "profit_rate":"-22.00"
