@@ -355,6 +355,7 @@ https://api.tigerwit.com/action/public/v4/pay
 |amount|float|是|入金金额|
 
 返回参数说明:
+
 |参数|类型|说明|
 |:--:|:--:|:--:|
 |is_succ|bool|true/false|

@@ -2017,15 +2017,48 @@ body .markdown-body
 </tr>
 </tbody>
 </table>
-<p>返回参数说明:<br />
-|参数|类型|说明|<br />
-|:&ndash;:|:&ndash;:|:&ndash;:|<br />
-|is_succ|bool|true/false|<br />
-|error_msg|string|返回信息|<br />
-|error_code|int|返回码 0成功，其他失败 |<br />
-|data|object|返回的详细信息|<br />
-|url|string|需要拼接跳转的url参数|<br />
-|order_no|int|需要拼接跳转的订单号参数|</p>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true/false</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码 0成功，其他失败</td>
+</tr>
+<tr>
+<td align="center">data</td>
+<td align="center">object</td>
+<td align="center">返回的详细信息</td>
+</tr>
+<tr>
+<td align="center">url</td>
+<td align="center">string</td>
+<td align="center">需要拼接跳转的url参数</td>
+</tr>
+<tr>
+<td align="center">order_no</td>
+<td align="center">int</td>
+<td align="center">需要拼接跳转的订单号参数</td>
+</tr>
+</tbody>
+</table>
 <p>说明:</p>
 <blockquote>
 <p>该接口不需要签名验证,返回的url和order_no需第三方拼接http(s)链接后由前端跳转到拼接后的链接地址。<br />
