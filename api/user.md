@@ -137,16 +137,17 @@ https://api.tigerwit.com/action/public/api/get_master_order_info
 |pagesize|int|是|取多少条|
 
 返回参数说明:
+
 |参数|类型|说明|
 |:--:|:--:|:--:|
 |is_succ|bool|true/false|
 |error_msg|string|返回错误信息|
-|error_code|number|返回码|
-|0||请求成功|
-|101||传递参数错误|
-|105||获取不到第三方用户信息或者老虎账户信息|
-|303||安全验证失败|
-|num|number|总条数|
+|error_code|int|返回码|
+|0| |请求成功|
+|101| |传递参数错误|
+|105| |获取不到第三方用户信息或者老虎账户信息|
+|303| |安全验证失败|
+|num|int|总条数|
 |data|array|返回的详细信息|
 |order_id|number|订单id|
 |occupy_asset|string|占用保证金|
