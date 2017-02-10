@@ -28,7 +28,7 @@ https://api.tigerwit.com/action/public/api/open_trader
 |mt4_id|int|是|绑定老虎的mt4_id|
 |cmd|int|是|交易类型 [0=>'买', 1=>'卖'] |
 |symbol|string|是|交易品种|
-|volume|float|是|开仓手数|
+|volume|float|是|开仓手数 这个不需要转换，如果用户下0.01手就传参0.01|
 |tp|double|是|止盈价格[没有为0]|
 |sl|double|是|止损价格[没有为0]|
 
