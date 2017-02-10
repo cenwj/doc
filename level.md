@@ -10,13 +10,14 @@ enum { OP_BUY=0,OP_SELL,OP_BUY_LIMIT,OP_SELL_LIMIT,OP_BUY_STOP,OP_SELL_STOP,OP_B
 
 1.1：开仓买涨时
 
-TP 的值 应 大于等于 平仓价格 BID + 步长 => (TP-BID) * multiply >= level 
-SL 的值 应 小于等于 平仓价格 BID - 步长 => (BID-SL) * multiply >= level
+TP 的值 应 大于等于 平仓价格 BID + stops_level => (TP-BID) * multiply >= level 
+SL 的值 应 小于等于 平仓价格 BID - stops_level => (BID-SL) * multiply >= level
 
 1.2：开仓买跌时
 
-TP 的值 应 小于等于 平仓价格 ASK+ 步长 => (ASK-TP) * multiply >= level 
-SL 的值 应 大于等于 平仓价格 ASK - 步长 => (SL-ASK) * multiply >= level
+TP 的值 应 小于等于 平仓价格 ASK+ stops_level => (ASK-TP) * multiply >= level 
+SL 的值 应 大于等于 平仓价格 ASK - stops_level => (SL-ASK) * multiply >= level
+
 
 2：持仓单修改止盈止损
 

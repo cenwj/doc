@@ -1084,11 +1084,11 @@ body .markdown-body
 enum { OP_BUY=0,OP_SELL,OP_BUY_LIMIT,OP_SELL_LIMIT,OP_BUY_STOP,OP_SELL_STOP,OP_BALANCE,OP_CREDIT };</p>
 <p>1：普通订单开仓止盈止损设置</p>
 <p>1.1：开仓买涨时</p>
-<p>TP 的值 应 大于等于 平仓价格 BID + 步长 =&gt; (TP-BID) * multiply &gt;= level <br />
-SL 的值 应 小于等于 平仓价格 BID - 步长 =&gt; (BID-SL) * multiply &gt;= level</p>
+<p>TP 的值 应 大于等于 平仓价格 BID + stops_level =&gt; (TP-BID) * multiply &gt;= level <br />
+SL 的值 应 小于等于 平仓价格 BID - stops_level =&gt; (BID-SL) * multiply &gt;= level</p>
 <p>1.2：开仓买跌时</p>
-<p>TP 的值 应 小于等于 平仓价格 ASK+ 步长 =&gt; (ASK-TP) * multiply &gt;= level <br />
-SL 的值 应 大于等于 平仓价格 ASK - 步长 =&gt; (SL-ASK) * multiply &gt;= level</p>
+<p>TP 的值 应 小于等于 平仓价格 ASK+ stops_level =&gt; (ASK-TP) * multiply &gt;= level <br />
+SL 的值 应 大于等于 平仓价格 ASK - stops_level =&gt; (SL-ASK) * multiply &gt;= level</p>
 <p>2：持仓单修改止盈止损</p>
 <p>同开仓设置</p>
 <p>3：挂单开仓止盈止损 和 挂单还未成交时修改止盈止损</p>
