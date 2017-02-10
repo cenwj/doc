@@ -42,6 +42,6 @@ deposit_currency = margin_currency * margin_rate
 其中，margin_currency为USD的margin_rate=1
 ② 订单未成交，需根据价格、手数预先计算需占用保证金，并换算为美元
 a. 如果产品的margin_currency为美元USD，则无需换算
-b. 如果产品的margin_currency不是美元，则使用相关货币 USD*** 或 ***USD的价格作为换算标准：price = (ask + bid) / 2
+b. 如果产品的margin_currency不是美元，则使用相关货币 `USD***` 或 `***USD`的价格作为换算标准：price = (ask + bid) / 2
 如果USD为基础货币（货币对第一个币种），则 deposit_currency = margin_currency / price;
 如果USD为兑换货币（货币对第二个币种），则 deposit_currency = margin_currency * price
