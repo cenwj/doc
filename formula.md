@@ -32,7 +32,7 @@ profit_cal = (close_price - open_price) * contract_size * lots
 ② 如果产品是 普通货币对、原油、贵金属（profit_mode = 0），则profit_currency为兑换货币，即货币对的第二个币种 
 【E】货币换算 
 ① 如果profit_currency为美元USD，则 profit = prpfit_cal 
-② 如果profit_currency不是美元USD，需要转换成美元盈亏，则使用相关货币 USD*** 或 ***USD 价格进行换算 
+② 如果profit_currency不是美元USD，需要转换成美元盈亏，则使用相关货币 `USD***` 或 `***USD` 价格进行换算 
 该换算价格price_trans即为平台推送的已经点差偏移的价格 
 a. 如果相关货币的基础货币是USD 
 如果cmd=0, 则price_trans为当前bid；cmd=1, 则price_trans为ask 
