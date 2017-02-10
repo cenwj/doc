@@ -26,7 +26,7 @@
 注：
 ① lots是volumeinlots的缩写，volume为接口返回数值，关系：lots = volume * 0.01
 ② 开仓价格：买入market_price使用ask, 卖出market_price使用bid
-③ margin_rate为margin_calc与margin之间的换算比率，margin' = margin_calc' * margin_rate
+③ margin_rate为margin_calc与margin之间的换算比率，margin = margin_calc * margin_rate
 【C】计算公式
 ① 普通货币对Forex
 margin_calc = lots * contract_size / leverage * percentage / 100
