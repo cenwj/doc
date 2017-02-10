@@ -1089,6 +1089,7 @@ body .markdown-body
 存款货币：deposit_currency<br />
 保证金货币：margin_currency<br />
 用户杠杆：leverage<br />
+保证金公式计算结果:margin_calc<br />
 注：<br />
 ① percentage = 100 / margin_divider<br />
 ② deposit_currency统一为美元USD<br />
@@ -1105,11 +1106,11 @@ body .markdown-body
 ③ margin_rate为margin_currency与deposit_currency之间的换算比率，deposit_currency&rsquo; = margin_currency&rsquo; * margin_rate<br />
 【C】计算公式<br />
 ① 普通货币对Forex<br />
-margin = lots * contract_size / leverage * percentage / 100<br />
+margin_calc = lots * contract_size / leverage * percentage / 100<br />
 ② 原油、贵金属 （XAUUSD, XAGUSD, XNGUSD, XBRUSD, XTIUSD）<br />
-margin = lots * margin_initial * percentage / 100<br />
+margin_calc = lots * margin_initial * percentage / 100<br />
 ③ 指数产品CFD （AUS200,EUSTX50,GER30,HK50,JPN225,SPA35,NAS100,UK100,US30,USA500,FRA40）<br />
-margin = lots * contract_size * market_price / leverage * percentage / 100<br />
+margin_calc = lots * contract_size * market_price / leverage * percentage / 100<br />
 【D】货币换算<br />
 利用公式计算的结果，单位是margin_currency<br />
 若需转换为存款货币，即美元，分两种情况：<br />
@@ -1120,5 +1121,5 @@ deposit_currency = margin_currency * margin_rate<br />
 ② 订单未成交，需根据价格、手数预先计算需占用保证金，并换算为美元<br />
 a. 如果产品的margin_currency为美元USD，则无需换算<br />
 b. 如果产品的margin_currency不是美元，则使用相关货币 <code>USD***</code> 或 <code>***USD</code>的价格作为换算标准：price = (ask + bid) / 2<br />
-如果USD为基础货币（货币对第一个币种），则 deposit_currency = margin_currency / price;<br />
-如果USD为兑换货币（货币对第二个币种），则 deposit_currency = margin_currency * price</p></article></body></html>
+如果USD为基础货币（货币对第一个币种），则 margin = margin_calc / price;<br />
+如果USD为兑换货币（货币对第二个币种），则 margin = margin_calc * price</p></article></body></html>
