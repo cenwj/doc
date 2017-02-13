@@ -1077,1001 +1077,144 @@ body .markdown-body
 .codehilite .vi{color:teal}
 .codehilite .il{color:#009999}
 .codehilite .gc{color:#999;background-color:#EAF2F5}
-</style><title>payment</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>老虎外汇文档</h1>
+</style><title>callback</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "liucheng">老虎外汇文档</span></h1>
 <h5 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote.html">报价推送</a> | <a href="/formula.html">盈亏计算</a> | <a href="/level.html">止盈止损</a> | <a href="/bouns.html">高手分成</a> | <a href="/pending.html">挂单</a> | <a href="/ouccupy_asset.html">保证金计算</a></h5>
 <h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>接口分类</h2>
-<h3 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>入金、出金、汇率</h3>
-<h4 id="1"><a name="user-content-1" href="#1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "deposit_v2">1.申请入金【手机客户端入金(智付入金)】</span></h4>
-<ul>
-<li>测试请求URL:<br />
-<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/deposit_v2
-</pre></div>
-</li>
-<li>线上请求URL:<br />
-<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/deposit_v2
-</pre></div>
-</li>
-<li>类型:HTTPS post</li>
-<li>参数:JSON String</li>
-<li>传递参数:</li>
-</ul>
+<h3 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>老虎回调第三方接口(需提供第三方回调地址)</h3>
 <table>
 <thead>
 <tr>
-<th align="center">名称</th>
-<th align="center">类型</th>
-<th align="center">是否必须</th>
-<th align="center">说明</th>
+<th align="center"></th>
+<th align="center"></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">action</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">传递的方法:deposit_v2</td>
+<td align="center">请求类型</td>
+<td align="center">post</td>
 </tr>
 <tr>
-<td align="center">signature</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">签名</td>
+<td align="center">请求地址</td>
+<td align="center">需第三方提供</td>
 </tr>
 <tr>
-<td align="center">private_key</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">分配给第三方的key</td>
-</tr>
-<tr>
-<td align="center">user_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">第三方用户id</td>
-</tr>
-<tr>
-<td align="center">mt4_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">老虎mt4_id</td>
-</tr>
-<tr>
-<td align="center">order_id</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">第三发传入的 id唯一标识 第三方入库订单号 ps:最大长度 VARCHAR（50）</td>
-</tr>
-<tr>
-<td align="center">amount</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">入金金额(美金usd)</td>
+<td align="center">请求说明</td>
+<td align="center">入金\出金结束后回调的接口</td>
 </tr>
 </tbody>
 </table>
-<p>返回参数说明:</p>
+<p>请求第三方地址接收参数:</p>
 <table>
 <thead>
 <tr>
-<th align="center">参数</th>
-<th align="center">类型</th>
-<th align="center">说明</th>
+<th align="left">参数名称</th>
+<th align="left">描述</th>
+<th align="left">类型</th>
+<th align="left">必填</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">is_succ</td>
-<td align="center">bool</td>
-<td align="center">true:成功 false:失败</td>
+<td align="left">order_no</td>
+<td align="left">第三方入库订单号</td>
+<td align="left">varchar(32)</td>
+<td align="left">是</td>
 </tr>
 <tr>
-<td align="center">error_msg</td>
-<td align="center">string</td>
-<td align="center">返回错误信息</td>
+<td align="left">order_amount</td>
+<td align="left">出金\入金金额（美元）</td>
+<td align="left">varchar(32)</td>
+<td align="left">是</td>
 </tr>
 <tr>
-<td align="center">error_code</td>
-<td align="center">int</td>
-<td align="center">返回码</td>
+<td align="left">trade_status</td>
+<td align="left">SUCCESS：成功；FAIL：失败</td>
+<td align="left">varchar(16)</td>
+<td align="left">是</td>
 </tr>
 <tr>
-<td align="center">0</td>
-<td align="center"></td>
-<td align="center">请求成功</td>
+<td align="left">function</td>
+<td align="left">WITHDRAW：出金；DEPOSIT：入金</td>
+<td align="left">varchar(16)</td>
+<td align="left">是</td>
 </tr>
 <tr>
-<td align="center">101</td>
-<td align="center"></td>
-<td align="center">传递参数错误</td>
+<td align="left">private_key</td>
+<td align="left">第三方私有key</td>
+<td align="left">varchar(32)</td>
+<td align="left">是</td>
 </tr>
 <tr>
-<td align="center">105</td>
-<td align="center"></td>
-<td align="center">获取不到第三方用户信息或者老虎账户信息</td>
+<td align="left">partner_key</td>
+<td align="left">第三方的合作伙伴Key</td>
+<td align="left">varchar(32)</td>
+<td align="left">是</td>
 </tr>
 <tr>
-<td align="center">303</td>
-<td align="center"></td>
-<td align="center">安全验证失败</td>
+<td align="left">partner_secret</td>
+<td align="left">第三方的合作伙伴Secret</td>
+<td align="left">varchar(64)</td>
+<td align="left">是</td>
 </tr>
 <tr>
-<td align="center">data</td>
-<td align="center">Object</td>
-<td align="center">返回的详细信息</td>
-</tr>
-<tr>
-<td align="center">usd_amount</td>
-<td align="center">string</td>
-<td align="center">美金金额</td>
-</tr>
-<tr>
-<td align="center">rmb_amount</td>
-<td align="center">string</td>
-<td align="center">人民币金额</td>
-</tr>
-<tr>
-<td align="center">usd_rate</td>
-<td align="center">string</td>
-<td align="center">当前入金汇率</td>
-</tr>
-<tr>
-<td align="center">order_no</td>
-<td align="center">string</td>
-<td align="center">老虎入库订单id</td>
-</tr>
-<tr>
-<td align="center">call_back_url</td>
-<td align="center">string</td>
-<td align="center">智付回调地址</td>
-</tr>
-<tr>
-<td align="center">order_time</td>
-<td align="center">string</td>
-<td align="center">申请入金时间</td>
+<td align="left">signature</td>
+<td align="left">签名</td>
+<td align="left">varchar(64)</td>
+<td align="left">是</td>
 </tr>
 </tbody>
 </table>
-<p>说明:</p>
+<p>返回参数:</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数名称</th>
+<th align="left">说明</th>
+<th align="left">类型</th>
+<th align="left">必需</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">is_succ</td>
+<td align="left">是否成功:true 成功；false 失败</td>
+<td align="left">Boolean</td>
+<td align="left">yes</td>
+</tr>
+<tr>
+<td align="left">error_code</td>
+<td align="left">返回码：0是获取成功 300失败</td>
+<td align="left">integer</td>
+<td align="left">yes</td>
+</tr>
+<tr>
+<td align="left">error_msg</td>
+<td align="left">返回信息</td>
+<td align="left">String</td>
+<td align="left">yes</td>
+</tr>
+<tr>
+<td align="left">data</td>
+<td align="left">返回结果</td>
+<td align="left">Object</td>
+<td align="left">yes</td>
+</tr>
+</tbody>
+</table>
+<p>json:<br />
+<div class="codehilite"><pre>{
+   &quot;is_succ&quot;: true,
+   &quot;error_msg&quot;: &quot;&quot;,
+   &quot;error_code&quot;: 0,
+   &quot;data&quot;: &quot;&quot;
+}
+</pre></div>
+</p>
+<p>说明：</p>
 <blockquote>
-<p>该接口是智付手机端入金接口，需要获取到返回的参数按照智付手机端sdk接收参数传递。<br />
-智付文档具体查看 <a href="http://www.dinpay.com/support.html">【智付文档】</a></p>
+<p>该接口是老虎外汇回调第三方合作伙伴的接口，接口地址需第三方提供给老虎外汇。<code>signature</code>参数生产同老虎外汇接口生成签名一样。</p>
 </blockquote>
-<p>返回成功json:<br />
-<div class="codehilite"><pre>{
-    &quot;error_code&quot;:0,
-    &quot;error_msg&quot;:&quot;成功&quot;,
-    &quot;is_succ&quot;:true,
-    &quot;data&quot;:{
-        &quot;usd_amount&quot;:&quot;260&quot;,
-        &quot;rmb_amount&quot;:&quot;1630.62&quot;,
-        &quot;usd_rate&quot;:&quot;6.2716&quot;,
-        &quot;order_no&quot;:&quot;952433&quot;,
-        &quot;call_back_url&quot;:&quot;http://demo.tigerwit.com/action/public/v4/zhifupay&quot;,
-        &quot;order_time&quot;:&quot;2016-09-06 15:20:54&quot;
-    }
-}
-</pre></div>
-</p>
-<h4 id="2"><a name="user-content-2" href="#2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "withdraw">2.申请出金</span></h4>
-<ul>
-<li>测试请求URL:<br />
-<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/withdraw
-</pre></div>
-</li>
-<li>线上请求URL:<br />
-<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/withdraw
-</pre></div>
-</li>
-<li>类型:HTTPS post</li>
-<li>参数:JSON String</li>
-<li>传递参数:</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">类型</th>
-<th align="center">是否必须</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">action</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">传递的方法:withdraw</td>
-</tr>
-<tr>
-<td align="center">signature</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">签名</td>
-</tr>
-<tr>
-<td align="center">private_key</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">分配给第三方的key</td>
-</tr>
-<tr>
-<td align="center">user_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">第三方user_id</td>
-</tr>
-<tr>
-<td align="center">mt4_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">老虎mt4_id</td>
-</tr>
-<tr>
-<td align="center">amount</td>
-<td align="center">float</td>
-<td align="center">是</td>
-<td align="center">申请出金金额(美金)</td>
-</tr>
-<tr>
-<td align="center">bank_name</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">银行名称</td>
-</tr>
-<tr>
-<td align="center">bank_addr</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">开行地址</td>
-</tr>
-<tr>
-<td align="center">card</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">银行卡号</td>
-</tr>
-<tr>
-<td align="center">id_no</td>
-<td align="center">string(32)</td>
-<td align="center">是</td>
-<td align="center">第三方用户信息身份证号码</td>
-</tr>
-<tr>
-<td align="center">username</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">第三方用户真实姓名</td>
-</tr>
-<tr>
-<td align="center">order_id</td>
-<td align="center">string(50)</td>
-<td align="center">是</td>
-<td align="center">第三方入库订单号</td>
-</tr>
-</tbody>
-</table>
-<p>返回参数说明:</p>
-<table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">类型</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">is_succ</td>
-<td align="center">bool</td>
-<td align="center">true:成功 false:失败</td>
-</tr>
-<tr>
-<td align="center">error_msg</td>
-<td align="center">string</td>
-<td align="center">返回错误信息</td>
-</tr>
-<tr>
-<td align="center">error_code</td>
-<td align="center">int</td>
-<td align="center">返回码</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center"></td>
-<td align="center">取消复制成功</td>
-</tr>
-<tr>
-<td align="center">101</td>
-<td align="center"></td>
-<td align="center">传递参数错误</td>
-</tr>
-<tr>
-<td align="center">105</td>
-<td align="center"></td>
-<td align="center">获取不到第三方用户信息</td>
-</tr>
-<tr>
-<td align="center">303</td>
-<td align="center"></td>
-<td align="center">验证失败</td>
-</tr>
-<tr>
-<td align="center">116</td>
-<td align="center"></td>
-<td align="center">该订单已经提交，不要重复提交</td>
-</tr>
-<tr>
-<td align="center">112</td>
-<td align="center"></td>
-<td align="center">出金必须大于20美金</td>
-</tr>
-<tr>
-<td align="center">113</td>
-<td align="center"></td>
-<td align="center">你还有复制的高手或者还有交易定单，请取消复制然后再出金。</td>
-</tr>
-<tr>
-<td align="center">114</td>
-<td align="center"></td>
-<td align="center">出金余额不足</td>
-</tr>
-<tr>
-<td align="center">115</td>
-<td align="center"></td>
-<td align="center">出金失败,系统错误</td>
-</tr>
-<tr>
-<td align="center">123</td>
-<td align="center"></td>
-<td align="center">银行卡信息和实名信息不能为空</td>
-</tr>
-<tr>
-<td align="center">400</td>
-<td align="center"></td>
-<td align="center">系统错误</td>
-</tr>
-<tr>
-<td align="center">data</td>
-<td align="center">Object</td>
-<td align="center">返回信息</td>
-</tr>
-<tr>
-<td align="center">order_no</td>
-<td align="center">int</td>
-<td align="center">第三方入库定单id</td>
-</tr>
-<tr>
-<td align="center">usd_amount</td>
-<td align="center">float</td>
-<td align="center">出金金额(usd)</td>
-</tr>
-<tr>
-<td align="center">rmb_amount</td>
-<td align="center">float</td>
-<td align="center">出金金额(rmb)</td>
-</tr>
-<tr>
-<td align="center">rate</td>
-<td align="center">double</td>
-<td align="center">出金汇率</td>
-</tr>
-</tbody>
-</table>
-<p>说明:</p>
+<p>回调作用:</p>
 <blockquote>
-<p>当用户申请出金的时候，需要先调用<a href="#check_user_card">【获取银行卡信息】</a>接口。无论用户是否已经绑定过银行信息,都需要传递用户的真实姓名和银行卡信息。<br />
-<a href="#check_user_card">【获取银行卡信息】</a> 接口是给第三方判断用户有没有绑定过银行卡信息。如果没有则需要首选让用户填写一遍银行卡信息。<br />
-用户需要修改银行卡信息，则把用户修改后的信息传递过来，下次获取的银行卡信息就是用户修改后的。</p>
-</blockquote>
-<p>返回成功json:<br />
-<div class="codehilite"><pre>{
-    &quot;is_succ&quot;:true,
-    &quot;data&quot;:{
-        &quot;order_no&quot;:951778,
-        &quot;usd_amount&quot;:20,
-        &quot;rmb_amount&quot;:123.43,
-        &quot;rate&quot;:6.1716
-    },
-    &quot;error_msg&quot;:&quot;&quot;,
-    &quot;error_code&quot;:0
-}
-</pre></div>
-</p>
-<h4 id="3"><a name="user-content-3" href="#3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_withdraw_rate">3.出金汇率</span></h4>
-<ul>
-<li>测试请求URL:<br />
-<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/get_withdraw_rate
-</pre></div>
-</li>
-<li>线上请求URL:<br />
-<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/get_withdraw_rate
-</pre></div>
-</li>
-<li>类型:HTTPS post</li>
-<li>参数:JSON String</li>
-<li>传递参数:</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">类型</th>
-<th align="center">是否必须</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">action</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">传递的方法:get_withdraw_rate</td>
-</tr>
-<tr>
-<td align="center">signature</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">签名</td>
-</tr>
-<tr>
-<td align="center">private_key</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">分配给第三方的key</td>
-</tr>
-</tbody>
-</table>
-<p>返回参数说明:</p>
-<table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">类型</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">is_succ</td>
-<td align="center">bool</td>
-<td align="center">true:成功 false:失败</td>
-</tr>
-<tr>
-<td align="center">error_msg</td>
-<td align="center">string</td>
-<td align="center">返回错误信息</td>
-</tr>
-<tr>
-<td align="center">error_code</td>
-<td align="center">int</td>
-<td align="center">返回码</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center"></td>
-<td align="center">获取成功</td>
-</tr>
-<tr>
-<td align="center">101</td>
-<td align="center"></td>
-<td align="center">传递参数错误</td>
-</tr>
-<tr>
-<td align="center">105</td>
-<td align="center"></td>
-<td align="center">获取不到第三方用户信息</td>
-</tr>
-<tr>
-<td align="center">303</td>
-<td align="center"></td>
-<td align="center">验证失败</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center"></td>
-<td align="center">获取汇率失败</td>
-</tr>
-<tr>
-<td align="center">withdraw_rate</td>
-<td align="center">string</td>
-<td align="center">返回信息</td>
-</tr>
-</tbody>
-</table>
-<p>返回成功json:<br />
-<div class="codehilite"><pre>{
-    &quot;is_succ&quot;:true,
-    &quot;error_msg&quot;:&quot;&quot;,
-    &quot;error_code&quot;:0,
-    &quot;withdraw_rate&quot;:&quot;6.1716&quot;
-}
-</pre></div>
-</p>
-<h4 id="4"><a name="user-content-4" href="#4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_exchange_rate">4.入金汇率</span></h4>
-<ul>
-<li>测试请求URL:<br />
-<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/get_exchange_rate
-</pre></div>
-</li>
-<li>线上请求URL:<br />
-<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/get_exchange_rate
-</pre></div>
-</li>
-<li>类型:HTTPS post</li>
-<li>参数:JSON String</li>
-<li>传递参数:</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">类型</th>
-<th align="center">是否必须</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">action</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">传递的方法:get_exchange_rate</td>
-</tr>
-<tr>
-<td align="center">signature</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">签名</td>
-</tr>
-<tr>
-<td align="center">private_key</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">分配给第三方的key</td>
-</tr>
-</tbody>
-</table>
-<p>返回参数说明:</p>
-<table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">类型</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">is_succ</td>
-<td align="center">bool</td>
-<td align="center">true:成功 false:失败</td>
-</tr>
-<tr>
-<td align="center">error_msg</td>
-<td align="center">string</td>
-<td align="center">返回错误信息</td>
-</tr>
-<tr>
-<td align="center">error_code</td>
-<td align="center">int</td>
-<td align="center">返回码</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center"></td>
-<td align="center">获取成功</td>
-</tr>
-<tr>
-<td align="center">1</td>
-<td align="center"></td>
-<td align="center">获取失败</td>
-</tr>
-<tr>
-<td align="center">exchange_rate</td>
-<td align="center">string</td>
-<td align="center">汇率</td>
-</tr>
-</tbody>
-</table>
-<p>返回成功json:<br />
-<div class="codehilite"><pre>{
-    &quot;error_code&quot;:0,
-    &quot;error_msg&quot;:&quot;&quot;,
-    &quot;is_succ&quot;:true,
-    &quot;exchange_rate&quot;:&quot;6.9166&quot;
-}
-</pre></div>
-</p>
-<h4 id="5"><a name="user-content-5" href="#5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "check_user_card">5.获取银行卡信息</span></h4>
-<ul>
-<li>测试请求URL:<br />
-<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/check_user_card
-</pre></div>
-</li>
-<li>线上请求URL:<br />
-<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/check_user_card
-</pre></div>
-</li>
-<li>类型:HTTPS post</li>
-<li>参数:JSON String</li>
-<li>传递参数:</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">类型</th>
-<th align="center">是否必须</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">action</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">传递的方法:check_user_card</td>
-</tr>
-<tr>
-<td align="center">signature</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">签名</td>
-</tr>
-<tr>
-<td align="center">private_key</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">分配给第三方的key</td>
-</tr>
-<tr>
-<td align="center">user_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">第三方user_id</td>
-</tr>
-<tr>
-<td align="center">mt4_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">绑定老虎的mt4_id</td>
-</tr>
-</tbody>
-</table>
-<p>返回参数说明:</p>
-<table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">类型</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">is_succ</td>
-<td align="center">bool</td>
-<td align="center">true/false</td>
-</tr>
-<tr>
-<td align="center">error_msg</td>
-<td align="center">string</td>
-<td align="center">返回信息</td>
-</tr>
-<tr>
-<td align="center">error_code</td>
-<td align="center">number</td>
-<td align="center">返回码</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center">获取成功</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">101</td>
-<td align="center">传递参数错误</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">105</td>
-<td align="center">获取不到第三方用户信息</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">data</td>
-<td align="center">Object</td>
-<td align="center">返回信息(空则没有绑定)</td>
-</tr>
-<tr>
-<td align="center">card</td>
-<td align="center">string</td>
-<td align="center">银行卡号</td>
-</tr>
-<tr>
-<td align="center">bank_name</td>
-<td align="center">string</td>
-<td align="center">银行名称</td>
-</tr>
-<tr>
-<td align="center">bank_addr</td>
-<td align="center">string</td>
-<td align="center">银行开户地址</td>
-</tr>
-</tbody>
-</table>
-<p>返回成功json:<br />
-<div class="codehilite"><pre>{
-    &quot;is_succ&quot;:true,
-    &quot;error_msg&quot;:&quot;成功&quot;,
-    &quot;error_code&quot;:0,
-    &quot;data&quot;:{
-        &quot;card&quot;:&quot;18601309735&quot;,
-        &quot;bank_name&quot;:&quot;中国联通&quot;,
-        &quot;bank_addr&quot;:&quot;中国联通&quot;
-    }
-}
-</pre></div>
-</p>
-<h4 id="5_1"><a name="user-content-5_1" href="#5_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_withdraw_info">5.获取可出余额，信用值，交易手数</span></h4>
-<ul>
-<li>测试请求URL:<br />
-<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/get_withdraw_info
-</pre></div>
-</li>
-<li>线上请求URL:<br />
-<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/get_withdraw_info
-</pre></div>
-</li>
-<li>类型:HTTPS post</li>
-<li>参数:JSON String</li>
-<li>传递参数:</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">类型</th>
-<th align="center">是否必须</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">action</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">传递的方法:get_withdraw_info</td>
-</tr>
-<tr>
-<td align="center">signature</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">签名</td>
-</tr>
-<tr>
-<td align="center">private_key</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">分配给第三方的key</td>
-</tr>
-<tr>
-<td align="center">user_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">第三方用户id</td>
-</tr>
-<tr>
-<td align="center">mt4_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">老虎mt4_id</td>
-</tr>
-</tbody>
-</table>
-<p>返回参数说明:</p>
-<table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">类型</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">is_succ</td>
-<td align="center">bool</td>
-<td align="center">true/false</td>
-</tr>
-<tr>
-<td align="center">error_msg</td>
-<td align="center">string</td>
-<td align="center">返回信息</td>
-</tr>
-<tr>
-<td align="center">error_code</td>
-<td align="center">int</td>
-<td align="center">返回码</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center"></td>
-<td align="center">请求成功</td>
-</tr>
-<tr>
-<td align="center">101</td>
-<td align="center"></td>
-<td align="center">传递参数错误</td>
-</tr>
-<tr>
-<td align="center">105</td>
-<td align="center"></td>
-<td align="center">获取不到第三方用户信息或者老虎账户信息</td>
-</tr>
-<tr>
-<td align="center">303</td>
-<td align="center"></td>
-<td align="center">安全验证失败</td>
-</tr>
-<tr>
-<td align="center">7</td>
-<td align="center"></td>
-<td align="center">系统错误，获取用户余额失败</td>
-</tr>
-<tr>
-<td align="center">5</td>
-<td align="center"></td>
-<td align="center">您未满足出金条件，赠金不可提取</td>
-</tr>
-<tr>
-<td align="center">6</td>
-<td align="center"></td>
-<td align="center">您还有持仓订单，请平仓后再提现</td>
-</tr>
-<tr>
-<td align="center">data</td>
-<td align="center">object</td>
-<td align="center">返回的详细信息</td>
-</tr>
-<tr>
-<td align="center">payment</td>
-<td align="center">boolen</td>
-<td align="center">true/真实入金 false/赠金用户</td>
-</tr>
-<tr>
-<td align="center">credit</td>
-<td align="center">string</td>
-<td align="center">信用值</td>
-</tr>
-<tr>
-<td align="center">volume</td>
-<td align="center">float</td>
-<td align="center">交易手数</td>
-</tr>
-<tr>
-<td align="center">balance</td>
-<td align="center">string</td>
-<td align="center">余额</td>
-</tr>
-<tr>
-<td align="center">withdraw_balance</td>
-<td align="center">string</td>
-<td align="center">出金余额</td>
-</tr>
-</tbody>
-</table>
-<p>说明:</p>
-<blockquote>
-<p>该接口是在用户申请出金的时候用到，给用户展示出金的具体余额信息</p>
-</blockquote>
-<p>返回成功json:<br />
-<div class="codehilite"><pre>{
-    &quot;error_code&quot;:0,
-    &quot;error_msg&quot;:&quot;可以提现&quot;,
-    &quot;is_succ&quot;:true,
-    &quot;data&quot;:{
-        &quot;payment&quot;:true,
-        &quot;credit&quot;:&quot;4305.12&quot;,
-        &quot;volume&quot;:0.04,
-        &quot;balance&quot;:&quot;39780.98&quot;,
-        &quot;withdraw_balance&quot;:&quot;36030.98&quot;
-    }
-}
-</pre></div>
-</p>
-<h4 id="5pc"><a name="user-content-5pc" href="#5pc" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "pay">5.pc电脑端入金(智付入金)</span></h4>
-<ul>
-<li>测试请求URL:<br />
-<code>需联系老虎外汇技术人员提供</code></li>
-<li>线上请求URL:<br />
-<code>需联系老虎外汇技术人员提供</code></li>
-<li>类型:HTTPS post</li>
-<li>参数:JSON String</li>
-<li>传递参数:</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">类型</th>
-<th align="center">是否必须</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">mt4_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">老虎mt4_id</td>
-</tr>
-<tr>
-<td align="center">amount</td>
-<td align="center">float</td>
-<td align="center">是</td>
-<td align="center">入金金额</td>
-</tr>
-</tbody>
-</table>
-<p>返回参数说明:</p>
-<table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">类型</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">is_succ</td>
-<td align="center">bool</td>
-<td align="center">true/false</td>
-</tr>
-<tr>
-<td align="center">error_msg</td>
-<td align="center">string</td>
-<td align="center">返回信息</td>
-</tr>
-<tr>
-<td align="center">error_code</td>
-<td align="center">int</td>
-<td align="center">返回码 0成功，其他失败</td>
-</tr>
-<tr>
-<td align="center">data</td>
-<td align="center">object</td>
-<td align="center">返回的详细信息</td>
-</tr>
-<tr>
-<td align="center">url</td>
-<td align="center">string</td>
-<td align="center">需要拼接跳转的url参数</td>
-</tr>
-<tr>
-<td align="center">order_no</td>
-<td align="center">int</td>
-<td align="center">需要拼接跳转的订单号参数</td>
-</tr>
-</tbody>
-</table>
-<p>说明:</p>
-<blockquote>
-<p>该接口不需要签名验证,返回的url和order_no需第三方拼接http(s)链接后由前端跳转到拼接后的链接地址。<br />
-拼接地址如下:<br />
-测试:<code>http://demo.tigerwit.com/{url}/{order_no}</code><br />
-正式:<code>https://api.tigerwit.com/{url}/{order_no}</code></p>
-</blockquote>
-<p>返回成功json:<br />
-<div class="codehilite"><pre>{
-    &quot;error_code&quot;:0,
-    &quot;error_msg&quot;:&quot;&quot;,
-    &quot;is_succ&quot;:true,
-    &quot;data&quot;:{
-        &quot;url&quot;:&quot;/action/public/v4/pay_order/9524214&quot;,
-        &quot;order_no&quot;:9524214
-    }
-}
-</pre></div>
-</p></article></body></html>
+<p>当第三方用户成功入金和出金通知第三方入金、出金成功与否。</p>
+</blockquote></article></body></html>
