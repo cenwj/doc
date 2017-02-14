@@ -313,7 +313,7 @@ https://api.tigerwit.com/action/public/api/get_withdraw_info
 |data|object|返回的详细信息|
 | payment |boolen|true/真实入金 false/赠金用户 |
 | credit |string|信用值|
-| volume | float |交易手数|
+| volume | float |交易手数，不需要前端再做乘以0.01转换|
 | balance | string |余额|
 | withdraw_balance | string |出金余额|
 

@@ -50,7 +50,7 @@ https://api.tigerwit.com/action/public/api/open_trader
 |symbol_cn|string|交易品种(中文)|
 |action|int|交易类型  [0=>'买', 1=>'卖']|
 |open_price|double|开仓价格|
-|volume|float|交易手数|
+|volume|float|交易手数，不需要前端再做乘以0.01转换|
 |occupy_asset|float|占用保证金|
 |tp|double|止盈价格|
 |sl|double|止损价格|
@@ -133,7 +133,7 @@ https://api.tigerwit.com/action/public/api/close_trader
 |profit| float |收益|
 |open_price|string|开仓价格|
 |close_price|string|平仓价格|
-|volume|int|平仓手数|
+|volume|float|交易手数，不需要前端再做乘以0.01转换|
 |close_time|string|平仓时间|
 
 返回成功json:
@@ -227,7 +227,7 @@ https://api.tigerwit.com/action/public/api/pending_order
 |user_id|int|是|第三方用户id|
 |mt4_id|int|是|老虎mt4_id|
 |cmd|int|是|交易类型枚举，OP_BUY_LIMIT - 2, OP_SELL_LIMIT - 3, OP_BUY_STOP - 4, OP_SELL_STOP - 5, 传递数字|
-|volume|float|是|交易手数 1为0.01手|
+|volume|float|是|交易手数，需要转换，传1则为0.01手|
 |symbol|string|是| 产品名称, 携带杠杆, 如EURUSD, XAUUSD200, HK50, 类型string|
 |pending_price|double|是| 挂单价格|
 |tp|double|是| 止盈价格, 不设置止盈该值为0|
@@ -249,7 +249,7 @@ https://api.tigerwit.com/action/public/api/pending_order
 | mt4_id |int|下单mt4_id |
 | order |int|成功的订单好|
 | cmd | int |交易类型|
-| volume | float |下单手数|
+| volume | float |交易手数，不需要前端再做乘以0.01转换|
 | symbol_en | string |下单交易品种 英文|
 | symbol_cn| string |下单交易品种 中文|
 | open_price | string |挂单价格|
@@ -324,7 +324,7 @@ https://api.tigerwit.com/action/public/api/pending_modify
 | mt4_id |int|mt4_id |
 | order |int|修改的订单号|
 | cmd | int |交易类型|
-| volume | float |下单手数|
+| volume | float |交易手数，不需要前端再做乘以0.01转换|
 | symbol_en | string |下单交易品种 英文|
 | symbol_cn| string |下单交易品种 中文|
 | open_price | string |挂单价格|
@@ -395,7 +395,7 @@ https://api.tigerwit.com/action/public/api/pending_delete
 | mt4_id |int|mt4_id |
 | order |int|修改的订单号|
 | cmd | int |交易类型|
-| volume | float |下单手数|
+| volume | float |交易手数，不需要前端再做乘以0.01转换|
 | symbol_en | string |下单交易品种 英文|
 | symbol_cn| string |下单交易品种 中文|
 | open_price | string |挂单价格|
@@ -465,7 +465,7 @@ https://api.tigerwit.com/action/public/api/get_pending
 |order|int|订单id|
 |open_time|int|挂单建立时间|
 |cmd|int|订单方向|
-|volume|float|手数|
+|volume|float|交易手数，不需要前端再做乘以0.01转换|
 |symbol_en|string|交易品种 英文|
 |symbol_cn|string|交易品种 中文|
 |open_price|string|挂单价格|

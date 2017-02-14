@@ -1250,7 +1250,7 @@ body .markdown-body
 <tr>
 <td align="center">volume</td>
 <td align="center">float</td>
-<td align="center">交易手数</td>
+<td align="center">交易手数，不需要前端再做乘以0.01转换</td>
 </tr>
 <tr>
 <td align="center">occupy_asset</td>
@@ -1469,8 +1469,8 @@ occupy_asset:占用保证金<br />
 </tr>
 <tr>
 <td align="center">volume</td>
-<td align="center">int</td>
-<td align="center">平仓手数</td>
+<td align="center">float</td>
+<td align="center">交易手数，不需要前端再做乘以0.01转换</td>
 </tr>
 <tr>
 <td align="center">close_time</td>
@@ -1701,7 +1701,7 @@ occupy_asset:占用保证金<br />
 <td align="center">volume</td>
 <td align="center">float</td>
 <td align="center">是</td>
-<td align="center">交易手数 1为0.01手</td>
+<td align="center">交易手数，需要转换，传1则为0.01手</td>
 </tr>
 <tr>
 <td align="center">symbol</td>
@@ -1803,7 +1803,7 @@ occupy_asset:占用保证金<br />
 <tr>
 <td align="center">volume</td>
 <td align="center">float</td>
-<td align="center">下单手数</td>
+<td align="center">交易手数，不需要前端再做乘以0.01转换</td>
 </tr>
 <tr>
 <td align="center">symbol_en</td>
@@ -2023,7 +2023,7 @@ occupy_asset:占用保证金<br />
 <tr>
 <td align="center">volume</td>
 <td align="center">float</td>
-<td align="center">下单手数</td>
+<td align="center">交易手数，不需要前端再做乘以0.01转换</td>
 </tr>
 <tr>
 <td align="center">symbol_en</td>
@@ -2219,7 +2219,7 @@ occupy_asset:占用保证金<br />
 <tr>
 <td align="center">volume</td>
 <td align="center">float</td>
-<td align="center">下单手数</td>
+<td align="center">交易手数，不需要前端再做乘以0.01转换</td>
 </tr>
 <tr>
 <td align="center">symbol_en</td>
@@ -2409,7 +2409,7 @@ occupy_asset:占用保证金<br />
 <tr>
 <td align="center">volume</td>
 <td align="center">float</td>
-<td align="center">手数</td>
+<td align="center">交易手数，不需要前端再做乘以0.01转换</td>
 </tr>
 <tr>
 <td align="center">symbol_en</td>

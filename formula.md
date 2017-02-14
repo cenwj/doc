@@ -22,7 +22,8 @@
 存款货币盈亏：profit 
 公式计算盈亏：profit_cal 
 注： 
-① lots是volumeinlots的缩写，volume为接口返回数值，关系：lots = volume * 0.01 
+① lots是volumeinlots的缩写，volume为接口返回数值。
+表示手数的数字如果是整型lost=volume,浮点型 lots = volume * 0.01。
 ② 接口返回的盈亏为profit，以美元为单位，仅价格变动造成的盈亏，不包括过夜费、手续费、佣金等 
 【C】计算公式 
 profit_cal = (close_price - open_price) * contract_size * lots 
