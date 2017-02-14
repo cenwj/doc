@@ -158,7 +158,7 @@ https://api.tigerwit.com/action/public/api/get_master_order_info
 |usercode|string|高手usercode|
 |open_price|double|开仓价格|
 |close_price|double|平仓价格|
-|volume|float|交易手数|
+|volume|float|交易手数，不需要前端再做乘以0.01转换|
 |action|int|交易类型 0做多 1做空|
 |open_time|date|开仓时间|
 
@@ -226,7 +226,7 @@ https://api.tigerwit.com/action/public/api/get_master_history_group
 |username|string|高手名称|
 |usercode|string|高手usercode|
 |profit|string|收益|
-|volume|double|交易手数|
+|volume|float|交易手数，不需要前端再做乘以0.01转换|
 |avatar_path|string|高手图片|
 
 返回成功json:
@@ -295,7 +295,7 @@ https://api.tigerwit.com/action/public/api/get_master_history_info
 |usercode|string|高手usercode|
 |open_price|double|开仓价格|
 |close_price|double|平仓价格|
-|volume|float|交易手数|
+|volume|float|交易手数，不需要前端再做乘以0.01转换|
 |action|int|交易类型 0做多 1做空|
 |profit_rate|string|每单收益率|
 |close_type|int|平仓类型 手动平仓：0，止损：1，止盈：2，强制：3，复制跟单：4|
@@ -447,7 +447,7 @@ https://api.tigerwit.com/action/public/api/foreign_order
 | sl | string |止损|
 | tp | string |止盈|
 | profit | float |收益|
-| volume | float |交易手数|
+| volume | float |交易手数，不需要前端再做乘以0.01转换|
 | open_time | string |开仓时间|
 |swaps|float|过夜费|
 |commission|float|手续费|
@@ -598,7 +598,7 @@ https://api.tigerwit.com/action/public/api/get_trade_record
 | open_price |string|开仓价格|
 | close_price |string|平仓价格|
 | profit |string|收益|
-| volume |double|交易手数|
+| volume |float|交易手数，不需要前端再做乘以0.01转换|
 | close_time |string|平仓时间|
 
 返回成功json:
