@@ -25,7 +25,7 @@
 保证金换算比率：margin_rate
 注：
 ① lots是volumeinlots的缩写，volume为接口返回数值。
-表示手数的数字如果是整型lost=volume,浮点型 lots = volume * 0.01
+表示手数的数字如果是浮点型lost=volume,整型 lots = volume * 0.01
 ② 开仓价格：买入market_price使用ask, 卖出market_price使用bid
 ③ margin_rate为margin_calc与margin之间的换算比率，margin = margin_calc * margin_rate
 【C】计算公式

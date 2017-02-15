@@ -2336,7 +2336,8 @@ body .markdown-body
 </tbody>
 </table>
 <p>注意：<br />
-profit_currency，假设需求是盈利都要转换为美元。若profit_currency为USD，则公式计算结果无需转换；若profit_currency为USDHKD或GBPUSD等等，则需要转换。</p>
+profit_currency，假设需求是盈利都要转换为美元。若profit_currency为USD，则公式计算结果无需转换；若profit_currency为USDHKD或GBPUSD等等，则需要转换。<br />
+不用通过profit_currency参数货币转换，可以通过profit = margin_rate * profit</p>
 <p>返回成功json:<br />
 <div class="codehilite"><pre><span class="p">{</span>
     <span class="s2">&quot;error_code&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
@@ -2868,7 +2869,7 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 <tr>
 <td align="center">status</td>
 <td align="center">int</td>
-<td align="center">1 有记录 2 有请求链接生成的记录 3 支付接入商返回失败 4 确认支付成功 5 开户赠金 6 推荐好友赠金 7信用值 0 无此单 -1 已提交 -2 已撤销 -3 处理中 -4 拒绝出金 -5 出金处理完毕</td>
+<td align="center">1 有记录 2 有请求链接生成的记录 3 支付接入商返回失败 4 确认支付成功 5 开户赠金 7信用值 0 无此单 -1 已提交 -2 已撤销 -3 处理中 -4 拒绝出金 -5 出金处理完毕</td>
 </tr>
 <tr>
 <td align="center">direction</td>

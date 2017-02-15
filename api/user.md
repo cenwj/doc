@@ -458,6 +458,7 @@ https://api.tigerwit.com/action/public/api/foreign_order
 
 注意：
 profit_currency，假设需求是盈利都要转换为美元。若profit_currency为USD，则公式计算结果无需转换；若profit_currency为USDHKD或GBPUSD等等，则需要转换。
+不用通过profit_currency参数货币转换，可以通过profit = margin_rate * profit
 
 返回成功json:
 ```
@@ -665,7 +666,7 @@ https://api.tigerwit.com/action/public/api/get_payment_record
 |303| |安全验证失败|
 |num|int|总条数|
 |data|array|返回的详细信息|
-| status |int|1 有记录 2 有请求链接生成的记录 3 支付接入商返回失败 4 确认支付成功 5 开户赠金 6 推荐好友赠金 7信用值 0 无此单 -1 已提交 -2 已撤销 -3 处理中 -4 拒绝出金 -5 出金处理完毕  |
+| status |int|1 有记录 2 有请求链接生成的记录 3 支付接入商返回失败 4 确认支付成功 5 开户赠金 7信用值 0 无此单 -1 已提交 -2 已撤销 -3 处理中 -4 拒绝出金 -5 出金处理完毕  |
 | direction |int|1入金 -1出金|
 | rmb_amount | float |出入金[人民币]|
 | usd_amount |float|出入金[美元]|
