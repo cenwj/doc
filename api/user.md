@@ -455,9 +455,10 @@ https://api.tigerwit.com/action/public/api/foreign_order
 |stops_level|double|止盈止损水平|
 |multiply|int|10^digits|
 |profit_currency|string|盈利公式结果单位|
-
+|profit_rate|float|汇率|
 注意：
 profit_currency，假设需求是盈利都要转换为美元。若profit_currency为USD，则公式计算结果无需转换；若profit_currency为USDHKD或GBPUSD等等，则需要转换,即为USDHKD或GBPUSD的品种价格算收益。
+如果不想通过profit_currency参数转换，可以通过profit_rate参数直接转换 profit = profit_rate * profit 则是最终美元盈利。
 
 返回成功json: 以接口返回结果为准。
 ```
