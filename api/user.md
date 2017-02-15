@@ -457,10 +457,11 @@ https://api.tigerwit.com/action/public/api/foreign_order
 |profit_currency|string|盈利公式结果单位|
 
 注意：
-profit_currency，假设需求是盈利都要转换为美元。若profit_currency为USD，则公式计算结果无需转换；若profit_currency为USDHKD或GBPUSD等等，则需要转换。
-不用通过profit_currency参数货币转换，可以通过profit = margin_rate * profit
+profit_currency，假设需求是盈利都要转换为美元。若profit_currency为USD，则公式计算结果无需转换；若profit_currency为USDHKD或GBPUSD等等，则需要转换,即为USDHKD或GBPUSD的品种价格算收益。
+如果觉得计算麻烦不用通过profit_currency参数，可以通过profit = margin_rate * profit 不过 margin_rate 是下单时候的汇率。而不是获取到报价计算出来的汇率 (ask+bid) / 2，显示给用户看到的平仓价格波动可能会比较大。
 
-返回成功json:
+
+返回成功json: 以接口返回结果为准。
 ```
 {
     "error_code":0,
