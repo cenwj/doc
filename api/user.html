@@ -2336,8 +2336,7 @@ body .markdown-body
 </tbody>
 </table>
 <p>注意：<br />
-profit_currency，假设需求是盈利都要转换为美元。若profit_currency为USD，则公式计算结果无需转换；若profit_currency为USDHKD或GBPUSD等等，则需要转换,即为USDHKD或GBPUSD的品种价格算收益。<br />
-如果觉得计算麻烦不用通过profit_currency参数，可以通过profit = margin_rate * profit 不过 margin_rate 是下单时候的汇率。而不是获取到报价计算出来的汇率 (ask+bid) / 2，显示给用户看到的平仓价格波动可能会比较大。</p>
+profit_currency，假设需求是盈利都要转换为美元。若profit_currency为USD，则公式计算结果无需转换；若profit_currency为USDHKD或GBPUSD等等，则需要转换,即为USDHKD或GBPUSD的品种价格算收益。</p>
 <p>返回成功json: 以接口返回结果为准。<br />
 <div class="codehilite"><pre><span class="p">{</span>
     <span class="s2">&quot;error_code&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
