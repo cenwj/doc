@@ -226,7 +226,7 @@ https://api.tigerwit.com/action/public/api/pending_order
 |private_key|string|是|分配给第三方的key|
 |user_id|int|是|第三方用户id|
 |mt4_id|int|是|老虎mt4_id|
-|cmd|int|是|交易类型枚举，OP_BUY_LIMIT - 2, OP_SELL_LIMIT - 3, OP_BUY_STOP - 4, OP_SELL_STOP - 5, 传递数字|
+|cmd|int|是|交易类型枚举，OP_BUY_LIMIT=>2, OP_SELL_LIMIT=>3, OP_BUY_STOP=>4, OP_SELL_STOP=>5, 传递数字|
 |volume|float|是|交易手数，需要转换，传1则为0.01手|
 |symbol|string|是| 产品名称, 携带杠杆, 如EURUSD, XAUUSD200, HK50, 类型string|
 |pending_price|double|是| 挂单价格|
