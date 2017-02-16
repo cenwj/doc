@@ -443,7 +443,7 @@ https://api.tigerwit.com/action/public/api/foreign_order
 | symbol_en |string|交易品种英文|
 | symbol_cn | string |交易品种中文|
 | action |int|交易类型 [0=>'买', 1=>'卖', 2=>'挂单买入', 3=>'挂单卖出', 4=>'挂单追涨', 5=>'挂单追空']|
-| occupy_asset | double |占用保证金|
+| occupy_asset | double |占用保证金,不需要转换成美元，已经是美元|
 | sl | string |止损|
 | tp | string |止盈|
 | profit | float |收益|
@@ -460,6 +460,7 @@ https://api.tigerwit.com/action/public/api/foreign_order
 注意：
 profit_currency，假设需求是盈利都要转换为美元。若profit_currency为USD，则公式计算结果无需转换；若profit_currency为USDHKD或GBPUSD等等，则需要转换,即为USDHKD或GBPUSD的品种价格算收益。
 如果不想通过profit_currency参数转换，可以通过profit_rate参数直接转换 profit = profit_rate * profit 则是最终美元盈利。
+第一次拿到持仓单的profit就是美金不用再转换，实时算的时候profit是通过盈利公式算出来后转换美金就要乘以profit_rate。
 
 返回成功json: 以接口返回结果为准。
 ```
