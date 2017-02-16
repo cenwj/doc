@@ -464,7 +464,7 @@ https://api.tigerwit.com/action/public/api/get_pending
 |data|array|返回的详细信息|
 |order|int|订单id|
 |open_time|int|挂单建立时间|
-|cmd|int|订单方向|
+|cmd|int|2=>'挂单买涨', 3=>'挂单买跌', 4=>'挂单买涨', 5=>'挂单买跌'|
 |volume|float|交易手数，不需要前端再做乘以0.01转换|
 |symbol_en|string|交易品种 英文|
 |symbol_cn|string|交易品种 中文|
