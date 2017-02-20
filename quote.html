@@ -1081,7 +1081,7 @@ body .markdown-body
 <h5 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote.html">报价推送</a> | <a href="/formula.html">盈亏计算</a> | <a href="/level.html">止盈止损</a> | <a href="/bouns.html">高手分成</a> | <a href="/pending.html">挂单</a> | <a href="/ouccupy_asset.html">保证金计算</a></h5>
 <h5 id="demo_ioszip-demo_androidzip"><a name="user-content-demo_ioszip-demo_androidzip" href="#demo_ioszip-demo_androidzip" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>下载: <a href="https://www.tigerwit.com/action/public/demo_ios.zip">报价demo_IOS.zip</a> | <a href="https://www.tigerwit.com/action/public/demo_adroid.zip">报价demo_Android.zip</a></h5>
 <h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>报价推送</h2>
-<p>先建立与服务端quote.tigerwit.com的连接，监听8888端口，再执行登陆命令。</p>
+<p>先建立与服务端quote.tigerwit.com的连接，监听7777端口，再执行登陆命令。</p>
 <h4 id="1"><a name="user-content-1" href="#1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.登陆</h4>
 <p>类型:socket <br />
 参数:json格式字符串的byte数组 <br />
@@ -1103,7 +1103,7 @@ Token=(pwd(xxxx)+LoginTime +UserName + DevId)的值进行MD5加密，字节数�
 <p>返回结果: <br />
 5位字节的header：2-2-3-0-66+body数据：</p>
 <blockquote>
-<p>{&ldquo;Code&rdquo;:&rdquo;success&rdquo;,&rdquo;Message&rdquo;:&rdquo;&ldquo;,&rdquo;RequestNo&rdquo;:&rdquo;0&rdquo;,&rdquo;ServiceCode&rdquo;:null} </p>
+<p>{&ldquo;Result&rdquo;:[&ldquo;EURCAD&rdquo;,&rdquo;1.39066&rdquo;,&rdquo;1.39035&rdquo;,&rdquo;1.39043&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;EURNZD&rdquo;,&rdquo;1.47850&rdquo;,&rdquo;1.47819&rdquo;,&rdquo;1.47827&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;EURJPY&rdquo;,&rdquo;120.097&rdquo;,&rdquo;120.074&rdquo;,&rdquo;120.082&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;EURGBP&rdquo;,&rdquo;0.85293&rdquo;,&rdquo;0.85272&rdquo;,&rdquo;0.85280&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;AUDNZD&rdquo;,&rdquo;1.06853&rdquo;,&rdquo;1.06820&rdquo;,&rdquo;1.06828&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;USDJPY&rdquo;,&rdquo;113.084&rdquo;,&rdquo;113.064&rdquo;,&rdquo;113.072&rdquo;,&rdquo;1487590897&rdquo;],&rdquo;Code&rdquo;:&rdquo;success&rdquo;,&rdquo;Message&rdquo;:null,&rdquo;RequestNo&rdquo;:&rdquo;0&rdquo;,&rdquo;ServiceCode&rdquo;:&rdquo;00001&rdquo;}</p>
 </blockquote>
 <p>判断是否登陆成功 即判断返回的header数据 5位的byte字节：2-2-3-0-66</p>
 <table>
@@ -1174,5 +1174,4 @@ ServiceCode:&quot;00001&quot;
 <li>ctm为报价读取时间。 </li>
 </ul>
 <p><img alt="示例" src="http://app2.mailpanda.com/recipient/image?a=20&amp;f=151952970831888384.jpg" /></p>
-<h4 id="59999"><a name="user-content-59999" href="#59999" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.测试端口9999</h4>
-<p>最新变动会在该端口更新，生产端口8888更新较慢。</p></article></body></html>
+<h4 id="57777"><a name="user-content-57777" href="#57777" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.端口7777</h4></article></body></html>
