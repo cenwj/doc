@@ -7,7 +7,7 @@
 [报价demo_IOS.zip](https://www.tigerwit.com/action/public/demo_ios.zip) | [报价demo_Android.zip](https://www.tigerwit.com/action/public/demo_adroid.zip)
 
 ######K线图
-[报价&K线图kline.zip](https://www.tigerwit.com/action/public/kline.zip) 
+[报价&K线图IOS](https://www.tigerwit.com/action/public/kline.zip) 
 ## 报价推送
 
 先建立与服务端quote.tigerwit.com的连接，监听7777端口，再执行登陆命令。
