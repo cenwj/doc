@@ -116,7 +116,7 @@ https://api.tigerwit.com/action/public/api/symbol_list_info
 |margin_divider|double|百分比 ［保证金计算中的percentage = 100 / margin_divider] |
 |currency|string|流通货币|
 |margin_currency|string|保证金货币|
- 
+|min_volume|float|最低交易手数|
 说明:
 >保证金计算中的percentage = 100 / margin_divider 
 流通货币具体查看 [【盈亏计算】](/formula.html)
@@ -145,25 +145,8 @@ https://api.tigerwit.com/action/public/api/symbol_list_info
             "margin_initial":0,
             "margin_divider":1,
             "currency":"AUD",
-            "margin_currency":"USD"
-        },
-        {
-            "symbol_en":"AUDCAD50",
-            "symbol_cn":"澳元加元",
-            "digits":5,
-            "stops_level":100,
-            "gtc_pendings":1,
-            "contract_size":100000,
-            "profit_mode":0,
-            "swap_type":3,
-            "swap_long":1.4,
-            "swap_short":-3.3,
-            "margin_mode":0,
-            "margin_hedged":100000,
-            "margin_initial":0,
-            "margin_divider":0.5,
-            "currency":"AUD",
-            "margin_currency":"USD"
+            "margin_currency":"USD"，
+            "min_volume":0.01
         }
     ]
 }

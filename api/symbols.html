@@ -1427,14 +1427,33 @@ body .markdown-body
 <td align="center">string</td>
 <td align="center">保证金货币</td>
 </tr>
+<tr>
+<td align="center">min_volume</td>
+<td align="center">float</td>
+<td align="center">最低交易手数</td>
+</tr>
+<tr>
+<td align="center">说明:</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">&gt;保证金计算中的percentage = 100 / margin_divider</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">流通货币具体查看 <a href="/formula.html">【盈亏计算】</a></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"><code>预付款对冲:计算对冲之后保证金需要用到的参数，是算占用保证金的。</code></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
 </tbody>
 </table>
-<p>说明:</p>
-<blockquote>
-<p>保证金计算中的percentage = 100 / margin_divider <br />
-流通货币具体查看 <a href="/formula.html">【盈亏计算】</a><br />
-<code>预付款对冲:计算对冲之后保证金需要用到的参数，是算占用保证金的。</code></p>
-</blockquote>
 <p>返回成功json:<br />
 <div class="codehilite"><pre><span class="p">{</span>
     <span class="s2">&quot;error_code&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
@@ -1457,25 +1476,8 @@ body .markdown-body
             <span class="s2">&quot;margin_initial&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
             <span class="s2">&quot;margin_divider&quot;</span><span class="s s-Atom">:</span><span class="mi">1</span><span class="p">,</span>
             <span class="s2">&quot;currency&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;AUD&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;margin_currency&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;USD&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="s2">&quot;symbol_en&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;AUDCAD50&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;symbol_cn&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;澳元加元&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;digits&quot;</span><span class="s s-Atom">:</span><span class="mi">5</span><span class="p">,</span>
-            <span class="s2">&quot;stops_level&quot;</span><span class="s s-Atom">:</span><span class="mi">100</span><span class="p">,</span>
-            <span class="s2">&quot;gtc_pendings&quot;</span><span class="s s-Atom">:</span><span class="mi">1</span><span class="p">,</span>
-            <span class="s2">&quot;contract_size&quot;</span><span class="s s-Atom">:</span><span class="mi">100000</span><span class="p">,</span>
-            <span class="s2">&quot;profit_mode&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
-            <span class="s2">&quot;swap_type&quot;</span><span class="s s-Atom">:</span><span class="mi">3</span><span class="p">,</span>
-            <span class="s2">&quot;swap_long&quot;</span><span class="s s-Atom">:</span><span class="mf">1.4</span><span class="p">,</span>
-            <span class="s2">&quot;swap_short&quot;</span><span class="p">:-</span><span class="mf">3.3</span><span class="p">,</span>
-            <span class="s2">&quot;margin_mode&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
-            <span class="s2">&quot;margin_hedged&quot;</span><span class="s s-Atom">:</span><span class="mi">100000</span><span class="p">,</span>
-            <span class="s2">&quot;margin_initial&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
-            <span class="s2">&quot;margin_divider&quot;</span><span class="s s-Atom">:</span><span class="mf">0.5</span><span class="p">,</span>
-            <span class="s2">&quot;currency&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;AUD&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;margin_currency&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;USD&quot;</span>
+            <span class="s2">&quot;margin_currency&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;USD&quot;</span><span class="s s-Atom">，</span>
+            <span class="s2">&quot;min_volume&quot;</span><span class="s s-Atom">:</span><span class="mf">0.01</span>
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
