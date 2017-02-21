@@ -46,4 +46,11 @@ margin = margin_calc * margin_rate
 a. 如果产品的margin_currency为美元USD，则无需换算
 b. 如果产品的margin_currency不是美元，则使用相关货币 `USD***` 或 `***USD`的价格作为换算标准：price = (ask + bid) / 2
 如果USD为基础货币（货币对第一个币种），则 margin = margin_calc / price;
-如果USD为兑换货币（货币对第二个币种），则 margin = margin_calc * price
+如果USD为兑换货币（货币对第二个币种），则 margin = margin_calc * price;
+
+说明:
+【C】计算公式 某个产品对应公式，可以从接口  [【获得 组、品种、产品、点差 信息】](/api/symbols.html#spread_info) security参数 获取；
+举例：
+"CADJPY":"Forex-1" "AUDUSD200":"Forex-M", 对应的公式【C】计算公式① 普通货币对Forex
+"XAUUSD200":"Gold-USD-M","XAGUSD":"Silver-USD", "XNGUSD":"Oil&Energy-USD" 对应的公式【C】计算公式② 原油、贵金属
+"NAS100":"CFD",对应的公式【C】计算公式③ 指数产品CFD 
