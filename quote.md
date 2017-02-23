@@ -7,7 +7,7 @@
 [报价demo_IOS.zip](https://www.tigerwit.com/action/public/demo_ios.zip) | [报价demo_Android.zip](https://www.tigerwit.com/action/public/demo_adroid.zip)
 
 ######K线图
-[报价&K线图IOS](https://www.tigerwit.com/action/public/kline.zip) | [报价&K线图Android](https://www.tigerwit.com/action/public/TigerwitQuoteDemo_v1.1.1.zip)
+[报价&K线图IOS](https://www.tigerwit.com/action/public/kline.zip) | [报价&K线图Android](https://www.tigerwit.com/action/public/adroid_kline.zip)
 
 ## 报价推送
 
