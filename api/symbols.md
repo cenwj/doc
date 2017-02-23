@@ -122,6 +122,7 @@ https://api.tigerwit.com/action/public/api/symbol_list_info
 >保证金计算中的percentage = 100 / margin_divider 
 流通货币具体查看 [【盈亏计算】](/formula.html)
 `预付款对冲:计算对冲之后保证金需要用到的参数，是算占用保证金的。`
+如果是HK50 JPN255 就要拿USDJPY USDHKD
 
 返回成功json:
 ```
