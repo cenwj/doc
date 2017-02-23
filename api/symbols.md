@@ -117,6 +117,7 @@ https://api.tigerwit.com/action/public/api/symbol_list_info
 |currency|string|流通货币|
 |margin_currency|string|保证金货币|
 |min_volume|float|最低交易手数|
+
 说明:
 >保证金计算中的percentage = 100 / margin_divider 
 流通货币具体查看 [【盈亏计算】](/formula.html)
