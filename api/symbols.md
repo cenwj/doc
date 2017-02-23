@@ -404,7 +404,8 @@ https://api.tigerwit.com/action/public/api/spread_info
 推送过来的买价为ask，卖价为bid 
 用户实际的市场价格买价为ASK，卖价为BID 
 则ASK=ask + offset, BID = bid - offset 
-以后所有用到市场价格均要使用ASK或BID
+以后所有用到市场价格均要使用ASK或BID。
+notrade：表示只能接受报价不能进行交易。
 
 返回成功json:
 ```
