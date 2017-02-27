@@ -532,8 +532,8 @@ https://api.tigerwit.com/action/public/api/foreign_exchange_account
 | margin_free |float|可用预付款|
 | margin_level | float |预付款比例|
 | equity |float|净值|
-| balance | float |结余包括信用|
-| balance_not_include_credit | float |结余不包括信用|
+| balance | float |余额包括信用|
+| balance_not_include_credit | float |余额不包括信用|
 | credit | float |信用|
 
 说明：浮动盈亏=净值-余额-信用
