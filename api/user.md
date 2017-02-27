@@ -536,6 +536,8 @@ https://api.tigerwit.com/action/public/api/foreign_exchange_account
 | balance_not_include_credit | float |结余不包括信用|
 | credit | float |信用|
 
+说明：浮动盈亏=净值-余额-信用
+
 返回成功json:
 ```
 {
