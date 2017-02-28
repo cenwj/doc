@@ -117,8 +117,8 @@ https://api.tigerwit.com/action/public/api/symbol_list_info
 |currency|string|流通货币|
 |margin_currency|string|保证金货币|
 |min_volume|float|最低交易手数|
-|margin_cal_currency|string|保证金公式结果是否需要汇率转换及需要汇率转换的货币对|
-|profit_cal_currency|string|盈亏结果是否需要汇率转换及需要汇率转换的货币对|
+|margin_cal_currency|string| 保证金公式结果是否需要汇率转换及需要汇率转换的货币对 |
+|profit_cal_currency|string| 盈亏公式结果是否需要汇率转换及需要汇率转换的货币对 |
 
 说明:
 >更新：

@@ -536,7 +536,19 @@ https://api.tigerwit.com/action/public/api/foreign_exchange_account
 | balance_not_include_credit | float |余额不包括信用|
 | credit | float |信用|
 
-说明：浮动盈亏=净值-余额-信用
+说明：
+第一次读取接口数据：
+>浮动盈亏 = 净值 - 余额 - 信用（equity-balance_not_include_credit）或（equity-balance-credit)
+占用保证金 = 已用预付款(margin)
+可用资金 = 可用预付款(margin_free)
+净资产 = 净值(equity)
+
+后面自己计算:
+>浮动盈亏 = 所有持仓订单浮动盈亏总和
+占用保证金 = 所有持仓订单保证总和（保证金是不变的没有新订单不用再自己算）
+净值 = 余额（balance_not_include_credit） + 信用 + 浮动盈亏
+可用资产 = 余额（balance_not_include_credit） + 信用 + 浮动盈亏 - 占用保证金 
+
 
 返回成功json:
 ```

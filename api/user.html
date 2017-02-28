@@ -2522,7 +2522,21 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 </tr>
 </tbody>
 </table>
-<p>说明：浮动盈亏=净值-余额-信用</p>
+<p>说明：<br />
+第一次读取接口数据：</p>
+<blockquote>
+<p>浮动盈亏 = 净值 - 余额 - 信用（equity-balance_not_include_credit）或（equity-balance-credit)<br />
+占用保证金 = 已用预付款(margin)<br />
+可用资金 = 可用预付款(margin_free)<br />
+净资产 = 净值(equity)</p>
+</blockquote>
+<p>后面自己计算:</p>
+<blockquote>
+<p>浮动盈亏 = 所有持仓订单浮动盈亏总和<br />
+占用保证金 = 所有持仓订单保证总和（保证金是不变的没有新订单不用再自己算）<br />
+净值 = 余额（balance_not_include_credit） + 信用 + 浮动盈亏<br />
+可用资产 = 余额（balance_not_include_credit） + 信用 + 浮动盈亏 - 占用保证金 </p>
+</blockquote>
 <p>返回成功json:<br />
 <div class="codehilite"><pre>{
     &quot;error_code&quot;:0,
