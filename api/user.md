@@ -8,11 +8,11 @@
 #### <span id = "signup">1.开户</span>
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/get_master_group
+http://demo.tigerwit.com/action/public/api/signup_v2
 ```
 * 线上请求URL:
 ```
-https://api.tigerwit.com/action/public/api/get_master_group
+https://api.tigerwit.com/action/public/api/signup_v2
 ```
 * 类型:HTTPS post
 * 参数:JSON String
