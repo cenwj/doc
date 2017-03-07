@@ -1542,6 +1542,12 @@ body .markdown-body
 <span class="n">today_low</span><span class="o">:</span><span class="err">类型</span> <span class="n">string</span> <span class="err">今天开盘最低价</span>
 <span class="n">today_high</span><span class="o">:</span><span class="err">类型</span> <span class="n">string</span> <span class="err">今天开盘最高价</span>
 <span class="n">yesterday_close_price</span><span class="o">:</span><span class="err">类型</span> <span class="n">string</span> <span class="err">昨天收盘价</span>
+<span class="n">week_high</span><span class="o">:</span><span class="err">类型</span> <span class="n">string</span> <span class="err">上周最高价</span> 
+<span class="n">week_low</span><span class="o">:</span><span class="err">类型</span> <span class="n">string</span> <span class="err">上周最低价</span> 
+<span class="n">month_high</span><span class="o">:</span><span class="err">类型</span> <span class="n">string</span> <span class="err">上月最高价</span>  
+<span class="n">month_low</span><span class="o">:</span><span class="err">类型</span> <span class="n">string</span> <span class="err">上月最低价</span>   
+<span class="n">year_high</span><span class="o">:</span><span class="err">类型</span> <span class="n">string</span> <span class="err">上年最高价</span>    
+<span class="n">year_low</span><span class="o">:</span><span class="err">类型</span> <span class="n">string</span> <span class="err">上年最低价</span>    
 </pre></div>
 </p>
 <p>返回成功json:<br />
@@ -1551,11 +1557,17 @@ body .markdown-body
     &quot;is_succ&quot;:true,
     &quot;data&quot;:{
         &quot;AUDCAD&quot;:{
-            &quot;ctm&quot;:1484611200,
-            &quot;today_open_price&quot;:&quot;0.98519&quot;,
-            &quot;today_high&quot;:&quot;0.98519&quot;,
-            &quot;today_low&quot;:&quot;0.98519&quot;,
-            &quot;yesterday_close_price&quot;:&quot;0.98528&quot;
+            &quot;ctm&quot;:1488844800,
+            &quot;today_open_price&quot;:&quot;1.01650&quot;,
+            &quot;today_high&quot;:&quot;1.02154&quot;,
+            &quot;today_low&quot;:&quot;1.01502&quot;,
+            &quot;yesterday_close_price&quot;:&quot;1.01684&quot;,
+            &quot;week_high&quot;:&quot;1.06391&quot;,
+            &quot;week_low&quot;:&quot;1.04941&quot;,
+            &quot;month_high&quot;:&quot;1.07967&quot;,
+            &quot;month_low&quot;:&quot;1.04929&quot;,
+            &quot;year_high&quot;:&quot;1.16161&quot;,
+            &quot;year_low&quot;:&quot;1.03393&quot;
         }
     }
 }

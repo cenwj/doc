@@ -169,6 +169,12 @@ today_open_price:类型 string 今天开盘价
 today_low:类型 string 今天开盘最低价
 today_high:类型 string 今天开盘最高价
 yesterday_close_price:类型 string 昨天收盘价
+week_high:类型 string 上周最高价 
+week_low:类型 string 上周最低价 
+month_high:类型 string 上月最高价  
+month_low:类型 string 上月最低价   
+year_high:类型 string 上年最高价    
+year_low:类型 string 上年最低价    
 ```
 
 返回成功json:
@@ -179,11 +185,17 @@ yesterday_close_price:类型 string 昨天收盘价
     "is_succ":true,
     "data":{
         "AUDCAD":{
-            "ctm":1484611200,
-            "today_open_price":"0.98519",
-            "today_high":"0.98519",
-            "today_low":"0.98519",
-            "yesterday_close_price":"0.98528"
+            "ctm":1488844800,
+            "today_open_price":"1.01650",
+            "today_high":"1.02154",
+            "today_low":"1.01502",
+            "yesterday_close_price":"1.01684",
+            "week_high":"1.06391",
+            "week_low":"1.04941",
+            "month_high":"1.07967",
+            "month_low":"1.04929",
+            "year_high":"1.16161",
+            "year_low":"1.03393"
         }
     }
 }
