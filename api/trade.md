@@ -1,6 +1,6 @@
 # 老虎外汇文档
 
-##### [系统功能](/) |  [接口分类](/api/category.html) | [报价推送](/quote.html) | [盈亏计算](/formula.html) | [止盈止损](/level.html) | [高手分成](/bouns.html) | [挂单](/pending.html) | [保证金计算](/ouccupy_asset.html)
+##### [系统功能](/) |  [接口分类](/api/category.html) | [报价推送](/quote.html) | [盈亏计算](/formula.html) | [止盈止损](/level.html) | [高手分成](/bouns.html) | [挂单](/pending.html) | [保证金计算](/ouccupy_asset.html) | [公告](/notice.html) 
 
 ## 接口分类 
 ### 开仓、平仓、挂单
@@ -232,7 +232,7 @@ https://api.tigerwit.com/action/public/api/pending_order
 |pending_price|double|是| 挂单价格|
 |tp|double|是| 止盈价格, 不设置止盈该值为0|
 |sl|double|是|  止损价格, 不设置止损该值为0|
-|expiration_time|int|是| 过期时间戳, 具体过期时间为开仓时间加该时间戳秒数 永久为0|
+|expiration_time|int|是| 过期时间戳, 具体过期时间为开仓时间加该时间戳秒数 永久为0,比如 要1个小时后过期 就传3600|
 
 返回参数说明:
 

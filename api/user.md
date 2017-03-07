@@ -1,6 +1,6 @@
 # 老虎外汇文档
 
-##### [系统功能](/) |  [接口分类](/api/category.html) | [报价推送](/quote.html) | [盈亏计算](/formula.html) | [止盈止损](/level.html) | [高手分成](/bouns.html) | [挂单](/pending.html) | [保证金计算](/ouccupy_asset.html)
+##### [系统功能](/) |  [接口分类](/api/category.html) | [报价推送](/quote.html) | [盈亏计算](/formula.html) | [止盈止损](/level.html) | [高手分成](/bouns.html) | [挂单](/pending.html) | [保证金计算](/ouccupy_asset.html) | [公告](/notice.html) 
 
 ## 接口分类 
 ### 开户、个人中心
@@ -617,6 +617,11 @@ https://api.tigerwit.com/action/public/api/get_trade_record
 | profit |string|收益|
 | volume |float|交易手数，不需要前端再做乘以0.01转换|
 | close_time |string|平仓时间|
+| open_time |string|开仓时间|
+| commission |float|手续费|
+| swaps |float|库存费|
+| tp |double|止盈|
+| sl |double|止损|
 
 返回成功json:
 ```
@@ -630,15 +635,20 @@ https://api.tigerwit.com/action/public/api/get_trade_record
             "master_name":null,
             "is_from":0,
             "action":0,
-            "ticket":817752,
-            "symbol_en":"GBPUSD",
-            "symbol_cn":"英镑美元",
-            "open_price":"1.41390",
-            "close_price":"1.41355",
-            "profit":"-0.35000",
-            "volume":0.01,
+            "ticket":2790293,
+            "symbol_en":"USDJPY",
+            "symbol_cn":"美元日元",
+            "open_price":"114.027",
+            "close_price":"114.025",
+            "profit":"-0.350",
+            "volume":0.2,
             "close_type":0,
-            "close_time":"2016-04-15 03:28:03"
+            "close_time":"2017-03-02 06:02:29",
+            "open_time":"2017-03-02 06:00:21",
+            "commission":0,
+            "swaps":0,
+            "sl":0,
+            "tp":0
         }
     ]
 }

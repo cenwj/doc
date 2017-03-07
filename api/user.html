@@ -1078,7 +1078,7 @@ body .markdown-body
 .codehilite .il{color:#009999}
 .codehilite .gc{color:#999;background-color:#EAF2F5}
 </style><title>user</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>老虎外汇文档</h1>
-<h5 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote.html">报价推送</a> | <a href="/formula.html">盈亏计算</a> | <a href="/level.html">止盈止损</a> | <a href="/bouns.html">高手分成</a> | <a href="/pending.html">挂单</a> | <a href="/ouccupy_asset.html">保证金计算</a></h5>
+<h5 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote.html">报价推送</a> | <a href="/formula.html">盈亏计算</a> | <a href="/level.html">止盈止损</a> | <a href="/bouns.html">高手分成</a> | <a href="/pending.html">挂单</a> | <a href="/ouccupy_asset.html">保证金计算</a> | <a href="/notice.html">公告</a></h5>
 <h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>接口分类</h2>
 <h3 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>开户、个人中心</h3>
 <h4 id="1"><a name="user-content-1" href="#1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "signup">1.开户</span></h4>
@@ -2737,6 +2737,31 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 <td align="center">string</td>
 <td align="center">平仓时间</td>
 </tr>
+<tr>
+<td align="center">open_time</td>
+<td align="center">string</td>
+<td align="center">开仓时间</td>
+</tr>
+<tr>
+<td align="center">commission</td>
+<td align="center">float</td>
+<td align="center">手续费</td>
+</tr>
+<tr>
+<td align="center">swaps</td>
+<td align="center">float</td>
+<td align="center">库存费</td>
+</tr>
+<tr>
+<td align="center">tp</td>
+<td align="center">double</td>
+<td align="center">止盈</td>
+</tr>
+<tr>
+<td align="center">sl</td>
+<td align="center">double</td>
+<td align="center">止损</td>
+</tr>
 </tbody>
 </table>
 <p>返回成功json:<br />
@@ -2750,15 +2775,20 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
             &quot;master_name&quot;:null,
             &quot;is_from&quot;:0,
             &quot;action&quot;:0,
-            &quot;ticket&quot;:817752,
-            &quot;symbol_en&quot;:&quot;GBPUSD&quot;,
-            &quot;symbol_cn&quot;:&quot;英镑美元&quot;,
-            &quot;open_price&quot;:&quot;1.41390&quot;,
-            &quot;close_price&quot;:&quot;1.41355&quot;,
-            &quot;profit&quot;:&quot;-0.35000&quot;,
-            &quot;volume&quot;:0.01,
+            &quot;ticket&quot;:2790293,
+            &quot;symbol_en&quot;:&quot;USDJPY&quot;,
+            &quot;symbol_cn&quot;:&quot;美元日元&quot;,
+            &quot;open_price&quot;:&quot;114.027&quot;,
+            &quot;close_price&quot;:&quot;114.025&quot;,
+            &quot;profit&quot;:&quot;-0.350&quot;,
+            &quot;volume&quot;:0.2,
             &quot;close_type&quot;:0,
-            &quot;close_time&quot;:&quot;2016-04-15 03:28:03&quot;
+            &quot;close_time&quot;:&quot;2017-03-02 06:02:29&quot;,
+            &quot;open_time&quot;:&quot;2017-03-02 06:00:21&quot;,
+            &quot;commission&quot;:0,
+            &quot;swaps&quot;:0,
+            &quot;sl&quot;:0,
+            &quot;tp&quot;:0
         }
     ]
 }
