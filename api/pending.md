@@ -10,7 +10,7 @@ cmd自动从2.3.4.5变化为0.1
 一直有效，直至客户取消 
 挂单不跟单，成交时跟单 
 1 cmd 
-enum { OP_BUY=0,OP_SELL,OP_BUY_LIMIT,OP_SELL_LIMIT,OP_BUY_STOP,OP_SELL_STOP,OP_BALANCE,OP_CREDIT }; 
+enum { OP_BUY=0,OP_SELL,OP_BUY_LIMIT,OP_SELL_LIMIT,OP_BUY_STOP,OP_SELL_STOP}; 
 limit → 与buy盈利的方向，即向上，相反；做多单，buy 
 ① buy_limit 
 买入限价, 在现在价格的下方挂多单 
