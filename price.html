@@ -1077,105 +1077,27 @@ body .markdown-body
 .codehilite .vi{color:teal}
 .codehilite .il{color:#009999}
 .codehilite .gc{color:#999;background-color:#EAF2F5}
-</style><title>quote</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>老虎外汇文档</h1>
+</style><title>price</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "liucheng">老虎外汇文档</span></h1>
 <h5 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote.html">报价推送</a> | <a href="/formula.html">盈亏计算</a> | <a href="/level.html">止盈止损</a> | <a href="/bouns.html">高手分成</a> | <a href="/pending.html">挂单</a> | <a href="/ouccupy_asset.html">保证金计算</a> | <a href="/notice.html">公告</a></h5>
-<h5 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>下载:</h5>
-<h6 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>报价</h6>
-<p><a href="https://www.tigerwit.com/action/public/demo_ios.zip">报价demo_IOS.zip</a> | <a href="https://www.tigerwit.com/action/public/demo_adroid.zip">报价demo_Android.zip</a></p>
-<h6 id="k"><a name="user-content-k" href="#k" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>K线图</h6>
-<p><a href="https://www.tigerwit.com/action/public/kline.zip">报价&amp;K线图IOS</a> | <a href="https://www.tigerwit.com/action/public/adroid_kline.zip">报价&amp;K线图Android</a></p>
-<h2 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>报价推送</h2>
-<p>先建立与服务端quote.tigerwit.com的连接，监听7777端口，再执行登陆命令。</p>
-<h4 id="1"><a name="user-content-1" href="#1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.登陆</h4>
-<p>类型:socket <br />
-参数:json格式字符串的byte数组 <br />
-<div class="codehilite"><pre>{ 
-&quot;UserName&quot;:&quot;xxx&quot;, 
-&quot;LoginTime&quot;:登陆时间,类型:datetime 
-&quot;DevId&quot;:唯一标示,GUID,类型:string 
-&quot;Token&quot;:登陆参数，类型:string 
-} 
-</pre></div>
-</p>
-<h6 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>描述:</h6>
-<p>LoginTime的值需要格式化：yyyy-MM-dd HH:mm:ss <br />
-DevId=Guid(); <br />
-Token=(pwd(xxxx)+LoginTime +UserName + DevId)的值进行MD5加密，字节数组转换16进制 </p>
+<h1 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>价格规则</h1>
+<h4 id="askbidmid"><a name="user-content-askbidmid" href="#askbidmid" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>推送的实时报价，ask，bid，mid，分别代表什么？</h4>
+<h5 id="1askbidmidk"><a name="user-content-1askbidmidk" href="#1askbidmidk" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>1.ask为基准买价，bid为基准卖价，mid为实时K线图中的跳动横线</h5>
+<h5 id="2"><a name="user-content-2" href="#2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.用户实际成交价格需要在基准价基础上增加对应点差</h5>
 <blockquote>
-<p>header： 1-2-3-bodysize/256-bodysize%256 </p>
+<p>用户买价 = ask + SPREAD / 2<br />
+ 用户卖价 = bid - SPREAD / 2</p>
 </blockquote>
-<p>返回结果: <br />
-5位字节的header：2-2-3-0-66+body数据：</p>
+<h5 id="3spread"><a name="user-content-3spread" href="#3spread" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.点差规则【SPREAD】</h5>
 <blockquote>
-<p>{&ldquo;Result&rdquo;:[&ldquo;EURCAD&rdquo;,&rdquo;1.39066&rdquo;,&rdquo;1.39035&rdquo;,&rdquo;1.39043&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;EURNZD&rdquo;,&rdquo;1.47850&rdquo;,&rdquo;1.47819&rdquo;,&rdquo;1.47827&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;EURJPY&rdquo;,&rdquo;120.097&rdquo;,&rdquo;120.074&rdquo;,&rdquo;120.082&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;EURGBP&rdquo;,&rdquo;0.85293&rdquo;,&rdquo;0.85272&rdquo;,&rdquo;0.85280&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;AUDNZD&rdquo;,&rdquo;1.06853&rdquo;,&rdquo;1.06820&rdquo;,&rdquo;1.06828&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;USDJPY&rdquo;,&rdquo;113.084&rdquo;,&rdquo;113.064&rdquo;,&rdquo;113.072&rdquo;,&rdquo;1487590897&rdquo;],&rdquo;Code&rdquo;:&rdquo;success&rdquo;,&rdquo;Message&rdquo;:null,&rdquo;RequestNo&rdquo;:&rdquo;0&rdquo;,&rdquo;ServiceCode&rdquo;:&rdquo;00001&rdquo;}</p>
+<p>不同产品拥有不同点差，[组的点差连接]</p>
 </blockquote>
-<p>判断是否登陆成功 即判断返回的header数据 5位的byte字节：2-2-3-0-66</p>
-<table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">类型</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">Code</td>
-<td align="center">string</td>
-<td align="center">是否成功</td>
-</tr>
-<tr>
-<td align="center">Message</td>
-<td align="center">string</td>
-<td align="center">异常信息</td>
-</tr>
-<tr>
-<td align="center">RequestNo</td>
-<td align="center">int</td>
-<td align="center">0为OK</td>
-</tr>
-<tr>
-<td align="center">ServiceCode</td>
-<td align="center">string</td>
-<td align="center">服务端返回码 登陆成功返回Null</td>
-</tr>
-</tbody>
-</table>
-<h4 id="2"><a name="user-content-2" href="#2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>2.心跳</h4>
-<p>登陆成功之后 需要开启独立的线程 <br />
-维护客户端心跳 <br />
-维护心跳 当每收到body为null 只有header的包 且header[0]为1时 向服务器发送 5位byte： 2-1-3-0-0 <br />
-同样需要开启独立的线程 <br />
-维护服务器心跳 <br />
-维护心跳需要每5秒定时发送header数据 =5位byte： 1-1-3-0-0<br />
-<strong>说明：</strong></p>
+<h5 id="4"><a name="user-content-4" href="#4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.开平仓价格规则</h5>
 <blockquote>
-<p>服务端需要知道客户端是否alive 客户端也需要知道服务端是否alive 所以需要心跳，如果服务端检测到客户端没有心跳 也就5秒内没有收到客户端的心跳响应的时候 服务端认为客户端没有alive 会kill掉客户端，如何维护心跳 就是上面的文档内容，发送固定的只有header的数据 响应服务端的心跳请求。</p>
+<p>买涨:开仓取用户买价，平仓取用户卖价<br />
+ 买跌:开仓取用户卖价，平仓取用户买价</p>
 </blockquote>
-<h4 id="3"><a name="user-content-3" href="#3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>3.报价请求</h4>
-<p>发送数据格式： </p>
+<h5 id="5"><a name="user-content-5" href="#5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5挂单价格、止盈止损规则</h5>
 <blockquote>
-<p>header：1-3-3-bodysize/256-bodySize%256 body</p>
-</blockquote>
-<p>body为json格式字符串字节数组 <br />
-<div class="codehilite"><pre>{ 
-Params:[&quot;AUDUSD&quot;,&quot;CHFUSD&quot;], 
-RequestNo:&quot;0&quot;, 
-ServiceCode:&quot;00001&quot; 
-}
-</pre></div>
-</p>
-<h4 id="4"><a name="user-content-4" href="#4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.报价响应</h4>
-<blockquote>
-<p>symbol, ask, bid, mid, ctm </p>
-</blockquote>
-<p>其中 </p>
-<ul>
-<li>symbol为没有数字的产品名称 </li>
-<li>ask为基准买价，用户实际价格请参考<a href="/price.html">【价格规则】</a></li>
-<li>bid为基准卖价，用户实际价格请参考<a href="/price.html">【价格规则】</a></li>
-<li>mid为实时K线图中的跳动横线报价 </li>
-<li>ctm为报价读取时间。 </li>
-</ul>
-<p><img alt="示例" src="http://app2.mailpanda.com/recipient/image?a=20&amp;f=151952970831888384.jpg" /></p>
-<h4 id="57777"><a name="user-content-57777" href="#57777" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>5.端口7777</h4></article></body></html>
+<p>buy_limit,buy_stop看用户买价<br />
+sell_limit,sell_stop看用户卖价</p>
+</blockquote></article></body></html>

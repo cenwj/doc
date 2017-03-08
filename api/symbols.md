@@ -370,8 +370,9 @@ https://api.tigerwit.com/action/public/api/spread_info
     
 说明：
 >相对点差spread_special_offset，该组真实点差spread_special = 老虎公共点差spread_common + 相对点差spread_special_offset
+
 举例：
-假设相对点差为spread_special_offset，则计算量offset = （double）spread_special_offset / 2 
+>假设相对点差为spread_special_offset，则计算量offset = （double）spread_special_offset / 2 
 推送过来的买价为ask，卖价为bid 
 用户实际的市场价格买价为ASK，卖价为BID 
 则ASK=ask + offset, BID = bid - offset 

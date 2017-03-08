@@ -1977,9 +1977,11 @@ body .markdown-body
 </table>
 <p>说明：</p>
 <blockquote>
-<p>相对点差spread_special_offset，该组真实点差spread_special = 老虎公共点差spread_common + 相对点差spread_special_offset<br />
-举例：<br />
-假设相对点差为spread_special_offset，则计算量offset = （double）spread_special_offset / 2 <br />
+<p>相对点差spread_special_offset，该组真实点差spread_special = 老虎公共点差spread_common + 相对点差spread_special_offset</p>
+</blockquote>
+<p>举例：</p>
+<blockquote>
+<p>假设相对点差为spread_special_offset，则计算量offset = （double）spread_special_offset / 2 <br />
 推送过来的买价为ask，卖价为bid <br />
 用户实际的市场价格买价为ASK，卖价为BID <br />
 则ASK=ask + offset, BID = bid - offset <br />
