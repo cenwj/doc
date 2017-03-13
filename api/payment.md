@@ -46,10 +46,14 @@ https://api.tigerwit.com/action/public/api/deposit_v2
 |order_no|string|老虎入库订单id|
 |call_back_url|string|智付回调地址|
 |order_time|string|申请入金时间|
+|dispatch_url|string|易支付支付跳转地址|
 
 说明:
 >该接口是智付手机端入金接口，需要获取到返回的参数按照智付手机端sdk接收参数传递。
 智付文档具体查看 [【智付文档】](http://www.dinpay.com/support.html)
+
+2017-03-13更新:
+>添加【dispatch_url】返回参数，如果该参数不为空，则用易支付入金直接跳到h5页面，如果为空则还是用智付sdk入金。
 
 返回成功json:
 ```
@@ -58,12 +62,13 @@ https://api.tigerwit.com/action/public/api/deposit_v2
     "error_msg":"成功",
     "is_succ":true,
     "data":{
-        "usd_amount":"260",
-        "rmb_amount":"1630.62",
-        "usd_rate":"6.2716",
-        "order_no":"952433",
-        "call_back_url":"http://demo.tigerwit.com/action/public/v4/zhifupay",
-        "order_time":"2016-09-06 15:20:54"
+        "usd_amount":"1200",
+        "rmb_amount":"1560",
+        "usd_rate":"1.3",
+        "order_no":"95251157",
+        "call_back_url":"http://demo.tigerwit.com/action/public/v4/third_zhifu_pay",
+        "order_time":"2017-03-13 17:17:57",
+        "dispatch_url":"http://demo.tigerwit.com/m/deposit/pay?order_no=95251157"
     }
 }
 ```

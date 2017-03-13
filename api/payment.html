@@ -1229,6 +1229,11 @@ body .markdown-body
 <td align="center">string</td>
 <td align="center">申请入金时间</td>
 </tr>
+<tr>
+<td align="center">dispatch_url</td>
+<td align="center">string</td>
+<td align="center">易支付支付跳转地址</td>
+</tr>
 </tbody>
 </table>
 <p>说明:</p>
@@ -1236,18 +1241,23 @@ body .markdown-body
 <p>该接口是智付手机端入金接口，需要获取到返回的参数按照智付手机端sdk接收参数传递。<br />
 智付文档具体查看 <a href="http://www.dinpay.com/support.html">【智付文档】</a></p>
 </blockquote>
+<p>2017-03-13更新:</p>
+<blockquote>
+<p>添加【dispatch_url】返回参数，如果该参数不为空，则用易支付入金直接跳到h5页面，如果为空则还是用智付sdk入金。</p>
+</blockquote>
 <p>返回成功json:<br />
 <div class="codehilite"><pre>{
     &quot;error_code&quot;:0,
     &quot;error_msg&quot;:&quot;成功&quot;,
     &quot;is_succ&quot;:true,
     &quot;data&quot;:{
-        &quot;usd_amount&quot;:&quot;260&quot;,
-        &quot;rmb_amount&quot;:&quot;1630.62&quot;,
-        &quot;usd_rate&quot;:&quot;6.2716&quot;,
-        &quot;order_no&quot;:&quot;952433&quot;,
-        &quot;call_back_url&quot;:&quot;http://demo.tigerwit.com/action/public/v4/zhifupay&quot;,
-        &quot;order_time&quot;:&quot;2016-09-06 15:20:54&quot;
+        &quot;usd_amount&quot;:&quot;1200&quot;,
+        &quot;rmb_amount&quot;:&quot;1560&quot;,
+        &quot;usd_rate&quot;:&quot;1.3&quot;,
+        &quot;order_no&quot;:&quot;95251157&quot;,
+        &quot;call_back_url&quot;:&quot;http://demo.tigerwit.com/action/public/v4/third_zhifu_pay&quot;,
+        &quot;order_time&quot;:&quot;2017-03-13 17:17:57&quot;,
+        &quot;dispatch_url&quot;:&quot;http://demo.tigerwit.com/m/deposit/pay?order_no=95251157&quot;
     }
 }
 </pre></div>
