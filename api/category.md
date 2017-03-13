@@ -57,7 +57,7 @@
 
 ### 入金、出金、汇率
 
-* [申请入金【手机客户端入金(智付入金)】](/api/payment.html#deposit_v2)
+* [申请入金【手机客户端入金(易支付入金)】](/api/payment.html#deposit_v2)
 * [申请出金](/api/payment.html#withdraw)
 * [出金汇率](/api/payment.html#get_withdraw_rate)
 * [入金汇率](/api/payment.html#get_exchange_rate)

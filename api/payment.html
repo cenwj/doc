@@ -1081,7 +1081,7 @@ body .markdown-body
 <h5 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote.html">报价推送</a> | <a href="/formula.html">盈亏计算</a> | <a href="/level.html">止盈止损</a> | <a href="/bouns.html">高手分成</a> | <a href="/pending.html">挂单</a> | <a href="/ouccupy_asset.html">保证金计算</a> | <a href="/notice.html">公告</a></h5>
 <h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>接口分类</h2>
 <h3 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>入金、出金、汇率</h3>
-<h4 id="1"><a name="user-content-1" href="#1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "deposit_v2">1.申请入金【手机客户端入金(智付入金)】</span></h4>
+<h4 id="1"><a name="user-content-1" href="#1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "deposit_v2">1.申请入金【手机客户端入金(易支付入金)】</span></h4>
 <ul>
 <li>测试请求URL:<br />
 <div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/deposit_v2
@@ -1222,7 +1222,7 @@ body .markdown-body
 <tr>
 <td align="center">call_back_url</td>
 <td align="center">string</td>
-<td align="center">智付回调地址</td>
+<td align="center">智付回调地址（废弃）</td>
 </tr>
 <tr>
 <td align="center">order_time</td>
@@ -1236,11 +1236,6 @@ body .markdown-body
 </tr>
 </tbody>
 </table>
-<p>说明:</p>
-<blockquote>
-<p>该接口是智付手机端入金接口，需要获取到返回的参数按照智付手机端sdk接收参数传递。<br />
-智付文档具体查看 <a href="http://www.dinpay.com/support.html">【智付文档】</a></p>
-</blockquote>
 <p>2017-03-13更新:</p>
 <blockquote>
 <p>添加【dispatch_url】返回参数，如果该参数不为空，则用易支付入金直接跳到h5页面，如果为空则还是用智付sdk入金。</p>

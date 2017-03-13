@@ -5,7 +5,7 @@
 ## 接口分类 
 ### 入金、出金、汇率
 
-#### <span id = "deposit_v2">1.申请入金【手机客户端入金(智付入金)】</span>
+#### <span id = "deposit_v2">1.申请入金【手机客户端入金(易支付入金)】</span>
 * 测试请求URL:
 ```
 http://demo.tigerwit.com/action/public/api/deposit_v2
@@ -44,13 +44,9 @@ https://api.tigerwit.com/action/public/api/deposit_v2
 |rmb_amount|string|人民币金额|
 |usd_rate|string|当前入金汇率|
 |order_no|string|老虎入库订单id|
-|call_back_url|string|智付回调地址|
+|call_back_url|string|智付回调地址（废弃）|
 |order_time|string|申请入金时间|
 |dispatch_url|string|易支付支付跳转地址|
-
-说明:
->该接口是智付手机端入金接口，需要获取到返回的参数按照智付手机端sdk接收参数传递。
-智付文档具体查看 [【智付文档】](http://www.dinpay.com/support.html)
 
 2017-03-13更新:
 >添加【dispatch_url】返回参数，如果该参数不为空，则用易支付入金直接跳到h5页面，如果为空则还是用智付sdk入金。
