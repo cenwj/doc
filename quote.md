@@ -35,6 +35,10 @@ Token=(pwd(xxxx)+LoginTime +UserName + DevId)的值进行MD5加密，字节数�
 
 判断是否登陆成功 即判断返回的header数据 5位的byte字节：2-2-3-0-66
 
+>{"Code":"success","Message":null,"RequestNo":"0","ServiceCode":"00001"}
+
+其中 
+
 |名称 |类型 |说明| 
 |:---:|:--:|:---:|
 |Code| string| 是否成功| 
@@ -68,8 +72,6 @@ ServiceCode:"00001"
 #### 4.报价响应 
 >symbol, ask, bid, mid, ctm 
 
->{"Result":["EURCAD","1.39066","1.39035","1.39043","1487590897","EURNZD","1.47850","1.47819","1.47827","1487590897","EURJPY","120.097","120.074","120.082","1487590897","EURGBP","0.85293","0.85272","0.85280","1487590897","AUDNZD","1.06853","1.06820","1.06828","1487590897","USDJPY","113.084","113.064","113.072","1487590897"],"Code":"success","Message":null,"RequestNo":"0","ServiceCode":"00001"}
-其中 
 
 * symbol为没有数字的产品名称 
 * ask为基准买价，用户实际价格请参考[【价格规则】](/price.html)
