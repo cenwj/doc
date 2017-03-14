@@ -49,7 +49,7 @@ https://api.tigerwit.com/action/public/api/deposit_v2
 |dispatch_url|string|易支付支付跳转地址|
 
 2017-03-13更新:
->添加【dispatch_url】返回参数，如果该参数不为空，则用易支付入金直接跳到h5页面，如果为空则还是用智付sdk入金。
+>添加【dispatch_url】返回参数，易支付入金直接跳到h5选择银行页面。
 
 返回成功json:
 ```
