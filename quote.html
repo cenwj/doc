@@ -1105,10 +1105,7 @@ Token=(pwd(xxxx)+LoginTime +UserName + DevId)的值进行MD5加密，字节数�
 <p>header： 1-2-3-bodysize/256-bodysize%256 </p>
 </blockquote>
 <p>返回结果: <br />
-5位字节的header：2-2-3-0-66+body数据：</p>
-<blockquote>
-<p>{&ldquo;Result&rdquo;:[&ldquo;EURCAD&rdquo;,&rdquo;1.39066&rdquo;,&rdquo;1.39035&rdquo;,&rdquo;1.39043&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;EURNZD&rdquo;,&rdquo;1.47850&rdquo;,&rdquo;1.47819&rdquo;,&rdquo;1.47827&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;EURJPY&rdquo;,&rdquo;120.097&rdquo;,&rdquo;120.074&rdquo;,&rdquo;120.082&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;EURGBP&rdquo;,&rdquo;0.85293&rdquo;,&rdquo;0.85272&rdquo;,&rdquo;0.85280&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;AUDNZD&rdquo;,&rdquo;1.06853&rdquo;,&rdquo;1.06820&rdquo;,&rdquo;1.06828&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;USDJPY&rdquo;,&rdquo;113.084&rdquo;,&rdquo;113.064&rdquo;,&rdquo;113.072&rdquo;,&rdquo;1487590897&rdquo;],&rdquo;Code&rdquo;:&rdquo;success&rdquo;,&rdquo;Message&rdquo;:null,&rdquo;RequestNo&rdquo;:&rdquo;0&rdquo;,&rdquo;ServiceCode&rdquo;:&rdquo;00001&rdquo;}</p>
-</blockquote>
+5位字节的header：2-2-3-0-66+body数据</p>
 <p>判断是否登陆成功 即判断返回的header数据 5位的byte字节：2-2-3-0-66</p>
 <table>
 <thead>
@@ -1168,8 +1165,9 @@ ServiceCode:&quot;00001&quot;
 <h4 id="4"><a name="user-content-4" href="#4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>4.报价响应</h4>
 <blockquote>
 <p>symbol, ask, bid, mid, ctm </p>
+<p>{&ldquo;Result&rdquo;:[&ldquo;EURCAD&rdquo;,&rdquo;1.39066&rdquo;,&rdquo;1.39035&rdquo;,&rdquo;1.39043&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;EURNZD&rdquo;,&rdquo;1.47850&rdquo;,&rdquo;1.47819&rdquo;,&rdquo;1.47827&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;EURJPY&rdquo;,&rdquo;120.097&rdquo;,&rdquo;120.074&rdquo;,&rdquo;120.082&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;EURGBP&rdquo;,&rdquo;0.85293&rdquo;,&rdquo;0.85272&rdquo;,&rdquo;0.85280&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;AUDNZD&rdquo;,&rdquo;1.06853&rdquo;,&rdquo;1.06820&rdquo;,&rdquo;1.06828&rdquo;,&rdquo;1487590897&rdquo;,&rdquo;USDJPY&rdquo;,&rdquo;113.084&rdquo;,&rdquo;113.064&rdquo;,&rdquo;113.072&rdquo;,&rdquo;1487590897&rdquo;],&rdquo;Code&rdquo;:&rdquo;success&rdquo;,&rdquo;Message&rdquo;:null,&rdquo;RequestNo&rdquo;:&rdquo;0&rdquo;,&rdquo;ServiceCode&rdquo;:&rdquo;00001&rdquo;}<br />
+其中 </p>
 </blockquote>
-<p>其中 </p>
 <ul>
 <li>symbol为没有数字的产品名称 </li>
 <li>ask为基准买价，用户实际价格请参考<a href="/price.html">【价格规则】</a></li>
