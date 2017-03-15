@@ -439,7 +439,7 @@ https://api.tigerwit.com/action/public/api/foreign_order
 |data|array|返回的详细信息|
 | ticket |int|订单号 |
 | open_price | string |开仓价|
-| close_price | string |平仓价|
+| close_price | string |开仓时候的平仓价格|
 | symbol_en |string|交易品种英文|
 | symbol_cn | string |交易品种中文|
 | action |int|交易类型 [0=>'买', 1=>'卖', 2=>'挂单买入', 3=>'挂单卖出', 4=>'挂单追涨', 5=>'挂单追空']|
