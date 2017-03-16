@@ -45,6 +45,7 @@
 * [获取多个品种、昨日收盘价格【有缓存】](/api/symbols.html#yesterday_close_price)
 * [历史报价](/api/symbols.html#get_symbols_history)
 * [获得 组、品种、产品、点差 信息](/api/symbols.html#spread_info)
+* [获取单个价格信息（不是实时）](/api/symbols.html#symbol_price)
 
 ### 开仓、平仓、挂单
 * [开仓](/api/trade.html#open_trader)
