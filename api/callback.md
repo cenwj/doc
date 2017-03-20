@@ -28,7 +28,7 @@
 |参数名称|说明|类型|必需|
 |:--|:--|:--|:--|
 |code|是否成功 [成功:success,失败:fail]|string|yes|
-|message|返回信息|integer|yes|
+|message|返回信息|string|yes|
 
 
 json:
