@@ -27,18 +27,16 @@
 
 |参数名称|说明|类型|必需|
 |:--|:--|:--|:--|
-|is_succ|是否成功:true 成功；false 失败|Boolean|yes|
-|error_code|返回码：0是获取成功 300失败|integer|yes|
-|error_msg|返回信息|String|yes|
-|data|返回结果|Object|yes|
+|code|是否成功 [成功:success,失败:fail]|string|yes|
+|message|返回信息|integer|yes|
+
 
 json:
 ```
 {
-   "is_succ": true,
-   "error_msg": "",
-   "error_code": 0,
-   "data": ""
+   "code": "success",
+   "message": "回调成功",
+ 
 }
 ```
 

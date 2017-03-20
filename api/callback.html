@@ -1176,37 +1176,24 @@ body .markdown-body
 </thead>
 <tbody>
 <tr>
-<td align="left">is_succ</td>
-<td align="left">是否成功:true 成功；false 失败</td>
-<td align="left">Boolean</td>
+<td align="left">code</td>
+<td align="left">是否成功 [成功:success,失败:fail]</td>
+<td align="left">string</td>
 <td align="left">yes</td>
 </tr>
 <tr>
-<td align="left">error_code</td>
-<td align="left">返回码：0是获取成功 300失败</td>
-<td align="left">integer</td>
-<td align="left">yes</td>
-</tr>
-<tr>
-<td align="left">error_msg</td>
+<td align="left">message</td>
 <td align="left">返回信息</td>
-<td align="left">String</td>
-<td align="left">yes</td>
-</tr>
-<tr>
-<td align="left">data</td>
-<td align="left">返回结果</td>
-<td align="left">Object</td>
+<td align="left">integer</td>
 <td align="left">yes</td>
 </tr>
 </tbody>
 </table>
 <p>json:<br />
 <div class="codehilite"><pre>{
-   &quot;is_succ&quot;: true,
-   &quot;error_msg&quot;: &quot;&quot;,
-   &quot;error_code&quot;: 0,
-   &quot;data&quot;: &quot;&quot;
+   &quot;code&quot;: &quot;success&quot;,
+   &quot;message&quot;: &quot;回调成功&quot;,
+
 }
 </pre></div>
 </p>
