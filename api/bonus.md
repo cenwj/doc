@@ -161,7 +161,7 @@ https://api.tigerwit.com/action/public/api/my_bonus
 | acquire_time | string |领取期限起始日期|
 | acquire_end | string |领取期限结束日期|
 | cfd | int |是否计算CFD交易手数，0-不计算，1-计算|
-| bonus_status | int |红包状态 1 => '已领取',2 => '可兑换',3 => '已兑换',,4 => ['已过期'，'已失效'],5=>['已兑换','已过期','已失效']|
+| bonus_status | int |红包状态 1 => '已领取',2 => '可兑换',3 => '已兑换',4 => ['已过期'，'已失效'],5=>['已兑换','已过期','已失效']|
 | status_name | string |红包状态名称|
 | pay_time | string |兑换时间|
 | redirect | int |app需要调整的页面|
