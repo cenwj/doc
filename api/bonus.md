@@ -136,7 +136,7 @@ https://api.tigerwit.com/action/public/api/my_bonus
 |private_key|string|是|分配给第三方的key|
 |user_id|int|是|第三方用户id|
 |mt4_id|int|是|老虎mt4_id|
-|type|int|是|红包类型：2=>['已领取','可兑换'】 ,3 => '已兑换',4 => 【'已过期'，'已失效'】|
+|type|int|是|红包类型：2=>['已领取','可兑换'】 ,3 => '已兑换',4 => ['已过期'，'已失效'],5=>['已兑换','已过期','已失效']|
 |page|int|是|页数|
 |pagesize|int|是|条数|
 
@@ -161,7 +161,7 @@ https://api.tigerwit.com/action/public/api/my_bonus
 | acquire_time | string |领取期限起始日期|
 | acquire_end | string |领取期限结束日期|
 | cfd | int |是否计算CFD交易手数，0-不计算，1-计算|
-| bonus_status | int |红包状态 1 => '已领取',2 => '可兑换',3 => '已兑换',4 => ['已过期'，'已失效'],5=>['已兑换','已过期','已失效']|
+| bonus_status | int |红包状态 1 => '已领取',2 => '可兑换',3 => '已兑换',4 => '已过期'|
 | status_name | string |红包状态名称|
 | pay_time | string |兑换时间|
 | redirect | int |app需要调整的页面|
