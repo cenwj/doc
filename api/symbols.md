@@ -279,7 +279,7 @@ https://api.tigerwit.com/action/public/api/get_symbols_history
 |signature|string|是|签名|
 |private_key|string|是|分配给第三方的key|
 |symbol|string|是|交易品种|
-|limit|int|是|取多少条,不能少于2条|
+|limit|int|是|取多少条,不能少于2条多于500条|
 |stop_time|string|是|结束时间|
 |type|int|是|1=>1分钟 5=>5分钟 15=>15分钟 30=>30分钟 60=>1个小时 240=>4个小时 1440=>1天 10080=>1个礼拜 43200=>1个月份|
 

@@ -24,6 +24,12 @@
 * [外汇账户汇总接口](/api/user.html#foreign_exchange_account)
 * [充值记录](/api/user.html#get_payment_record)
 
+### 红包
+* [红包列表](/api/bonus.html#bonus_lists) 
+* [领取红包](/api/bonus.html#bonus_receive) 
+* [我的红包列表](/api/bonus.html#my_bonus) 
+* [兑换红包](/api/bonus.html#bonus_pay_condition) 
+
 
 ### 高手 
 * [获取高手列表](/api/master.html#get_master_list_v2)

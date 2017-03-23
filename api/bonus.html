@@ -1077,81 +1077,722 @@ body .markdown-body
 .codehilite .vi{color:teal}
 .codehilite .il{color:#009999}
 .codehilite .gc{color:#999;background-color:#EAF2F5}
-</style><title>category</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>老虎外汇文档</h1>
+</style><title>bonus</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>老虎外汇文档</h1>
 <h5 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote.html">报价推送</a> | <a href="/formula.html">盈亏计算</a> | <a href="/level.html">止盈止损</a> | <a href="/bouns.html">高手分成</a> | <a href="/pending.html">挂单</a> | <a href="/ouccupy_asset.html">保证金计算</a> | <a href="/notice.html">公告</a></h5>
 <h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>接口分类</h2>
-<blockquote>
-<p>=============================接口说明============================<br />
-测试服务器接口统一地址入口: <code>http://demo.tigerwit.com/action/public/api/</code><br />
-正式服务器接口统一地址入口: <code>https://api.tigerwit.com/action/public/api/</code><br />
-生成签名方式点击:<a href="/index.html#fangshi">加密方式</a><br />
-===============================================================</p>
-</blockquote>
-<h3 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>开户、个人中心</h3>
+<h3 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>红包</h3>
+<h4 id="1"><a name="user-content-1" href="#1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "bonus_lists">1.红包列表</span></h4>
 <ul>
-<li><a href="/api/user.html#signup">开户</a></li>
-<li><a href="/api/user.html#get_master_group">获取跟随高手当前订单分组</a></li>
-<li><a href="/api/user.html#get_master_order_info">获取用户跟随单个高手持仓明细</a></li>
-<li><a href="/api/user.html#get_master_history_group">获取跟随高手历史订单分组</a></li>
-<li><a href="/api/user.html#get_master_history_info">获取用户跟随单个高手平仓明细</a></li>
-<li><a href="/api/user.html#get_trade_record">获取用户所有历史交易记录</a></li>
-<li><a href="/api/user.html#documentary_order">获取跟单的持仓订单</a> </li>
-<li><a href="/api/user.html#foreign_order">外汇持仓接口</a></li>
-<li><a href="/api/user.html#foreign_exchange_account">外汇账户汇总接口</a></li>
-<li><a href="/api/user.html#get_payment_record">充值记录</a></li>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/bonus_lists
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/bonus_lists
+</pre></div>
+</li>
+<li>类型:HTTP(S) post,get</li>
+<li>参数:JSON String</li>
+<li>传递参数:</li>
 </ul>
-<h3 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>红包</h3>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法:bonus_lists</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">第三方用户id</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">老虎mt4_id</td>
+</tr>
+<tr>
+<td align="center">page</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">页数</td>
+</tr>
+<tr>
+<td align="center">pagesize</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">条数</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true:成功 false:失败</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回错误信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码 0 成功 其他失败</td>
+</tr>
+<tr>
+<td align="center">num</td>
+<td align="center">int</td>
+<td align="center">总条数</td>
+</tr>
+<tr>
+<td align="center">data</td>
+<td align="center">array</td>
+<td align="center">返回详情</td>
+</tr>
+<tr>
+<td align="center">name</td>
+<td align="center">string</td>
+<td align="center">红包名称</td>
+</tr>
+<tr>
+<td align="center">amount</td>
+<td align="center">float</td>
+<td align="center">红包金额</td>
+</tr>
+<tr>
+<td align="center">num</td>
+<td align="center">int</td>
+<td align="center">红包发放数量</td>
+</tr>
+<tr>
+<td align="center">id</td>
+<td align="center">int</td>
+<td align="center">红包id</td>
+</tr>
+<tr>
+<td align="center">pay_condition</td>
+<td align="center">int</td>
+<td align="center">兑换条件ID</td>
+</tr>
+<tr>
+<td align="center">pay_condition_desc</td>
+<td align="center">string</td>
+<td align="center">兑换条件描述</td>
+</tr>
+<tr>
+<td align="center">acquire_mode</td>
+<td align="center">int</td>
+<td align="center">1:自动，2:手动</td>
+</tr>
+<tr>
+<td align="center">is_receive</td>
+<td align="center">string</td>
+<td align="center">1:已领取、2:未领取[手动领取]、3:已领完、4:未到领取时间</td>
+</tr>
+<tr>
+<td align="center">status_name</td>
+<td align="center">string</td>
+<td align="center">红包状态名称</td>
+</tr>
+<tr>
+<td align="center">acquire_start</td>
+<td align="center">string</td>
+<td align="center">红包领取期限起始日期</td>
+</tr>
+<tr>
+<td align="center">acquire_end</td>
+<td align="center">string</td>
+<td align="center">红包领取期限结束日期</td>
+</tr>
+</tbody>
+</table>
+<p>返回成功json:<br />
+<div class="codehilite"><pre>{
+    &quot;error_code&quot;:0,
+    &quot;error_msg&quot;:&quot;&quot;,
+    &quot;is_succ&quot;:true,
+    &quot;data&quot;:[
+        {
+            &quot;num&quot;:1333,
+            &quot;id&quot;:87,
+            &quot;pay_condition&quot;:6,
+            &quot;acquire_end&quot;:&quot;2017-04-04 04:44:44&quot;,
+            &quot;acquire_start&quot;:&quot;2017-03-15 00:00:00&quot;,
+            &quot;name&quot;:&quot;充一万150手cfd&quot;,
+            &quot;acquire_mode&quot;:2,
+            &quot;amount&quot;:10000,
+            &quot;pay_condition_desc&quot;:&quot;首次入金后5天内累计入金1万美元以上，完成200手交易，且兑换前没有出金操作（包含首次入金金额）(CFD产品不参与活动)&quot;,
+            &quot;is_receive&quot;:1,
+            &quot;status_name&quot;:&quot;已领取&quot;
+        }
+    ],
+    &quot;num&quot;:4
+}
+</pre></div>
+</p>
+<h4 id="2"><a name="user-content-2" href="#2" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "bonus_receive">2.领取红包</span></h4>
 <ul>
-<li><a href="/api/bonus.html#bonus_lists">红包列表</a> </li>
-<li><a href="/api/bonus.html#bonus_receive">领取红包</a> </li>
-<li><a href="/api/bonus.html#my_bonus">我的红包列表</a> </li>
-<li><a href="/api/bonus.html#bonus_pay_condition">兑换红包</a> </li>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/bonus_receive
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/bonus_receive
+</pre></div>
+</li>
+<li>类型:HTTP(S) post</li>
+<li>参数:JSON String</li>
+<li>传递参数:</li>
 </ul>
-<h3 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>高手</h3>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法:bonus_receive</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">第三方用户id</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">老虎mt4_id</td>
+</tr>
+<tr>
+<td align="center">id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">红包id</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true:成功 false:失败</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回错误信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码 0 成功 其他失败</td>
+</tr>
+</tbody>
+</table>
+<p>返回成功json:<br />
+<div class="codehilite"><pre>{
+    &quot;error_code&quot;:0,
+    &quot;error_msg&quot;:&quot;领取成功&quot;,
+    &quot;is_succ&quot;:true
+}
+</pre></div>
+</p>
+<h4 id="3"><a name="user-content-3" href="#3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "my_bonus">3.我的红包列表</span></h4>
 <ul>
-<li><a href="/api/master.html#get_master_list_v2">获取高手列表</a></li>
-<li><a href="/api/master.html#get_master_info_v2">高手的基本信息</a></li>
-<li><a href="/api/master.html#historical_rate">高手历史月收益率表现图标</a></li>
-<li><a href="/api/master.html#copy_change">高手复制者变化图标</a></li>
-<li><a href="/api/master.html#monthly_symbols">高手月交易品种图标</a></li>
-<li><a href="/api/master.html#get_master_order">获取高手当前投资详情</a></li>
-<li><a href="/api/master.html#get_master_history">获取高手历史投资详情</a></li>
-<li><a href="/api/master.html#copy_master_v2">复制高手</a></li>
-<li><a href="/api/master.html#uncopy_master_forced_liquidation">解除复制高手并强平</a></li>
-<li><a href="/api/master.html#uncopy_master_budget">解除复制高手并强平前的预算金钱</a></li>
-<li><a href="/api/master.html#get_master_min_copy_amount">获取高手最低复制金额</a></li>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/my_bonus
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/my_bonus
+</pre></div>
+</li>
+<li>类型:HTTP(S) post,get</li>
+<li>参数:JSON String</li>
+<li>传递参数:</li>
 </ul>
-<h3 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>交易品种</h3>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法:my_bonus</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">第三方用户id</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">老虎mt4_id</td>
+</tr>
+<tr>
+<td align="center">type</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">红包类型：2=&gt;[&lsquo;已领取&rsquo;,&rsquo;可兑换&rsquo;】 ,3 =&gt; &lsquo;已兑换&rsquo;,4 =&gt; 【&rsquo;已过期&rsquo;，&rsquo;已失效&rsquo;】</td>
+</tr>
+<tr>
+<td align="center">page</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">页数</td>
+</tr>
+<tr>
+<td align="center">pagesize</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">条数</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true:成功 false:失败</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回错误信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码 0 成功 其他失败</td>
+</tr>
+<tr>
+<td align="center">num</td>
+<td align="center">int</td>
+<td align="center">总条数</td>
+</tr>
+<tr>
+<td align="center">data</td>
+<td align="center">array</td>
+<td align="center">详情数据</td>
+</tr>
+<tr>
+<td align="center">amount</td>
+<td align="center">float</td>
+<td align="center">红包金额</td>
+</tr>
+<tr>
+<td align="center">bonus_id</td>
+<td align="center">int</td>
+<td align="center">用户领取的所属红包id</td>
+</tr>
+<tr>
+<td align="center">user_bonus_id</td>
+<td align="center">int</td>
+<td align="center">用户领取的红包列表id</td>
+</tr>
+<tr>
+<td align="center">pay_condition_name</td>
+<td align="center">string</td>
+<td align="center">兑换条件名称</td>
+</tr>
+<tr>
+<td align="center">pay_expire</td>
+<td align="center">int</td>
+<td align="center">兑换期限，天数</td>
+</tr>
+<tr>
+<td align="center">valid_start</td>
+<td align="center">string</td>
+<td align="center">有效期起始日期</td>
+</tr>
+<tr>
+<td align="center">valid_end</td>
+<td align="center">string</td>
+<td align="center">兑换截止时间</td>
+</tr>
+<tr>
+<td align="center">bonus_desc</td>
+<td align="center">string</td>
+<td align="center">红包描述</td>
+</tr>
+<tr>
+<td align="center">bonus_name</td>
+<td align="center">string</td>
+<td align="center">红包名称</td>
+</tr>
+<tr>
+<td align="center">acquire_time</td>
+<td align="center">string</td>
+<td align="center">领取期限起始日期</td>
+</tr>
+<tr>
+<td align="center">acquire_end</td>
+<td align="center">string</td>
+<td align="center">领取期限结束日期</td>
+</tr>
+<tr>
+<td align="center">cfd</td>
+<td align="center">int</td>
+<td align="center">是否计算CFD交易手数，0-不计算，1-计算</td>
+</tr>
+<tr>
+<td align="center">bonus_status</td>
+<td align="center">int</td>
+<td align="center">红包状态 1 =&gt; &lsquo;已领取&rsquo;,2 =&gt; &lsquo;可兑换&rsquo;,3 =&gt; &lsquo;已兑换&rsquo;,4 =&gt; &lsquo;已过期&rsquo;</td>
+</tr>
+<tr>
+<td align="center">status_name</td>
+<td align="center">string</td>
+<td align="center">红包状态名称</td>
+</tr>
+<tr>
+<td align="center">pay_time</td>
+<td align="center">string</td>
+<td align="center">兑换时间</td>
+</tr>
+<tr>
+<td align="center">redirect</td>
+<td align="center">int</td>
+<td align="center">app需要调整的页面</td>
+</tr>
+</tbody>
+</table>
+<p>说明：<br />
+移动端红包“去完成”对应跳转页面</p>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">APP红包跳转涉及页面汇总</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">交易品种订阅列表</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">充值页面</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">高手列表页</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>第一版红包跳转页面</h3>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>兑换条件（括号内容不显示在用户页面）</th>
+<th>“去完成”对应跳转</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>体验金交易满2手、盈利15%以上（无持仓订单），完成首次入金后即可兑现</td>
+<td>跳转至交易列表页面</td>
+</tr>
+<tr>
+<td>2</td>
+<td>首次入金并完成5手交易，且兑换前没有出金操作</td>
+<td>跳转至充值页面</td>
+</tr>
+<tr>
+<td>3</td>
+<td>首次入金并完成15手交易，且兑换前没有出金操作</td>
+<td>跳转至充值页面</td>
+</tr>
+<tr>
+<td>4</td>
+<td>首次入金并完成30手交易，且兑换前没有出金操作</td>
+<td>跳转至充值页面</td>
+</tr>
+<tr>
+<td>5</td>
+<td>首次入金并完成50手交易，且兑换前没有出金操作</td>
+<td>跳转至充值页面</td>
+</tr>
+<tr>
+<td>6</td>
+<td>首次入金后5天内累计入金1万美元以上，完成150手交易，且兑换前没有出金操作（包含首次入金金额）</td>
+<td>跳转至充值页面</td>
+</tr>
+<tr>
+<td>8</td>
+<td>完成首次入金，累计完成25手交易，且兑换前未出金</td>
+<td>跳转至充值页面</td>
+</tr>
+</tbody>
+</table>
+<p>返回成功json:<br />
+<div class="codehilite"><pre>{
+    &quot;error_code&quot;:0,
+    &quot;error_msg&quot;:&quot;&quot;,
+    &quot;is_succ&quot;:true,
+    &quot;num&quot;:2,
+    &quot;data&quot;:[
+        {
+            &quot;amount&quot;:10000,
+            &quot;bonus_id&quot;:87,
+            &quot;user_bonus_id&quot;:505452,
+            &quot;pay_condition_name&quot;:&quot;首次入金后5天内累计入金1万美元以上，完成200手交易，且兑换前没有出金操作（包含首次入金金额）&quot;,
+            &quot;pay_expire&quot;:10000,
+            &quot;valid_start&quot;:&quot;2017-03-15 00:00:00&quot;,
+            &quot;valid_end&quot;:&quot;2017-04-16 23:59:59&quot;,
+            &quot;bonus_desc&quot;:&quot;&quot;,
+            &quot;bonus_name&quot;:&quot;充一万150手cfd&quot;,
+            &quot;acquire_time&quot;:&quot;2017-03-21 16:00:41&quot;,
+            &quot;acquire_start&quot;:&quot;2017-03-15 00:00:00&quot;,
+            &quot;acquire_end&quot;:&quot;2017-04-04 04:44:44&quot;,
+            &quot;cfd&quot;:1,
+            &quot;bonus_status&quot;:1,
+            &quot;pay_time&quot;:null,
+            &quot;redirect&quot;:2,
+            &quot;status_name&quot;:&quot;未完成&quot;
+        },
+        {
+            &quot;amount&quot;:10000,
+            &quot;bonus_id&quot;:87,
+            &quot;user_bonus_id&quot;:505449,
+            &quot;pay_condition_name&quot;:&quot;首次入金后5天内累计入金1万美元以上，完成200手交易，且兑换前没有出金操作（包含首次入金金额）&quot;,
+            &quot;pay_expire&quot;:10000,
+            &quot;valid_start&quot;:&quot;2017-03-15 00:00:00&quot;,
+            &quot;valid_end&quot;:&quot;2017-04-16 23:59:59&quot;,
+            &quot;bonus_desc&quot;:&quot;&quot;,
+            &quot;bonus_name&quot;:&quot;充一万150手cfd&quot;,
+            &quot;acquire_time&quot;:&quot;2017-03-21 15:59:54&quot;,
+            &quot;acquire_start&quot;:&quot;2017-03-15 00:00:00&quot;,
+            &quot;acquire_end&quot;:&quot;2017-04-04 04:44:44&quot;,
+            &quot;cfd&quot;:1,
+            &quot;bonus_status&quot;:1,
+            &quot;pay_time&quot;:null,
+            &quot;redirect&quot;:2,
+            &quot;status_name&quot;:&quot;未完成&quot;
+        }
+    ]
+}
+</pre></div>
+</p>
+<h4 id="4"><a name="user-content-4" href="#4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "bonus_pay_condition">4.兑换红包</span></h4>
 <ul>
-<li><a href="/api/symbols.html#get_symbols">获取交易品种汇总</a></li>
-<li><a href="/api/symbols.html#symbol_list_info">所有交易品种详情</a></li>
-<li><a href="/api/symbols.html#history_day_info">获取单个品种、开收盘信息</a></li>
-<li><a href="/api/symbols.html#yesterday_close_price">获取多个品种、昨日收盘价格【有缓存】</a></li>
-<li><a href="/api/symbols.html#get_symbols_history">历史报价</a></li>
-<li><a href="/api/symbols.html#spread_info">获得 组、品种、产品、点差 信息</a></li>
-<li><a href="/api/symbols.html#symbol_price">获取单个价格信息（不是实时）</a></li>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/bonus_pay_condition
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/bonus_pay_condition
+</pre></div>
+</li>
+<li>类型:HTTP(S) post</li>
+<li>参数:JSON String</li>
+<li>传递参数:</li>
 </ul>
-<h3 id="_8"><a name="user-content-_8" href="#_8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>开仓、平仓、挂单</h3>
-<ul>
-<li><a href="/api/trade.html#open_trader">开仓</a></li>
-<li><a href="/api/trade.html#close_trader">平仓</a></li>
-<li><a href="/api/trade.html#update_trader">修改订单止盈止损</a></li>
-<li><a href="/api/trade.html#pending_order">挂单交易接口</a> </li>
-<li><a href="/api/trade.html#pending_modify">修改挂单</a> </li>
-<li><a href="/api/trade.html#pending_delete">删除挂单</a> </li>
-<li><a href="/api/trade.html#get_pending">获取所有挂单</a> </li>
-</ul>
-<h3 id="_9"><a name="user-content-_9" href="#_9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>入金、出金、汇率</h3>
-<ul>
-<li><a href="/api/payment.html#deposit_v2">申请入金【手机客户端入金(易支付入金)】</a></li>
-<li><a href="/api/payment.html#withdraw">申请出金</a></li>
-<li><a href="/api/payment.html#get_withdraw_rate">出金汇率</a></li>
-<li><a href="/api/payment.html#get_exchange_rate">入金汇率</a></li>
-<li><a href="/api/payment.html#check_user_card">获取银行卡信息</a></li>
-<li><a href="/api/payment.html#get_withdraw_info">获取可出余额，信用值，交易手数</a></li>
-<li><a href="/api/payment.html#pay">pc电脑端入金(智付入金)</a></li>
-</ul>
-<h3 id="_10"><a name="user-content-_10" href="#_10" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>老虎回调第三方接口(需提供第三方回调地址)</h3>
-<ul>
-<li><a href="/api/callback.html#">老虎外汇对接第三方出金入金回调接口文档</a></li>
-</ul></article></body></html>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法:bonus_pay_condition</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">第三方用户id</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">老虎mt4_id</td>
+</tr>
+<tr>
+<td align="center">user_bonus_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">用户领取的红包列表id</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true:成功 false:失败</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回错误信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码 0 成功 其他失败</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center">获取成功</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center">不是可兑换红包</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center"></td>
+<td align="center">红包已经过期，不过兑换</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center"></td>
+<td align="center">领取失败，系统错误</td>
+</tr>
+<tr>
+<td align="center">msg</td>
+<td align="center">string</td>
+<td align="center">红包兑换提示</td>
+</tr>
+</tbody>
+</table>
+<p>返回成功json:<br />
+<div class="codehilite"><pre>{
+    &quot;error_code&quot;:0,
+    &quot;error_msg&quot;:&quot;兑换成功&quot;,
+    &quot;is_succ&quot;:true,
+    &quot;msg&quot;:&quot;$50.00红包已经成功转到你的账户!&quot;
+}
+</pre></div>
+</p></article></body></html>
