@@ -607,7 +607,7 @@ https://api.tigerwit.com/action/public/api/get_trade_record
 |data|array|返回的详细信息|
 | master_name |string|高手名称 不是跟单 为null|
 | is_from |int|是否跟单 0 不是 1跟单|
-| action |int|交易类型 [0=>'买', 1=>'卖', 2=>'挂单买入', 3=>'挂单卖出', 4=>'挂单追涨', 5=>'挂单追空']|
+| action |int|交易类型 [0=>'买', 1=>'卖']|
 | close_type |int|平仓类型 [0=>手动平仓, 1=>止损平仓, 2=>止盈平仓, 3=>强制平仓, 4=>复制跟单]|
 | ticket |int|订单号|
 | symbol_en |string|交易品种 英文|
@@ -622,6 +622,7 @@ https://api.tigerwit.com/action/public/api/get_trade_record
 | swaps |float|库存费|
 | tp |double|止盈|
 | sl |double|止损|
+| occupy_asset |float|占用保证金|
 
 返回成功json:
 ```
@@ -634,21 +635,22 @@ https://api.tigerwit.com/action/public/api/get_trade_record
         {
             "master_name":null,
             "is_from":0,
-            "action":0,
-            "ticket":2790293,
-            "symbol_en":"USDJPY",
-            "symbol_cn":"美元日元",
-            "open_price":"114.027",
-            "close_price":"114.025",
-            "profit":"-0.350",
-            "volume":0.2,
+            "action":1,
+            "ticket":587953,
+            "symbol_en":"HK50",
+            "symbol_cn":"恒生指数",
+            "open_price":"24375.00",
+            "close_price":"24390.00",
+            "profit":"-19.31",
+            "volume":1,
             "close_type":0,
-            "close_time":"2017-03-02 06:02:29",
-            "open_time":"2017-03-02 06:00:21",
-            "commission":0,
-            "swaps":0,
+            "close_time":"2017-03-27 05:35:28",
+            "open_time":"2017-03-17 07:01:15",
+            "commission":-12.88,
+            "swaps":-10.03,
             "sl":0,
-            "tp":0
+            "tp":0,
+            "occupy_asset":313.96
         }
     ]
 }

@@ -2690,7 +2690,7 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 <tr>
 <td align="center">action</td>
 <td align="center">int</td>
-<td align="center">交易类型 [0=&gt;&rsquo;买&rsquo;, 1=&gt;&rsquo;卖&rsquo;, 2=&gt;&rsquo;挂单买入&rsquo;, 3=&gt;&rsquo;挂单卖出&rsquo;, 4=&gt;&rsquo;挂单追涨&rsquo;, 5=&gt;&rsquo;挂单追空&rsquo;]</td>
+<td align="center">交易类型 [0=&gt;&rsquo;买&rsquo;, 1=&gt;&rsquo;卖&rsquo;]</td>
 </tr>
 <tr>
 <td align="center">close_type</td>
@@ -2762,36 +2762,42 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 <td align="center">double</td>
 <td align="center">止损</td>
 </tr>
+<tr>
+<td align="center">occupy_asset</td>
+<td align="center">float</td>
+<td align="center">占用保证金</td>
+</tr>
 </tbody>
 </table>
 <p>返回成功json:<br />
-<div class="codehilite"><pre>{
-    &quot;error_code&quot;:0,
-    &quot;error_msg&quot;:&quot;&quot;,
-    &quot;is_succ&quot;:true,
-    &quot;num&quot;:198,
-    &quot;data&quot;:[
-        {
-            &quot;master_name&quot;:null,
-            &quot;is_from&quot;:0,
-            &quot;action&quot;:0,
-            &quot;ticket&quot;:2790293,
-            &quot;symbol_en&quot;:&quot;USDJPY&quot;,
-            &quot;symbol_cn&quot;:&quot;美元日元&quot;,
-            &quot;open_price&quot;:&quot;114.027&quot;,
-            &quot;close_price&quot;:&quot;114.025&quot;,
-            &quot;profit&quot;:&quot;-0.350&quot;,
-            &quot;volume&quot;:0.2,
-            &quot;close_type&quot;:0,
-            &quot;close_time&quot;:&quot;2017-03-02 06:02:29&quot;,
-            &quot;open_time&quot;:&quot;2017-03-02 06:00:21&quot;,
-            &quot;commission&quot;:0,
-            &quot;swaps&quot;:0,
-            &quot;sl&quot;:0,
-            &quot;tp&quot;:0
-        }
-    ]
-}
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="s2">&quot;error_code&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;error_msg&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;is_succ&quot;</span><span class="s s-Atom">:true</span><span class="p">,</span>
+    <span class="s2">&quot;num&quot;</span><span class="s s-Atom">:</span><span class="mi">198</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="s s-Atom">:</span><span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;master_name&quot;</span><span class="s s-Atom">:null</span><span class="p">,</span>
+            <span class="s2">&quot;is_from&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;action&quot;</span><span class="s s-Atom">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;ticket&quot;</span><span class="s s-Atom">:</span><span class="mi">587953</span><span class="p">,</span>
+            <span class="s2">&quot;symbol_en&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;HK50&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;symbol_cn&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;恒生指数&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;open_price&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;24375.00&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;close_price&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;24390.00&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;profit&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;-19.31&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;volume&quot;</span><span class="s s-Atom">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;close_type&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;close_time&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;2017-03-27 05:35:28&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;open_time&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;2017-03-17 07:01:15&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;commission&quot;</span><span class="p">:-</span><span class="mf">12.88</span><span class="p">,</span>
+            <span class="s2">&quot;swaps&quot;</span><span class="p">:-</span><span class="mf">10.03</span><span class="p">,</span>
+            <span class="s2">&quot;sl&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;tp&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;occupy_asset&quot;</span><span class="s s-Atom">:</span><span class="mf">313.96</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
 </pre></div>
 </p>
 <h4 id="10"><a name="user-content-10" href="#10" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_payment_record"> 10.充值记录</span></h4>
