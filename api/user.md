@@ -26,7 +26,7 @@ https://api.tigerwit.com/action/public/api/signup_v2
 |user_id|int|是|第三方user_id|
 |phone|int|是|第三方用户手机号码|
 |id_no|string|是|第三方身份证号码|
-|username|string|是|第三方用户名称|
+|username|string|是|第三方用户真实姓名|
 
 返回参数说明:
 
