@@ -382,7 +382,7 @@ https://api.tigerwit.com/action/public/api/history_info_start_time
 >stop_time和start_time是服务器（GMT+3）时间 
 start_time时间晚于stop_time时间，认为参数错误 
 start_time时间晚于当前服务器时间，则返回1条最近的数据 
-start_time时间不能早于end时间的 600*type，如请求1分钟报价，则不能早于 600 分钟 
+start_time时间不能早于stop_time时间的 600*type，如请求1分钟报价，则不能早于 600 分钟 
 
 >如果start_time时间在 历史 的周末，则返回数据中 包括 上周五 的最后一条 
 如果stop_time 时间在 历史 的周末，则返回数据中 包括 下周一 的第一条
