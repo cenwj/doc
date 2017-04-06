@@ -367,7 +367,7 @@ https://api.tigerwit.com/action/public/api/get_withdraw_info
 >该接口不需要签名验证,返回的url需第三方拼接http(s)链接后由前端跳转到拼接后的链接地址。
 拼接地址如下:
 测试:`http://demo.tigerwit.com/{url}`
-正式:`https://api.tigerwit.com/{url}`
+正式:`https://www.tigerwit.com/{url}`
 
 返回成功json:
 ```
