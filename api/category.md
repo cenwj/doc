@@ -50,8 +50,10 @@
 * [获取单个品种、开收盘信息](/api/symbols.html#history_day_info)
 * [获取多个品种、昨日收盘价格【有缓存】](/api/symbols.html#yesterday_close_price)
 * [历史报价](/api/symbols.html#get_symbols_history)
+* [根据时间段获取历史报价](/api/symbols.html#history_info_start_time)
 * [获得 组、品种、产品、点差 信息](/api/symbols.html#spread_info)
 * [获取单个价格信息（不是实时）](/api/symbols.html#symbol_price)
+* [产品交易时间段](/api/symbols.html#trade_date)
 
 ### 开仓、平仓、挂单
 * [开仓](/api/trade.html#open_trader)
@@ -65,7 +67,8 @@
 ### 入金、出金、汇率
 
 * [申请入金【手机客户端入金(易支付入金)】](/api/payment.html#deposit_v2)
-* [申请出金](/api/payment.html#withdraw)
+* [申请出金[将要废弃]](/api/payment.html#withdraw)
+* [申请出金_v2](/api/payment.html#withdraw_v2)
 * [出金汇率](/api/payment.html#get_withdraw_rate)
 * [入金汇率](/api/payment.html#get_exchange_rate)
 * [获取银行卡信息](/api/payment.html#check_user_card)

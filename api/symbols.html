@@ -1734,7 +1734,7 @@ body .markdown-body
 </tr>
 <tr>
 <td align="center">stop_time</td>
-<td align="center">string</td>
+<td align="center">date</td>
 <td align="center">是</td>
 <td align="center">结束时间</td>
 </tr>
@@ -1768,7 +1768,7 @@ body .markdown-body
 </tr>
 <tr>
 <td align="center">error_code</td>
-<td align="center">number</td>
+<td align="center">int</td>
 <td align="center">返回码</td>
 </tr>
 <tr>
@@ -1799,7 +1799,7 @@ body .markdown-body
 <tr>
 <td align="center">129</td>
 <td align="center"></td>
-<td align="center">开始时间和结束时间不能为空</td>
+<td align="center">结束时间不能为空</td>
 </tr>
 <tr>
 <td align="center">303</td>
@@ -1843,6 +1843,206 @@ body .markdown-body
 </tr>
 </tbody>
 </table>
+<p>返回成功json:<br />
+<div class="codehilite"><pre>{
+    &quot;is_succ&quot;:true,
+    &quot;error_msg&quot;:&quot;请求成功&quot;,
+    &quot;error_code&quot;:0,
+    &quot;data&quot;:[
+        {
+            &quot;time&quot;:&quot;2016-02-22 01:04:00&quot;,
+            &quot;open_price&quot;:1.11127,
+            &quot;high&quot;:1.11173,
+            &quot;low&quot;:1.11127,
+            &quot;close&quot;:1.11171,
+            &quot;vol&quot;:0.09
+        },
+        {
+            &quot;time&quot;:&quot;2016-02-20 00:55:00&quot;,
+            &quot;open_price&quot;:1.11318,
+            &quot;high&quot;:1.11318,
+            &quot;low&quot;:1.11308,
+            &quot;close&quot;:1.11308,
+            &quot;vol&quot;:0.06
+        }
+    ]
+}
+</pre></div>
+</p>
+<h4 id="51"><a name="user-content-51" href="#51" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "history_info_start_time">5.1 根据时间段获取历史报价</span></h4>
+<ul>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/history_info_start_time
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/history_info_start_time
+</pre></div>
+</li>
+<li>类型:HTTPS post</li>
+<li>参数:JSON String</li>
+<li>传递参数:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法:history_info_start_time</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">symbol</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">交易品种</td>
+</tr>
+<tr>
+<td align="center">stop_time</td>
+<td align="center">date</td>
+<td align="center">是</td>
+<td align="center">结束时间</td>
+</tr>
+<tr>
+<td align="center">start_time</td>
+<td align="center">date</td>
+<td align="center">是</td>
+<td align="center">结束时间</td>
+</tr>
+<tr>
+<td align="center">type</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">1=&gt;1分钟 5=&gt;5分钟 15=&gt;15分钟 30=&gt;30分钟 60=&gt;1个小时 240=&gt;4个小时 1440=&gt;1天 10080=&gt;1个礼拜 43200=&gt;1个月份</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true/false</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center">获取成功</td>
+</tr>
+<tr>
+<td align="center">101</td>
+<td align="center"></td>
+<td align="center">传递参数错误</td>
+</tr>
+<tr>
+<td align="center">105</td>
+<td align="center"></td>
+<td align="center">获取不到第三方用户信息</td>
+</tr>
+<tr>
+<td align="center">127</td>
+<td align="center"></td>
+<td align="center">传递类型不合法</td>
+</tr>
+<tr>
+<td align="center">128</td>
+<td align="center"></td>
+<td align="center">没有该交易品种</td>
+</tr>
+<tr>
+<td align="center">129</td>
+<td align="center"></td>
+<td align="center">结束时间、开始时间不能为空</td>
+</tr>
+<tr>
+<td align="center">303</td>
+<td align="center"></td>
+<td align="center">验证失败</td>
+</tr>
+<tr>
+<td align="center">data</td>
+<td align="center">Object</td>
+<td align="center">返回信息</td>
+</tr>
+<tr>
+<td align="center">time</td>
+<td align="center">string</td>
+<td align="center">时间</td>
+</tr>
+<tr>
+<td align="center">open_price</td>
+<td align="center">double</td>
+<td align="center">开仓价格</td>
+</tr>
+<tr>
+<td align="center">high</td>
+<td align="center">double</td>
+<td align="center">最高价</td>
+</tr>
+<tr>
+<td align="center">low</td>
+<td align="center">double</td>
+<td align="center">最低价</td>
+</tr>
+<tr>
+<td align="center">close</td>
+<td align="center">double</td>
+<td align="center">收盘价</td>
+</tr>
+<tr>
+<td align="center">vol</td>
+<td align="center">float</td>
+<td align="center">交易手数</td>
+</tr>
+</tbody>
+</table>
+<p>说明:</p>
+<blockquote>
+<p>stop_time和start_time是服务器（GMT+3）时间 <br />
+start_time时间晚于stop_time时间，认为参数错误 <br />
+start_time时间晚于当前服务器时间，则返回1条最近的数据 <br />
+start_time时间不能早于end时间的 600*type，如请求1分钟报价，则不能早于 600 分钟 </p>
+<p>如果start_time时间在 历史 的周末，则返回数据中 包括 上周五 的最后一条 <br />
+如果stop_time 时间在 历史 的周末，则返回数据中 包括 下周一 的第一条</p>
+</blockquote>
 <p>返回成功json:<br />
 <div class="codehilite"><pre>{
     &quot;is_succ&quot;:true,
@@ -1935,7 +2135,7 @@ body .markdown-body
 </tr>
 <tr>
 <td align="center">error_code</td>
-<td align="center">number</td>
+<td align="center">int</td>
 <td align="center">返回码</td>
 </tr>
 <tr>
@@ -2064,7 +2264,7 @@ notrade：表示只能接受报价不能进行交易。</p>
 </tr>
 <tr>
 <td align="center">error_code</td>
-<td align="center">number</td>
+<td align="center">int</td>
 <td align="center">返回码</td>
 </tr>
 <tr>
@@ -2131,5 +2331,105 @@ notrade：表示只能接受报价不能进行交易。</p>
         &quot;digits&quot;:5
     }
 }
+</pre></div>
+</p>
+<h4 id="8"><a name="user-content-8" href="#8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "trade_date">8.产品交易时间段</span></h4>
+<ul>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/trade_date
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/trade_date
+</pre></div>
+</li>
+<li>类型:HTTPS post</li>
+<li>参数:JSON String</li>
+<li>传递参数:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法:symbol_price</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true/false</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center">获取成功</td>
+</tr>
+<tr>
+<td align="center">101</td>
+<td align="center"></td>
+<td align="center">传递参数错误</td>
+</tr>
+<tr>
+<td align="center">303</td>
+<td align="center"></td>
+<td align="center">验证失败</td>
+</tr>
+<tr>
+<td align="center">data</td>
+<td align="center">Object</td>
+<td align="center">返回信息 key=&gt;value</td>
+</tr>
+</tbody>
+</table>
+<p>说明：<br />
+① 全部产品可交易时间，包含不同杠杆，都分别返回 <br />
+② 0代表周日，之后依次顺延，6代表周六 <br />
+③ 时间为服务器（GMT+3）时间 <br />
+④ 每日最多三个可交易时间段</p>
+<p>返回成功json:<br />
+<div class="codehilite"><pre>{&quot;error_code&quot;:0,&quot;error_msg&quot;:&quot;获取成功&quot;,&quot;is_succ&quot;:true,&quot;data&quot;:{&quot;AUDCAD&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;AUDCAD50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;AUDCAD200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:50-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;AUDCHF&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;AUDCHF50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;AUDCHF200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;AUDJPY&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;AUDJPY50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;AUDJPY200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;AUDNZD&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;AUDNZD50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;AUDNZD200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;AUDUSD&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;AUDUSD50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;AUDUSD200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;CADCHF&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;CADCHF50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;CADCHF200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;CADJPY&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;CADJPY50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;CADJPY200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;CHFJPY&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;CHFJPY50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;CHFJPY200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURAUD&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURAUD50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURAUD200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURCAD&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURCAD50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURCAD200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURCHF&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURCHF50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURCHF200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURGBP&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURGBP50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURGBP200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURJPY&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURJPY50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURJPY200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURNZD&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURNZD50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURNZD200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURUSD&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURUSD50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EURUSD200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;GBPAUD&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;GBPAUD50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;GBPAUD200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;GBPCAD&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;GBPCAD50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;GBPCAD200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;GBPCHF&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;GBPCHF50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;GBPCHF200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;GBPJPY&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;GBPJPY50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;GBPJPY200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;GBPNZD&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;GBPNZD50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;GBPNZD200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;GBPUSD&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;GBPUSD50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;GBPUSD200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;NZDCAD&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;NZDCAD50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;NZDCAD200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;NZDJPY&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;NZDJPY50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;NZDJPY200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;NZDUSD&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;NZDUSD50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;NZDUSD200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;USDCAD&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;USDCAD50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;USDCAD200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;USDCHF&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;USDCHF50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;USDCHF200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:20-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;USDJPY&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;USDJPY50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:0-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:0-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:0-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:50,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;USDJPY200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:0-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:0-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:0-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;USDCNH&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;USDCNH50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;USDCNH200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:5-23:55,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;XAGUSD&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;XAGUSD50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;XAGUSD200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;XAUUSD&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-1:0,0:0-0:0,0:0-0:0&quot;},&quot;XAUUSD50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;XAUUSD200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;XNGUSD&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;2:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;0:0-1:0,2:0-24:0,0:0-0:0&quot;,&quot;3&quot;:&quot;0:0-1:0,2:0-24:0,0:0-0:0&quot;,&quot;4&quot;:&quot;0:0-1:0,2:0-24:0,0:0-0:0&quot;,&quot;5&quot;:&quot;0:0-1:0,2:0-24:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;XBRUSD&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;3:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;3:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;3:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;3:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;3:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;XTIUSD&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;1:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;AUS200&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;1:50-8:30,9:10-24:0,0:0-0:0&quot;,&quot;2&quot;:&quot;1:50-8:30,9:10-24:0,0:0-0:0&quot;,&quot;3&quot;:&quot;1:50-8:30,9:10-24:0,0:0-0:0&quot;,&quot;4&quot;:&quot;1:50-8:30,9:10-24:0,0:0-0:0&quot;,&quot;5&quot;:&quot;1:50-8:30,9:10-24:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;EUSTX50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;10:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;10:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;10:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;10:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;10:0-23:45,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;GER30&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;10:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;10:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;10:25-24:0,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;10:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;10:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;JPN225&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;2:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;2:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;2:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;2:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;2:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;SPA35&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;10:0-22:0,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;10:0-22:0,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;10:0-22:0,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;10:0-22:0,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;10:0-22:0,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;NAS100&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;1:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;1:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;1:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;1:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;1:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;US30&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;1:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;1:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;1:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;1:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;1:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;UK100&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;10:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;10:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;10:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;10:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;10:0-23:45,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;FRA40&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;10:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;10:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;10:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;10:0-24:0,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;10:0-23:45,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;USA500&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;1:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;2&quot;:&quot;1:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;3&quot;:&quot;1:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;4&quot;:&quot;1:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;5&quot;:&quot;1:0-23:15,0:0-0:0,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;},&quot;HK50&quot;:{&quot;0&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;,&quot;1&quot;:&quot;4:15-7:0,8:0-11:15,0:0-0:0&quot;,&quot;2&quot;:&quot;4:15-7:0,8:0-11:15,0:0-0:0&quot;,&quot;3&quot;:&quot;4:15-7:0,8:0-11:15,0:0-0:0&quot;,&quot;4&quot;:&quot;4:15-7:0,8:0-11:15,0:0-0:0&quot;,&quot;5&quot;:&quot;4:15-7:0,8:0-11:15,0:0-0:0&quot;,&quot;6&quot;:&quot;0:0-0:0,0:0-0:0,0:0-0:0&quot;}}}
 </pre></div>
 </p></article></body></html>

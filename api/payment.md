@@ -70,7 +70,7 @@ https://api.tigerwit.com/action/public/api/deposit_v2
 ```
 
 
-#### <span id = "withdraw">2.申请出金</span>
+#### <span id = "withdraw">2.申请出金[将要废弃]</span>
 * 测试请求URL:
 ```
 http://demo.tigerwit.com/action/public/api/withdraw
@@ -114,6 +114,81 @@ https://api.tigerwit.com/action/public/api/withdraw
 |113| |你还有复制的高手或者还有交易定单，请取消复制然后再出金。|
 |114| |出金余额不足|
 |115| |出金失败,系统错误|
+|123| |银行卡信息和实名信息不能为空|
+|400| |系统错误|
+|data|Object|返回信息|
+|order_no|int|第三方入库定单id|
+|usd_amount|float|出金金额(usd)|
+|rmb_amount|float|出金金额(rmb)|
+|rate|double|出金汇率|
+
+说明:
+>当用户申请出金的时候，需要先调用[【获取银行卡信息】](#check_user_card)接口。无论用户是否已经绑定过银行信息,都需要传递用户的真实姓名和银行卡信息。
+ [【获取银行卡信息】](#check_user_card) 接口是给第三方判断用户有没有绑定过银行卡信息。如果没有则需要首选让用户填写一遍银行卡信息。
+用户需要修改银行卡信息，则把用户修改后的信息传递过来，下次获取的银行卡信息就是用户修改后的。
+
+返回成功json:
+```
+{
+    "is_succ":true,
+    "data":{
+        "order_no":951778,
+        "usd_amount":20,
+        "rmb_amount":123.43,
+        "rate":6.1716
+    },
+    "error_msg":"",
+    "error_code":0
+}
+```
+
+#### <span id = "withdraw_v2">2.1 申请出金(第二版)</span>
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/withdraw_v2
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/withdraw_v2
+```
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法:withdraw_v2|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|user_id|int|是|第三方user_id|
+|mt4_id|int|是|老虎mt4_id|
+|amount|float|是|申请出金金额(美金)|
+|bank_name|string|是|银行名称|
+|bank_addr|string|是|开行地址|
+|card|string|是|银行卡号|
+|id_no|string(32)|是|第三方用户信息身份证号码|
+|username|string|是|第三方用户真实姓名|
+|order_id|string(50)|是|第三方入库订单号|
+|province|string|是|省份|
+|city|string|是|城市|
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool|true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|int|返回码|
+|0| |取消复制成功|
+|101| |传递参数错误|
+|105| |获取不到第三方用户信息|
+|303| |验证失败|
+|116| |该订单已经提交，不要重复提交|
+|112| |出金必须大于20美金|
+|113| |你还有复制的高手或者还有交易定单，请取消复制然后再出金。|
+|114| |出金余额不足|
+|115| |出金失败,系统错误|
+|119| |省份、城市不能为空|
 |123| |银行卡信息和实名信息不能为空|
 |400| |系统错误|
 |data|Object|返回信息|
@@ -253,7 +328,7 @@ https://api.tigerwit.com/action/public/api/check_user_card
 |:--:|:--:|:--:|
 |is_succ|bool|true/false|
 |error_msg|string|返回信息|
-|error_code|number|返回码|
+|error_code|int|返回码|
 |0||获取成功|
 |101||传递参数错误|
 |105||获取不到第三方用户信息|
@@ -261,17 +336,21 @@ https://api.tigerwit.com/action/public/api/check_user_card
 |card|string|银行卡号|
 |bank_name|string|银行名称|
 |bank_addr|string|银行开户地址|
+|province|string|省份|
+|city|string|城市|
 
 返回成功json:
 ```
 {
-    "is_succ":true,
-    "error_msg":"成功",
     "error_code":0,
+    "error_msg":"请求成功",
+    "is_succ":true,
     "data":{
-        "card":"18601309735",
-        "bank_name":"中国联通",
-        "bank_addr":"中国联通"
+        "card":"xxx",
+        "bank_name":"xx",
+        "bank_addr":"xx",
+        "province":"广东省",
+        "city":"深圳"
     }
 }
 ```
