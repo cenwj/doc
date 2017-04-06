@@ -169,8 +169,8 @@ https://api.tigerwit.com/action/public/api/withdraw_v2
 |id_no|string(32)|是|第三方用户信息身份证号码|
 |username|string|是|第三方用户真实姓名|
 |order_id|string(50)|是|第三方入库订单号|
-|province|string|是|银行卡开省份|
-|city|string|是|银行卡开城市|
+|province|string|是|银行卡开户省份|
+|city|string|是|银行卡开户城市|
 
 返回参数说明:
 
