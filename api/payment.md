@@ -169,8 +169,8 @@ https://api.tigerwit.com/action/public/api/withdraw_v2
 |id_no|string(32)|是|第三方用户信息身份证号码|
 |username|string|是|第三方用户真实姓名|
 |order_id|string(50)|是|第三方入库订单号|
-|province|string|是|省份|
-|city|string|是|城市|
+|province|string|是|银行卡开省份|
+|city|string|是|银行卡开城市|
 
 返回参数说明:
 
@@ -188,7 +188,7 @@ https://api.tigerwit.com/action/public/api/withdraw_v2
 |113| |你还有复制的高手或者还有交易定单，请取消复制然后再出金。|
 |114| |出金余额不足|
 |115| |出金失败,系统错误|
-|119| |省份、城市不能为空|
+|119| |银行卡开省份、城市不能为空|
 |123| |银行卡信息和实名信息不能为空|
 |400| |系统错误|
 |data|Object|返回信息|
