@@ -832,7 +832,7 @@ https://api.tigerwit.com/action/public/api/check_mt4
 }
 ```
 
-#### <span id = "change_password"> 12.检查mt4_id、密码是否正确</span>
+#### <span id = "change_password"> 12.修改mt4密码</span>
 
 * 测试请求URL:
 ```
