@@ -2239,7 +2239,7 @@ body .markdown-body
 }
 </pre></div>
 </p>
-<h4 id="5pc"><a name="user-content-5pc" href="#5pc" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "pay">5.pc电脑端入金(智付入金)</span></h4>
+<h4 id="5pc"><a name="user-content-5pc" href="#5pc" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "pay">5.pc电脑端入金(不回调)</span></h4>
 <ul>
 <li>测试请求URL:<br />
 <code>需联系老虎外汇技术人员提供</code></li>
@@ -2330,6 +2330,170 @@ body .markdown-body
     &quot;data&quot;:{
         &quot;url&quot;:&quot;/action/public/v4/pay_order/9524214&quot;,
         &quot;order_no&quot;:9524214
+    }
+}
+</pre></div>
+</p>
+<h4 id="6pc"><a name="user-content-6pc" href="#6pc" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "pay_callback">6.pc电脑端入金(有回调)</span></h4>
+<ul>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/pay
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/pay
+</pre></div>
+</li>
+<li>类型:HTTPS post</li>
+<li>参数:JSON String</li>
+<li>传递参数:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">老虎mt4_id</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">第三方user_id</td>
+</tr>
+<tr>
+<td align="center">amount</td>
+<td align="center">float</td>
+<td align="center">是</td>
+<td align="center">入金金额</td>
+</tr>
+<tr>
+<td align="center">order_id</td>
+<td align="center">string(50)</td>
+<td align="center">是</td>
+<td align="center">第三方入库唯一订单号</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true/false</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码 0成功，其他失败</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center">成功</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center">金额类型不正确</td>
+</tr>
+<tr>
+<td align="center">110</td>
+<td align="center"></td>
+<td align="center">入金金额不能少于xx美金</td>
+</tr>
+<tr>
+<td align="center">406</td>
+<td align="center"></td>
+<td align="center">不能重复提交(order_id重复提交)</td>
+</tr>
+<tr>
+<td align="center">data</td>
+<td align="center">object</td>
+<td align="center">返回的详细信息</td>
+</tr>
+<tr>
+<td align="center">url</td>
+<td align="center">string</td>
+<td align="center">跳转的url</td>
+</tr>
+<tr>
+<td align="center">order_no</td>
+<td align="center">int</td>
+<td align="center">老虎订单号</td>
+</tr>
+<tr>
+<td align="center">rate</td>
+<td align="center">float</td>
+<td align="center">入金汇率</td>
+</tr>
+<tr>
+<td align="center">usd_amount</td>
+<td align="center">float</td>
+<td align="center">入金金额(美元)</td>
+</tr>
+<tr>
+<td align="center">rmb_amount</td>
+<td align="center">float</td>
+<td align="center">入金金额(人名币)</td>
+</tr>
+<tr>
+<td align="center">order_time</td>
+<td align="center">date</td>
+<td align="center">入金时间</td>
+</tr>
+</tbody>
+</table>
+<p>说明:</p>
+<blockquote>
+<p>需要url参数做跳转到支付页面。</p>
+</blockquote>
+<p>返回成功json:<br />
+<div class="codehilite"><pre>{
+    &quot;error_code&quot;:0,
+    &quot;error_msg&quot;:&quot;&quot;,
+    &quot;is_succ&quot;:true,
+    &quot;data&quot;:{
+        &quot;url&quot;:&quot;https://demo.tigerwit.com/action/public/v4/pay_order/9524214&quot;,
+        &quot;order_no&quot;:9524214,
+        &quot;rate&quot;:0.9,
+        &quot;usd_amount&quot;:10,
+        &quot;rmb_amount&quot;:10,
+        &quot;order_time&quot;:&quot;2017-04-03 12:11:23&quot;
     }
 }
 </pre></div>

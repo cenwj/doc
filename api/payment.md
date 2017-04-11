@@ -417,7 +417,7 @@ https://api.tigerwit.com/action/public/api/get_withdraw_info
 ```
 
 
-#### <span id = "pay">5.pc电脑端入金(智付入金)</span>
+#### <span id = "pay">5.pc电脑端入金(不回调)</span>
 * 测试请求URL:
 `需联系老虎外汇技术人员提供`
 * 线上请求URL:
@@ -430,6 +430,7 @@ https://api.tigerwit.com/action/public/api/get_withdraw_info
 |:--:|:--:|:--:|:--:|
 |mt4_id|int|是|老虎mt4_id|
 |amount|float|是|入金金额|
+
 
 返回参数说明:
 
@@ -457,6 +458,67 @@ https://api.tigerwit.com/action/public/api/get_withdraw_info
     "data":{
         "url":"/action/public/v4/pay_order/9524214",
         "order_no":9524214
+    }
+}
+```
+
+#### <span id = "pay_callback">6.pc电脑端入金(有回调)</span>
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/pay
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/pay
+```
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|mt4_id|int|是|老虎mt4_id|
+|user_id|int|是|第三方user_id|
+|amount|float|是|入金金额|
+|order_id|string(50)|是|第三方入库唯一订单号|
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool|true/false|
+|error_msg|string|返回信息|
+|error_code|int|返回码 0成功，其他失败 |
+|0| |成功|
+|1| |金额类型不正确|
+|110| |入金金额不能少于xx美金|
+|406| |不能重复提交(order_id重复提交)|
+|data|object|返回的详细信息|
+|url|string|跳转的url|
+|order_no|int|老虎订单号|
+|rate|float|入金汇率|
+|usd_amount|float|入金金额(美元)|
+|rmb_amount|float|入金金额(人名币)|
+|order_time|date|入金时间|
+
+说明:
+>需要url参数做跳转到支付页面。
+
+返回成功json:
+```
+{
+    "error_code":0,
+    "error_msg":"",
+    "is_succ":true,
+    "data":{
+        "url":"https://demo.tigerwit.com/action/public/v4/pay_order/9524214",
+        "order_no":9524214,
+        "rate":0.9,
+        "usd_amount":10,
+        "rmb_amount":10,
+        "order_time":"2017-04-03 12:11:23"
     }
 }
 ```
