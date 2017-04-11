@@ -14,6 +14,7 @@
 
 ### 开户、个人中心
 * [开户](/api/user.html#signup)
+* [开户（加上密码参数）](/api/user.html#signup_v3)
 * [获取跟随高手当前订单分组](/api/user.html#get_master_group)
 * [获取用户跟随单个高手持仓明细](/api/user.html#get_master_order_info)
 * [获取跟随高手历史订单分组](/api/user.html#get_master_history_group)
@@ -23,6 +24,8 @@
 * [外汇持仓接口](/api/user.html#foreign_order)
 * [外汇账户汇总接口](/api/user.html#foreign_exchange_account)
 * [充值记录](/api/user.html#get_payment_record)
+* [检查mt4_id、密码是否正确](/api/user.html#check_mt4)
+* [修改mt4密码](/api/user.html#change_password)
 
 ### 红包
 * [红包列表](/api/bonus.html#bonus_lists) 

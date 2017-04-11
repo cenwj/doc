@@ -1139,7 +1139,7 @@ body .markdown-body
 <td align="center">id_no</td>
 <td align="center">string</td>
 <td align="center">是</td>
-<td align="center">第三方身份证号码</td>
+<td align="center">第三方用户身份证号码</td>
 </tr>
 <tr>
 <td align="center">username</td>
@@ -1219,9 +1219,185 @@ body .markdown-body
 <td align="center">string</td>
 <td align="center">第三方用户开户成功后的返回老虎帐号mt4_id</td>
 </tr>
+<tr>
+<td align="center">password</td>
+<td align="center">string</td>
+<td align="center">第三方用户开户成功后的返回用户设置登录mt4密码</td>
+</tr>
 </tbody>
 </table>
-<div class="codehilite"><pre>{&quot;is_succ&quot;:true,&quot;error_msg&quot;:&quot;&quot;,&quot;error_code&quot;:0,&quot;mt4_id&quot;:&quot;500792&quot;}
+<div class="codehilite"><pre>{
+    &quot;is_succ&quot;:true,
+    &quot;error_msg&quot;:&quot;&quot;,
+    &quot;error_code&quot;:0,
+    &quot;mt4_id&quot;:&quot;500792&quot;
+}
+</pre></div>
+
+
+<h4 id="11"><a name="user-content-11" href="#11" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "signup_v3">1.1.开户</span></h4>
+<ul>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/signup_v3
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/signup_v3
+</pre></div>
+</li>
+<li>类型:HTTPS post</li>
+<li>参数:JSON String</li>
+<li>传递参数:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法:signup_v3</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">第三方user_id</td>
+</tr>
+<tr>
+<td align="center">phone</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">第三方用户手机号码</td>
+</tr>
+<tr>
+<td align="center">id_no</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">第三方身份证号码</td>
+</tr>
+<tr>
+<td align="center">username</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">第三方用户真实姓名</td>
+</tr>
+<tr>
+<td align="center">password</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">第三方用户用户登录mt4密码</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true:成功 false:失败</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回错误信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center">获取成功</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">101</td>
+<td align="center"></td>
+<td align="center">传递参数错误</td>
+</tr>
+<tr>
+<td align="center">102</td>
+<td align="center"></td>
+<td align="center">手机号码不正确</td>
+</tr>
+<tr>
+<td align="center">104</td>
+<td align="center"></td>
+<td align="center">生成mt4失败</td>
+</tr>
+<tr>
+<td align="center">105</td>
+<td align="center"></td>
+<td align="center">获取不到第三方用户信息</td>
+</tr>
+<tr>
+<td align="center">109</td>
+<td align="center"></td>
+<td align="center">第三方user_id已经绑定过老虎账户</td>
+</tr>
+<tr>
+<td align="center">303</td>
+<td align="center"></td>
+<td align="center">验证失败</td>
+</tr>
+<tr>
+<td align="center">117</td>
+<td align="center"></td>
+<td align="center">身份证号码第三方用户名称不能为空</td>
+</tr>
+<tr>
+<td align="center">210</td>
+<td align="center"></td>
+<td align="center">密码不能少于6位，必须由数字和字母组成</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">string</td>
+<td align="center">第三方用户开户成功后的返回老虎帐号mt4_id</td>
+</tr>
+<tr>
+<td align="center">password</td>
+<td align="center">string</td>
+<td align="center">第三方用户开户成功后的返回用户设置登录mt4密码</td>
+</tr>
+</tbody>
+</table>
+<div class="codehilite"><pre>{
+    &quot;is_succ&quot;:true,
+    &quot;error_msg&quot;:&quot;&quot;,
+    &quot;error_code&quot;:0,
+    &quot;mt4_id&quot;:&quot;500792&quot;,
+    &quot;password&quot;:&quot;xxxx&quot;
+}
 </pre></div>
 
 
@@ -2974,6 +3150,250 @@ status为负数则是对应direction=-1出金的状态，入金则反之。</p>
             &quot;status&quot;:4
         }
     ]
+}
+</pre></div>
+</p>
+<h4 id="11mt4_id"><a name="user-content-11mt4_id" href="#11mt4_id" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "check_mt4"> 11.检查mt4_id、密码是否正确</span></h4>
+<ul>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/check_mt4
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/check_mt4
+</pre></div>
+</li>
+<li>类型:HTTPS post </li>
+<li>参数:JSON String </li>
+<li>传递参数:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法: check_mt4</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">第三方用户id</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">老虎mt4_id</td>
+</tr>
+<tr>
+<td align="center">password</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">密码</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true:成功 false:失败</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回错误信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center">验证成功</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center">验证失败</td>
+</tr>
+<tr>
+<td align="center">101</td>
+<td align="center"></td>
+<td align="center">传递参数错误</td>
+</tr>
+<tr>
+<td align="center">105</td>
+<td align="center"></td>
+<td align="center">获取不到第三方用户信息或者老虎账户信息</td>
+</tr>
+<tr>
+<td align="center">303</td>
+<td align="center"></td>
+<td align="center">安全验证失败</td>
+</tr>
+</tbody>
+</table>
+<p>返回成功json:<br />
+<div class="codehilite"><pre>{
+    &quot;error_code&quot;:0,
+    &quot;error_msg&quot;:&quot;成功&quot;,
+    &quot;is_succ&quot;:true
+}
+</pre></div>
+</p>
+<h4 id="12mt4_id"><a name="user-content-12mt4_id" href="#12mt4_id" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "change_password"> 12.检查mt4_id、密码是否正确</span></h4>
+<ul>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>http://demo.tigerwit.com/action/public/api/change_password
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/change_password
+</pre></div>
+</li>
+<li>类型:HTTPS post </li>
+<li>参数:JSON String </li>
+<li>传递参数:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法: change_password</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">第三方用户id</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">老虎mt4_id</td>
+</tr>
+<tr>
+<td align="center">password</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">密码</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true:成功 false:失败</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回错误信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center">修改成功</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center">修改失败</td>
+</tr>
+<tr>
+<td align="center">101</td>
+<td align="center"></td>
+<td align="center">传递参数错误</td>
+</tr>
+<tr>
+<td align="center">105</td>
+<td align="center"></td>
+<td align="center">获取不到第三方用户信息或者老虎账户信息</td>
+</tr>
+<tr>
+<td align="center">303</td>
+<td align="center"></td>
+<td align="center">安全验证失败</td>
+</tr>
+</tbody>
+</table>
+<p>返回成功json:<br />
+<div class="codehilite"><pre>{
+    &quot;error_code&quot;:0,
+    &quot;error_msg&quot;:&quot;成功&quot;,
+    &quot;is_succ&quot;:true
 }
 </pre></div>
 </p>

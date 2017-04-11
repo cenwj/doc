@@ -25,8 +25,9 @@ https://api.tigerwit.com/action/public/api/signup_v2
 |private_key|string|是|分配给第三方的key|
 |user_id|int|是|第三方user_id|
 |phone|int|是|第三方用户手机号码|
-|id_no|string|是|第三方身份证号码|
+|id_no|string|是|第三方用户身份证号码|
 |username|string|是|第三方用户真实姓名|
+
 
 返回参数说明:
 
@@ -44,9 +45,69 @@ https://api.tigerwit.com/action/public/api/signup_v2
 |303| |验证失败|
 |117| |身份证号码第三方用户名称不能为空|
 |mt4_id|string|第三方用户开户成功后的返回老虎帐号mt4_id|
+|password|string|第三方用户开户成功后的返回用户设置登录mt4密码|
 
 ```
-{"is_succ":true,"error_msg":"","error_code":0,"mt4_id":"500792"}
+{
+    "is_succ":true,
+    "error_msg":"",
+    "error_code":0,
+    "mt4_id":"500792"
+}
+```
+
+
+#### <span id = "signup_v3">1.1.开户</span>
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/signup_v3
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/signup_v3
+```
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法:signup_v3|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|user_id|int|是|第三方user_id|
+|phone|int|是|第三方用户手机号码|
+|id_no|string|是|第三方身份证号码|
+|username|string|是|第三方用户真实姓名|
+|password|string|是|第三方用户用户登录mt4密码|
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool|true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|int|返回码|
+|0||获取成功|
+|101| |传递参数错误|
+|102| |手机号码不正确|
+|104| |生成mt4失败|
+|105| |获取不到第三方用户信息|
+|109| |第三方user_id已经绑定过老虎账户|
+|303| |验证失败|
+|117| |身份证号码第三方用户名称不能为空|
+|210| |密码不能少于6位，必须由数字和字母组成|
+|mt4_id|string|第三方用户开户成功后的返回老虎帐号mt4_id|
+|password|string|第三方用户开户成功后的返回用户设置登录mt4密码|
+
+```
+{
+    "is_succ":true,
+    "error_msg":"",
+    "error_code":0,
+    "mt4_id":"500792",
+    "password":"xxxx"
+}
 ```
 
 
@@ -722,6 +783,98 @@ status为负数则是对应direction=-1出金的状态，入金则反之。
             "status":4
         }
     ]
+}
+```
+
+#### <span id = "check_mt4"> 11.检查mt4_id、密码是否正确</span>
+
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/check_mt4
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/check_mt4
+```
+* 类型:HTTPS post 
+* 参数:JSON String 
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法: check_mt4|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|user_id|int|是|第三方用户id|
+|mt4_id|int|是|老虎mt4_id|
+|password|string|是|密码|
+
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool|true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|int|返回码|
+|0| |验证成功|
+|1| |验证失败|
+|101| |传递参数错误|
+|105| |获取不到第三方用户信息或者老虎账户信息|
+|303| |安全验证失败|
+
+返回成功json:
+```
+{
+    "error_code":0,
+    "error_msg":"成功",
+    "is_succ":true
+}
+```
+
+#### <span id = "change_password"> 12.检查mt4_id、密码是否正确</span>
+
+* 测试请求URL:
+```
+http://demo.tigerwit.com/action/public/api/change_password
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/change_password
+```
+* 类型:HTTPS post 
+* 参数:JSON String 
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法: change_password|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|user_id|int|是|第三方用户id|
+|mt4_id|int|是|老虎mt4_id|
+|password|string|是|密码|
+
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool|true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|int|返回码|
+|0| |修改成功|
+|1| |修改失败|
+|101| |传递参数错误|
+|105| |获取不到第三方用户信息或者老虎账户信息|
+|303| |安全验证失败|
+
+返回成功json:
+```
+{
+    "error_code":0,
+    "error_msg":"成功",
+    "is_succ":true
 }
 ```
 
