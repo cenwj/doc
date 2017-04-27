@@ -1087,7 +1087,7 @@ body .markdown-body
 百分比：percentage<br />
 保证金百分比：margin_divider<br />
 存款货币：deposit_currency<br />
-保证金货币：margin_currency<br />
+保证金货币：margin_cal_currency <a href="/api/symbols.html#symbol_list_info">【产品配置】</a>，可获得<br />
 用户杠杆：leverage<br />
 保证金公式计算结果:margin_calc<br />
 注：<br />
@@ -1113,18 +1113,16 @@ margin_calc = lots * margin_initial * percentage / 100<br />
 ③ 指数产品CFD （AUS200,EUSTX50,GER30,HK50,JPN225,SPA35,NAS100,UK100,US30,USA500,FRA40）<br />
 margin_calc = lots * contract_size * market_price / leverage * percentage / 100<br />
 【D】货币换算<br />
-利用公式计算的结果，单位是margin_currency<br />
+利用公式计算的结果，单位是margin_cal_currency<br />
 若需转换为存款货币，即美元，分两种情况：<br />
 ① 订单已成交（下单开仓，或获得用户持仓单）<br />
-则margin_rate可通过接口获得，该笔交易占用保证金<br />
-margin = margin_calc * margin_rate<br />
-其中，margin_currency为USD的margin_rate=1<br />
+接口没有特殊表明需要前端转换的，则不需要再转换。<br />
 ② 订单未成交，需根据价格、手数预先计算需占用保证金，并换算为美元<br />
-a. 如果产品的margin_currency为美元USD，则无需换算<br />
-b. 如果产品的margin_currency不是美元，则使用相关货币 <code>USD***</code> 或 <code>***USD</code>的价格作为换算标准：price = (ask + bid) / 2<br />
+a. 如果产品的margin_cal_currency为美元USD，则无需换算<br />
+b. 如果产品的margin_cal_currency不是美元，则使用相关货币 <code>USD***</code> 或 <code>***USD</code>的价格作为换算标准：price = (ask + bid) / 2<br />
 如果USD为基础货币（货币对第一个币种），则 margin = margin_calc / price;<br />
-如果USD为兑换货币（货币对第二个币种），则 margin = margin_calc * price;</p>
-<p>说明:<br />
+如果USD为兑换货币（货币对第二个币种），则 margin = margin_calc * price;<br />
+说明:<br />
 【C】计算公式 某个产品对应公式，可以从接口  <a href="/api/symbols.html#spread_info">【获得 组、品种、产品、点差 信息】</a> security参数 获取；<br />
 举例：<br />
 &ldquo;CADJPY&rdquo;:&rdquo;Forex-1&rdquo; &ldquo;AUDUSD200&rdquo;:&rdquo;Forex-M&rdquo;, 对应的公式【C】计算公式① 普通货币对Forex<br />

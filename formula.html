@@ -1084,10 +1084,10 @@ body .markdown-body
 合约量：contract_size <br />
 存款货币：deposit_currency <br />
 盈亏货币：profit_currency <br />
-流通货币：currency <br />
+流通货币：profit_cal_currency <br />
 注： <br />
 ① deposit_currency统一为美元USD <br />
-② currency为产品配置，可获得 <br />
+② profit_cal_currency 为<a href="/api/symbols.html#symbol_list_info">【产品配置】</a>，可获得 <br />
 【B】订单信息 <br />
 买涨买跌标识：cmd <br />
 开仓价：open_price <br />
@@ -1105,8 +1105,8 @@ body .markdown-body
 profit_cal = (close_price - open_price) * contract_size * lots <br />
 【D】公式结果货币单位 <br />
 公式结果货币单位即为profit_currency，分两种情况： <br />
-① 如果产品是CFD（profit_mode = 1），则profit_currency = currency <br />
-② 如果产品是 普通货币对、原油、贵金属（profit_mode = 0），则profit_currency为兑换货币，即货币对的第二个币种 <br />
+① 如果产品是CFD（profit_cal_currency = USD），则profit_currency = profit_cal_currency <br />
+② 如果产品是 普通货币对、原油、贵金属（profit_cal_currency != USD），则profit_currency为兑换货币，即货币对的第二个币种 <br />
 【E】货币换算 <br />
 ① 如果profit_currency为美元USD，则 profit = prpfit_cal <br />
 ② 如果profit_currency不是美元USD，需要转换成美元盈亏，则使用相关货币 <code>USD***</code> 或 <code>***USD</code> 价格进行换算 <br />
