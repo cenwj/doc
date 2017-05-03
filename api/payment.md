@@ -477,6 +477,7 @@ https://api.tigerwit.com/action/public/api/pay
 
 |名称|类型|是否必须|说明|
 |:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法:pay|
 |signature|string|是|签名|
 |private_key|string|是|分配给第三方的key|
 |mt4_id|int|是|老虎mt4_id|
