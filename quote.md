@@ -77,7 +77,7 @@ ServiceCode:"00001"
 * ask为基准买价，用户实际价格请参考[【价格规则】](/price.html)
 * bid为基准卖价，用户实际价格请参考[【价格规则】](/price.html)
 * mid为实时K线图中的跳动横线报价（卖价） 
-* ctm为报价读取时间。 
+* ctm为报价读取时间。转为东三区时区减去8个小时，东八区减去3个小时。
 
 
 ![示例](http://app2.mailpanda.com/recipient/image?a=20&f=151952970831888384.jpg)
