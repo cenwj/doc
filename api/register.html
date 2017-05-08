@@ -1077,89 +1077,361 @@ body .markdown-body
 .codehilite .vi{color:teal}
 .codehilite .il{color:#009999}
 .codehilite .gc{color:#999;background-color:#EAF2F5}
-</style><title>category</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>老虎外汇文档</h1>
+</style><title>register</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>老虎外汇文档</h1>
 <h5 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote.html">报价推送</a> | <a href="/formula.html">盈亏计算</a> | <a href="/level.html">止盈止损</a> | <a href="/bouns.html">高手分成</a> | <a href="/pending.html">挂单</a> | <a href="/ouccupy_asset.html">保证金计算</a> | <a href="/notice.html">公告</a></h5>
 <h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>接口分类</h2>
+<h1 id="h5"><a name="user-content-h5" href="#h5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><center><span id = "signup">H5开户、实名认证 </span> </center></h1>
+<h2 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>一、概述</h2>
+<p>1.第三方平台开通老虎外汇平台账户，需要通过调用老虎外汇h5页面开通mt4账户。<br />
+2.当第三方平台用户还没有开户成功时，需要进行：kyc认证、身份信息填写、上传身份证正反面，然后等待审核。审核通过会回调第三方平台提交的api接口，通知第三方平台的用户已经成功开通老虎外汇平台账户。审核不通过，会回调第三方平台提交的api接口，通知第三方平台让用户重新填写实名认证资料。<br />
+3.第三方平台用户没有开户时需要以下情景跳转到h5开户页面<br />
+&nbsp;&nbsp;&nbsp;1）交易前（未开户或没有审核通过）<br />
+&nbsp;&nbsp;&nbsp;2）入金前（未开户或没有审核通过）<br />
+&nbsp;&nbsp;&nbsp;3）查看持仓前 （未开户或没有审核通过）<br />
+4.第三方平台用户已经开户再调用h5页面会到用户开户成功页面。<br />
+5.第三方平台用户已经开户需要修改mt4密码，第三方手动调用修改mt4密码h5页面。</p>
+<h2 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>二、开户流程</h2>
+<p>如下图：<br />
+<img alt="示例" src="http://www.processon.com/chart_image/58f6c936e4b0c9097c9046d2.png" /></p>
+<p>下面对其步骤详细介绍:</p>
+<h3 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>步骤一：第三方平台在老虎平台开户</h3>
 <blockquote>
-<p>=============================接口说明============================<br />
-测试服务器接口统一地址入口: <code>http://demo.tigerwit.com/action/public/api/</code><br />
-正式服务器接口统一地址入口: <code>https://api.tigerwit.com/action/public/api/</code><br />
-生成签名方式点击:<a href="/index.html#fangshi">加密方式</a><br />
-===============================================================</p>
+<p>引用h5开户页面时，需要把老虎平台需要的参数和签名带到h5页面url。</p>
 </blockquote>
-<h3 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>开户、个人中心</h3>
-<ul>
-<li><a href="/api/register.html#register">H5开户、实名认证 </a></li>
-<li><a href="/api/user.html#signup">开户(将要废弃、用H5开户)</a></li>
-<li><a href="/api/user.html#signup_v3">开户（加上密码参数）（将要废弃、用H5开户）</a></li>
-<li><a href="/api/user.html#get_master_group">获取跟随高手当前订单分组</a></li>
-<li><a href="/api/user.html#get_master_order_info">获取用户跟随单个高手持仓明细</a></li>
-<li><a href="/api/user.html#get_master_history_group">获取跟随高手历史订单分组</a></li>
-<li><a href="/api/user.html#get_master_history_info">获取用户跟随单个高手平仓明细</a></li>
-<li><a href="/api/user.html#get_trade_record">获取用户所有历史交易记录</a></li>
-<li><a href="/api/user.html#documentary_order">获取跟单的持仓订单</a> </li>
-<li><a href="/api/user.html#foreign_order">外汇持仓接口</a></li>
-<li><a href="/api/user.html#foreign_exchange_account">外汇账户汇总接口</a></li>
-<li><a href="/api/user.html#get_payment_record">充值记录</a></li>
-<li><a href="/api/user.html#check_mt4">检查mt4_id、密码是否正确</a></li>
-<li><a href="/api/user.html#change_password">修改mt4密码</a></li>
-</ul>
-<h3 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>红包</h3>
-<ul>
-<li><a href="/api/bonus.html#bonus_lists">红包列表</a> </li>
-<li><a href="/api/bonus.html#bonus_receive">领取红包</a> </li>
-<li><a href="/api/bonus.html#my_bonus">我的红包列表</a> </li>
-<li><a href="/api/bonus.html#bonus_pay_condition">兑换红包</a> </li>
-</ul>
-<h3 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>高手</h3>
-<ul>
-<li><a href="/api/master.html#get_master_list_v2">获取高手列表</a></li>
-<li><a href="/api/master.html#get_master_info_v2">高手的基本信息</a></li>
-<li><a href="/api/master.html#historical_rate">高手历史月收益率表现图标</a></li>
-<li><a href="/api/master.html#copy_change">高手复制者变化图标</a></li>
-<li><a href="/api/master.html#monthly_symbols">高手月交易品种图标</a></li>
-<li><a href="/api/master.html#get_master_order">获取高手当前投资详情</a></li>
-<li><a href="/api/master.html#get_master_history">获取高手历史投资详情</a></li>
-<li><a href="/api/master.html#copy_master_v2">复制高手</a></li>
-<li><a href="/api/master.html#uncopy_master_forced_liquidation">解除复制高手并强平</a></li>
-<li><a href="/api/master.html#uncopy_master_budget">解除复制高手并强平前的预算金钱</a></li>
-<li><a href="/api/master.html#get_master_min_copy_amount">获取高手最低复制金额</a></li>
-</ul>
-<h3 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>交易品种</h3>
-<ul>
-<li><a href="/api/symbols.html#get_symbols">获取交易品种汇总</a></li>
-<li><a href="/api/symbols.html#symbol_list_info">所有交易品种详情</a></li>
-<li><a href="/api/symbols.html#history_day_info">获取单个品种、开收盘信息</a></li>
-<li><a href="/api/symbols.html#yesterday_close_price">获取多个品种、昨日收盘价格【有缓存】</a></li>
-<li><a href="/api/symbols.html#get_symbols_history">历史报价</a></li>
-<li><a href="/api/symbols.html#history_info_start_time">根据时间段获取历史报价</a></li>
-<li><a href="/api/symbols.html#spread_info">获得 组、品种、产品、点差 信息</a></li>
-<li><a href="/api/symbols.html#symbol_price">获取单个价格信息（不是实时）</a></li>
-<li><a href="/api/symbols.html#trade_date">产品交易时间段</a></li>
-</ul>
-<h3 id="_8"><a name="user-content-_8" href="#_8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>开仓、平仓、挂单</h3>
-<ul>
-<li><a href="/api/trade.html#open_trader">开仓</a></li>
-<li><a href="/api/trade.html#close_trader">平仓</a></li>
-<li><a href="/api/trade.html#update_trader">修改订单止盈止损</a></li>
-<li><a href="/api/trade.html#pending_order">挂单交易接口</a> </li>
-<li><a href="/api/trade.html#pending_modify">修改挂单</a> </li>
-<li><a href="/api/trade.html#pending_delete">删除挂单</a> </li>
-<li><a href="/api/trade.html#get_pending">获取所有挂单</a> </li>
-</ul>
-<h3 id="_9"><a name="user-content-_9" href="#_9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>入金、出金、汇率</h3>
-<ul>
-<li><a href="/api/payment.html#deposit_v2">申请入金【手机客户端入金(易支付入金)】</a></li>
-<li><a href="/api/payment.html#withdraw">申请出金[将要废弃]</a></li>
-<li><a href="/api/payment.html#withdraw_v2">申请出金_v2</a></li>
-<li><a href="/api/payment.html#get_withdraw_rate">出金汇率</a></li>
-<li><a href="/api/payment.html#get_exchange_rate">入金汇率</a></li>
-<li><a href="/api/payment.html#check_user_card">获取银行卡信息</a></li>
-<li><a href="/api/payment.html#get_withdraw_info">获取可出余额，信用值，交易手数</a></li>
-<li><a href="/api/payment.html#pay">pc电脑端入金(不回调)</a></li>
-<li><a href="/api/payment.html#pay_callback">pc电脑端入金(有回调)</a></li>
-</ul>
-<h3 id="_10"><a name="user-content-_10" href="#_10" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>老虎回调第三方接口(需提供第三方回调地址)</h3>
-<ul>
-<li><a href="/api/callback.html#">老虎外汇对接第三方出金入金回调接口文档</a></li>
-</ul></article></body></html>
+<p>开户h5页面链接:<br />
+测试：<code>https://demo.tigerwit.com/m/third/register</code><br />
+线上：<code>https://www.tigerwit.com/m/third/register</code></p>
+<p>用到的参数<br />
+1）第三方用户id参数为: user_id<br />
+2）第三方用户手机号参数为:phone<br />
+3）提供给第三方的私有key参数为:private_key<br />
+4）第三方生成的签名参数为:sign<br />
+5）请求行为参数为:action</p>
+<p>签名生成方法：</p>
+<blockquote>
+<p>签名不在第三方app客户端生成，必须由第三方服务器生存。 <br />
+签名同提供第三方的接口生成签名一样。 </p>
+</blockquote>
+<p>生成签名sign用到的参数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">说明</th>
+<th align="center">必须</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">请求行为，固定值为：register</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">第三方平台用户id</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">phone</td>
+<td align="center">第三方平台用户手机号码</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">老虎平台分配给第三方平台的私有Key</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">partner_key</td>
+<td align="center">老虎平台分配给第三方平台合作伙伴Key</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">partner_secret</td>
+<td align="center">老虎平台分配给第三方平台合作伙伴Secret</td>
+<td align="center">是</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>步骤二：用户开户成功</h3>
+<p>1.引用修改mt4密码h5页面</p>
+<blockquote>
+<p>引用h5开户页面时，需要把老虎平台需要的参数和签名带到h5页面url。</p>
+</blockquote>
+<p>修改mt4密码h5页面链接:<br />
+测试：<code>https://demo.tigerwit.com/m/third/password</code><br />
+线上：<code>https://www.tigerwit.com/m/third/password</code><br />
+ <!-- /third/complete/changePassword  和app交互请求链接 --><br />
+用到的参数</p>
+<p>1）第三方用户id参数为:user_id<br />
+2）老虎平台mt4_id参数为:mt4_id<br />
+3）提供给第三方的私有key参数为:private_key<br />
+4）第三方生成的签名参数为:sign<br />
+5）请求行为参数为:action</p>
+<p>生成签名sign用到的参数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">说明</th>
+<th align="center">必须</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">请求行为，固定值为：password</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">第三方平台用户id</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">老虎平台mt4_id</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">老虎平台分配给第三方平台的私有Key</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">partner_key</td>
+<td align="center">老虎平台分配给第三方平台合作伙伴Key</td>
+<td align="center">是</td>
+</tr>
+<tr>
+<td align="center">partner_secret</td>
+<td align="center">老虎平台分配给第三方平台合作伙伴Secret</td>
+<td align="center">是</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：</strong>第三方的带到h5页面链接的参数，会储存在cookie，cookie有效时间为30分钟。</p>
+<h3 id="_8"><a name="user-content-_8" href="#_8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>步骤三：审核失败回调第三方</h3>
+<p>第三方平台接收回调参数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">-</th>
+<th align="center">-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">请求类型</td>
+<td align="center">post</td>
+</tr>
+<tr>
+<td align="center">请求地址</td>
+<td align="center">需第三方提供</td>
+</tr>
+<tr>
+<td align="center">请求说明</td>
+<td align="center">入金\出金结束后回调的接口</td>
+</tr>
+</tbody>
+</table>
+<p>请求第三方地址接收参数:</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数名称</th>
+<th align="left">描述</th>
+<th align="left">类型</th>
+<th align="left">必填</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">function</td>
+<td align="left">AUDIT</td>
+<td align="left">varchar(8)</td>
+<td align="left">是</td>
+</tr>
+<tr>
+<td align="left">signature</td>
+<td align="left">签名</td>
+<td align="left">varchar(64)</td>
+<td align="left">是</td>
+</tr>
+<tr>
+<td align="left">user_id</td>
+<td align="left">第三方平台用户id</td>
+<td align="left">int(11)</td>
+<td align="left">是</td>
+</tr>
+<tr>
+<td align="left">error_msg</td>
+<td align="left">审核失败原因</td>
+<td align="left">string</td>
+<td align="left">是</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数:</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数名称</th>
+<th align="left">说明</th>
+<th align="left">类型</th>
+<th align="left">必需</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">code</td>
+<td align="left">是否成功 [成功:success,失败:fail]</td>
+<td align="left">string</td>
+<td align="left">yes</td>
+</tr>
+<tr>
+<td align="left">message</td>
+<td align="left">返回信息</td>
+<td align="left">string</td>
+<td align="left">yes</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>说明:第三方平台接收到的参数，用于生成signature（签名），第三方生成签名同入金、出金回调。</p>
+</blockquote>
+<p>json:<br />
+<div class="codehilite"><pre>{
+   &quot;code&quot;: &quot;success&quot;,
+   &quot;message&quot;: &quot;回调成功&quot;
+}
+</pre></div>
+</p>
+<h3 id="_9"><a name="user-content-_9" href="#_9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>步骤四：开户成功回调第三方</h3>
+<p>第三方平台接收回调参数：</p>
+<table>
+<thead>
+<tr>
+<th align="center">-</th>
+<th align="center">-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">请求类型</td>
+<td align="center">post</td>
+</tr>
+<tr>
+<td align="center">请求地址</td>
+<td align="center">需第三方提供</td>
+</tr>
+<tr>
+<td align="center">请求说明</td>
+<td align="center">入金\出金结束后回调的接口</td>
+</tr>
+</tbody>
+</table>
+<p>请求第三方地址接收参数:</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数名称</th>
+<th align="left">描述</th>
+<th align="left">类型</th>
+<th align="left">必填</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">function</td>
+<td align="left">REGISTER</td>
+<td align="left">varchar(8)</td>
+<td align="left">是</td>
+</tr>
+<tr>
+<td align="left">signature</td>
+<td align="left">签名</td>
+<td align="left">varchar(64)</td>
+<td align="left">是</td>
+</tr>
+<tr>
+<td align="left">certificate_no</td>
+<td align="left">身份证号</td>
+<td align="left">varchar(32)</td>
+<td align="left">是</td>
+</tr>
+<tr>
+<td align="left">real_name</td>
+<td align="left">真实姓名</td>
+<td align="left">varchar(32)</td>
+<td align="left">是</td>
+</tr>
+<tr>
+<td align="left">user_id</td>
+<td align="left">第三方平台用户id</td>
+<td align="left">int(11)</td>
+<td align="left">是</td>
+</tr>
+<tr>
+<td align="left">mt4_id</td>
+<td align="left">老虎平台mt4_id</td>
+<td align="left">int(11)</td>
+<td align="left">是</td>
+</tr>
+<tr>
+<td align="left">register_time</td>
+<td align="left">注册时间</td>
+<td align="left">date</td>
+<td align="left">是</td>
+</tr>
+<tr>
+<td align="left">apply_time</td>
+<td align="left">开户成功时间</td>
+<td align="left">date</td>
+<td align="left">是</td>
+</tr>
+<tr>
+<td align="left">password</td>
+<td align="left">mt4密码</td>
+<td align="left">string</td>
+<td align="left">是</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数:</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数名称</th>
+<th align="left">说明</th>
+<th align="left">类型</th>
+<th align="left">必需</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">code</td>
+<td align="left">是否成功 [成功:success,失败:fail]</td>
+<td align="left">string</td>
+<td align="left">yes</td>
+</tr>
+<tr>
+<td align="left">message</td>
+<td align="left">返回信息</td>
+<td align="left">string</td>
+<td align="left">yes</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>说明:第三方平台接收到的参数，用于生成signature（签名），第三方生成签名同入金、出金回调。</p>
+</blockquote>
+<p>json:<br />
+<div class="codehilite"><pre>{
+   &quot;code&quot;: &quot;success&quot;,
+   &quot;message&quot;: &quot;回调成功&quot;
+}
+</pre></div>
+</p>
+<p><center> <a href="#top">返回顶部</a> </center>     </p></article></body></html>
