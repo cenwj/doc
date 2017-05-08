@@ -13,8 +13,9 @@
 
 
 ### 开户、个人中心
-* [开户](/api/user.html#signup)
-* [开户（加上密码参数）](/api/user.html#signup_v3)
+* [H5开户、实名认证 ](/api/register.html#register)
+* [开户(将要废弃、用H5开户)](/api/user.html#signup)
+* [开户（加上密码参数）（将要废弃、用H5开户）](/api/user.html#signup_v3)
 * [获取跟随高手当前订单分组](/api/user.html#get_master_group)
 * [获取用户跟随单个高手持仓明细](/api/user.html#get_master_order_info)
 * [获取跟随高手历史订单分组](/api/user.html#get_master_history_group)

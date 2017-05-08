@@ -1079,9 +1079,8 @@ body .markdown-body
 .codehilite .gc{color:#999;background-color:#EAF2F5}
 </style><title>register</title></head><body><article class="markdown-body"><h1 id="_1"><a name="user-content-_1" href="#_1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>老虎外汇文档</h1>
 <h5 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote.html">报价推送</a> | <a href="/formula.html">盈亏计算</a> | <a href="/level.html">止盈止损</a> | <a href="/bouns.html">高手分成</a> | <a href="/pending.html">挂单</a> | <a href="/ouccupy_asset.html">保证金计算</a> | <a href="/notice.html">公告</a></h5>
-<h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>接口分类</h2>
 <h1 id="h5"><a name="user-content-h5" href="#h5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><center><span id = "signup">H5开户、实名认证 </span> </center></h1>
-<h2 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>一、概述</h2>
+<h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>一、概述</h2>
 <p>1.第三方平台开通老虎外汇平台账户，需要通过调用老虎外汇h5页面开通mt4账户。<br />
 2.当第三方平台用户还没有开户成功时，需要进行：kyc认证、身份信息填写、上传身份证正反面，然后等待审核。审核通过会回调第三方平台提交的api接口，通知第三方平台的用户已经成功开通老虎外汇平台账户。审核不通过，会回调第三方平台提交的api接口，通知第三方平台让用户重新填写实名认证资料。<br />
 3.第三方平台用户没有开户时需要以下情景跳转到h5开户页面<br />
@@ -1090,11 +1089,11 @@ body .markdown-body
 &nbsp;&nbsp;&nbsp;3）查看持仓前 （未开户或没有审核通过）<br />
 4.第三方平台用户已经开户再调用h5页面会到用户开户成功页面。<br />
 5.第三方平台用户已经开户需要修改mt4密码，第三方手动调用修改mt4密码h5页面。</p>
-<h2 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>二、开户流程</h2>
+<h2 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>二、开户流程</h2>
 <p>如下图：<br />
 <img alt="示例" src="http://www.processon.com/chart_image/58f6c936e4b0c9097c9046d2.png" /></p>
 <p>下面对其步骤详细介绍:</p>
-<h3 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>步骤一：第三方平台在老虎平台开户</h3>
+<h3 id="_5"><a name="user-content-_5" href="#_5" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>步骤一：第三方平台在老虎平台开户</h3>
 <blockquote>
 <p>引用h5开户页面时，需要把老虎平台需要的参数和签名带到h5页面url。</p>
 </blockquote>
@@ -1154,7 +1153,7 @@ body .markdown-body
 </tr>
 </tbody>
 </table>
-<h3 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>步骤二：用户开户成功</h3>
+<h3 id="_6"><a name="user-content-_6" href="#_6" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>步骤二：用户开户成功</h3>
 <p>1.引用修改mt4密码h5页面</p>
 <blockquote>
 <p>引用h5开户页面时，需要把老虎平台需要的参数和签名带到h5页面url。</p>
@@ -1212,7 +1211,7 @@ body .markdown-body
 </tbody>
 </table>
 <p><strong>注意：</strong>第三方的带到h5页面链接的参数，会储存在cookie，cookie有效时间为30分钟。</p>
-<h3 id="_8"><a name="user-content-_8" href="#_8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>步骤三：审核失败回调第三方</h3>
+<h3 id="_7"><a name="user-content-_7" href="#_7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>步骤三：审核失败回调第三方</h3>
 <p>第三方平台接收回调参数：</p>
 <table>
 <thead>
@@ -1308,7 +1307,7 @@ body .markdown-body
 }
 </pre></div>
 </p>
-<h3 id="_9"><a name="user-content-_9" href="#_9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>步骤四：开户成功回调第三方</h3>
+<h3 id="_8"><a name="user-content-_8" href="#_8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>步骤四：开户成功回调第三方</h3>
 <p>第三方平台接收回调参数：</p>
 <table>
 <thead>
