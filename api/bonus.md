@@ -9,7 +9,7 @@
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/bonus_lists
+https://demo.tigerwit.com/action/public/api/bonus_lists
 ```
 * 线上请求URL:
 ```
@@ -79,7 +79,7 @@ https://api.tigerwit.com/action/public/api/bonus_lists
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/bonus_receive
+https://demo.tigerwit.com/action/public/api/bonus_receive
 ```
 * 线上请求URL:
 ```
@@ -119,7 +119,7 @@ https://api.tigerwit.com/action/public/api/bonus_receive
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/my_bonus
+https://demo.tigerwit.com/action/public/api/my_bonus
 ```
 * 线上请求URL:
 ```
@@ -241,7 +241,7 @@ https://api.tigerwit.com/action/public/api/my_bonus
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/bonus_pay_condition
+https://demo.tigerwit.com/action/public/api/bonus_pay_condition
 ```
 * 线上请求URL:
 ```

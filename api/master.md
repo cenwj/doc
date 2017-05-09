@@ -10,7 +10,7 @@
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/get_master_list_v2
+https://demo.tigerwit.com/action/public/api/get_master_list_v2
 ```
 * 线上请求URL:
 ```
@@ -82,7 +82,7 @@ https://api.tigerwit.com/action/public/api/get_master_list_v2
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/get_master_info_v2
+https://demo.tigerwit.com/action/public/api/get_master_info_v2
 ```
 * 线上请求URL:
 ```
@@ -173,7 +173,7 @@ https://api.tigerwit.com/action/public/api/get_master_info_v2
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/historical_rate
+https://demo.tigerwit.com/action/public/api/historical_rate
 ```
 * 线上请求URL:
 ```
@@ -226,7 +226,7 @@ https://api.tigerwit.com/action/public/api/historical_rate
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/copy_change
+https://demo.tigerwit.com/action/public/api/copy_change
 ```
 * 线上请求URL:
 ```
@@ -281,7 +281,7 @@ https://api.tigerwit.com/action/public/api/copy_change
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/monthly_symbols
+https://demo.tigerwit.com/action/public/api/monthly_symbols
 ```
 * 线上请求URL:
 ```
@@ -374,7 +374,7 @@ https://api.tigerwit.com/action/public/api/monthly_symbols
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/get_master_order
+https://demo.tigerwit.com/action/public/api/get_master_order
 ```
 * 线上请求URL:
 ```
@@ -454,7 +454,7 @@ https://api.tigerwit.com/action/public/api/get_master_order
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/get_master_history
+https://demo.tigerwit.com/action/public/api/get_master_history
 ```
 * 线上请求URL:
 ```
@@ -547,7 +547,7 @@ https://api.tigerwit.com/action/public/api/get_master_history
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/copy_master_v2
+https://demo.tigerwit.com/action/public/api/copy_master_v2
 ```
 * 线上请求URL:
 ```
@@ -611,7 +611,7 @@ https://api.tigerwit.com/action/public/api/copy_master_v2
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/uncopy_master_forced_liquidation
+https://demo.tigerwit.com/action/public/api/uncopy_master_forced_liquidation
 ```
 * 线上请求URL:
 ```
@@ -676,7 +676,7 @@ https://api.tigerwit.com/action/public/api/uncopy_master_forced_liquidation
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/uncopy_master_budget
+https://demo.tigerwit.com/action/public/api/uncopy_master_budget
 ```
 * 线上请求URL:
 ```
@@ -745,7 +745,7 @@ https://api.tigerwit.com/action/public/api/uncopy_master_budget
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/get_master_min_copy_amount
+https://demo.tigerwit.com/action/public/api/get_master_min_copy_amount
 ```
 * 线上请求URL:
 ```

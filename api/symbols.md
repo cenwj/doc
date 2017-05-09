@@ -9,7 +9,7 @@
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/get_symbols
+https://demo.tigerwit.com/action/public/api/get_symbols
 ```
 * 线上请求URL:
 ```
@@ -59,7 +59,7 @@ https://api.tigerwit.com/action/public/api/get_symbols
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/symbol_list_info
+https://demo.tigerwit.com/action/public/api/symbol_list_info
 ```
 * 线上请求URL:
 ```
@@ -135,7 +135,7 @@ https://api.tigerwit.com/action/public/api/symbol_list_info
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/history_day_info
+https://demo.tigerwit.com/action/public/api/history_day_info
 ```
 * 线上请求URL:
 ```
@@ -206,7 +206,7 @@ year_low:类型 string 上年最低价
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/yesterday_close_price
+https://demo.tigerwit.com/action/public/api/yesterday_close_price
 ```
 * 线上请求URL:
 ```
@@ -263,7 +263,7 @@ yesterday_close_price:类型 string 昨天收盘价
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/get_symbols_history
+https://demo.tigerwit.com/action/public/api/get_symbols_history
 ```
 * 线上请求URL:
 ```
@@ -336,7 +336,7 @@ https://api.tigerwit.com/action/public/api/get_symbols_history
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/history_info_start_time
+https://demo.tigerwit.com/action/public/api/history_info_start_time
 ```
 * 线上请求URL:
 ```
@@ -418,7 +418,7 @@ start_time时间不能早于stop_time时间的 600*type，如请求1分钟报价
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/spread_info
+https://demo.tigerwit.com/action/public/api/spread_info
 ```
 * 线上请求URL:
 ```
@@ -470,7 +470,7 @@ notrade：表示只能接受报价不能进行交易。
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/symbol_price
+https://demo.tigerwit.com/action/public/api/symbol_price
 ```
 * 线上请求URL:
 ```
@@ -528,7 +528,7 @@ https://api.tigerwit.com/action/public/api/symbol_price
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/trade_date
+https://demo.tigerwit.com/action/public/api/trade_date
 ```
 * 线上请求URL:
 ```

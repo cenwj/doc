@@ -9,7 +9,7 @@
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/open_trader
+https://demo.tigerwit.com/action/public/api/open_trader
 ```
 * 线上请求URL:
 ```
@@ -93,7 +93,7 @@ occupy_asset:占用保证金
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/close_trader
+https://demo.tigerwit.com/action/public/api/close_trader
 ```
 * 线上请求URL:
 ```
@@ -161,7 +161,7 @@ https://api.tigerwit.com/action/public/api/close_trader
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/update_trader
+https://demo.tigerwit.com/action/public/api/update_trader
 ```
 * 线上请求URL:
 ```
@@ -209,7 +209,7 @@ https://api.tigerwit.com/action/public/api/update_trader
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/pending_order
+https://demo.tigerwit.com/action/public/api/pending_order
 ```
 * 线上请求URL:
 ```
@@ -286,7 +286,7 @@ https://api.tigerwit.com/action/public/api/pending_order
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/pending_modify
+https://demo.tigerwit.com/action/public/api/pending_modify
 ```
 * 线上请求URL:
 ```
@@ -361,7 +361,7 @@ https://api.tigerwit.com/action/public/api/pending_modify
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/pending_delete
+https://demo.tigerwit.com/action/public/api/pending_delete
 ```
 * 线上请求URL:
 ```
@@ -432,7 +432,7 @@ https://api.tigerwit.com/action/public/api/pending_delete
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/get_pending
+https://demo.tigerwit.com/action/public/api/get_pending
 ```
 * 线上请求URL:
 ```

@@ -8,7 +8,7 @@
 #### <span id = "signup">1.开户</span>
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/signup_v2
+https://demo.tigerwit.com/action/public/api/signup_v2
 ```
 * 线上请求URL:
 ```
@@ -60,7 +60,7 @@ https://api.tigerwit.com/action/public/api/signup_v2
 #### <span id = "signup_v3">1.1.开户</span>
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/signup_v3
+https://demo.tigerwit.com/action/public/api/signup_v3
 ```
 * 线上请求URL:
 ```
@@ -116,7 +116,7 @@ https://api.tigerwit.com/action/public/api/signup_v3
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/get_master_group
+https://demo.tigerwit.com/action/public/api/get_master_group
 ```
 * 线上请求URL:
 ```
@@ -176,7 +176,7 @@ https://api.tigerwit.com/action/public/api/get_master_group
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/get_master_order_info
+https://demo.tigerwit.com/action/public/api/get_master_order_info
 ```
 * 线上请求URL:
 ```
@@ -253,7 +253,7 @@ https://api.tigerwit.com/action/public/api/get_master_order_info
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/get_master_history_group
+https://demo.tigerwit.com/action/public/api/get_master_history_group
 ```
 * 线上请求URL:
 ```
@@ -303,7 +303,7 @@ https://api.tigerwit.com/action/public/api/get_master_history_group
             "usercode":"10207",
             "profit":"-270.01",
             "volume":4.85,
-            "avatar_path":"http://demo.tigerwit.com/avatar/10207_150.jpg"
+            "avatar_path":"https://demo.tigerwit.com/avatar/10207_150.jpg"
         }
     ]
 }
@@ -314,7 +314,7 @@ https://api.tigerwit.com/action/public/api/get_master_history_group
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/get_master_history_info
+https://demo.tigerwit.com/action/public/api/get_master_history_info
 ```
 * 线上请求URL:
 ```
@@ -408,7 +408,7 @@ https://api.tigerwit.com/action/public/api/get_master_history_info
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/documentary_order
+https://demo.tigerwit.com/action/public/api/documentary_order
 ```
 * 线上请求URL:
 ```
@@ -467,7 +467,7 @@ https://api.tigerwit.com/action/public/api/documentary_order
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/foreign_order
+https://demo.tigerwit.com/action/public/api/foreign_order
 ```
 * 线上请求URL:
 ``` 
@@ -558,7 +558,7 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/foreign_exchange_account
+https://demo.tigerwit.com/action/public/api/foreign_exchange_account
 ```
 * 线上请求URL:
 ```
@@ -633,7 +633,7 @@ https://api.tigerwit.com/action/public/api/foreign_exchange_account
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/get_trade_record
+https://demo.tigerwit.com/action/public/api/get_trade_record
 ```
 * 线上请求URL:
 ```
@@ -722,7 +722,7 @@ https://api.tigerwit.com/action/public/api/get_trade_record
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/get_payment_record
+https://demo.tigerwit.com/action/public/api/get_payment_record
 ```
 * 线上请求URL:
 ```
@@ -790,7 +790,7 @@ status为负数则是对应direction=-1出金的状态，入金则反之。
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/check_mt4
+https://demo.tigerwit.com/action/public/api/check_mt4
 ```
 * 线上请求URL:
 ```
@@ -836,7 +836,7 @@ https://api.tigerwit.com/action/public/api/check_mt4
 
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/change_password
+https://demo.tigerwit.com/action/public/api/change_password
 ```
 * 线上请求URL:
 ```

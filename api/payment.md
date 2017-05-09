@@ -8,7 +8,7 @@
 #### <span id = "deposit_v2">1.申请入金【手机客户端入金(易支付入金)】</span>
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/deposit_v2
+https://demo.tigerwit.com/action/public/api/deposit_v2
 ```
 * 线上请求URL:
 ```
@@ -62,9 +62,9 @@ https://api.tigerwit.com/action/public/api/deposit_v2
         "rmb_amount":"1560",
         "usd_rate":"1.3",
         "order_no":"95251157",
-        "call_back_url":"http://demo.tigerwit.com/action/public/v4/third_zhifu_pay",
+        "call_back_url":"https://demo.tigerwit.com/action/public/v4/third_zhifu_pay",
         "order_time":"2017-03-13 17:17:57",
-        "dispatch_url":"http://demo.tigerwit.com/m/deposit/pay?order_no=95251157"
+        "dispatch_url":"https://demo.tigerwit.com/m/deposit/pay?order_no=95251157"
     }
 }
 ```
@@ -73,7 +73,7 @@ https://api.tigerwit.com/action/public/api/deposit_v2
 #### <span id = "withdraw">2.申请出金[将要废弃]</span>
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/withdraw
+https://demo.tigerwit.com/action/public/api/withdraw
 ```
 * 线上请求URL:
 ```
@@ -145,7 +145,7 @@ https://api.tigerwit.com/action/public/api/withdraw
 #### <span id = "withdraw_v2">2.1 申请出金(第二版)</span>
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/withdraw_v2
+https://demo.tigerwit.com/action/public/api/withdraw_v2
 ```
 * 线上请求URL:
 ```
@@ -220,7 +220,7 @@ https://api.tigerwit.com/action/public/api/withdraw_v2
 #### <span id = "get_withdraw_rate">3.出金汇率</span>
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/get_withdraw_rate
+https://demo.tigerwit.com/action/public/api/get_withdraw_rate
 ```
 * 线上请求URL:
 ```
@@ -263,7 +263,7 @@ https://api.tigerwit.com/action/public/api/get_withdraw_rate
 #### <span id = "get_exchange_rate">4.入金汇率</span>
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/get_exchange_rate
+https://demo.tigerwit.com/action/public/api/get_exchange_rate
 ```
 * 线上请求URL:
 ```
@@ -304,7 +304,7 @@ https://api.tigerwit.com/action/public/api/get_exchange_rate
 #### <span id = "check_user_card">5.获取银行卡信息</span>
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/check_user_card
+https://demo.tigerwit.com/action/public/api/check_user_card
 ```
 * 线上请求URL:
 ```
@@ -358,7 +358,7 @@ https://api.tigerwit.com/action/public/api/check_user_card
 #### <span id = "get_withdraw_info">5.获取可出余额，信用值，交易手数</span>
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/get_withdraw_info
+https://demo.tigerwit.com/action/public/api/get_withdraw_info
 ```
 * 线上请求URL:
 ```
@@ -465,7 +465,7 @@ https://api.tigerwit.com/action/public/api/get_withdraw_info
 #### <span id = "pay_callback">6.pc电脑端入金(有回调)</span>
 * 测试请求URL:
 ```
-http://demo.tigerwit.com/action/public/api/pay
+https://demo.tigerwit.com/action/public/api/pay
 ```
 * 线上请求URL:
 ```
