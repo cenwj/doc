@@ -49,7 +49,17 @@ https://api.tigerwit.com/action/public/api/deposit_v2
 |dispatch_url|string|易支付支付跳转地址|
 
 2017-03-13更新:
->添加【dispatch_url】返回参数，易支付入金直接跳到h5选择银行页面。
+>添加【dispatch_url】返回参数，易支付入金直接跳到H5选择银行页面。
+
+说明：
+>第三方平台可以做易支付的H5页面支付和SDK的兼容。
+H5页面支付支持银行少，入金限额低，限额为5千人民币。
+SDK支持银联，限额为5万人民币。
+建议使用SDK支付方式。
+
+SDK下载:
+[Android开发包银联插件-eclipse.zip](https://demo.tigerwit.com/files/Android开发包银联插件-eclipse.zip) | [iOS开发包银联插件.zip](https://demo.tigerwit.com/files/iOS开发包银联插件.zip)
+
 
 返回成功json:
 ```
