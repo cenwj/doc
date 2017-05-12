@@ -606,7 +606,7 @@ https://api.tigerwit.com/action/public/api/foreign_exchange_account
 
 后面自己计算:
 >浮动盈亏 = 所有持仓订单浮动盈亏总和
-占用保证金 = 所有持仓订单保证总和（保证金是不变的没有新订单不用再自己算）
+占用保证金 = 所有持仓订单保证金总和（保证金是不变的没有新订单不用再自己算）
 净值 = 余额（balance_not_include_credit） + 信用 + 浮动盈亏
 可用资产 = 余额（balance_not_include_credit） + 信用 + 浮动盈亏 - 占用保证金 
 

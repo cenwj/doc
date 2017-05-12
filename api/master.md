@@ -409,7 +409,7 @@ https://api.tigerwit.com/action/public/api/get_master_order
 |symbol|string|交易品种|
 |symbol_cn|string|交易品种中文名称|
 |action|int|买入：0，卖出：1|
-|position_time|int|距离现在的时间 时间戳 秒数|
+|position_time|int|持仓时间 时间戳 秒数|
 |close_price|string|平仓价格 (金钱)|
 |open_price|string|开仓价格 (金钱)|
 |profit|string|收益率 (百分比)|
@@ -489,8 +489,8 @@ https://api.tigerwit.com/action/public/api/get_master_history
 |symbol|string|交易品种|
 |symbol_cn|string|交易品种中文名称|
 |action|int|买入：0，卖出：1|
-|ago|int|持仓时间 时间戳 秒数|
-|position_time|int|距离现在的时间 时间戳 秒数|
+|ago|int|距离现在的时间 时间戳 秒数|
+|position_time|int|持仓时间 时间戳 秒数|
 |close_price|string|平仓价格 (金钱)|
 |open_price|string|开仓价格 (金钱)|
 |profit|string|收益率 (百分比)|
