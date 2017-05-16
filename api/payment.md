@@ -43,7 +43,7 @@ https://api.tigerwit.com/action/public/api/deposit_v2
 |usd_amount|string|美金金额|
 |rmb_amount|string|人民币金额|
 |usd_rate|string|当前入金汇率|
-|order_no|string|老虎入库订单id|
+|order_no|string|老虎订单号|
 |call_back_url|string|智付回调地址（废弃）|
 |order_time|string|申请入金时间|
 |dispatch_url|string|易支付支付跳转地址|
