@@ -127,7 +127,7 @@ https://api.tigerwit.com/action/public/api/withdraw
 |123| |银行卡信息和实名信息不能为空|
 |400| |系统错误|
 |data|Object|返回信息|
-|order_no|int|第三方入库定单id|
+|order_no|int|老虎订单号|
 |usd_amount|float|出金金额(usd)|
 |rmb_amount|float|出金金额(rmb)|
 |rate|double|出金汇率|
@@ -202,7 +202,7 @@ https://api.tigerwit.com/action/public/api/withdraw_v2
 |123| |银行卡信息和实名信息不能为空|
 |400| |系统错误|
 |data|Object|返回信息|
-|order_no|int|第三方入库定单id|
+|order_no|int|老虎订单号|
 |usd_amount|float|出金金额(usd)|
 |rmb_amount|float|出金金额(rmb)|
 |rate|double|出金汇率|
