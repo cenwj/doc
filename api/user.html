@@ -3397,4 +3397,151 @@ status为负数则是对应direction=-1出金的状态，入金则反之。</p>
 }
 </pre></div>
 </p>
+<h4 id="13"><a name="user-content-13" href="#13" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "transaction"> 13.获取交易手数、收益率、平仓总收益</span></h4>
+<ul>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>https://demo.tigerwit.com/action/public/api/transaction
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/transaction
+</pre></div>
+</li>
+<li>类型:HTTPS post </li>
+<li>参数:JSON String </li>
+<li>传递参数:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法: transaction</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">第三方用户id</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">老虎mt4_id</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true:成功 false:失败</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回错误信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center">修改成功</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center"></td>
+<td align="center">修改失败</td>
+</tr>
+<tr>
+<td align="center">101</td>
+<td align="center"></td>
+<td align="center">传递参数错误</td>
+</tr>
+<tr>
+<td align="center">105</td>
+<td align="center"></td>
+<td align="center">获取不到第三方用户信息或者老虎账户信息</td>
+</tr>
+<tr>
+<td align="center">303</td>
+<td align="center"></td>
+<td align="center">安全验证失败</td>
+</tr>
+<tr>
+<td align="center">data</td>
+<td align="center">Object</td>
+<td align="center">返回参数</td>
+</tr>
+<tr>
+<td align="center">profit_rate</td>
+<td align="center">string</td>
+<td align="center">收益率</td>
+</tr>
+<tr>
+<td align="center">volume</td>
+<td align="center">float</td>
+<td align="center">交易手数</td>
+</tr>
+<tr>
+<td align="center">close_profit</td>
+<td align="center">float</td>
+<td align="center">平仓收益</td>
+</tr>
+<tr>
+<td align="center">payment</td>
+<td align="center">bool</td>
+<td align="center">是否入金 true：有入金，false：没有入金</td>
+</tr>
+</tbody>
+</table>
+<p>返回成功json:<br />
+<div class="codehilite"><pre>{
+    &quot;error_code&quot;:0,
+    &quot;error_msg&quot;:&quot;请求成功&quot;,
+    &quot;is_succ&quot;:true,
+    &quot;data&quot;:{
+        &quot;profit_rate&quot;:&quot;32.83&quot;,
+        &quot;volume&quot;:211.9,
+        &quot;close_profit&quot;:&quot;24711.79&quot;,
+        &quot;payment&quot;:true
+    }
+}
+</pre></div>
+</p>
 <p><center> <a href="#top">返回顶部</a> </center>     </p></article></body></html>

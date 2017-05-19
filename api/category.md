@@ -27,6 +27,7 @@
 * [充值记录](/api/user.html#get_payment_record)
 * [检查mt4_id、密码是否正确](/api/user.html#check_mt4)
 * [修改mt4密码](/api/user.html#change_password)
+* [获取交易手数、收益率、平仓总收益](/api/user.html#transaction)
 
 ### 红包
 * [红包列表](/api/bonus.html#bonus_lists) 

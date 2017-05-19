@@ -878,4 +878,60 @@ https://api.tigerwit.com/action/public/api/change_password
 }
 ```
 
+#### <span id = "transaction"> 13.获取交易手数、收益率、平仓总收益</span>
+
+* 测试请求URL:
+```
+https://demo.tigerwit.com/action/public/api/transaction
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/transaction
+```
+* 类型:HTTPS post 
+* 参数:JSON String 
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法: transaction|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|user_id|int|是|第三方用户id|
+|mt4_id|int|是|老虎mt4_id|
+
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool|true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|int|返回码|
+|0| |修改成功|
+|1| |修改失败|
+|101| |传递参数错误|
+|105| |获取不到第三方用户信息或者老虎账户信息|
+|303| |安全验证失败|
+|data|Object|返回参数|
+|profit_rate|string|收益率|
+|volume|float|交易手数|
+|close_profit|float|平仓收益|
+|payment|bool|是否入金 true：有入金，false：没有入金|
+
+返回成功json:
+```
+{
+    "error_code":0,
+    "error_msg":"请求成功",
+    "is_succ":true,
+    "data":{
+        "profit_rate":"32.83",
+        "volume":211.9,
+        "close_profit":"24711.79",
+        "payment":true
+    }
+}
+```
+
 <center> [返回顶部](#top) </center>     
