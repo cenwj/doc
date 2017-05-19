@@ -911,7 +911,7 @@ https://api.tigerwit.com/action/public/api/transaction
 |0| |修改成功|
 |1| |修改失败|
 |101| |传递参数错误|
-|105| |获取不到第三方用户信息或者老虎账户信息|
+|105| |找不到用户信息|
 |303| |安全验证失败|
 |data|Object|返回参数|
 |profit_rate|string|收益率|
