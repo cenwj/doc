@@ -5,7 +5,7 @@
 ## 接口分类 
 ### 入金、出金、汇率
 
-#### <span id = "deposit_v2">1.申请入金【手机客户端入金(易支付入金)】</span>
+#### <span id = "deposit_v2">1.申请入金【手机客户端入金】</span>
 * 测试请求URL:
 ```
 https://demo.tigerwit.com/action/public/api/deposit_v2
@@ -44,15 +44,15 @@ https://api.tigerwit.com/action/public/api/deposit_v2
 |rmb_amount|string|人民币金额|
 |usd_rate|string|当前入金汇率|
 |order_no|string|老虎订单号|
-|call_back_url|string|智付回调地址（废弃）|
+|call_back_url|string|回调地址（废弃）|
 |order_time|string|申请入金时间|
-|dispatch_url|string|易支付支付跳转地址|
+|dispatch_url|string|支付跳转地址|
 
 2017-03-13更新:
->添加【dispatch_url】返回参数，易支付入金直接跳到H5选择银行页面。
+>添加【dispatch_url】返回参数，支付入金直接跳到H5选择银行页面。
 
 说明：
->第三方平台可以做易支付的H5页面支付和SDK的兼容。
+>第三方平台可以做支付的H5页面支付和SDK的兼容。
 H5页面支付支持银行少，入金限额低，限额为5千人民币。
 SDK支持银联，限额为5万人民币。
 建议使用SDK支付方式。
@@ -427,7 +427,7 @@ https://api.tigerwit.com/action/public/api/get_withdraw_info
 ```
 
 
-#### <span id = "pay">5.pc电脑端入金(不回调)</span>
+#### <span id = "pay">5.pc电脑端入金(不回调)(废弃)</span>
 * 测试请求URL:
 `需联系老虎外汇技术人员提供`
 * 线上请求URL:

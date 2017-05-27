@@ -1081,7 +1081,7 @@ body .markdown-body
 <h5 id="_2"><a href="/">系统功能</a> |  <a href="/api/category.html">接口分类</a> | <a href="/quote.html">报价推送</a> | <a href="/formula.html">盈亏计算</a> | <a href="/level.html">止盈止损</a> | <a href="/bouns.html">高手分成</a> | <a href="/pending.html">挂单</a> | <a href="/ouccupy_asset.html">保证金计算</a> | <a href="/notice.html">公告</a></h5>
 <h2 id="_3"><a name="user-content-_3" href="#_3" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>接口分类</h2>
 <h3 id="_4"><a name="user-content-_4" href="#_4" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>入金、出金、汇率</h3>
-<h4 id="1"><a name="user-content-1" href="#1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "deposit_v2">1.申请入金【手机客户端入金(易支付入金)】</span></h4>
+<h4 id="1"><a name="user-content-1" href="#1" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "deposit_v2">1.申请入金【手机客户端入金】</span></h4>
 <ul>
 <li>测试请求URL:<br />
 <div class="codehilite"><pre>https://demo.tigerwit.com/action/public/api/deposit_v2
@@ -1222,7 +1222,7 @@ body .markdown-body
 <tr>
 <td align="center">call_back_url</td>
 <td align="center">string</td>
-<td align="center">智付回调地址（废弃）</td>
+<td align="center">回调地址（废弃）</td>
 </tr>
 <tr>
 <td align="center">order_time</td>
@@ -1232,17 +1232,17 @@ body .markdown-body
 <tr>
 <td align="center">dispatch_url</td>
 <td align="center">string</td>
-<td align="center">易支付支付跳转地址</td>
+<td align="center">支付跳转地址</td>
 </tr>
 </tbody>
 </table>
 <p>2017-03-13更新:</p>
 <blockquote>
-<p>添加【dispatch_url】返回参数，易支付入金直接跳到H5选择银行页面。</p>
+<p>添加【dispatch_url】返回参数，支付入金直接跳到H5选择银行页面。</p>
 </blockquote>
 <p>说明：</p>
 <blockquote>
-<p>第三方平台可以做易支付的H5页面支付和SDK的兼容。<br />
+<p>第三方平台可以做支付的H5页面支付和SDK的兼容。<br />
 H5页面支付支持银行少，入金限额低，限额为5千人民币。<br />
 SDK支持银联，限额为5万人民币。<br />
 建议使用SDK支付方式。</p>
@@ -2248,7 +2248,7 @@ SDK支持银联，限额为5万人民币。<br />
 }
 </pre></div>
 </p>
-<h4 id="5pc"><a name="user-content-5pc" href="#5pc" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "pay">5.pc电脑端入金(不回调)</span></h4>
+<h4 id="5pc"><a name="user-content-5pc" href="#5pc" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "pay">5.pc电脑端入金(不回调)(废弃)</span></h4>
 <ul>
 <li>测试请求URL:<br />
 <code>需联系老虎外汇技术人员提供</code></li>
