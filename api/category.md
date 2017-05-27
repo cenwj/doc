@@ -71,14 +71,14 @@
 
 ### 入金、出金、汇率
 
-* [申请入金【手机客户端入金(易支付入金)】](/api/payment.html#deposit_v2)
+* [申请入金【手机客户端入金】](/api/payment.html#deposit_v2)
 * [申请出金[将要废弃]](/api/payment.html#withdraw)
 * [申请出金_v2](/api/payment.html#withdraw_v2)
 * [出金汇率](/api/payment.html#get_withdraw_rate)
 * [入金汇率](/api/payment.html#get_exchange_rate)
 * [获取银行卡信息](/api/payment.html#check_user_card)
 * [获取可出余额，信用值，交易手数](/api/payment.html#get_withdraw_info)
-* [pc电脑端入金(不回调)](/api/payment.html#pay)
+* [pc电脑端入金(不回调)(废弃)](/api/payment.html#pay)
 * [pc电脑端入金(有回调)](/api/payment.html#pay_callback)
 
 
