@@ -718,7 +718,7 @@ https://api.tigerwit.com/action/public/api/get_trade_record
 ```
 
 说明：
->只有CFD有手续费,每手10美金。
+>只有CFD产品有手续费,每手10美金。
 库存费参考：
 
 ![示例](https://demo.tigerwit.com/files/WechatIMG6.jpeg)
