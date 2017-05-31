@@ -44,7 +44,7 @@ https://api.tigerwit.com/action/public/api/bonus_lists
 | id |int|红包id |
 | pay_condition |int|兑换条件ID|
 | pay_condition_desc |string|兑换条件描述|
-| acquire_mode |int|1:自动，2:手动|
+| acquire_mode |int|1:自动领取，2:手动领取|
 | is_receive |string|1:已领取、2:未领取[手动领取]、3:已领完、4:未到领取时间|
 |status_name|string|红包状态名称|
 |acquire_start|string|红包领取期限起始日期|
