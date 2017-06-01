@@ -232,7 +232,7 @@ https://api.tigerwit.com/action/public/api/pending_order
 |pending_price|double|是| 挂单价格|
 |tp|double|是| 止盈价格, 不设置止盈该值为0|
 |sl|double|是|  止损价格, 不设置止损该值为0|
-|expiration_time|int|是| 过期时间戳, 具体过期时间为开仓时间加该时间戳秒数 永久为0,比如 要1个小时后过期 就传3600|
+|expiration_time|int|是| 过期时间, 具体过期时间为开仓时间加该时间戳秒数 永久为0,比如 要1个小时后过期 就传3600|
 
 返回参数说明:
 
@@ -256,8 +256,8 @@ https://api.tigerwit.com/action/public/api/pending_order
 | market_price | string |市场价格|
 | tp | string |止盈价格|
 | sl | string |止损价格|
-| open_time | int |挂单建立时间|
-| expiration | string |挂单过期时间|
+| open_time | string |挂单建立时间|
+| expiration | int |挂单过期时间|
 
 返回成功json:
 ```
@@ -266,18 +266,18 @@ https://api.tigerwit.com/action/public/api/pending_order
     "error_msg":"",
     "is_succ":true,
     "data":{
-        "mt4_id":500970,
-        "order":462082,
-        "cmd":2,
-        "volume":1,
-        "symbol_cn":"NZDCAD",
-        "symbol_en":"新西兰元加元",
-        "open_price":"0.1441",
-        "market_price":"0.94449",
+        "mt4_id":851135,
+        "order":635652,
+        "cmd":3,
+        "volume":0.1,
+        "symbol_en":"EURUSD",
+        "symbol_cn":"欧元美元",
+        "open_price":"1.22408",
+        "market_price":"1.12378",
         "tp":"0",
         "sl":"0",
-        "open_time":1472194322,
-        "expiration":"2016-11-11 11:11:11"
+        "open_time":"2017-06-01 09:18:06",
+        "expiration":1496272686
     }
 }
 ```
@@ -307,7 +307,7 @@ https://api.tigerwit.com/action/public/api/pending_modify
 |pending_price|double|是| 挂单价格|
 |tp|double|是|止盈价格, 不修改原止盈为原值, 不使用止盈为0|
 |sl|double|是|止损价格, 不修改原止损为原值, 不使用止损为0|
-|expiration_time|int|是| 过期时间戳, 不修改为-1, 不使用过期时间为0|
+|expiration_time|int|是| 过期时间, 不修改为-1, 不使用过期时间为0|
 
 返回参数说明:
 
@@ -341,18 +341,18 @@ https://api.tigerwit.com/action/public/api/pending_modify
     "error_msg":"",
     "is_succ":true,
     "data":{
-        "mt4_id":500970,
-        "order":462343,
-        "cmd":2,
-        "volume":1,
-        "symbol_en":"NZDCAD",
-        "symbol_cn":"中文产品",
-        "open_price":"0.1441",
-        "market_price":0,
+        "mt4_id":851135,
+        "order":635652,
+        "cmd":3,
+        "volume":0.1,
+        "symbol_en":"EURUSD",
+        "symbol_cn":"欧元美元",
+        "open_price":"1.32408",
+        "market_price":"1.12398",
         "tp":"0",
         "sl":"0",
-        "open_time":"2016-11-11 11:11:11",
-        "expiration":1472539005
+        "open_time":"2017-06-01 09:18:06",
+        "expiration":1496273216
     }
 }
 ```
@@ -402,8 +402,8 @@ https://api.tigerwit.com/action/public/api/pending_delete
 | market_price | string |市场价格|
 | tp | string |止盈价格|
 | sl | string |止损价格|
-| open_time | int |挂单建立时间，本接口该值不会变化|
-| expiration | int |挂单过期时间，0为不使用过期时间|
+| open_time | string |挂单建立时间，本接口该值不会变化|
+| expiration | int |挂单过期时间，0为不过期|
 
 返回成功json:
 ```
@@ -412,18 +412,18 @@ https://api.tigerwit.com/action/public/api/pending_delete
     "error_msg":"",
     "is_succ":true,
     "data":{
-        "mt4_id":500970,
-        "order":462343,
-        "cmd":2,
-        "volume":1,
-        "symbol_en":"NZDCAD",
-        "symbol_cn":"中文产品",
-        "open_price":"0.1441",
+        "mt4_id":851135,
+        "order":635652,
+        "cmd":3,
+        "volume":0.1,
+        "symbol_en":"EURUSD",
+        "symbol_cn":"欧元美元",
+        "open_price":"1.32408",
         "market_price":"0",
         "tp":"0",
         "sl":"0",
-        "open_time":1472538305,
-        "expiration":1472539005
+        "open_time":"2017-06-01 09:18:06",
+        "expiration":1496273216
     }
 }
 ```
@@ -463,7 +463,7 @@ https://api.tigerwit.com/action/public/api/get_pending
 |303| |安全验证失败|
 |data|array|返回的详细信息|
 |order|int|订单id|
-|open_time|int|挂单建立时间|
+|open_time|string|挂单建立时间|
 |cmd|int|2=>'挂单买涨', 3=>'挂单买跌', 4=>'挂单买涨', 5=>'挂单买跌'|
 |volume|float|交易手数，不需要前端再做乘以0.01转换|
 |symbol_en|string|交易品种 英文|
@@ -483,32 +483,18 @@ https://api.tigerwit.com/action/public/api/get_pending
     "is_succ":true,
     "data":[
         {
-            "order":462338,
-            "open_time":1472537895,
-            "cmd":4,
-            "volume":0.01,
-            "symbol_en":"AUDJPY",
-            "symbol_cn":"澳元日元",
-            "open_price":"81",
+            "order":635652,
+            "open_time":"2017-06-01 06:18:06",
+            "cmd":3,
+            "volume":0.1,
+            "symbol_en":"EURUSD",
+            "symbol_cn":"欧元美元",
+            "open_price":"1.32408",
             "sl":"0",
             "tp":"0",
-            "digits":3,
-            "price":"77.25",
-            "expiration":0
-        },
-        {
-            "order":462363,
-            "open_time":"2016-11-11 11:11:11",
-            "cmd":4,
-            "volume":0.01,
-            "symbol_en":"AUDCHF50",
-            "symbol_cn":"澳元瑞郎",
-            "open_price":"1.74001",
-            "sl":0,
-            "tp":0,
             "digits":5,
-            "price":"0.74002",
-            "expiration":0
+            "price":"1.12398",
+            "expiration":1496273216
         }
     ]
 }

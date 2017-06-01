@@ -1731,7 +1731,7 @@ occupy_asset:占用保证金<br />
 <td align="center">expiration_time</td>
 <td align="center">int</td>
 <td align="center">是</td>
-<td align="center">过期时间戳, 具体过期时间为开仓时间加该时间戳秒数 永久为0,比如 要1个小时后过期 就传3600</td>
+<td align="center">过期时间, 具体过期时间为开仓时间加该时间戳秒数 永久为0,比如 要1个小时后过期 就传3600</td>
 </tr>
 </tbody>
 </table>
@@ -1837,12 +1837,12 @@ occupy_asset:占用保证金<br />
 </tr>
 <tr>
 <td align="center">open_time</td>
-<td align="center">int</td>
+<td align="center">string</td>
 <td align="center">挂单建立时间</td>
 </tr>
 <tr>
 <td align="center">expiration</td>
-<td align="center">string</td>
+<td align="center">int</td>
 <td align="center">挂单过期时间</td>
 </tr>
 </tbody>
@@ -1853,18 +1853,18 @@ occupy_asset:占用保证金<br />
     &quot;error_msg&quot;:&quot;&quot;,
     &quot;is_succ&quot;:true,
     &quot;data&quot;:{
-        &quot;mt4_id&quot;:500970,
-        &quot;order&quot;:462082,
-        &quot;cmd&quot;:2,
-        &quot;volume&quot;:1,
-        &quot;symbol_cn&quot;:&quot;NZDCAD&quot;,
-        &quot;symbol_en&quot;:&quot;新西兰元加元&quot;,
-        &quot;open_price&quot;:&quot;0.1441&quot;,
-        &quot;market_price&quot;:&quot;0.94449&quot;,
+        &quot;mt4_id&quot;:851135,
+        &quot;order&quot;:635652,
+        &quot;cmd&quot;:3,
+        &quot;volume&quot;:0.1,
+        &quot;symbol_en&quot;:&quot;EURUSD&quot;,
+        &quot;symbol_cn&quot;:&quot;欧元美元&quot;,
+        &quot;open_price&quot;:&quot;1.22408&quot;,
+        &quot;market_price&quot;:&quot;1.12378&quot;,
         &quot;tp&quot;:&quot;0&quot;,
         &quot;sl&quot;:&quot;0&quot;,
-        &quot;open_time&quot;:1472194322,
-        &quot;expiration&quot;:&quot;2016-11-11 11:11:11&quot;
+        &quot;open_time&quot;:&quot;2017-06-01 09:18:06&quot;,
+        &quot;expiration&quot;:1496272686
     }
 }
 </pre></div>
@@ -1951,7 +1951,7 @@ occupy_asset:占用保证金<br />
 <td align="center">expiration_time</td>
 <td align="center">int</td>
 <td align="center">是</td>
-<td align="center">过期时间戳, 不修改为-1, 不使用过期时间为0</td>
+<td align="center">过期时间, 不修改为-1, 不使用过期时间为0</td>
 </tr>
 </tbody>
 </table>
@@ -2073,18 +2073,18 @@ occupy_asset:占用保证金<br />
     &quot;error_msg&quot;:&quot;&quot;,
     &quot;is_succ&quot;:true,
     &quot;data&quot;:{
-        &quot;mt4_id&quot;:500970,
-        &quot;order&quot;:462343,
-        &quot;cmd&quot;:2,
-        &quot;volume&quot;:1,
-        &quot;symbol_en&quot;:&quot;NZDCAD&quot;,
-        &quot;symbol_cn&quot;:&quot;中文产品&quot;,
-        &quot;open_price&quot;:&quot;0.1441&quot;,
-        &quot;market_price&quot;:0,
+        &quot;mt4_id&quot;:851135,
+        &quot;order&quot;:635652,
+        &quot;cmd&quot;:3,
+        &quot;volume&quot;:0.1,
+        &quot;symbol_en&quot;:&quot;EURUSD&quot;,
+        &quot;symbol_cn&quot;:&quot;欧元美元&quot;,
+        &quot;open_price&quot;:&quot;1.32408&quot;,
+        &quot;market_price&quot;:&quot;1.12398&quot;,
         &quot;tp&quot;:&quot;0&quot;,
         &quot;sl&quot;:&quot;0&quot;,
-        &quot;open_time&quot;:&quot;2016-11-11 11:11:11&quot;,
-        &quot;expiration&quot;:1472539005
+        &quot;open_time&quot;:&quot;2017-06-01 09:18:06&quot;,
+        &quot;expiration&quot;:1496273216
     }
 }
 </pre></div>
@@ -2253,13 +2253,13 @@ occupy_asset:占用保证金<br />
 </tr>
 <tr>
 <td align="center">open_time</td>
-<td align="center">int</td>
+<td align="center">string</td>
 <td align="center">挂单建立时间，本接口该值不会变化</td>
 </tr>
 <tr>
 <td align="center">expiration</td>
 <td align="center">int</td>
-<td align="center">挂单过期时间，0为不使用过期时间</td>
+<td align="center">挂单过期时间，0为不过期</td>
 </tr>
 </tbody>
 </table>
@@ -2269,18 +2269,18 @@ occupy_asset:占用保证金<br />
     &quot;error_msg&quot;:&quot;&quot;,
     &quot;is_succ&quot;:true,
     &quot;data&quot;:{
-        &quot;mt4_id&quot;:500970,
-        &quot;order&quot;:462343,
-        &quot;cmd&quot;:2,
-        &quot;volume&quot;:1,
-        &quot;symbol_en&quot;:&quot;NZDCAD&quot;,
-        &quot;symbol_cn&quot;:&quot;中文产品&quot;,
-        &quot;open_price&quot;:&quot;0.1441&quot;,
+        &quot;mt4_id&quot;:851135,
+        &quot;order&quot;:635652,
+        &quot;cmd&quot;:3,
+        &quot;volume&quot;:0.1,
+        &quot;symbol_en&quot;:&quot;EURUSD&quot;,
+        &quot;symbol_cn&quot;:&quot;欧元美元&quot;,
+        &quot;open_price&quot;:&quot;1.32408&quot;,
         &quot;market_price&quot;:&quot;0&quot;,
         &quot;tp&quot;:&quot;0&quot;,
         &quot;sl&quot;:&quot;0&quot;,
-        &quot;open_time&quot;:1472538305,
-        &quot;expiration&quot;:1472539005
+        &quot;open_time&quot;:&quot;2017-06-01 09:18:06&quot;,
+        &quot;expiration&quot;:1496273216
     }
 }
 </pre></div>
@@ -2398,7 +2398,7 @@ occupy_asset:占用保证金<br />
 </tr>
 <tr>
 <td align="center">open_time</td>
-<td align="center">int</td>
+<td align="center">string</td>
 <td align="center">挂单建立时间</td>
 </tr>
 <tr>
@@ -2460,32 +2460,18 @@ occupy_asset:占用保证金<br />
     &quot;is_succ&quot;:true,
     &quot;data&quot;:[
         {
-            &quot;order&quot;:462338,
-            &quot;open_time&quot;:1472537895,
-            &quot;cmd&quot;:4,
-            &quot;volume&quot;:0.01,
-            &quot;symbol_en&quot;:&quot;AUDJPY&quot;,
-            &quot;symbol_cn&quot;:&quot;澳元日元&quot;,
-            &quot;open_price&quot;:&quot;81&quot;,
+            &quot;order&quot;:635652,
+            &quot;open_time&quot;:&quot;2017-06-01 06:18:06&quot;,
+            &quot;cmd&quot;:3,
+            &quot;volume&quot;:0.1,
+            &quot;symbol_en&quot;:&quot;EURUSD&quot;,
+            &quot;symbol_cn&quot;:&quot;欧元美元&quot;,
+            &quot;open_price&quot;:&quot;1.32408&quot;,
             &quot;sl&quot;:&quot;0&quot;,
             &quot;tp&quot;:&quot;0&quot;,
-            &quot;digits&quot;:3,
-            &quot;price&quot;:&quot;77.25&quot;,
-            &quot;expiration&quot;:0
-        },
-        {
-            &quot;order&quot;:462363,
-            &quot;open_time&quot;:&quot;2016-11-11 11:11:11&quot;,
-            &quot;cmd&quot;:4,
-            &quot;volume&quot;:0.01,
-            &quot;symbol_en&quot;:&quot;AUDCHF50&quot;,
-            &quot;symbol_cn&quot;:&quot;澳元瑞郎&quot;,
-            &quot;open_price&quot;:&quot;1.74001&quot;,
-            &quot;sl&quot;:0,
-            &quot;tp&quot;:0,
             &quot;digits&quot;:5,
-            &quot;price&quot;:&quot;0.74002&quot;,
-            &quot;expiration&quot;:0
+            &quot;price&quot;:&quot;1.12398&quot;,
+            &quot;expiration&quot;:1496273216
         }
     ]
 }
