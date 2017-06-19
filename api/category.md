@@ -14,8 +14,8 @@
 
 ### 开户、个人中心
 * [H5开户、实名认证 ](/api/register.html#register)
-* [开户(将要废弃、用H5开户)](/api/user.html#signup)
-* [开户（加上密码参数）（将要废弃、用H5开户）](/api/user.html#signup_v3)
+* [开户(废弃、用H5开户)](/api/user.html#signup)
+* [开户（加上密码参数）（废弃、用H5开户）](/api/user.html#signup_v3)
 * [获取跟随高手当前订单分组](/api/user.html#get_master_group)
 * [获取用户跟随单个高手持仓明细](/api/user.html#get_master_order_info)
 * [获取跟随高手历史订单分组](/api/user.html#get_master_history_group)
@@ -45,7 +45,7 @@
 * [获取高手当前投资详情](/api/master.html#get_master_order)
 * [获取高手历史投资详情](/api/master.html#get_master_history)
 * [复制高手](/api/master.html#copy_master_v2)
-* [解除复制高手并强平](/api/master.html#uncopy_master_forced_liquidation)
+* [解除复制高手并强平](/api/master.html#cancel_copy)
 * [解除复制高手并强平前的预算金钱](/api/master.html#uncopy_master_budget)
 * [获取高手最低复制金额](/api/master.html#get_master_min_copy_amount)
 

@@ -607,15 +607,15 @@ https://api.tigerwit.com/action/public/api/copy_master_v2
 }
 ```
 
-#### <span id = "uncopy_master_forced_liquidation">9.解除复制高手并强平</span> 
+#### <span id = "cancel_copy">9.解除复制高手并强平</span> 
 
 * 测试请求URL:
 ```
-https://demo.tigerwit.com/action/public/api/uncopy_master_forced_liquidation
+https://demo.tigerwit.com/action/public/api/cancel_copy
 ```
 * 线上请求URL:
 ```
-https://api.tigerwit.com/action/public/api/uncopy_master_forced_liquidation
+https://api.tigerwit.com/action/public/api/cancel_copy
 ```
 * 类型:HTTPS post
 * 参数:JSON String
@@ -623,7 +623,7 @@ https://api.tigerwit.com/action/public/api/uncopy_master_forced_liquidation
 
 |名称|类型|是否必须|说明|
 |:--:|:--:|:--:|:--:|
-|action|string|是|传递参数:uncopy_master_forced_liquidation|
+|action|string|是|传递参数:cancel_copy|
 |signature|string|是|签名|
 |private_key|string|是|分配给第三方的key|
 |user_id|int|是|第三方用户id|
