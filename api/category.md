@@ -47,7 +47,7 @@
 * [复制高手](/api/master.html#copy_master_v2)
 * [解除复制高手并强平](/api/master.html#cancel_copy)
 * [解除复制高手并强平前的预算金钱](/api/master.html#uncopy_master_budget)
-* [获取高手最低复制金额](/api/master.html#get_master_min_copy_amount)
+<!-- * [获取高手最低复制金额](/api/master.html#get_master_min_copy_amount) -->
 
 ### 交易品种
 * [获取交易品种汇总](/api/symbols.html#get_symbols)
