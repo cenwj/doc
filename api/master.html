@@ -2097,7 +2097,7 @@ body .markdown-body
 }
 </pre></div>
 </p>
-<h4 id="7"><a name="user-content-7" href="#7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_master_history">7.获取高手当前投资详情</span></h4>
+<h4 id="7"><a name="user-content-7" href="#7" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_master_history">7.获取高手历史投资详情</span></h4>
 <ul>
 <li>测试请求URL:<br />
 <div class="codehilite"><pre>https://demo.tigerwit.com/action/public/api/get_master_history
@@ -2880,127 +2880,48 @@ body .markdown-body
 }
 </pre></div>
 </p>
-<h4 id="11"><a name="user-content-11" href="#11" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_master_min_copy_amount">11.获取高手最低复制金额</span></h4>
-<ul>
-<li>测试请求URL:<br />
-<div class="codehilite"><pre>https://demo.tigerwit.com/action/public/api/get_master_min_copy_amount
-</pre></div>
-</li>
-<li>线上请求URL:<br />
-<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/get_master_min_copy_amount
-</pre></div>
-</li>
-<li>类型:HTTPS post</li>
-<li>参数:JSON String</li>
-<li>传递参数:</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">类型</th>
-<th align="center">是否必须</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">action</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">传递的方法:get_master_min_copy_amount</td>
-</tr>
-<tr>
-<td align="center">signature</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">签名</td>
-</tr>
-<tr>
-<td align="center">private_key</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">分配给第三方的key</td>
-</tr>
-<tr>
-<td align="center">from_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">高手user_code</td>
-</tr>
-</tbody>
-</table>
-<p>返回参数说明:</p>
-<table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">类型</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">is_succ</td>
-<td align="center">bool</td>
-<td align="center">true:成功 false:失败</td>
-</tr>
-<tr>
-<td align="center">error_msg</td>
-<td align="center">string</td>
-<td align="center">返回错误信息</td>
-</tr>
-<tr>
-<td align="center">error_code</td>
-<td align="center">int</td>
-<td align="center">返回码</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center"></td>
-<td align="center">获取成功</td>
-</tr>
-<tr>
-<td align="center">101</td>
-<td align="center"></td>
-<td align="center">传递参数错误</td>
-</tr>
-<tr>
-<td align="center">303</td>
-<td align="center"></td>
-<td align="center">验证失败</td>
-</tr>
-<tr>
-<td align="center">404</td>
-<td align="center"></td>
-<td align="center">找不到高手信息</td>
-</tr>
-<tr>
-<td align="center">data</td>
-<td align="center">object</td>
-<td align="center">返回信息</td>
-</tr>
-<tr>
-<td align="center">min_follow_rmb</td>
-<td align="center">float</td>
-<td align="center">高手最低复制金额(人民币)</td>
-</tr>
-<tr>
-<td align="center">min_follow_usd</td>
-<td align="center">float</td>
-<td align="center">高手最低复制金额(美元)</td>
-</tr>
-</tbody>
-</table>
-<p>返回成功json:</p>
-<div class="codehilite"><pre>{
-    &quot;is_succ&quot;:true,
-    &quot;error_msg&quot;:&quot;&quot;,
-    &quot;error_code&quot;:0,
-    &quot;min_follow_rmb&quot;:6271.6,
-    &quot;min_follow_usd&quot;:1000
-}
-</pre></div>
+<!-- #### <span id = "get_master_min_copy_amount">11.获取高手最低复制金额</span>
 
+* 测试请求URL:
+wzxhzdk:30
+* 线上请求URL:
+wzxhzdk:31
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法:get_master_min_copy_amount|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|from_id|int|是|高手user_code|
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool | true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|int|返回码|
+|0| |获取成功|
+|101| |传递参数错误|
+|303| |验证失败|
+|404| |找不到高手信息|
+|data|object|返回信息|
+|min_follow_rmb|float|高手最低复制金额(人民币)|
+|min_follow_usd|float|高手最低复制金额(美元)|
+
+返回成功json:
+
+```
+{
+    "is_succ":true,
+    "error_msg":"",
+    "error_code":0,
+    "min_follow_rmb":6271.6,
+    "min_follow_usd":1000
+}
+``` -->
 
 <p><center> <a href="#top">返回顶部</a> </center>   </p></article></body></html>

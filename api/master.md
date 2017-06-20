@@ -450,7 +450,7 @@ https://api.tigerwit.com/action/public/api/get_master_order
 }
 ```
 
-#### <span id = "get_master_history">7.获取高手当前投资详情</span> 
+#### <span id = "get_master_history">7.获取高手历史投资详情</span> 
 
 * 测试请求URL:
 ```
@@ -741,7 +741,7 @@ https://api.tigerwit.com/action/public/api/uncopy_master_budget
 ```
 
 
-#### <span id = "get_master_min_copy_amount">11.获取高手最低复制金额</span> 
+<!-- #### <span id = "get_master_min_copy_amount">11.获取高手最低复制金额</span> 
 
 * 测试请求URL:
 ```
@@ -787,6 +787,6 @@ https://api.tigerwit.com/action/public/api/get_master_min_copy_amount
     "min_follow_rmb":6271.6,
     "min_follow_usd":1000
 }
-```
+``` -->
 
 <center> [返回顶部](#top) </center>   
