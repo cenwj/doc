@@ -499,3 +499,88 @@ https://api.tigerwit.com/action/public/api/get_pending
     ]
 }
 ```
+
+#### <span id = "get_trade_info">8.获取持仓、平仓订单详情</span> 
+
+* 测试请求URL:
+```
+https://demo.tigerwit.com/action/public/api/get_trade_info
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/get_trade_info
+```
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法:get_trade_info|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|user_id|int|是|第三方用户id|
+|mt4_id|int|是|老虎mt4_id|
+|tickets|int|是|订单号|
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool|true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|int|返回码|
+|0| |请求成功|
+|101| |传递参数错误|
+|105| |获取不到第三方用户信息或者老虎账户信息|
+|303| |安全验证失败|
+|400| |获取失败|
+|data|object|返回的详细信息|
+|tickets|int|订单id|
+|symbol_en|string|交易品种名称（英文）|
+|symbol_cn|string|交易品种名称（中文）|
+|cmd|int|交易类型 [0=>'买', 1=>'卖']|
+|volume|float|交易手数|
+|margin_rate|float|预付款 与 存款货币 的比率|
+|sl|double|止损|
+|tp|double|止盈|
+|open_price|double|开仓价|
+|close_price|double|平仓价|
+|profit|double|收益(如果是持仓订单：浮动收益)|
+|open_time|int|开仓时间戳(转成date类型-东三区需要减去8个小时)|
+|digits|int|小数点位|
+|commission|double|手续费|
+|swaps|double|过夜费|
+|close_time|int|平仓时间戳(转成date类型-东三区需要减去8个小时) 持仓订单为0|
+|comment|string|订单备注|
+|occupy_asset|double|占用保证金|
+
+
+返回成功json:
+```
+{
+    "error_code":0,
+    "error_msg":"获取成功",
+    "is_succ":true,
+    "data":{
+        "tickets":641586,
+        "symbol_en":"AUDJPY",
+        "symbol_cn":"澳元日元",
+        "cmd":1,
+        "volume":1,
+        "margin_rate":1,
+        "sl":0,
+        "tp":0,
+        "open_price":84.353,
+        "close_price":84.474,
+        "profit":-109.07,
+        "open_time":1497873661,
+        "digits":3,
+        "commission":0,
+        "swaps":0,
+        "close_time":1497878610,
+        "comment":"",
+        "occupy_asset":1000
+    }
+}
+```

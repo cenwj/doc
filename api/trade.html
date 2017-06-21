@@ -2476,4 +2476,241 @@ occupy_asset:占用保证金<br />
     ]
 }
 </pre></div>
+</p>
+<h4 id="8"><a name="user-content-8" href="#8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "get_trade_info">8.获取持仓、平仓订单详情</span></h4>
+<ul>
+<li>测试请求URL:<br />
+<div class="codehilite"><pre>https://demo.tigerwit.com/action/public/api/get_trade_info
+</pre></div>
+</li>
+<li>线上请求URL:<br />
+<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/get_trade_info
+</pre></div>
+</li>
+<li>类型:HTTPS post</li>
+<li>参数:JSON String</li>
+<li>传递参数:</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">类型</th>
+<th align="center">是否必须</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">action</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">传递的方法:get_trade_info</td>
+</tr>
+<tr>
+<td align="center">signature</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">签名</td>
+</tr>
+<tr>
+<td align="center">private_key</td>
+<td align="center">string</td>
+<td align="center">是</td>
+<td align="center">分配给第三方的key</td>
+</tr>
+<tr>
+<td align="center">user_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">第三方用户id</td>
+</tr>
+<tr>
+<td align="center">mt4_id</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">老虎mt4_id</td>
+</tr>
+<tr>
+<td align="center">tickets</td>
+<td align="center">int</td>
+<td align="center">是</td>
+<td align="center">订单号</td>
+</tr>
+</tbody>
+</table>
+<p>返回参数说明:</p>
+<table>
+<thead>
+<tr>
+<th align="center">参数</th>
+<th align="center">类型</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">is_succ</td>
+<td align="center">bool</td>
+<td align="center">true:成功 false:失败</td>
+</tr>
+<tr>
+<td align="center">error_msg</td>
+<td align="center">string</td>
+<td align="center">返回错误信息</td>
+</tr>
+<tr>
+<td align="center">error_code</td>
+<td align="center">int</td>
+<td align="center">返回码</td>
+</tr>
+<tr>
+<td align="center">0</td>
+<td align="center"></td>
+<td align="center">请求成功</td>
+</tr>
+<tr>
+<td align="center">101</td>
+<td align="center"></td>
+<td align="center">传递参数错误</td>
+</tr>
+<tr>
+<td align="center">105</td>
+<td align="center"></td>
+<td align="center">获取不到第三方用户信息或者老虎账户信息</td>
+</tr>
+<tr>
+<td align="center">303</td>
+<td align="center"></td>
+<td align="center">安全验证失败</td>
+</tr>
+<tr>
+<td align="center">400</td>
+<td align="center"></td>
+<td align="center">获取失败</td>
+</tr>
+<tr>
+<td align="center">data</td>
+<td align="center">object</td>
+<td align="center">返回的详细信息</td>
+</tr>
+<tr>
+<td align="center">tickets</td>
+<td align="center">int</td>
+<td align="center">订单id</td>
+</tr>
+<tr>
+<td align="center">symbol_en</td>
+<td align="center">string</td>
+<td align="center">交易品种名称（英文）</td>
+</tr>
+<tr>
+<td align="center">symbol_cn</td>
+<td align="center">string</td>
+<td align="center">交易品种名称（中文）</td>
+</tr>
+<tr>
+<td align="center">cmd</td>
+<td align="center">int</td>
+<td align="center">交易类型 [0=&gt;&rsquo;买&rsquo;, 1=&gt;&rsquo;卖&rsquo;]</td>
+</tr>
+<tr>
+<td align="center">volume</td>
+<td align="center">float</td>
+<td align="center">交易手数</td>
+</tr>
+<tr>
+<td align="center">margin_rate</td>
+<td align="center">float</td>
+<td align="center">预付款 与 存款货币 的比率</td>
+</tr>
+<tr>
+<td align="center">sl</td>
+<td align="center">double</td>
+<td align="center">止损</td>
+</tr>
+<tr>
+<td align="center">tp</td>
+<td align="center">double</td>
+<td align="center">止盈</td>
+</tr>
+<tr>
+<td align="center">open_price</td>
+<td align="center">double</td>
+<td align="center">开仓价</td>
+</tr>
+<tr>
+<td align="center">close_price</td>
+<td align="center">double</td>
+<td align="center">平仓价</td>
+</tr>
+<tr>
+<td align="center">profit</td>
+<td align="center">double</td>
+<td align="center">收益(如果是持仓订单：浮动收益)</td>
+</tr>
+<tr>
+<td align="center">open_time</td>
+<td align="center">int</td>
+<td align="center">开仓时间戳(转成date类型-东三区需要减去8个小时)</td>
+</tr>
+<tr>
+<td align="center">digits</td>
+<td align="center">int</td>
+<td align="center">小数点位</td>
+</tr>
+<tr>
+<td align="center">commission</td>
+<td align="center">double</td>
+<td align="center">手续费</td>
+</tr>
+<tr>
+<td align="center">swaps</td>
+<td align="center">double</td>
+<td align="center">过夜费</td>
+</tr>
+<tr>
+<td align="center">close_time</td>
+<td align="center">int</td>
+<td align="center">平仓时间戳(转成date类型-东三区需要减去8个小时) 持仓订单为0</td>
+</tr>
+<tr>
+<td align="center">comment</td>
+<td align="center">string</td>
+<td align="center">订单备注</td>
+</tr>
+<tr>
+<td align="center">occupy_asset</td>
+<td align="center">double</td>
+<td align="center">占用保证金</td>
+</tr>
+</tbody>
+</table>
+<p>返回成功json:<br />
+<div class="codehilite"><pre><span class="p">{</span>
+    <span class="s2">&quot;error_code&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;error_msg&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;获取成功&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;is_succ&quot;</span><span class="s s-Atom">:true</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span><span class="s s-Atom">:</span><span class="p">{</span>
+        <span class="s2">&quot;tickets&quot;</span><span class="s s-Atom">:</span><span class="mi">641586</span><span class="p">,</span>
+        <span class="s2">&quot;symbol_en&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;AUDJPY&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;symbol_cn&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;澳元日元&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cmd&quot;</span><span class="s s-Atom">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;volume&quot;</span><span class="s s-Atom">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;margin_rate&quot;</span><span class="s s-Atom">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="s2">&quot;sl&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;tp&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;open_price&quot;</span><span class="s s-Atom">:</span><span class="mf">84.353</span><span class="p">,</span>
+        <span class="s2">&quot;close_price&quot;</span><span class="s s-Atom">:</span><span class="mf">84.474</span><span class="p">,</span>
+        <span class="s2">&quot;profit&quot;</span><span class="p">:-</span><span class="mf">109.07</span><span class="p">,</span>
+        <span class="s2">&quot;open_time&quot;</span><span class="s s-Atom">:</span><span class="mi">1497873661</span><span class="p">,</span>
+        <span class="s2">&quot;digits&quot;</span><span class="s s-Atom">:</span><span class="mi">3</span><span class="p">,</span>
+        <span class="s2">&quot;commission&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;swaps&quot;</span><span class="s s-Atom">:</span><span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;close_time&quot;</span><span class="s s-Atom">:</span><span class="mi">1497878610</span><span class="p">,</span>
+        <span class="s2">&quot;comment&quot;</span><span class="s s-Atom">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;occupy_asset&quot;</span><span class="s s-Atom">:</span><span class="mi">1000</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 </p></article></body></html>

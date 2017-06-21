@@ -67,7 +67,8 @@
 * [挂单交易接口](/api/trade.html#pending_order) 
 * [修改挂单](/api/trade.html#pending_modify) 
 * [删除挂单](/api/trade.html#pending_delete) 
-* [获取所有挂单](/api/trade.html#get_pending) 
+* [获取所有挂单](/api/trade.html#get_pending)
+* [获取持仓、平仓订单详情](/api/trade.html#get_trade_info) 
 
 ### 入金、出金、汇率
 
