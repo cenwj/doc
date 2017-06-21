@@ -221,7 +221,7 @@ https://api.tigerwit.com/action/public/api/get_master_order_info
 |close_price|double|平仓价格|
 |volume|float|交易手数，不需要前端再做乘以0.01转换|
 |action|int|交易类型 0做多 1做空|
-|open_time|date|开仓时间|
+|open_time|date|开仓时间(东三区)|
 
 返回成功json:
 ```
