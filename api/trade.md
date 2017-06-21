@@ -547,11 +547,11 @@ https://api.tigerwit.com/action/public/api/get_trade_info
 |open_price|double|开仓价|
 |close_price|double|平仓价|
 |profit|double|收益(如果是持仓订单：浮动收益)|
-|open_time|int|开仓时间戳(转成date类型-东三区需要减去8个小时)|
+|open_time|int|开仓时间戳(转成date类型-东三区减去8个小时,东八区减去5个小时)|
 |digits|int|小数点位|
 |commission|double|手续费|
 |swaps|double|过夜费|
-|close_time|int|平仓时间戳(转成date类型-东三区需要减去8个小时) 持仓订单为0|
+|close_time|int|平仓时间戳(转成date类型-东三区减去8个小时,东八区减去5个小时) 持仓订单为0|
 |comment|string|订单备注|
 |occupy_asset|double|占用保证金|
 
