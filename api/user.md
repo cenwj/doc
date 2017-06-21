@@ -686,7 +686,9 @@ https://api.tigerwit.com/action/public/api/get_trade_record
 | occupy_asset |float|占用保证金|
 
 说明：
-close_time(平仓时间)-open_time(开仓时间) 返回的时间为东三区时间。如果需要转转为东八区在该时间基础上转为东八区,东三区跟东八区相差为5个小时,东三区转东八区+5。
+close_time(平仓时间) 
+open_time(开仓时间) 
+返回的时间为东三区时间。如果需要转转为东八区在该时间基础上转为东八区,东三区跟东八区相差为5个小时,东三区转东八区+5。
 返回成功json:
 ```
 {
