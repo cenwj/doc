@@ -360,7 +360,7 @@ https://api.tigerwit.com/action/public/api/get_master_history_info
 |action|int|交易类型 0做多 1做空|
 |profit_rate|string|每单收益率|
 |close_type|int|平仓类型 手动平仓：0，止损：1，止盈：2，强制：3，复制跟单：4|
-|close_time|date|平仓时间|
+|close_time|date|平仓时间(东三区)|
 
 返回成功json:
 ```
@@ -509,7 +509,7 @@ https://api.tigerwit.com/action/public/api/foreign_order
 | tp | string |止盈|
 | profit | float |收益|
 | volume | float |交易手数，不需要前端再做乘以0.01转换|
-| open_time | string |开仓时间|
+| open_time | string |开仓时间(东三区)|
 |swaps|float|过夜费|
 |commission|float|手续费|
 |margin_rate|double|预付款 与 存款货币 的比率|
@@ -603,13 +603,14 @@ https://api.tigerwit.com/action/public/api/foreign_exchange_account
 占用保证金 = 已用预付款(margin)
 可用资金 = 可用预付款(margin_free)
 净资产 = 净值(equity)
+保证金比例 = 净值/已用预付款*100% 
 
 后面自己计算:
 >浮动盈亏 = 所有持仓订单浮动盈亏总和
 占用保证金 = 所有持仓订单保证金总和（保证金是不变的没有新订单不用再自己算）
 净值 = 余额（balance_not_include_credit） + 信用 + 浮动盈亏
 可用资产 = 余额（balance_not_include_credit） + 信用 + 浮动盈亏 - 占用保证金 
-
+保证金比例 = 净值/已用预付款*100% 
 
 返回成功json:
 ```
@@ -677,8 +678,8 @@ https://api.tigerwit.com/action/public/api/get_trade_record
 | close_price |string|平仓价格|
 | profit |string|收益|
 | volume |float|交易手数，不需要前端再做乘以0.01转换|
-| close_time |string|平仓时间|
-| open_time |string|开仓时间|
+| close_time |string|平仓时间(东三区)|
+| open_time |string|开仓时间(东三区)|
 | commission |float|手续费|
 | swaps |float|库存费|
 | tp |double|止盈|
@@ -769,7 +770,7 @@ https://api.tigerwit.com/action/public/api/get_payment_record
 | rmb_amount | float |出入金[人民币]|
 | usd_amount |float|出入金[美元]|
 | parity | double |出入金汇率|
-| time | string |出入金时间|
+| time | string |出入金时间（东八区）|
 
 注意:
 判断出金或者入金根据 direction=1 是入金 direction=-1 是出金。

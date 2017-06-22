@@ -1744,7 +1744,7 @@ body .markdown-body
 <tr>
 <td align="center">open_time</td>
 <td align="center">date</td>
-<td align="center">开仓时间(东三区</td>
+<td align="center">开仓时间(东三区)</td>
 </tr>
 </tbody>
 </table>
@@ -2121,7 +2121,7 @@ body .markdown-body
 <tr>
 <td align="center">close_time</td>
 <td align="center">date</td>
-<td align="center">平仓时间</td>
+<td align="center">平仓时间(东三区)</td>
 </tr>
 </tbody>
 </table>
@@ -2477,7 +2477,7 @@ body .markdown-body
 <tr>
 <td align="center">open_time</td>
 <td align="center">string</td>
-<td align="center">开仓时间</td>
+<td align="center">开仓时间(东三区)</td>
 </tr>
 <tr>
 <td align="center">swaps</td>
@@ -2704,14 +2704,16 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 <p>浮动盈亏 = 净值 - 余额 - 信用（equity-balance_not_include_credit）或（equity-balance-credit)<br />
 占用保证金 = 已用预付款(margin)<br />
 可用资金 = 可用预付款(margin_free)<br />
-净资产 = 净值(equity)</p>
+净资产 = 净值(equity)<br />
+保证金比例 = 净值/已用预付款*100% </p>
 </blockquote>
 <p>后面自己计算:</p>
 <blockquote>
 <p>浮动盈亏 = 所有持仓订单浮动盈亏总和<br />
 占用保证金 = 所有持仓订单保证金总和（保证金是不变的没有新订单不用再自己算）<br />
 净值 = 余额（balance_not_include_credit） + 信用 + 浮动盈亏<br />
-可用资产 = 余额（balance_not_include_credit） + 信用 + 浮动盈亏 - 占用保证金 </p>
+可用资产 = 余额（balance_not_include_credit） + 信用 + 浮动盈亏 - 占用保证金 <br />
+保证金比例 = 净值/已用预付款*100% </p>
 </blockquote>
 <p>返回成功json:<br />
 <div class="codehilite"><pre>{
@@ -2911,12 +2913,12 @@ profit_currency，假设需求是盈利都要转换为美元。若profit_currenc
 <tr>
 <td align="center">close_time</td>
 <td align="center">string</td>
-<td align="center">平仓时间</td>
+<td align="center">平仓时间(东三区)</td>
 </tr>
 <tr>
 <td align="center">open_time</td>
 <td align="center">string</td>
-<td align="center">开仓时间</td>
+<td align="center">开仓时间(东三区)</td>
 </tr>
 <tr>
 <td align="center">commission</td>
@@ -3137,7 +3139,7 @@ open_time(开仓时间) <br />
 <tr>
 <td align="center">time</td>
 <td align="center">string</td>
-<td align="center">出入金时间</td>
+<td align="center">出入金时间（东八区）</td>
 </tr>
 </tbody>
 </table>
