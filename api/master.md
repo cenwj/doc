@@ -543,7 +543,7 @@ https://api.tigerwit.com/action/public/api/get_master_history
 }
 ```
 
-#### <span id = "copy_master_v2">8.复制高手</span> 
+<!-- #### <span id = "copy_master_v2">8.复制高手</span> 
 
 * 测试请求URL:
 ```
@@ -656,17 +656,16 @@ https://api.tigerwit.com/action/public/api/cancel_copy
 返回成功json:
 ```
 {
-    "is_succ":true,
-    "error_msg":"",
     "error_code":0,
+    "error_msg":"取消复制高手成功",
+    "is_succ":true,
     "data":{
-        "usd_asset":0.02,
-        "rmb_amount":0.13,
-        "usd_rate":"6.2716",
-        "usd_profit":0.11,
-        "rmb_profit":0.69,
-        "usd_balance":9662.74,
-        "rmb_balance":60600.84
+        "order_id":104,
+        "from_id":"10017",
+        "username":"189372070931478055163",
+        "total_profit":0,
+        "usd_asset":0,
+        "balance":200
     }
 }
 ```
@@ -738,7 +737,7 @@ https://api.tigerwit.com/action/public/api/uncopy_master_budget
         "status":0
     }
 }
-```
+``` -->
 
 
 <!-- #### <span id = "get_master_min_copy_amount">11.获取高手最低复制金额</span> 

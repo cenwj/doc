@@ -2322,580 +2322,26 @@ body .markdown-body
 }
 </pre></div>
 </p>
-<h4 id="8"><a name="user-content-8" href="#8" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "copy_master_v2">8.复制高手</span></h4>
-<ul>
-<li>测试请求URL:<br />
-<div class="codehilite"><pre>https://demo.tigerwit.com/action/public/api/copy_master_v2
-</pre></div>
-</li>
-<li>线上请求URL:<br />
-<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/copy_master_v2
-</pre></div>
-</li>
-<li>类型:HTTPS post</li>
-<li>参数:JSON String</li>
-<li>传递参数:</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">类型</th>
-<th align="center">是否必须</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">action</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">传递的方法:copy_master_v2</td>
-</tr>
-<tr>
-<td align="center">signature</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">签名</td>
-</tr>
-<tr>
-<td align="center">private_key</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">分配给第三方的key</td>
-</tr>
-<tr>
-<td align="center">from_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">高手id</td>
-</tr>
-<tr>
-<td align="center">user_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">第三方user_id</td>
-</tr>
-<tr>
-<td align="center">mt4_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">老虎mt4_id</td>
-</tr>
-<tr>
-<td align="center">order_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">第三方自动生成唯一的id</td>
-</tr>
-<tr>
-<td align="center">amount</td>
-<td align="center">float</td>
-<td align="center">是</td>
-<td align="center">复制金额(usd:美金)</td>
-</tr>
-</tbody>
-</table>
-<p>返回参数说明:</p>
-<table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">类型</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">is_succ</td>
-<td align="center">bool</td>
-<td align="center">true:成功 false:失败</td>
-</tr>
-<tr>
-<td align="center">error_msg</td>
-<td align="center">string</td>
-<td align="center">返回错误信息</td>
-</tr>
-<tr>
-<td align="center">error_code</td>
-<td align="center">int</td>
-<td align="center">返回码</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center"></td>
-<td align="center">复制成功</td>
-</tr>
-<tr>
-<td align="center">101</td>
-<td align="center"></td>
-<td align="center">传递参数错误</td>
-</tr>
-<tr>
-<td align="center">105</td>
-<td align="center"></td>
-<td align="center">获取不到第三方用户信息</td>
-</tr>
-<tr>
-<td align="center">303</td>
-<td align="center"></td>
-<td align="center">验证失败</td>
-</tr>
-<tr>
-<td align="center">405</td>
-<td align="center"></td>
-<td align="center">复制的不是高手</td>
-</tr>
-<tr>
-<td align="center">406</td>
-<td align="center"></td>
-<td align="center">不能重复提交</td>
-</tr>
-<tr>
-<td align="center">407</td>
-<td align="center"></td>
-<td align="center">复制高手不得少于复制高手的最低金额</td>
-</tr>
-<tr>
-<td align="center">408</td>
-<td align="center"></td>
-<td align="center">你已经复制过该高手，请取消跟随再复制。</td>
-</tr>
-<tr>
-<td align="center">4</td>
-<td align="center"></td>
-<td align="center">系统错误</td>
-</tr>
-<tr>
-<td align="center">2</td>
-<td align="center"></td>
-<td align="center">复制资金不足</td>
-</tr>
-<tr>
-<td align="center">9</td>
-<td align="center"></td>
-<td align="center">不能复制自己</td>
-</tr>
-<tr>
-<td align="center">400</td>
-<td align="center"></td>
-<td align="center">复制失败</td>
-</tr>
-<tr>
-<td align="center">data</td>
-<td align="center">Object</td>
-<td align="center">返回信息</td>
-</tr>
-<tr>
-<td align="center">order_id</td>
-<td align="center">int</td>
-<td align="center">老虎入库定单id</td>
-</tr>
-<tr>
-<td align="center">from_id</td>
-<td align="center">string</td>
-<td align="center">复制高手的高手id</td>
-</tr>
-<tr>
-<td align="center">username</td>
-<td align="center">string</td>
-<td align="center">高手名称</td>
-</tr>
-</tbody>
-</table>
-<p>返回成功json:</p>
-<div class="codehilite"><pre>{
-    &quot;is_succ&quot;:true,
-    &quot;error_msg&quot;:&quot;复制成功&quot;,
-    &quot;error_code&quot;:0,
-    &quot;data&quot;:{
-        &quot;order_id&quot;:16,
-        &quot;from_id&quot;:&quot;1657&quot;,
-        &quot;username&quot;:&quot;LiuJin&quot;
-    }
-}
-</pre></div>
-
-
-<h4 id="9"><a name="user-content-9" href="#9" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "cancel_copy">9.解除复制高手并强平</span></h4>
-<ul>
-<li>测试请求URL:<br />
-<div class="codehilite"><pre>https://demo.tigerwit.com/action/public/api/cancel_copy
-</pre></div>
-</li>
-<li>线上请求URL:<br />
-<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/cancel_copy
-</pre></div>
-</li>
-<li>类型:HTTPS post</li>
-<li>参数:JSON String</li>
-<li>传递参数:</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">类型</th>
-<th align="center">是否必须</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">action</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">传递参数:cancel_copy</td>
-</tr>
-<tr>
-<td align="center">signature</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">签名</td>
-</tr>
-<tr>
-<td align="center">private_key</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">分配给第三方的key</td>
-</tr>
-<tr>
-<td align="center">user_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">第三方用户id</td>
-</tr>
-<tr>
-<td align="center">mt4_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">老虎mt4_id</td>
-</tr>
-<tr>
-<td align="center">from_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">老虎高手user_code</td>
-</tr>
-</tbody>
-</table>
-<p>返回参数说明:</p>
-<table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">类型</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">is_succ</td>
-<td align="center">bool</td>
-<td align="center">true:成功 false:失败</td>
-</tr>
-<tr>
-<td align="center">error_msg</td>
-<td align="center">string</td>
-<td align="center">返回错误信息</td>
-</tr>
-<tr>
-<td align="center">error_code</td>
-<td align="center">number</td>
-<td align="center">返回码</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center"></td>
-<td align="center">请求成功</td>
-</tr>
-<tr>
-<td align="center">101</td>
-<td align="center"></td>
-<td align="center">传递参数错误</td>
-</tr>
-<tr>
-<td align="center">105</td>
-<td align="center"></td>
-<td align="center">获取不到第三方用户信息或者老虎账户信息</td>
-</tr>
-<tr>
-<td align="center">106</td>
-<td align="center"></td>
-<td align="center">不存在跟单关系</td>
-</tr>
-<tr>
-<td align="center">107</td>
-<td align="center"></td>
-<td align="center">非交易时段不能强平</td>
-</tr>
-<tr>
-<td align="center">303</td>
-<td align="center"></td>
-<td align="center">安全验证失败</td>
-</tr>
-<tr>
-<td align="center">402</td>
-<td align="center">number</td>
-<td align="center">解除复制高手并强平失败</td>
-</tr>
-<tr>
-<td align="center">data</td>
-<td align="center">Object</td>
-<td align="center">返回信息</td>
-</tr>
-<tr>
-<td align="center">usd_rate</td>
-<td align="center">string</td>
-<td align="center">当前美元汇率</td>
-</tr>
-<tr>
-<td align="center">rmb_amount</td>
-<td align="center">float</td>
-<td align="center">给高手的分成（人民币金额）</td>
-</tr>
-<tr>
-<td align="center">usd_asset</td>
-<td align="center">float</td>
-<td align="center">给高手的分成（美元金额）</td>
-</tr>
-<tr>
-<td align="center">usd_profit</td>
-<td align="center">float</td>
-<td align="center">总收益（美元）ps:当前订单的</td>
-</tr>
-<tr>
-<td align="center">rmb_profit</td>
-<td align="center">float</td>
-<td align="center">总收益（人民币）ps:当前订单的</td>
-</tr>
-<tr>
-<td align="center">usd_balance</td>
-<td align="center">float</td>
-<td align="center">余额（人民币）ps:包扣平仓的收益</td>
-</tr>
-<tr>
-<td align="center">rmb_balance</td>
-<td align="center">float</td>
-<td align="center">余额（人民币）ps:包扣平仓的收益</td>
-</tr>
-</tbody>
-</table>
-<p>返回成功json:<br />
-<div class="codehilite"><pre>{
-    &quot;is_succ&quot;:true,
-    &quot;error_msg&quot;:&quot;&quot;,
-    &quot;error_code&quot;:0,
-    &quot;data&quot;:{
-        &quot;usd_asset&quot;:0.02,
-        &quot;rmb_amount&quot;:0.13,
-        &quot;usd_rate&quot;:&quot;6.2716&quot;,
-        &quot;usd_profit&quot;:0.11,
-        &quot;rmb_profit&quot;:0.69,
-        &quot;usd_balance&quot;:9662.74,
-        &quot;rmb_balance&quot;:60600.84
-    }
-}
-</pre></div>
-</p>
-<h4 id="10"><a name="user-content-10" href="#10" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a><span id = "uncopy_master_budget">10.解除复制高手并强平前的预算金钱</span></h4>
-<ul>
-<li>测试请求URL:<br />
-<div class="codehilite"><pre>https://demo.tigerwit.com/action/public/api/uncopy_master_budget
-</pre></div>
-</li>
-<li>线上请求URL:<br />
-<div class="codehilite"><pre>https://api.tigerwit.com/action/public/api/uncopy_master_budget
-</pre></div>
-</li>
-<li>类型:HTTPS post</li>
-<li>参数:JSON String</li>
-<li>传递参数:</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">类型</th>
-<th align="center">是否必须</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">action</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">传递参数:uncopy_master_budget</td>
-</tr>
-<tr>
-<td align="center">signature</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">签名</td>
-</tr>
-<tr>
-<td align="center">private_key</td>
-<td align="center">string</td>
-<td align="center">是</td>
-<td align="center">分配给第三方的key</td>
-</tr>
-<tr>
-<td align="center">user_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">第三方用户id</td>
-</tr>
-<tr>
-<td align="center">mt4_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">老虎mt4_id</td>
-</tr>
-<tr>
-<td align="center">from_id</td>
-<td align="center">int</td>
-<td align="center">是</td>
-<td align="center">老虎高手user_code</td>
-</tr>
-</tbody>
-</table>
-<p>返回参数说明:</p>
-<table>
-<thead>
-<tr>
-<th align="center">参数</th>
-<th align="center">类型</th>
-<th align="center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">is_succ</td>
-<td align="center">bool</td>
-<td align="center">true:成功 false:失败</td>
-</tr>
-<tr>
-<td align="center">error_msg</td>
-<td align="center">string</td>
-<td align="center">返回错误信息</td>
-</tr>
-<tr>
-<td align="center">error_code</td>
-<td align="center">number</td>
-<td align="center">返回码</td>
-</tr>
-<tr>
-<td align="center">0</td>
-<td align="center"></td>
-<td align="center">请求成功</td>
-</tr>
-<tr>
-<td align="center">101</td>
-<td align="center"></td>
-<td align="center">传递参数错误</td>
-</tr>
-<tr>
-<td align="center">105</td>
-<td align="center"></td>
-<td align="center">获取不到第三方用户信息或者老虎账户信息</td>
-</tr>
-<tr>
-<td align="center">303</td>
-<td align="center"></td>
-<td align="center">安全验证失败</td>
-</tr>
-<tr>
-<td align="center">data</td>
-<td align="center">object</td>
-<td align="center">返回的信息</td>
-</tr>
-<tr>
-<td align="center">status</td>
-<td align="center">int</td>
-<td align="center">跟单关系 1有 0没有</td>
-</tr>
-<tr>
-<td align="center">num</td>
-<td align="center">int</td>
-<td align="center">当前跟单数量</td>
-</tr>
-<tr>
-<td align="center">usd_rate</td>
-<td align="center">float</td>
-<td align="center">当前美元汇率</td>
-</tr>
-<tr>
-<td align="center">rmb_amount</td>
-<td align="center">string</td>
-<td align="center">给高手的分成（人民币金额）</td>
-</tr>
-<tr>
-<td align="center">usd_asset</td>
-<td align="center">float</td>
-<td align="center">给高手的分成（美元金额）</td>
-</tr>
-<tr>
-<td align="center">usd_profit</td>
-<td align="center">float</td>
-<td align="center">总收益（美元）ps:当前订单的</td>
-</tr>
-<tr>
-<td align="center">rmb_profit</td>
-<td align="center">float</td>
-<td align="center">总收益（人民币）ps:当前订单的</td>
-</tr>
-<tr>
-<td align="center">usd_balance</td>
-<td align="center">float</td>
-<td align="center">余额（美元）ps:包扣平仓的收益</td>
-</tr>
-<tr>
-<td align="center">rmb_balance</td>
-<td align="center">float</td>
-<td align="center">余额（人民币）ps:包扣平仓的收益</td>
-</tr>
-</tbody>
-</table>
-<p>说明:</p>
-<blockquote>
-<p>该接口是给用户再取消复制高手的时候给用户看到取消复制高手的收益大概有多少。</p>
-</blockquote>
-<p>返回成功json:<br />
-<div class="codehilite"><pre>{
-    &quot;is_succ&quot;:true,
-    &quot;error_msg&quot;:&quot;&quot;,
-    &quot;error_code&quot;:0,
-    &quot;data&quot;:{
-        &quot;usd_asset&quot;:0.0,
-        &quot;rmb_amount&quot;:0.0,
-        &quot;usd_rate&quot;:&quot;6.2716&quot;,
-        &quot;usd_profit&quot;:0.0,
-        &quot;rmb_profit&quot;:0.0,
-        &quot;usd_balance&quot;:0.0,
-        &quot;rmb_balance&quot;:0.0,
-        &quot;num&quot;:0,
-        &quot;status&quot;:0
-    }
-}
-</pre></div>
-</p>
-<!-- #### <span id = "get_master_min_copy_amount">11.获取高手最低复制金额</span>
+<!-- #### <span id = "copy_master_v2">8.复制高手</span>
 
 * 测试请求URL:
-wzxhzdk:30
+wzxhzdk:21
 * 线上请求URL:
-wzxhzdk:31
+wzxhzdk:22
 * 类型:HTTPS post
 * 参数:JSON String
 * 传递参数:
 
 |名称|类型|是否必须|说明|
 |:--:|:--:|:--:|:--:|
-|action|string|是|传递的方法:get_master_min_copy_amount|
+|action|string|是|传递的方法:copy_master_v2|
 |signature|string|是|签名|
 |private_key|string|是|分配给第三方的key|
-|from_id|int|是|高手user_code|
+|from_id|int|是|高手id|
+|user_id|int|是|第三方user_id|
+|mt4_id|int|是|老虎mt4_id|
+|order_id|int|是|第三方自动生成唯一的id|
+|amount|float|是|复制金额(usd:美金)|
 
 返回参数说明:
 
@@ -2904,17 +2350,123 @@ body .markdown-body
 |is_succ|bool | true:成功 false:失败|
 |error_msg|string|返回错误信息|
 |error_code|int|返回码|
-|0| |获取成功|
+|0| |复制成功|
 |101| |传递参数错误|
+|105| |获取不到第三方用户信息|
 |303| |验证失败|
-|404| |找不到高手信息|
-|data|object|返回信息|
-|min_follow_rmb|float|高手最低复制金额(人民币)|
-|min_follow_usd|float|高手最低复制金额(美元)|
+|405| |复制的不是高手|
+|406| |不能重复提交|
+|407| |复制高手不得少于复制高手的最低金额|
+|408| |你已经复制过该高手，请取消跟随再复制。|
+|4| |系统错误|
+|2| |复制资金不足|
+|9| |不能复制自己|
+|400| |复制失败|
+|data|Object|返回信息|
+|order_id|int|老虎入库定单id|
+|from_id|string|复制高手的高手id|
+|username|string|高手名称|
 
 返回成功json:
 
-```
+wzxhzdk:23
+
+#### <span id = "cancel_copy">9.解除复制高手并强平</span> 
+
+* 测试请求URL:
+wzxhzdk:24
+* 线上请求URL:
+wzxhzdk:25
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递参数:cancel_copy|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|user_id|int|是|第三方用户id|
+|mt4_id|int|是|老虎mt4_id|
+|from_id|int|是|老虎高手user_code|
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool | true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|number|返回码|
+|0| |请求成功|
+|101| |传递参数错误|
+|105| |获取不到第三方用户信息或者老虎账户信息|
+|106| |不存在跟单关系|
+|107| |非交易时段不能强平|
+|303| |安全验证失败|
+|402|number|解除复制高手并强平失败|
+|data|Object|返回信息|
+|usd_rate|string|当前美元汇率|
+|rmb_amount|float|给高手的分成（人民币金额）|
+|usd_asset|float|给高手的分成（美元金额）|
+|usd_profit|float|总收益（美元）ps:当前订单的|
+|rmb_profit|float|总收益（人民币）ps:当前订单的|
+|usd_balance|float|余额（人民币）ps:包扣平仓的收益|
+|rmb_balance|float|余额（人民币）ps:包扣平仓的收益|
+
+返回成功json:
+wzxhzdk:26
+
+
+#### <span id = "uncopy_master_budget">10.解除复制高手并强平前的预算金钱</span> 
+
+* 测试请求URL:
+wzxhzdk:27
+* 线上请求URL:
+wzxhzdk:28
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递参数:uncopy_master_budget|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|user_id|int|是|第三方用户id|
+|mt4_id|int|是|老虎mt4_id|
+|from_id|int|是|老虎高手user_code|
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool | true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|number|返回码|
+|0| |请求成功|
+|101| |传递参数错误|
+|105| |获取不到第三方用户信息或者老虎账户信息|
+|303| |安全验证失败|
+|data|object|返回的信息|
+|status|int|跟单关系 1有 0没有|
+|num|int|当前跟单数量|
+|usd_rate|float|当前美元汇率|
+|rmb_amount|string|给高手的分成（人民币金额）|
+|usd_asset|float|给高手的分成（美元金额）|
+|usd_profit|float|总收益（美元）ps:当前订单的|
+|rmb_profit|float|总收益（人民币）ps:当前订单的|
+|usd_balance|float|余额（美元）ps:包扣平仓的收益|
+|rmb_balance|float|余额（人民币）ps:包扣平仓的收益|
+
+说明:
+>该接口是给用户再取消复制高手的时候给用户看到取消复制高手的收益大概有多少。
+
+返回成功json:
+wzxhzdk:29
+https://demo.tigerwit.com/action/public/api/get_master_min_copy_amount
+wzxhzdk:30
+https://api.tigerwit.com/action/public/api/get_master_min_copy_amount
+wzxhzdk:31
 {
     "is_succ":true,
     "error_msg":"",
