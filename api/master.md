@@ -543,15 +543,15 @@ https://api.tigerwit.com/action/public/api/get_master_history
 }
 ```
 
-<!-- #### <span id = "copy_master_v2">8.复制高手</span> 
+#### <span id = "valid_copy">8.是否可以复制高手、获取复制余额、建议复制金额</span> 
 
 * 测试请求URL:
 ```
-https://demo.tigerwit.com/action/public/api/copy_master_v2
+https://demo.tigerwit.com/action/public/api/valid_copy
 ```
 * 线上请求URL:
 ```
-https://api.tigerwit.com/action/public/api/copy_master_v2
+https://api.tigerwit.com/action/public/api/valid_copy
 ```
 * 类型:HTTPS post
 * 参数:JSON String
@@ -559,14 +559,12 @@ https://api.tigerwit.com/action/public/api/copy_master_v2
 
 |名称|类型|是否必须|说明|
 |:--:|:--:|:--:|:--:|
-|action|string|是|传递的方法:copy_master_v2|
+|action|string|是|传递的方法:valid_copy|
 |signature|string|是|签名|
 |private_key|string|是|分配给第三方的key|
-|from_id|int|是|高手id|
+|user_code|int|是|高手usercode|
 |user_id|int|是|第三方user_id|
-|mt4_id|int|是|老虎mt4_id|
-|order_id|int|是|第三方自动生成唯一的id|
-|amount|float|是|复制金额(usd:美金)|
+|mt4_id|int|是|老虎开户mt4_id|
 
 返回参数说明:
 
@@ -575,47 +573,42 @@ https://api.tigerwit.com/action/public/api/copy_master_v2
 |is_succ|bool | true:成功 false:失败|
 |error_msg|string|返回错误信息|
 |error_code|int|返回码|
-|0| |复制成功|
+|0| |请求成功|
 |101| |传递参数错误|
-|105| |获取不到第三方用户信息|
-|303| |验证失败|
-|405| |复制的不是高手|
-|406| |不能重复提交|
-|407| |复制高手不得少于复制高手的最低金额|
-|408| |你已经复制过该高手，请取消跟随再复制。|
-|4| |系统错误|
-|2| |复制资金不足|
-|9| |不能复制自己|
-|400| |复制失败|
-|data|Object|返回信息|
-|order_id|int|老虎入库定单id|
-|from_id|string|复制高手的高手id|
-|username|string|高手名称|
+|105| |获取不到账户信息|
+|303| |安全验证失败|
+|400| |获取失败|
+|data|object|返回的详细信息|
+|is_copy|int|是否已经复制高手(1已经复制,0未复制)|
+|usable|double|可复制金额|
+|advice|double|建议复制金额|
+|min_copy_amount|double|最低复制金额|
+
 
 返回成功json:
-
 ```
 {
-    "is_succ":true,
-    "error_msg":"复制成功",
     "error_code":0,
+    "error_msg":"获取成功",
+    "is_succ":true,
     "data":{
-        "order_id":16,
-        "from_id":"1657",
-        "username":"LiuJin"
+        "is_copy":0,
+        "usable":"95616.67",
+        "advice":"2510.00",
+        "min_copy_amount":200
     }
 }
 ```
 
-#### <span id = "cancel_copy">9.解除复制高手并强平</span> 
+#### <span id = "copy">9.复制高手／修改复制金额</span> 
 
 * 测试请求URL:
 ```
-https://demo.tigerwit.com/action/public/api/cancel_copy
+https://demo.tigerwit.com/action/public/api/copy
 ```
 * 线上请求URL:
 ```
-https://api.tigerwit.com/action/public/api/cancel_copy
+https://api.tigerwit.com/action/public/api/copy
 ```
 * 类型:HTTPS post
 * 参数:JSON String
@@ -623,12 +616,13 @@ https://api.tigerwit.com/action/public/api/cancel_copy
 
 |名称|类型|是否必须|说明|
 |:--:|:--:|:--:|:--:|
-|action|string|是|传递参数:cancel_copy|
+|action|string|是|传递的方法:copy|
 |signature|string|是|签名|
 |private_key|string|是|分配给第三方的key|
-|user_id|int|是|第三方用户id|
-|mt4_id|int|是|老虎mt4_id|
-|from_id|int|是|老虎高手user_code|
+|user_code|int|是|高手usercode|
+|user_id|int|是|第三方user_id|
+|mt4_id|int|是|老虎开户mt4_id|
+|amount|int|是|跟随金额(美元)|
 
 返回参数说明:
 
@@ -636,156 +630,74 @@ https://api.tigerwit.com/action/public/api/cancel_copy
 |:--:|:--:|:--:|
 |is_succ|bool | true:成功 false:失败|
 |error_msg|string|返回错误信息|
-|error_code|number|返回码|
+|error_code|int|返回码|
 |0| |请求成功|
 |101| |传递参数错误|
-|105| |获取不到第三方用户信息或者老虎账户信息|
-|106| |不存在跟单关系|
-|107| |非交易时段不能强平|
+|105| |获取不到账户信息|
 |303| |安全验证失败|
-|402|number|解除复制高手并强平失败|
-|data|Object|返回信息|
-|usd_rate|string|当前美元汇率|
-|rmb_amount|float|给高手的分成（人民币金额）|
-|usd_asset|float|给高手的分成（美元金额）|
-|usd_profit|float|总收益（美元）ps:当前订单的|
-|rmb_profit|float|总收益（人民币）ps:当前订单的|
-|usd_balance|float|余额（人民币）ps:包扣平仓的收益|
-|rmb_balance|float|余额（人民币）ps:包扣平仓的收益|
+|400| |复制失败|
+
+说明:
+>如果用户复制了高手，需要修改复制金额，再调一次该接口即可。
+复制高手前建议给用户提示：如果复制金额少于建议复制金额，当高手的交易的手数过小，您的跟单可能会失败。
+
+返回成功json:
+```
+{
+    "error_code":0,
+    "error_msg":"复制成功",
+    "is_succ":true
+}
+```
+
+#### <span id = "uncopy">10.取消复制高手</span> 
+
+* 测试请求URL:
+```
+https://demo.tigerwit.com/action/public/api/uncopy
+```
+* 线上请求URL:
+```
+https://api.tigerwit.com/action/public/api/uncopy
+```
+* 类型:HTTPS post
+* 参数:JSON String
+* 传递参数:
+
+|名称|类型|是否必须|说明|
+|:--:|:--:|:--:|:--:|
+|action|string|是|传递的方法:uncopy|
+|signature|string|是|签名|
+|private_key|string|是|分配给第三方的key|
+|user_code|int|是|高手usercode|
+|user_id|int|是|第三方user_id|
+|mt4_id|int|是|老虎开户mt4_id|
+|auto_delete|int|是|是否强平：(1强平,0不强平)|
+
+返回参数说明:
+
+|参数|类型|说明|
+|:--:|:--:|:--:|
+|is_succ|bool | true:成功 false:失败|
+|error_msg|string|返回错误信息|
+|error_code|int|返回码|
+|0| |取消复制高手成功|
+|101| |传递参数错误|
+|105| |获取不到账户信息|
+|106| |您和该高手没有复制关系|
+|107| |取消复制高手类型错误|
+|303| |安全验证失败|
+|400| |取消复高手失败|
 
 返回成功json:
 ```
 {
     "error_code":0,
     "error_msg":"取消复制高手成功",
-    "is_succ":true,
-    "data":{
-        "order_id":104,
-        "from_id":"10017",
-        "username":"189372070931478055163",
-        "total_profit":0,
-        "usd_asset":0,
-        "balance":200
-    }
+    "is_succ":true
 }
 ```
 
 
-#### <span id = "uncopy_master_budget">10.解除复制高手并强平前的预算金钱</span> 
-
-* 测试请求URL:
-```
-https://demo.tigerwit.com/action/public/api/uncopy_master_budget
-```
-* 线上请求URL:
-```
-https://api.tigerwit.com/action/public/api/uncopy_master_budget
-```
-* 类型:HTTPS post
-* 参数:JSON String
-* 传递参数:
-
-|名称|类型|是否必须|说明|
-|:--:|:--:|:--:|:--:|
-|action|string|是|传递参数:uncopy_master_budget|
-|signature|string|是|签名|
-|private_key|string|是|分配给第三方的key|
-|user_id|int|是|第三方用户id|
-|mt4_id|int|是|老虎mt4_id|
-|from_id|int|是|老虎高手user_code|
-
-返回参数说明:
-
-|参数|类型|说明|
-|:--:|:--:|:--:|
-|is_succ|bool | true:成功 false:失败|
-|error_msg|string|返回错误信息|
-|error_code|number|返回码|
-|0| |请求成功|
-|101| |传递参数错误|
-|105| |获取不到第三方用户信息或者老虎账户信息|
-|303| |安全验证失败|
-|data|object|返回的信息|
-|status|int|跟单关系 1有 0没有|
-|num|int|当前跟单数量|
-|usd_rate|float|当前美元汇率|
-|rmb_amount|string|给高手的分成（人民币金额）|
-|usd_asset|float|给高手的分成（美元金额）|
-|usd_profit|float|总收益（美元）ps:当前订单的|
-|rmb_profit|float|总收益（人民币）ps:当前订单的|
-|usd_balance|float|余额（美元）ps:包扣平仓的收益|
-|rmb_balance|float|余额（人民币）ps:包扣平仓的收益|
-
-说明:
->该接口是给用户再取消复制高手的时候给用户看到取消复制高手的收益大概有多少。
-
-返回成功json:
-```
-{
-    "is_succ":true,
-    "error_msg":"",
-    "error_code":0,
-    "data":{
-        "usd_asset":0.0,
-        "rmb_amount":0.0,
-        "usd_rate":"6.2716",
-        "usd_profit":0.0,
-        "rmb_profit":0.0,
-        "usd_balance":0.0,
-        "rmb_balance":0.0,
-        "num":0,
-        "status":0
-    }
-}
-``` -->
-
-
-<!-- #### <span id = "get_master_min_copy_amount">11.获取高手最低复制金额</span> 
-
-* 测试请求URL:
-```
-https://demo.tigerwit.com/action/public/api/get_master_min_copy_amount
-```
-* 线上请求URL:
-```
-https://api.tigerwit.com/action/public/api/get_master_min_copy_amount
-```
-* 类型:HTTPS post
-* 参数:JSON String
-* 传递参数:
-
-|名称|类型|是否必须|说明|
-|:--:|:--:|:--:|:--:|
-|action|string|是|传递的方法:get_master_min_copy_amount|
-|signature|string|是|签名|
-|private_key|string|是|分配给第三方的key|
-|from_id|int|是|高手user_code|
-
-返回参数说明:
-
-|参数|类型|说明|
-|:--:|:--:|:--:|
-|is_succ|bool | true:成功 false:失败|
-|error_msg|string|返回错误信息|
-|error_code|int|返回码|
-|0| |获取成功|
-|101| |传递参数错误|
-|303| |验证失败|
-|404| |找不到高手信息|
-|data|object|返回信息|
-|min_follow_rmb|float|高手最低复制金额(人民币)|
-|min_follow_usd|float|高手最低复制金额(美元)|
-
-返回成功json:
-
-```
-{
-    "is_succ":true,
-    "error_msg":"",
-    "error_code":0,
-    "min_follow_rmb":6271.6,
-    "min_follow_usd":1000
-}
-``` -->
 
 <center> [返回顶部](#top) </center>   

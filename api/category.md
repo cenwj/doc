@@ -44,10 +44,10 @@
 * [高手月交易品种图标](/api/master.html#monthly_symbols)
 * [获取高手当前投资详情](/api/master.html#get_master_order)
 * [获取高手历史投资详情](/api/master.html#get_master_history)
-<!-- * [复制高手](/api/master.html#copy_master_v2) -->
-<!-- * [解除复制高手并强平](/api/master.html#cancel_copy) -->
-<!-- * [解除复制高手并强平前的预算金钱](/api/master.html#uncopy_master_budget) -->
-<!-- * [获取高手最低复制金额](/api/master.html#get_master_min_copy_amount) -->
+* [是否可以复制高手、获取复制余额、建议复制金额](/api/master.html#valid_copy)
+* [复制高手／修改复制金额](/api/master.html#copy)
+* [取消复制高手](/api/master.html#uncopy)
+
 
 ### 交易品种
 * [获取交易品种汇总](/api/symbols.html#get_symbols)
