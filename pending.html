@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head><meta charset="utf-8"><style>body {
-  width: 45em;
+  max-width: 980px;
   border: 1px solid #ddd;
   outline: 1300px solid #fff;
   margin: 16px auto;
@@ -7,7 +7,7 @@
 
 body .markdown-body
 {
-  padding: 30px;
+  padding: 45px;
 }
 
 @font-face {
@@ -1090,13 +1090,13 @@ cmd自动从2.3.4.5变化为0.1 <br />
 enum { OP_BUY=0,OP_SELL,OP_BUY_LIMIT,OP_SELL_LIMIT,OP_BUY_STOP,OP_SELL_STOP}; <br />
 limit → 与buy盈利的方向，即向上，相反；做多单，buy <br />
 ① buy_limit <br />
-买入限价, 在现在价格的下方挂多单 <br />
+买入限价, 在现在价格的下方挂多单; 当ask低于挂单价时成交。 <br />
 ② sell_limit <br />
-卖出限价, 在现在价格的上方挂空单 <br />
+卖出限价, 在现在价格的上方挂空单; 当bid高于挂单价时成交。 <br />
 ③ buy_stop <br />
-买入止损, 在现在价格的上方挂多单 <br />
+买入止损, 在现在价格的上方挂多单; 当ask高于挂单价时成交。<br />
 ④ sell_stop <br />
-卖出止损, 在现在价格的下方挂空单</p>
+卖出止损, 在现在价格的下方挂空单; 当bid低于挂单价时成交。</p>
 <p>2 pending_price <br />
 普通外汇 - 挂单及止损点差level - 配置 <br />
 ① buy_limit <br />

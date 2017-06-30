@@ -13,13 +13,13 @@ cmd自动从2.3.4.5变化为0.1
 enum { OP_BUY=0,OP_SELL,OP_BUY_LIMIT,OP_SELL_LIMIT,OP_BUY_STOP,OP_SELL_STOP}; 
 limit → 与buy盈利的方向，即向上，相反；做多单，buy 
 ① buy_limit 
-买入限价, 在现在价格的下方挂多单 
+买入限价, 在现在价格的下方挂多单; 当ask低于挂单价时成交。 
 ② sell_limit 
-卖出限价, 在现在价格的上方挂空单 
+卖出限价, 在现在价格的上方挂空单; 当bid高于挂单价时成交。 
 ③ buy_stop 
-买入止损, 在现在价格的上方挂多单 
+买入止损, 在现在价格的上方挂多单; 当ask高于挂单价时成交。
 ④ sell_stop 
-卖出止损, 在现在价格的下方挂空单
+卖出止损, 在现在价格的下方挂空单; 当bid低于挂单价时成交。
 
 2 pending_price 
 普通外汇 - 挂单及止损点差level - 配置 
