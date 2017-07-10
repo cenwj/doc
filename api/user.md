@@ -310,7 +310,7 @@ https://api.tigerwit.com/action/public/api/get_master_history_group
 ```
 
 
-#### <span id = "get_master_history_info">5.获取用户跟随单个高手持仓明细</span> 
+#### <span id = "get_master_history_info">5.获取用户跟随单个高手平仓明细</span> 
 
 * 测试请求URL:
 ```
