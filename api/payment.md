@@ -191,6 +191,7 @@ https://api.tigerwit.com/action/public/api/withdraw_v2
 |error_code|int|返回码|
 |0| |取消复制成功|
 |101| |传递参数错误|
+|102| |金额不正确|
 |105| |获取不到第三方用户信息|
 |303| |验证失败|
 |116| |该订单已经提交，不要重复提交|
